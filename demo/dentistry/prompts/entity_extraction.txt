@@ -1,0 +1,148 @@
+
+-目标-
+
+给定一个文本文件，该文件可能与此活动相关。首先，识别文本中所有需要的实体，以捕获文本中的信息和想法。
+接下来，报告已识别实体之间的所有关系。
+
+-步骤-
+
+1. 识别所有实体。对于每个识别的实体，提取以下信息：
+
+- entity_name：实体的名称，首字母大写
+
+- entity_type：以下之一的实体类型：[{entity_types}]
+
+- entity_description：实体属性和活动的全面描述
+
+将每个实体格式化为（"entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. 从第1步识别出的实体中，找出所有*明显相关*的（源实体，目标实体）对。
+
+对于每对相关的实体，提取以下信息：
+
+- source_entity：源实体的名称，如第1步中所识别的
+
+- target_entity：目标实体的名称，如第1步中所识别的
+
+- relationship_description：说明为什么你认为源实体和目标实体相关的解释
+
+- relationship_strength：表示源实体和目标实体间关系强度的数值评分
+
+将每个关系格式化为（"relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. 以中文返回步骤1和2中识别的所有实体和关系作为单个列表。使用 {record_delimiter} 作为列表分隔符。
+
+如果需要翻译成中文，只需翻译描述，不要翻译其他内容！
+
+4. 完成后，输出 {completion_delimiter}。
+
+######################
+
+-示例-
+######################
+
+示例 1:
+
+实体类型：[治疗方法、年龄群体、疾病、健康状况]
+
+文本：
+老年人更容易患牙周病的原因，老年人免疫力下降，牙龈退缩，口腔卫生不易维持，因而更容易发生牙周病，需要更加重视口腔护理。
+
+输出：
+("entity"{tuple_delimiter}老年人{tuple_delimiter}年龄群体{tuple_delimiter}老年人指的是年龄较大的人群，他们的免疫力下降，牙龈退缩，口腔卫生不易维持，因此更容易患牙周病)
+{record_delimiter}
+("entity"{tuple_delimiter}牙周病{tuple_delimiter}疾病{tuple_delimiter}牙周病是一种影响牙齿周围组织的疾病，老年人更容易患上)
+{record_delimiter}
+("entity"{tuple_delimiter}免疫力下降{tuple_delimiter}健康状况{tuple_delimiter}免疫力下降是老年人患牙周病的原因之一)
+{record_delimiter}
+("entity"{tuple_delimiter}牙龈退缩{tuple_delimiter}健康状况{tuple_delimiter}牙龈退缩是老年人口腔卫生不易维持的原因之一)
+{record_delimiter}
+("entity"{tuple_delimiter}口腔卫生不易维持{tuple_delimiter}健康状况{tuple_delimiter}口腔卫生不易维持是老年人患牙周病的原因之一)
+{record_delimiter}
+("relationship"{tuple_delimiter}老年人{tuple_delimiter}牙周病{tuple_delimiter}老年人更容易患牙周病{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}免疫力下降{tuple_delimiter}老年人{tuple_delimiter}免疫力下降是老年人患牙周病的原因{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}牙龈退缩{tuple_delimiter}老年人{tuple_delimiter}牙龈退缩是老年人患牙周病的原因{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔卫生不易维持{tuple_delimiter}老年人{tuple_delimiter}口腔卫生不易维持是老年人患牙周病的原因{tuple_delimiter}6)
+{completion_delimiter}
+
+#############################
+
+示例 2:
+
+实体类型：[年龄群体、治疗方法、疾病、健康状况]
+
+文本：
+5.1 口腔黏膜疾病的常见症状包括口腔溃疡、口腔疱疹、白斑病、红斑病、口角炎、疱疹性口炎、糜烂性口炎、扁平苔藓。
+5.2 口腔黏膜疾病早期的常见症状包括口腔轻微不适、黏膜轻微红肿、出现小的溃疡或斑块。
+5.3 口腔黏膜疾病的治疗方法，通常使用药物治疗、冷敷或保湿来治疗。
+
+输出：
+("entity"{tuple_delimiter}口腔黏膜疾病{tuple_delimiter}疾病{tuple_delimiter}常见的口腔黏膜疾病包括口腔溃疡、口腔疱疹、白斑病、红斑病、口角炎、疱疹性口炎、糜烂性口炎、扁平苔藓)
+{record_delimiter}
+("entity"{tuple_delimiter}口腔溃疡{tuple_delimiter}疾病{tuple_delimiter}一种常见的口腔黏膜疾病)
+{record_delimiter}
+("entity"{tuple_delimiter}口腔疱疹{tuple_delimiter}疾病{tuple_delimiter}一种常见的口腔黏膜疾病)
+{record_delimiter}
+("entity"{tuple_delimiter}白斑病{tuple_delimiter}疾病{tuple_delimiter}一种常见的口腔黏膜疾病)
+{record_delimiter}
+("entity"{tuple_delimiter}红斑病{tuple_delimiter}疾病{tuple_delimiter}一种常见的口腔黏膜疾病)
+{record_delimiter}
+("entity"{tuple_delimiter}口角炎{tuple_delimiter}疾病{tuple_delimiter}一种常见的口腔黏膜疾病)
+{record_delimiter}
+("entity"{tuple_delimiter}疱疹性口炎{tuple_delimiter}疾病{tuple_delimiter}一种常见的口腔黏膜疾病)
+{record_delimiter}
+("entity"{tuple_delimiter}糜烂性口炎{tuple_delimiter}疾病{tuple_delimiter}一种常见的口腔黏膜疾病)
+{record_delimiter}
+("entity"{tuple_delimiter}扁平苔藓{tuple_delimiter}疾病{tuple_delimiter}一种常见的口腔黏膜疾病)
+{record_delimiter}
+("entity"{tuple_delimiter}口腔黏膜疾病早期{tuple_delimiter}疾病{tuple_delimiter}口腔黏膜疾病的早期阶段)
+{record_delimiter}
+("entity"{tuple_delimiter}口腔轻微不适{tuple_delimiter}疾病{tuple_delimiter}口腔黏膜疾病早期的常见症状)
+{record_delimiter}
+("entity"{tuple_delimiter}黏膜轻微红肿{tuple_delimiter}疾病{tuple_delimiter}口腔黏膜疾病早期的常见症状)
+{record_delimiter}
+("entity"{tuple_delimiter}出现小的溃疡或斑块{tuple_delimiter}疾病{tuple_delimiter}口腔黏膜疾病早期的常见症状)
+{record_delimiter}
+("entity"{tuple_delimiter}治{tuple_delimiter}治疗方法{tuple_delimiter}治疗口腔黏膜疾病的方法)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病{tuple_delimiter}口腔溃疡{tuple_delimiter}口腔溃疡是口腔黏膜疾病的一种{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病{tuple_delimiter}口腔疱疹{tuple_delimiter}口腔疱疹是口腔黏膜疾病的一种{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病{tuple_delimiter}白斑病{tuple_delimiter}白斑病是口腔黏膜疾病的一种{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病{tuple_delimiter}红斑病{tuple_delimiter}红斑病是口腔黏膜疾病的一种{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病{tuple_delimiter}口角炎{tuple_delimiter}口角炎是口腔黏膜疾病的一种{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病{tuple_delimiter}疱疹性口炎{tuple_delimiter}疱疹性口炎是口腔黏膜疾病的一种{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病{tuple_delimiter}糜烂性口炎{tuple_delimiter}糜烂性口炎是口腔黏膜疾病的一种{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病{tuple_delimiter}扁平苔藓{tuple_delimiter}扁平苔藓是口腔黏膜疾病的一种{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病早期{tuple_delimiter}口腔轻微不适{tuple_delimiter}口腔轻微不适是口腔黏膜疾病早期的常见症状{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病早期{tuple_delimiter}黏膜轻微红肿{tuple_delimiter}黏膜轻微红肿是口腔黏膜疾病早期的常见症状{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}口腔黏膜疾病早期{tuple_delimiter}出现小的溃疡或斑块{tuple_delimiter}出现小的溃疡或斑块是口腔黏膜疾病早期的常见症状{tuple_delimiter}1)
+{record_delimiter}
+("relationship"{tuple_delimiter}治{tuple_delimiter}口腔黏膜疾病{tuple_delimiter}治是针对口腔黏膜疾病的治疗方法{tuple_delimiter}1)
+{completion_delimiter}
+
+#############################
+
+-真实数据-
+
+######################
+
+实体类型：{entity_types}
+
+文本：{input_text}
+
+######################
+
+输出：

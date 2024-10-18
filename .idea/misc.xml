@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="GraphRAG4OpenWebUI" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="graphragTest" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="grag" project-jdk-type="Python SDK" />
 </project>

@@ -1,0 +1,670 @@
+16:22:08,165 graphrag.index.cli INFO Logging enabled at output/reports/indexing-engine.log
+16:22:08,167 graphrag.index.cli INFO Starting pipeline run for: 20240909-162208, dryrun=False
+16:22:08,167 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "model": "Qwen2-7B-Instruct",
+        "max_tokens": 6000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 3000.0,
+        "api_base": "http://192.168.0.245:5008/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 2.0,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": ".",
+    "reporting": {
+        "type": "file",
+        "base_dir": "output/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "output/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "model": "m3e-large",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:6008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1000,
+        "overlap": 150,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 6000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "\u533b\u7597\u670d\u52a1",
+            "\u6cd5\u5f8b\u89c4\u8303",
+            "\u670d\u52a1\u6d41\u7a0b",
+            "\u68c0\u67e5\u9879\u76ee",
+            "\u6cbb\u7597\u65b9\u6cd5",
+            "\u836f\u7269\u540d\u79f0",
+            "\u670d\u52a1\u7c7b\u578b",
+            "\u75c7\u72b6",
+            "\u65e9\u671f\u75c7\u72b6",
+            "\u6ce8\u610f\u4e8b\u9879",
+            "\u5065\u5eb7\u72b6\u51b5",
+            "\u6cbb\u7597\u65b9\u6848",
+            "\u75be\u75c5\u540d\u79f0",
+            "\u5eb7\u590d\u63aa\u65bd",
+            "\u751f\u6d3b\u65b9\u5f0f",
+            "\u5e74\u9f84\u7fa4\u4f53",
+            "\u75c5\u7406\u7c7b\u578b",
+            "\u8425\u517b\u7d20",
+            "\u6cd5\u5f8b\u6743\u5229",
+            "\u6d88\u5316\u7cfb\u7edf\u95ee\u9898",
+            "\u8d44\u683c\u8bc1\u4e66",
+            "\u533b\u7597\u5668\u68b0",
+            "\u5730\u7406",
+            "\u5408\u89c4\u6d41\u7a0b",
+            "\u7ec4\u7ec7\u673a\u6784",
+            "\u4eba\u7269",
+            "\u670d\u52a1",
+            "\u98ce\u9669\u56e0\u7d20",
+            "\u9053\u5fb7\u51c6\u5219",
+            "\u533b\u7597\u673a\u6784",
+            "\u7814\u7a76\u65b9\u6cd5",
+            "\u75be\u75c5",
+            "\u4e8b\u4ef6",
+            "\u9884\u9632\u63aa\u65bd",
+            "\u6280\u672f\u8bbe\u5907",
+            "\u6559\u80b2\u8d44\u6e90",
+            "\u7ec4\u7ec7\u673a\u6784",
+            "\u6559\u80b2\u6d3b\u52a8",
+            "\u7ecf\u6d4e\u56e0\u7d20",
+            "\u5173\u7cfb",
+            "\u5e38\u89c1\u75c7\u72b6",
+            "\u4e13\u79d1\u9886\u57df",
+            "\u7ecf\u6d4e\u7ba1\u7406",
+            "\u6280\u672f\u9886\u57df",
+            "\u53e3\u8154\u75be\u75c5",
+            "\u7ecf\u6d4e\u63f4\u52a9",
+            "\u5fc3\u7406\u72b6\u6001",
+            "\u670d\u52a1\u6d41\u7a0b\u6539\u8fdb",
+            "\u5176\u4ed6",
+            "\u8eab\u4f53\u5668\u5b98",
+            "\u7ec4\u7ec7"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 6000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 6000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 3.0,
+            "num_threads": 3
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 5000,
+        "max_input_length": 3000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 6000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": true,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+16:22:08,168 graphrag.index.create_pipeline_config INFO skipping workflows 
+16:22:08,168 graphrag.index.run INFO Running pipeline
+16:22:08,168 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at output/artifacts
+16:22:08,168 graphrag.index.input.load_input INFO loading input from root_dir=input
+16:22:08,168 graphrag.index.input.load_input INFO using file storage for input
+16:22:08,168 graphrag.index.storage.file_pipeline_storage INFO search input for files matching .*\.txt$
+16:22:08,168 graphrag.index.input.text INFO found text files from input, found [('dentistry5.txt', {}), ('dentistry6.txt', {}), ('dentistry2.txt', {}), ('dentistry7.txt', {}), ('dentistry3.txt', {}), ('dentistry1.txt', {}), ('dentistry4.txt', {})]
+16:22:08,170 graphrag.index.input.text INFO Found 7 files, loading 7
+16:22:08,171 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_final_covariates', 'create_summarized_entities', 'join_text_units_to_covariate_ids', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+16:22:08,171 graphrag.index.run INFO Final # of rows loaded: 7
+16:22:08,247 graphrag.index.run INFO Running workflow: create_base_text_units...
+16:22:08,247 graphrag.index.run INFO dependencies for create_base_text_units: []
+16:22:08,249 datashaper.workflow.workflow INFO executing verb orderby
+16:22:08,251 datashaper.workflow.workflow INFO executing verb zip
+16:22:08,253 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:22:08,255 datashaper.workflow.workflow INFO executing verb chunk
+16:22:08,344 datashaper.workflow.workflow INFO executing verb select
+16:22:08,347 datashaper.workflow.workflow INFO executing verb unroll
+16:22:08,349 datashaper.workflow.workflow INFO executing verb rename
+16:22:08,351 datashaper.workflow.workflow INFO executing verb genid
+16:22:08,354 datashaper.workflow.workflow INFO executing verb unzip
+16:22:08,356 datashaper.workflow.workflow INFO executing verb copy
+16:22:08,359 datashaper.workflow.workflow INFO executing verb filter
+16:22:08,361 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+16:22:08,447 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+16:22:08,448 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+16:22:08,448 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+16:22:08,455 datashaper.workflow.workflow INFO executing verb entity_extract
+16:22:08,456 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.245:5008/v1
+16:22:08,467 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for Qwen2-7B-Instruct: TPM=0, RPM=0
+16:22:08,467 graphrag.index.llm.load_llm INFO create concurrency limiter for Qwen2-7B-Instruct: 25
+16:22:29,498 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:22:29,500 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 21.030519160005497. input_tokens=4497, output_tokens=1454
+16:22:30,785 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:22:30,786 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 22.30555735900998. input_tokens=4063, output_tokens=1381
+16:22:42,643 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:22:42,644 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 13.142150576022686. input_tokens=55, output_tokens=952
+16:22:51,306 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:22:51,307 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 20.519742923002923. input_tokens=55, output_tokens=1381
+16:22:54,514 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:22:54,515 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 46.03859111000202. input_tokens=4084, output_tokens=2851
+16:22:56,94 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:22:56,95 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 47.620722496998496. input_tokens=4395, output_tokens=3415
+16:23:06,79 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:23:06,80 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 57.60170071100583. input_tokens=4387, output_tokens=3679
+16:23:09,335 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:23:09,336 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 60.853324043011526. input_tokens=4408, output_tokens=3790
+16:23:22,644 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:23:22,645 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 26.54839477801579. input_tokens=55, output_tokens=1899
+16:23:40,489 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:23:40,490 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 45.973536678997334. input_tokens=55, output_tokens=2851
+16:23:45,89 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:23:45,90 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 39.007873463007854. input_tokens=55, output_tokens=2577
+16:23:45,634 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:23:45,635 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 36.297268528986024. input_tokens=55, output_tokens=2404
+16:24:43,722 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:24:43,725 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 155.23881371301832. input_tokens=4407, output_tokens=11250
+16:27:14,534 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:14,537 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 150.80943036600365. input_tokens=55, output_tokens=11403
+16:27:14,545 datashaper.workflow.workflow INFO executing verb merge_graphs
+16:27:14,554 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+16:27:14,637 graphrag.index.run INFO Running workflow: create_final_covariates...
+16:27:14,637 graphrag.index.run INFO dependencies for create_final_covariates: ['create_base_text_units']
+16:27:14,637 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+16:27:14,645 datashaper.workflow.workflow INFO executing verb extract_covariates
+16:27:16,171 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:16,171 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 1.5193994190194644. input_tokens=1884, output_tokens=5
+16:27:16,516 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:16,516 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 0.3440334789920598. input_tokens=32, output_tokens=5
+16:27:27,491 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:27,492 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 12.837099797005067. input_tokens=2188, output_tokens=790
+16:27:36,195 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:36,196 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 21.539318344992353. input_tokens=1864, output_tokens=1116
+16:27:44,895 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:44,896 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.40365227899747. input_tokens=32, output_tokens=1018
+16:27:46,111 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:46,112 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 31.461292213003617. input_tokens=2196, output_tokens=1689
+16:27:49,740 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:49,741 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 35.082194612012245. input_tokens=2209, output_tokens=1863
+16:27:55,191 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:55,192 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 40.54391842201585. input_tokens=2298, output_tokens=2064
+16:28:04,63 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:28:04,64 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 27.86659398599295. input_tokens=32, output_tokens=1507
+16:28:16,390 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:28:16,391 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 30.278767094016075. input_tokens=32, output_tokens=1689
+16:28:23,0 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:28:23,1 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 33.25933593098307. input_tokens=32, output_tokens=1878
+16:28:32,527 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:28:32,528 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 37.334400617022766. input_tokens=32, output_tokens=2064
+16:29:45,90 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:29:45,91 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 150.42978879698785. input_tokens=2208, output_tokens=8627
+16:32:14,737 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:14,740 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 149.64583767499425. input_tokens=32, output_tokens=8627
+16:32:14,749 datashaper.workflow.workflow INFO executing verb window
+16:32:14,753 datashaper.workflow.workflow INFO executing verb genid
+16:32:14,756 datashaper.workflow.workflow INFO executing verb convert
+16:32:14,760 datashaper.workflow.workflow INFO executing verb rename
+16:32:14,764 datashaper.workflow.workflow INFO executing verb select
+16:32:14,764 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_covariates.parquet
+16:32:14,863 graphrag.index.run INFO Running workflow: create_summarized_entities...
+16:32:14,863 graphrag.index.run INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+16:32:14,863 graphrag.index.run INFO read table from storage: create_base_extracted_entities.parquet
+16:32:14,872 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+16:32:16,964 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:16,965 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.049707127996953. input_tokens=446, output_tokens=109
+16:32:17,14 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:17,15 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1088279690011404. input_tokens=422, output_tokens=142
+16:32:17,92 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:17,92 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1790878220053855. input_tokens=449, output_tokens=123
+16:32:17,270 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:17,271 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3817306729906704. input_tokens=470, output_tokens=146
+16:32:17,321 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:17,322 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4048473879811354. input_tokens=497, output_tokens=156
+16:32:17,372 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:17,373 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.472433314018417. input_tokens=400, output_tokens=154
+16:32:17,423 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:17,424 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.503012052999111. input_tokens=401, output_tokens=148
+16:32:17,473 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:17,474 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.566127628000686. input_tokens=435, output_tokens=167
+16:32:17,548 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:17,549 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.652183119003894. input_tokens=519, output_tokens=169
+16:32:17,647 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:17,648 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7566992029896937. input_tokens=434, output_tokens=167
+16:32:18,14 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:18,15 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1162692299985792. input_tokens=403, output_tokens=236
+16:32:18,526 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:18,527 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6225441599963233. input_tokens=447, output_tokens=263
+16:32:19,229 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:19,229 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.319547703024. input_tokens=465, output_tokens=287
+16:32:19,422 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:19,423 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.527869026991539. input_tokens=486, output_tokens=320
+16:32:20,502 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:20,503 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.583591161004733. input_tokens=478, output_tokens=434
+16:32:22,11 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:22,12 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.118853737018071. input_tokens=443, output_tokens=567
+16:32:23,792 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:23,793 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 8.890803732996574. input_tokens=446, output_tokens=597
+16:32:24,144 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:24,145 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 9.233288488001563. input_tokens=494, output_tokens=776
+16:32:24,155 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+16:32:24,238 graphrag.index.run INFO Running workflow: join_text_units_to_covariate_ids...
+16:32:24,239 graphrag.index.run INFO dependencies for join_text_units_to_covariate_ids: ['create_final_covariates']
+16:32:24,239 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+16:32:24,249 datashaper.workflow.workflow INFO executing verb select
+16:32:24,254 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:32:24,256 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_covariate_ids.parquet
+16:32:24,342 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+16:32:24,342 graphrag.index.run INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+16:32:24,343 graphrag.index.run INFO read table from storage: create_summarized_entities.parquet
+16:32:24,353 datashaper.workflow.workflow INFO executing verb cluster_graph
+16:32:24,382 datashaper.workflow.workflow INFO executing verb select
+16:32:24,383 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+16:32:24,468 graphrag.index.run INFO Running workflow: create_final_entities...
+16:32:24,469 graphrag.index.run INFO dependencies for create_final_entities: ['create_base_entity_graph']
+16:32:24,469 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:32:24,480 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:24,494 datashaper.workflow.workflow INFO executing verb rename
+16:32:24,499 datashaper.workflow.workflow INFO executing verb select
+16:32:24,504 datashaper.workflow.workflow INFO executing verb dedupe
+16:32:24,510 datashaper.workflow.workflow INFO executing verb rename
+16:32:24,515 datashaper.workflow.workflow INFO executing verb filter
+16:32:24,523 datashaper.workflow.workflow INFO executing verb text_split
+16:32:24,530 datashaper.workflow.workflow INFO executing verb drop
+16:32:24,536 datashaper.workflow.workflow INFO executing verb merge
+16:32:24,560 datashaper.workflow.workflow INFO executing verb text_embed
+16:32:24,561 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.245:6008/v1
+16:32:24,572 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for m3e-large: TPM=0, RPM=0
+16:32:24,572 graphrag.index.llm.load_llm INFO create concurrency limiter for m3e-large: 25
+16:32:24,578 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 207 inputs via 207 snippets using 13 batches. max_batch_size=16, max_tokens=8191
+16:32:24,787 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:24,975 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:25,169 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:25,397 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:25,578 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:25,751 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:25,947 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:26,127 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:26,305 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:26,521 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:26,692 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:26,901 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:27,95 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:27,168 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.5821685010159854. input_tokens=984, output_tokens=0
+16:32:27,233 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.6465124020178337. input_tokens=1146, output_tokens=0
+16:32:27,295 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.708038955985103. input_tokens=1237, output_tokens=0
+16:32:27,359 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.7715990689757746. input_tokens=1532, output_tokens=0
+16:32:27,429 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.8471916530106682. input_tokens=2122, output_tokens=0
+16:32:27,491 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.910266535007395. input_tokens=694, output_tokens=0
+16:32:27,556 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.9735120440018363. input_tokens=886, output_tokens=0
+16:32:27,618 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.034827541006962. input_tokens=531, output_tokens=0
+16:32:27,680 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.096276088996092. input_tokens=1287, output_tokens=0
+16:32:27,742 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.157448479003506. input_tokens=731, output_tokens=0
+16:32:27,804 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.218922410014784. input_tokens=773, output_tokens=0
+16:32:27,867 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.287291907996405. input_tokens=1808, output_tokens=0
+16:32:27,926 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.3376700060034636. input_tokens=1326, output_tokens=0
+16:32:27,953 datashaper.workflow.workflow INFO executing verb drop
+16:32:27,960 datashaper.workflow.workflow INFO executing verb filter
+16:32:27,962 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_entities.parquet
+16:32:28,81 graphrag.index.run INFO Running workflow: create_final_nodes...
+16:32:28,82 graphrag.index.run INFO dependencies for create_final_nodes: ['create_base_entity_graph']
+16:32:28,82 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:32:28,96 datashaper.workflow.workflow INFO executing verb layout_graph
+16:32:28,133 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:28,148 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:28,164 datashaper.workflow.workflow INFO executing verb drop
+16:32:28,171 datashaper.workflow.workflow INFO executing verb filter
+16:32:28,189 datashaper.workflow.workflow INFO executing verb select
+16:32:28,196 datashaper.workflow.workflow INFO executing verb rename
+16:32:28,203 datashaper.workflow.workflow INFO executing verb convert
+16:32:28,211 datashaper.workflow.workflow INFO executing verb join
+16:32:28,222 datashaper.workflow.workflow INFO executing verb rename
+16:32:28,223 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_nodes.parquet
+16:32:28,321 graphrag.index.run INFO Running workflow: create_final_communities...
+16:32:28,321 graphrag.index.run INFO dependencies for create_final_communities: ['create_base_entity_graph']
+16:32:28,321 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:32:28,339 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:28,356 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:28,374 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:32:28,384 datashaper.workflow.workflow INFO executing verb join
+16:32:28,396 datashaper.workflow.workflow INFO executing verb join
+16:32:28,407 datashaper.workflow.workflow INFO executing verb concat
+16:32:28,416 datashaper.workflow.workflow INFO executing verb filter
+16:32:28,433 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:32:28,443 datashaper.workflow.workflow INFO executing verb join
+16:32:28,455 datashaper.workflow.workflow INFO executing verb filter
+16:32:28,466 datashaper.workflow.workflow INFO executing verb fill
+16:32:28,475 datashaper.workflow.workflow INFO executing verb merge
+16:32:28,486 datashaper.workflow.workflow INFO executing verb copy
+16:32:28,495 datashaper.workflow.workflow INFO executing verb select
+16:32:28,497 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_communities.parquet
+16:32:28,600 graphrag.index.run INFO Running workflow: join_text_units_to_entity_ids...
+16:32:28,601 graphrag.index.run INFO dependencies for join_text_units_to_entity_ids: ['create_final_entities']
+16:32:28,601 graphrag.index.run INFO read table from storage: create_final_entities.parquet
+16:32:28,629 datashaper.workflow.workflow INFO executing verb select
+16:32:28,639 datashaper.workflow.workflow INFO executing verb unroll
+16:32:28,649 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:32:28,651 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_entity_ids.parquet
+16:32:28,758 graphrag.index.run INFO Running workflow: create_final_relationships...
+16:32:28,759 graphrag.index.run INFO dependencies for create_final_relationships: ['create_base_entity_graph', 'create_final_nodes']
+16:32:28,759 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:32:28,762 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+16:32:28,785 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:28,804 datashaper.workflow.workflow INFO executing verb filter
+16:32:28,818 datashaper.workflow.workflow INFO executing verb rename
+16:32:28,828 datashaper.workflow.workflow INFO executing verb filter
+16:32:28,841 datashaper.workflow.workflow INFO executing verb drop
+16:32:28,852 datashaper.workflow.workflow INFO executing verb compute_edge_combined_degree
+16:32:28,865 datashaper.workflow.workflow INFO executing verb convert
+16:32:28,877 datashaper.workflow.workflow INFO executing verb convert
+16:32:28,878 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_relationships.parquet
+16:32:28,983 graphrag.index.run INFO Running workflow: join_text_units_to_relationship_ids...
+16:32:28,984 graphrag.index.run INFO dependencies for join_text_units_to_relationship_ids: ['create_final_relationships']
+16:32:28,984 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+16:32:29,8 datashaper.workflow.workflow INFO executing verb select
+16:32:29,20 datashaper.workflow.workflow INFO executing verb unroll
+16:32:29,32 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:32:29,45 datashaper.workflow.workflow INFO executing verb select
+16:32:29,46 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_relationship_ids.parquet
+16:32:29,147 graphrag.index.run INFO Running workflow: create_final_community_reports...
+16:32:29,148 graphrag.index.run INFO dependencies for create_final_community_reports: ['create_final_covariates', 'create_final_relationships', 'create_final_nodes']
+16:32:29,148 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+16:32:29,150 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+16:32:29,152 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+16:32:29,177 datashaper.workflow.workflow INFO executing verb prepare_community_reports_nodes
+16:32:29,192 datashaper.workflow.workflow INFO executing verb prepare_community_reports_edges
+16:32:29,218 datashaper.workflow.workflow INFO executing verb prepare_community_reports_claims
+16:32:29,231 datashaper.workflow.workflow INFO executing verb restore_community_hierarchy
+16:32:29,245 datashaper.workflow.workflow INFO executing verb prepare_community_reports
+16:32:29,246 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=1 => 207
+16:32:29,257 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=0 => 207
+16:32:29,283 datashaper.workflow.workflow INFO executing verb create_community_reports
+16:37:58,415 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:37:58,415 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:37:58,416 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:37:58,416 graphrag.llm.openai.utils INFO Error: JSONDecodeError{     "title"   	:	"口臭与牙龈疾病在牙科医疗社区的关联分析"	,     	"summary"	:	"本报告探讨了口臭与牙龈疾病在牙科医疗社区中的相互关联，强调了口腔健康与整体健康之间的紧密联系。通过分析实体之间的关系，报告揭示了口臭与牙周炎、牙龈疾病之间的直接联系，以及解决口臭问题时应考虑的多方面因素。"	,     	"rating"	:	8.0	,     	"rating_explanation"	:	"此报告在牙科医疗领域具有高度相关性，通过深入分析口臭与牙龈疾病之间的关联，为提升公众口腔健康意识和促进社区内健康教育提供了重要见解。"	,     	"findings"	:	[            	{            		"summary"	:	"口臭与牙龈疾病之间的直接关联"	,            		"explanation"	:	"口臭与牙龈疾病之间存在密切关联，口臭是牙龈疾病的常见症状之一。通过分析关系数据，我们发现口臭与牙周炎之间存在直接联系，而牙周炎是牙龈疾病的一种。这表明，解决口臭问题时，应首先关注口腔卫生和牙龈健康。[Data: Entities（7、12），Relationships（10、9）]"	,            		"additional_notes"	:	"此发现强调了在牙科医疗社区内，提高公众对口腔健康与整体健康之间联系的认识的重要性。"	,            		"recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications"	:	"此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research"	:	"未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data"	:	"此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context"	:	"此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。"	,            		"additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations"	:	"建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。"	,            		"additional_additional_additional
+16:37:58,419 graphrag.llm.openai.utils INFO success load json in step 3{'title': '口臭与牙龈疾病在牙科医疗社区的关联分析', 'summary': '本报告探讨了口臭与牙龈疾病在牙科医疗社区中的相互关联，强调了口腔健康与整体健康之间的紧密联系。通过分析实体之间的关系，报告揭示了口臭与牙周炎、牙龈疾病之间的直接联系，以及解决口臭问题时应考虑的多方面因素。', 'rating': 8.0, 'rating_explanation': '此报告在牙科医疗领域具有高度相关性，通过深入分析口臭与牙龈疾病之间的关联，为提升公众口腔健康意识和促进社区内健康教育提供了重要见解。', 'findings': [{'summary': '口臭与牙龈疾病之间的直接关联', 'explanation': '口臭与牙龈疾病之间存在密切关联，口臭是牙龈疾病的常见症状之一。通过分析关系数据，我们发现口臭与牙周炎之间存在直接联系，而牙周炎是牙龈疾病的一种。这表明，解决口臭问题时，应首先关注口腔卫生和牙龈健康。[Data: Entities（7、12），Relationships（10、9）]', 'additional_notes': '此发现强调了在牙科医疗社区内，提高公众对口腔健康与整体健康之间联系的认识的重要性。', 'recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_implications': '此发现可能对牙科医疗政策、教育和实践产生影响，促进更综合的健康管理和预防策略的实施。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_future_research': '未来研究可进一步探索不同文化、社会经济背景下的口臭与牙龈疾病之间的关联，以及这些关联对公共卫生政策的影响。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_data': '此发现基于实体与关系数据，包括口臭与牙龈疾病之间的直接联系，以及它们与牙周炎的关联。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_context': '此发现强调了在牙科医疗社区内，通过综合健康管理和预防策略，可以有效减少口臭和牙龈疾病的发生，从而提高公众的整体健康水平。', 'additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_additional_recommendations': '建议牙科医疗专业人士和教育者在提供服务和教育时，强调口腔卫生与整体健康之间的联系，以促进更全面的健康管理和预防措施。'}]}
+16:37:58,422 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 329.1298427750007. input_tokens=3711, output_tokens=17921
+16:37:58,423 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:37:58,423 graphrag.llm.openai.utils INFO Error: JSONDecodeError{     "title"  	:	"牙周炎及其相关症状和治疗方法的社区分析报告"	,     	"summary"	:	"本报告分析了牙周炎及其相关症状和治疗方法在牙科医疗社区中的结构和关系。牙周炎是牙齿周围组织的炎症，与多种症状和治疗方法紧密相关。"	,     	"rating"	:	8.0	,     	"rating_explanation"	:	"此报告在牙科医疗领域具有高度相关性，因为它深入探讨了牙周炎这一常见疾病及其对患者健康的影响，同时提供了治疗方法的分析，对牙科医疗专业人士和患者都具有重要价值。"	,     	"findings"	:	[            	{            		"summary"	:	"牙周炎是牙齿周围组织的炎症"	,            		"explanation"	:	"牙周炎是一种影响牙齿周围组织的疾病，其症状包括牙龈出血、牙龈红肿、牙龈退缩、牙齿松动、口臭以及咬合不适。这些症状的出现表明炎症已扩散至牙周组织，导致牙槽骨吸收和牙齿松动。[Data: Entities（16、88、75、83、78、46、82、81、77）]"	,            		"details"	:	[            			"牙周炎的常见症状包括牙龈出血（6）、牙龈红肿（17）、牙龈退缩（18）、口臭（10）、牙齿疼痛不适（15）、牙根尖周炎（13）、刷牙或咀嚼时牙龈出血（23）、咬合不适（20）、早期症状（14）"	,            			"牙周炎的治疗方法包括牙周手术（22）和牙周治疗（21）"	,            			"牙周炎的早期症状包括轻微疼痛不适、牙龈轻微肿胀等（19）"	,            			"牙龈炎（80）与牙周炎（24）之间存在关系，表明牙龈炎可能是牙周炎的早期阶段"	,            			"牙龈红肿（74）是牙周炎早期的常见症状，与牙周炎（15）之间存在关系"	,            			"牙齿松动（19）是牙周炎的常见症状，与牙周炎（15）之间存在关系"	,            			"牙周炎与多种症状和治疗方法紧密相关，表明其在牙科医疗社区中的重要性"	,            			"牙周炎的治疗和预防对于维护口腔健康至关重要"	,            			"牙周炎的诊断和治疗需要牙科医疗专业人士的专业知识和技能"	,            			"牙周炎的管理可能涉及定期的口腔卫生检查、牙周治疗和手术干预"	,            			"牙周炎的预防措施包括良好的口腔卫生习惯、定期的牙科检查和适当的治疗"	,            			"牙周炎的治疗效果可能因个体差异而异，需要个性化的治疗方案"	,            			"牙周炎的治疗和预防对于提高患者生活质量具有重要意义"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育"	,            			"牙周
+16:37:58,425 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙周炎及其相关症状和治疗方法的社区分析报告', 'summary': '本报告分析了牙周炎及其相关症状和治疗方法在牙科医疗社区中的结构和关系。牙周炎是牙齿周围组织的炎症，与多种症状和治疗方法紧密相关。', 'rating': 8.0, 'rating_explanation': '此报告在牙科医疗领域具有高度相关性，因为它深入探讨了牙周炎这一常见疾病及其对患者健康的影响，同时提供了治疗方法的分析，对牙科医疗专业人士和患者都具有重要价值。', 'findings': [{'summary': '牙周炎是牙齿周围组织的炎症', 'explanation': '牙周炎是一种影响牙齿周围组织的疾病，其症状包括牙龈出血、牙龈红肿、牙龈退缩、牙齿松动、口臭以及咬合不适。这些症状的出现表明炎症已扩散至牙周组织，导致牙槽骨吸收和牙齿松动。[Data: Entities（16、88、75、83、78、46、82、81、77）]', 'details': ['牙周炎的常见症状包括牙龈出血（6）、牙龈红肿（17）、牙龈退缩（18）、口臭（10）、牙齿疼痛不适（15）、牙根尖周炎（13）、刷牙或咀嚼时牙龈出血（23）、咬合不适（20）、早期症状（14）', '牙周炎的治疗方法包括牙周手术（22）和牙周治疗（21）', '牙周炎的早期症状包括轻微疼痛不适、牙龈轻微肿胀等（19）', '牙龈炎（80）与牙周炎（24）之间存在关系，表明牙龈炎可能是牙周炎的早期阶段', '牙龈红肿（74）是牙周炎早期的常见症状，与牙周炎（15）之间存在关系', '牙齿松动（19）是牙周炎的常见症状，与牙周炎（15）之间存在关系', '牙周炎与多种症状和治疗方法紧密相关，表明其在牙科医疗社区中的重要性', '牙周炎的治疗和预防对于维护口腔健康至关重要', '牙周炎的诊断和治疗需要牙科医疗专业人士的专业知识和技能', '牙周炎的管理可能涉及定期的口腔卫生检查、牙周治疗和手术干预', '牙周炎的预防措施包括良好的口腔卫生习惯、定期的牙科检查和适当的治疗', '牙周炎的治疗效果可能因个体差异而异，需要个性化的治疗方案', '牙周炎的治疗和预防对于提高患者生活质量具有重要意义', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周炎的治疗和预防策略需要在牙科医疗社区内进行广泛传播和教育', '牙周']}]}
+16:37:58,428 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 329.13871184701566. input_tokens=4479, output_tokens=17446
+16:39:35,646 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:39:35,647 graphrag.llm.openai.utils INFO success load json in step 1{'title': '牙周炎早期症状与口腔健康问题分析报告', 'summary': '本报告分析了牙周炎早期症状与口腔健康问题之间的关系，强调了早期识别和管理的重要性。通过研究实体之间的关联，报告揭示了牙龈出血、牙龈退缩、牙龈红肿和刷牙后牙龈轻微疼痛等常见症状与牙周炎早期阶段的密切联系。', 'rating': 8.0, 'rating_explanation': '此报告在牙科医疗领域具有高度重要性，因为它提供了关于牙周炎早期症状的深入理解，有助于提高公众对口腔健康问题的认识，并促进及时的诊断和治疗。', 'findings': [{'summary': '牙龈出血是牙周炎的常见症状', 'explanation': '牙龈出血是牙周炎早期阶段的典型症状之一，根据数据引用（6），它与牙周炎之间存在直接关联。这一发现强调了在日常口腔护理中监测牙龈出血的重要性，以及在出现此类症状时及时就医的必要性。', 'data': 'Entities', 'record_ids': ['5', '7', '74', '75', '76', '+more']}, {'summary': '牙龈退缩与牙周炎早期相关', 'explanation': '牙龈退缩是牙周炎早期的常见症状，根据数据引用（18），它与牙周炎之间存在直接关联。这一发现提示了牙龈退缩可能预示着牙周炎的早期阶段，强调了定期口腔检查和早期干预的重要性。', 'data': 'Entities', 'record_ids': ['7', '74', '75', '76', '+more']}, {'summary': '牙龈红肿是牙周炎早期的常见症状', 'explanation': '牙龈红肿是牙周炎早期阶段的常见症状，根据数据引用（74），它与牙周炎之间存在直接关联。这一发现强调了牙龈红肿可能预示着牙周炎的早期阶段，提示了及时就医的重要性。', 'data': 'Entities', 'record_ids': ['74', '+more']}, {'summary': '刷牙后牙龈轻微疼痛是牙周炎早期的常见症状', 'explanation': '刷牙后牙龈轻微疼痛是牙周炎早期阶段的常见症状，根据数据引用（75），它与牙周炎之间存在直接关联。这一发现提示了刷牙后牙龈疼痛可能预示着牙周炎的早期阶段，强调了及时就医的重要性。', 'data': 'Entities', 'record_ids': ['75', '+more']}, {'summary': '牙齿矫正期间的注意事项与牙龈出血相关', 'explanation': '在牙齿矫正期间的注意事项与牙龈出血有关，根据数据引用（5），两者都与口腔健康相关。这一发现强调了在进行牙齿矫正时，需要特别注意口腔卫生，以避免牙龈出血等潜在问题。', 'data': 'Relationships', 'record_ids': ['6', '7', '74', '75', '76', '+more']}]}
+16:39:35,647 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 97.20276693798951. input_tokens=4381, output_tokens=1539
+16:48:08,734 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:48:08,734 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:48:08,735 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:48:08,735 graphrag.llm.openai.utils INFO Error: JSONDecodeError{      "title"  	: 	"牙科医疗社区分析报告：牙周炎与相关疾病和症状的网络关系研究"	,      	"summary"	: 	"本报告分析了牙科医疗社区中牙周炎与其他疾病、症状和治疗方法之间的网络关系。通过研究这些实体之间的关联，我们揭示了牙周炎在口腔健康问题中的核心地位及其对患者生活质量的影响。"	,      	"rating"	: 	7.5	,      	"rating_explanation"	: 	"此报告强调了牙周炎在牙科医疗社区中的重要性，以及它与口腔健康、疾病管理和治疗策略之间的复杂关系。这些发现对于提高患者护理质量、促进疾病预防和治疗策略的发展具有重要意义。"	,      	"findings"	: 	[          	{              	"summary"	: 	"牙周炎作为口腔健康的关键问题"	,              	"explanation"	: 	"牙周炎是口腔健康领域的一个核心问题，其症状包括牙龈出血、牙龈红肿、牙齿松动和口臭等。这些症状不仅影响患者的生活质量，还与多种口腔疾病和症状紧密相关。[Data: Entities（16、88、7、75、83、78、46、82、81、77、12、牙龈疾病、牙龈炎、口臭、牙周手术、牙周治疗、牙齿松动、牙龈红肿、牙周炎、症状、牙根尖周炎、刷牙或咀嚼时牙龈出血、咬合不适、早期症状、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈
+16:48:08,736 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙科医疗社区分析报告：牙周炎与相关疾病和症状的网络关系研究', 'summary': '本报告分析了牙科医疗社区中牙周炎与其他疾病、症状和治疗方法之间的网络关系。通过研究这些实体之间的关联，我们揭示了牙周炎在口腔健康问题中的核心地位及其对患者生活质量的影响。', 'rating': 7.5, 'rating_explanation': '此报告强调了牙周炎在牙科医疗社区中的重要性，以及它与口腔健康、疾病管理和治疗策略之间的复杂关系。这些发现对于提高患者护理质量、促进疾病预防和治疗策略的发展具有重要意义。', 'findings': [{'summary': '牙周炎作为口腔健康的关键问题', 'explanation': '牙周炎是口腔健康领域的一个核心问题，其症状包括牙龈出血、牙龈红肿、牙齿松动和口臭等。这些症状不仅影响患者的生活质量，还与多种口腔疾病和症状紧密相关。[Data: Entities（16、88、7、75、83、78、46、82、81、77、12、牙龈疾病、牙龈炎、口臭、牙周手术、牙周治疗、牙齿松动、牙龈红肿、牙周炎、症状、牙根尖周炎、刷牙或咀嚼时牙龈出血、咬合不适、早期症状、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈炎、牙龈红肿、牙周炎、牙龈炎、牙龈红肿、牙龈疾病、口臭、牙周炎、牙龈'}]}
+16:48:08,739 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 610.2890863330103. input_tokens=4879, output_tokens=16888
+16:48:08,739 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:48:08,739 graphrag.llm.openai.utils INFO Error: JSONDecodeError{      "title"  	:	"牙科医疗社区分析报告：根管治疗与康复措施的网络关系与影响评估"	,      	"summary"	:	"本报告分析了牙科医疗社区中根管治疗与康复措施之间的网络关系，强调了这些关键实践在维护牙齿健康和功能中的重要性。通过识别和评估这些实体之间的联系，本报告旨在为牙科医疗领域的决策者提供见解，以促进更有效的病人护理和行业实践。"	,      	"rating"	:	8.5	,      	"rating_explanation"	:	"本报告深入探讨了根管治疗和康复措施在牙科医疗社区中的关键作用，对行业标准和病人护理实践具有显著影响。"	,      	"findings"	:	[              	{                  	"summary"	:	"根管治疗作为牙科医疗的核心实践"	,                  	"explanation"	:	"根管治疗是牙科医疗领域中处理牙髓炎、根尖周炎和严重龋齿问题的关键方法。通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"根管治疗后的康复措施对于牙齿的长期健康至关重要。通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，还增强了其功能，确保了口腔健康的整体维护。"	,              	"explanation"	:	"根管治疗与康复措施之间的紧密联系表明，牙科医疗社区在处理牙齿健康问题时，需要综合考虑治疗和后续护理。这一发现对于制定有效的病人护理策略和优化牙科医疗资源分配具有重要意义。"	,              	"explanation"	:	"通过数据引用12、32、33、34、35，我们可以看到根管治疗在解决牙齿内部炎症和感染方面的重要性。这一过程不仅能够有效缓解疼痛，还能防止牙齿进一步损伤，确保牙齿的健康和功能。"	,              	"explanation"	:	"通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，
+16:48:08,741 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙科医疗社区分析报告：根管治疗与康复措施的网络关系与影响评估', 'summary': '本报告分析了牙科医疗社区中根管治疗与康复措施之间的网络关系，强调了这些关键实践在维护牙齿健康和功能中的重要性。通过识别和评估这些实体之间的联系，本报告旨在为牙科医疗领域的决策者提供见解，以促进更有效的病人护理和行业实践。', 'rating': 8.5, 'rating_explanation': '本报告深入探讨了根管治疗和康复措施在牙科医疗社区中的关键作用，对行业标准和病人护理实践具有显著影响。', 'findings': [{'summary': '根管治疗作为牙科医疗的核心实践', 'explanation': '通过数据引用33、34、35、36、37，我们可以看到牙冠修复和美白处理等方法在解决根管治疗后牙齿变色和增强牙齿结构稳定性方面的作用。这些措施不仅改善了牙齿的外观，'}]}
+16:48:08,742 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 610.2918834000011. input_tokens=4400, output_tokens=1027
+16:49:42,802 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:49:42,803 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:49:42,803 graphrag.llm.openai.utils INFO Error: JSONDecodeError{      "title"  	:	"牙科医疗社区分析报告：牙髓炎与相关症状和治疗关系网"	,      	"summary"	:	"本报告分析了牙髓炎在牙科医疗社区中的角色，以及其与牙齿疼痛、牙齿变色、牙齿敏感、牙龈附件脓肿和牙龈肿痛或疼痛之间的关系。报告强调了牙髓炎的诊断和治疗对于维护口腔健康的重要性。"	,      	"rating"	:	8.0	,      	"rating_explanation"	:	"此报告深入探讨了牙髓炎在牙科医疗社区中的影响，提供了关键信息以支持牙科专业人员和患者做出明智的决策，因此在牙科健康和社区理解方面具有高度重要性和可操作性。"	,      	"findings"	:	[              	{                  	"summary"	:	"牙髓炎与牙齿疼痛的直接关联"	,                  	"explanation"	:	"牙髓炎是牙齿内部的感染或发炎，其常见症状之一是牙齿疼痛。这一关联通过数据引用（26）得到支持，表明牙髓炎与牙齿疼痛之间存在直接的因果关系。"	,              		"Data: Relationship (26)"
+16:49:42,803 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙科医疗社区分析报告：牙髓炎与相关症状和治疗关系网', 'summary': '本报告分析了牙髓炎在牙科医疗社区中的角色，以及其与牙齿疼痛、牙齿变色、牙齿敏感、牙龈附件脓肿和牙龈肿痛或疼痛之间的关系。报告强调了牙髓炎的诊断和治疗对于维护口腔健康的重要性。', 'rating': 8.0, 'rating_explanation': '此报告深入探讨了牙髓炎在牙科医疗社区中的影响，提供了关键信息以支持牙科专业人员和患者做出明智的决策，因此在牙科健康和社区理解方面具有高度重要性和可操作性。', 'findings': [{'summary': '牙髓炎与牙齿疼痛的直接关联', 'explanation': '牙髓炎是牙齿内部的感染或发炎，其常见症状之一是牙齿疼痛。这一关联通过数据引用（26）得到支持，表明牙髓炎与牙齿疼痛之间存在直接的因果关系。'}]}
+16:49:42,803 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 607.1414177510014. input_tokens=5226, output_tokens=971
+16:49:42,829 datashaper.workflow.workflow INFO executing verb window
+16:49:42,830 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_community_reports.parquet
+16:49:42,953 graphrag.index.run INFO Running workflow: create_final_text_units...
+16:49:42,953 graphrag.index.run INFO dependencies for create_final_text_units: ['join_text_units_to_covariate_ids', 'join_text_units_to_relationship_ids', 'join_text_units_to_entity_ids', 'create_base_text_units']
+16:49:42,953 graphrag.index.run INFO read table from storage: join_text_units_to_covariate_ids.parquet
+16:49:42,955 graphrag.index.run INFO read table from storage: join_text_units_to_relationship_ids.parquet
+16:49:42,956 graphrag.index.run INFO read table from storage: join_text_units_to_entity_ids.parquet
+16:49:42,958 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+16:49:42,984 datashaper.workflow.workflow INFO executing verb select
+16:49:42,997 datashaper.workflow.workflow INFO executing verb rename
+16:49:43,12 datashaper.workflow.workflow INFO executing verb join
+16:49:43,30 datashaper.workflow.workflow INFO executing verb join
+16:49:43,48 datashaper.workflow.workflow INFO executing verb join
+16:49:43,65 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:49:43,80 datashaper.workflow.workflow INFO executing verb select
+16:49:43,81 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_text_units.parquet
+16:49:43,194 graphrag.index.run INFO Running workflow: create_base_documents...
+16:49:43,194 graphrag.index.run INFO dependencies for create_base_documents: ['create_final_text_units']
+16:49:43,194 graphrag.index.run INFO read table from storage: create_final_text_units.parquet
+16:49:43,224 datashaper.workflow.workflow INFO executing verb unroll
+16:49:43,239 datashaper.workflow.workflow INFO executing verb select
+16:49:43,253 datashaper.workflow.workflow INFO executing verb rename
+16:49:43,268 datashaper.workflow.workflow INFO executing verb join
+16:49:43,285 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:49:43,304 datashaper.workflow.workflow INFO executing verb join
+16:49:43,321 datashaper.workflow.workflow INFO executing verb rename
+16:49:43,337 datashaper.workflow.workflow INFO executing verb convert
+16:49:43,353 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_documents.parquet
+16:49:43,468 graphrag.index.run INFO Running workflow: create_final_documents...
+16:49:43,468 graphrag.index.run INFO dependencies for create_final_documents: ['create_base_documents']
+16:49:43,469 graphrag.index.run INFO read table from storage: create_base_documents.parquet
+16:49:43,500 datashaper.workflow.workflow INFO executing verb rename
+16:49:43,501 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_documents.parquet
+16:49:43,553 graphrag.index.cli INFO All workflows completed successfully.

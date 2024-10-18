@@ -1,0 +1,781 @@
+00:29:17,295 graphrag.index.cli INFO Logging enabled at output/reports/indexing-engine.log
+00:29:17,296 graphrag.index.cli INFO Starting pipeline run for: 20240908-002917, dryrun=False
+00:29:17,297 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "model": "Qwen2-7B-Instruct",
+        "max_tokens": 6000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 3000.0,
+        "api_base": "http://192.168.0.245:5008/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 2.0,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": ".",
+    "reporting": {
+        "type": "file",
+        "base_dir": "output/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "output/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "model": "m3e-large",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:6008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 600,
+        "overlap": 150,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 6000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "\u5e74\u9f84\u7fa4\u4f53",
+            "\u6cbb\u7597\u65b9\u6cd5",
+            "\u75c7\u72b6",
+            "\u65e9\u671f\u75c7\u72b6",
+            "\u5e38\u89c1\u75c7\u72b6",
+            "\u5065\u5eb7\u72b6\u51b5",
+            "\u75be\u75c5\u540d\u79f0",
+            "\u68c0\u67e5\u9879\u76ee",
+            "\u836f\u7269\u540d\u79f0",
+            "\u751f\u6d3b\u65b9\u5f0f",
+            "\u98ce\u9669\u56e0\u7d20",
+            "\u9884\u9632\u63aa\u65bd",
+            "\u533b\u7597\u673a\u6784",
+            "\u4e13\u79d1\u9886\u57df",
+            "\u75c5\u7406\u7c7b\u578b",
+            "\u4e34\u5e8a\u8bd5\u9a8c",
+            "\u8425\u517b\u7d20",
+            "\u5fc3\u7406\u72b6\u6001",
+            "\u5eb7\u590d\u63aa\u65bd",
+            "\u6ce8\u610f\u4e8b\u9879",
+            "\u6cbb\u7597\u65b9\u6848",
+            "\u8eab\u4f53\u5668\u5b98",
+            "\u5176\u4ed6"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 6000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 6000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 3.0,
+            "num_threads": 3
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 5000,
+        "max_input_length": 3000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 6000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": true,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+00:29:17,297 graphrag.index.create_pipeline_config INFO skipping workflows 
+00:29:17,297 graphrag.index.run INFO Running pipeline
+00:29:17,297 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at output/artifacts
+00:29:17,297 graphrag.index.input.load_input INFO loading input from root_dir=input
+00:29:17,297 graphrag.index.input.load_input INFO using file storage for input
+00:29:17,298 graphrag.index.storage.file_pipeline_storage INFO search input for files matching .*\.txt$
+00:29:17,298 graphrag.index.input.text INFO found text files from input, found [('dentistry.txt', {})]
+00:29:17,299 graphrag.index.input.text INFO Found 1 files, loading 1
+00:29:17,300 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_final_covariates', 'create_summarized_entities', 'join_text_units_to_covariate_ids', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+00:29:17,300 graphrag.index.run INFO Final # of rows loaded: 1
+00:29:17,376 graphrag.index.run INFO Running workflow: create_base_text_units...
+00:29:17,376 graphrag.index.run INFO dependencies for create_base_text_units: []
+00:29:17,379 datashaper.workflow.workflow INFO executing verb orderby
+00:29:17,380 datashaper.workflow.workflow INFO executing verb zip
+00:29:17,382 datashaper.workflow.workflow INFO executing verb aggregate_override
+00:29:17,384 datashaper.workflow.workflow INFO executing verb chunk
+00:29:17,470 datashaper.workflow.workflow INFO executing verb select
+00:29:17,473 datashaper.workflow.workflow INFO executing verb unroll
+00:29:17,475 datashaper.workflow.workflow INFO executing verb rename
+00:29:17,477 datashaper.workflow.workflow INFO executing verb genid
+00:29:17,480 datashaper.workflow.workflow INFO executing verb unzip
+00:29:17,483 datashaper.workflow.workflow INFO executing verb copy
+00:29:17,485 datashaper.workflow.workflow INFO executing verb filter
+00:29:17,488 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+00:29:17,576 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+00:29:17,576 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+00:29:17,576 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+00:29:17,584 datashaper.workflow.workflow INFO executing verb entity_extract
+00:29:17,585 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.245:5008/v1
+00:29:17,597 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for Qwen2-7B-Instruct: TPM=0, RPM=0
+00:29:17,597 graphrag.index.llm.load_llm INFO create concurrency limiter for Qwen2-7B-Instruct: 25
+00:29:38,17 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:29:38,19 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 20.404726300999755. input_tokens=3944, output_tokens=1221
+00:29:44,394 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:29:44,395 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 26.77849239000352. input_tokens=3944, output_tokens=1590
+00:29:46,681 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:29:46,682 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 29.061898301995825. input_tokens=3772, output_tokens=1632
+00:29:48,541 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:29:48,542 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 30.92322593499557. input_tokens=3944, output_tokens=1965
+00:30:10,162 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:30:10,163 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 25.76671543798875. input_tokens=55, output_tokens=1585
+00:30:12,885 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:30:12,886 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 55.275891436991515. input_tokens=3944, output_tokens=3761
+00:30:14,762 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:30:14,762 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 28.07903749200341. input_tokens=55, output_tokens=1608
+00:30:16,691 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:30:16,692 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 28.149047254002653. input_tokens=55, output_tokens=1898
+00:30:21,319 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:30:21,320 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 63.711653297999874. input_tokens=3944, output_tokens=3713
+00:30:26,509 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:30:26,510 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 13.622797160991468. input_tokens=55, output_tokens=735
+00:30:27,765 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:30:27,766 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 70.16637733700918. input_tokens=3944, output_tokens=4495
+00:30:30,653 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:30:30,654 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 73.04214033699827. input_tokens=3944, output_tokens=4258
+00:30:55,258 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:30:55,259 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 27.49204575899057. input_tokens=55, output_tokens=1845
+00:31:17,37 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:31:17,38 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 46.38194460100203. input_tokens=55, output_tokens=2985
+00:31:18,710 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:31:18,711 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 57.38999869899999. input_tokens=55, output_tokens=3568
+00:32:03,575 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:32:03,575 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:32:03,577 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 165.9724521659955. input_tokens=3944, output_tokens=12535
+00:32:03,579 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 165.97183730300458. input_tokens=3943, output_tokens=10363
+00:32:23,596 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:32:23,598 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 165.5774094179942. input_tokens=55, output_tokens=10266
+00:32:31,108 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:32:31,109 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 27.52629650500603. input_tokens=55, output_tokens=1827
+00:34:36,777 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:34:36,779 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 153.1985601060005. input_tokens=55, output_tokens=12015
+00:34:36,787 datashaper.workflow.workflow INFO executing verb merge_graphs
+00:34:36,799 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+00:34:36,882 graphrag.index.run INFO Running workflow: create_final_covariates...
+00:34:36,883 graphrag.index.run INFO dependencies for create_final_covariates: ['create_base_text_units']
+00:34:36,883 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+00:34:36,891 datashaper.workflow.workflow INFO executing verb extract_covariates
+00:34:38,932 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:34:38,933 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 2.032921665988397. input_tokens=2106, output_tokens=5
+00:34:39,286 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:34:39,286 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 0.35269610899558757. input_tokens=32, output_tokens=5
+00:34:40,113 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:34:40,114 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 3.2158922519884072. input_tokens=2105, output_tokens=45
+00:34:40,567 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:34:40,567 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 3.6738620639953297. input_tokens=2106, output_tokens=52
+00:34:42,139 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:34:42,140 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 1.5717637380002998. input_tokens=32, output_tokens=52
+00:34:45,883 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:34:45,884 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:34:45,884 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 8.974209419990075. input_tokens=2107, output_tokens=282
+00:34:45,885 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 8.982962241003406. input_tokens=2106, output_tokens=282
+00:34:45,986 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:34:45,986 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:34:45,987 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 9.08298469800502. input_tokens=2106, output_tokens=283
+00:34:45,987 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 9.075274934992194. input_tokens=1935, output_tokens=283
+00:35:00,365 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:00,366 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 20.250941674006754. input_tokens=32, output_tokens=858
+00:35:02,238 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:02,239 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 25.333066920997226. input_tokens=2108, output_tokens=1426
+00:35:02,921 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:02,922 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 26.014012494997587. input_tokens=2106, output_tokens=1060
+00:35:06,422 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:06,423 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 29.526926608989015. input_tokens=2106, output_tokens=1370
+00:35:11,477 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:11,478 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 25.588738353995723. input_tokens=32, output_tokens=1302
+00:35:14,56 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:14,57 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 28.065501799996127. input_tokens=32, output_tokens=1424
+00:35:16,210 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:16,211 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 30.222444177998113. input_tokens=32, output_tokens=1400
+00:35:24,126 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:24,127 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 38.24133459299628. input_tokens=32, output_tokens=1793
+00:35:24,715 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:24,716 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 22.475427709010546. input_tokens=32, output_tokens=1426
+00:35:25,388 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:25,389 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 22.46573654099484. input_tokens=32, output_tokens=1060
+00:35:31,249 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:31,250 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 24.825723030997324. input_tokens=32, output_tokens=1370
+00:35:31,257 datashaper.workflow.workflow INFO executing verb window
+00:35:31,261 datashaper.workflow.workflow INFO executing verb genid
+00:35:31,264 datashaper.workflow.workflow INFO executing verb convert
+00:35:31,267 datashaper.workflow.workflow INFO executing verb rename
+00:35:31,271 datashaper.workflow.workflow INFO executing verb select
+00:35:31,272 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_covariates.parquet
+00:35:31,369 graphrag.index.run INFO Running workflow: create_summarized_entities...
+00:35:31,369 graphrag.index.run INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+00:35:31,370 graphrag.index.run INFO read table from storage: create_base_extracted_entities.parquet
+00:35:31,379 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+00:35:33,480 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:33,480 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0738944049953716. input_tokens=404, output_tokens=92
+00:35:33,894 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:33,895 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4813104509958066. input_tokens=436, output_tokens=147
+00:35:33,921 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:33,921 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.5099012479913654. input_tokens=398, output_tokens=138
+00:35:34,158 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:34,159 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7574994000024162. input_tokens=487, output_tokens=144
+00:35:35,68 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:35,69 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6273455770133296. input_tokens=460, output_tokens=227
+00:35:35,223 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:35,223 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.808391136000864. input_tokens=433, output_tokens=207
+00:35:35,351 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:35,352 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.9528111630061176. input_tokens=616, output_tokens=234
+00:35:35,377 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:35,377 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.9431761690066196. input_tokens=392, output_tokens=209
+00:35:35,565 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:35,566 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.155821489999653. input_tokens=590, output_tokens=257
+00:35:35,750 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:35,750 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.345620792999398. input_tokens=612, output_tokens=265
+00:35:35,854 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:35,855 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.423966039001243. input_tokens=421, output_tokens=256
+00:35:36,737 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:36,738 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.312269697009469. input_tokens=430, output_tokens=227
+00:35:36,764 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:36,764 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.361457460006932. input_tokens=461, output_tokens=319
+00:35:36,947 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:36,947 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.526767514005769. input_tokens=415, output_tokens=295
+00:35:37,193 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:37,194 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.7131079839891754. input_tokens=434, output_tokens=249
+00:35:37,611 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:37,612 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.203470387990819. input_tokens=599, output_tokens=387
+00:35:37,792 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:37,793 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4407153929932974. input_tokens=637, output_tokens=173
+00:35:37,934 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:37,934 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.012646335002501. input_tokens=465, output_tokens=263
+00:35:38,141 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:38,142 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.391569024999626. input_tokens=529, output_tokens=163
+00:35:38,274 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:38,274 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.846971471997676. input_tokens=413, output_tokens=369
+00:35:38,376 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:38,376 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.93805004900787. input_tokens=411, output_tokens=446
+00:35:38,688 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:38,689 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.256322225002805. input_tokens=425, output_tokens=480
+00:35:38,790 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:38,791 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.354512805992272. input_tokens=416, output_tokens=292
+00:35:39,154 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:39,155 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2996020060090814. input_tokens=467, output_tokens=195
+00:35:39,310 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:39,310 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.151536584991845. input_tokens=429, output_tokens=344
+00:35:39,546 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:39,546 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:39,547 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.599317863001488. input_tokens=400, output_tokens=133
+00:35:39,547 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 8.12512557899754. input_tokens=421, output_tokens=466
+00:35:39,710 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:39,711 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 8.291888483989169. input_tokens=416, output_tokens=457
+00:35:39,736 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:39,737 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.0475808769988362. input_tokens=424, output_tokens=69
+00:35:39,887 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:39,888 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0945483520044945. input_tokens=396, output_tokens=111
+00:35:39,914 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:39,914 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:39,915 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 8.497702818000107. input_tokens=474, output_tokens=446
+00:35:39,915 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.537471949995961. input_tokens=442, output_tokens=255
+00:35:40,155 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:40,156 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.961666350995074. input_tokens=436, output_tokens=163
+00:35:40,258 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:40,259 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5203819870075677. input_tokens=423, output_tokens=202
+00:35:40,311 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:40,312 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 8.887870528007625. input_tokens=435, output_tokens=391
+00:35:40,337 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:40,338 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.771701399004087. input_tokens=557, output_tokens=261
+00:35:40,390 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:40,390 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 8.961329112004023. input_tokens=449, output_tokens=526
+00:35:40,543 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:40,544 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4016314210020937. input_tokens=545, output_tokens=137
+00:35:40,646 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:40,646 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7585780120134586. input_tokens=430, output_tokens=50
+00:35:40,849 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:40,849 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.932167869003024. input_tokens=425, output_tokens=72
+00:35:40,874 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:40,875 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.110391107999021. input_tokens=431, output_tokens=225
+00:35:40,925 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:40,926 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3135916120081674. input_tokens=443, output_tokens=176
+00:35:41,54 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:41,55 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.678140682997764. input_tokens=395, output_tokens=159
+00:35:41,183 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:41,184 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 9.743743353013997. input_tokens=461, output_tokens=506
+00:35:41,361 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:41,362 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0876425030000973. input_tokens=399, output_tokens=123
+00:35:41,489 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:41,490 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6986888959945645. input_tokens=413, output_tokens=183
+00:35:41,717 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:41,718 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.822929109999677. input_tokens=462, output_tokens=479
+00:35:41,768 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:41,769 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.457965586989303. input_tokens=469, output_tokens=180
+00:35:41,769 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:41,769 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.032345546002034. input_tokens=420, output_tokens=160
+00:35:41,892 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:41,893 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1818720100127393. input_tokens=438, output_tokens=181
+00:35:41,990 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:41,991 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.056569988009869. input_tokens=429, output_tokens=295
+00:35:42,307 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:42,308 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7587272889941232. input_tokens=465, output_tokens=197
+00:35:42,356 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:42,357 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.809414054994704. input_tokens=438, output_tokens=191
+00:35:42,816 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:42,817 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.9012733779964037. input_tokens=418, output_tokens=232
+00:35:43,177 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:43,178 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.023150167995482. input_tokens=454, output_tokens=291
+00:35:43,802 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:43,803 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 8.579127847013297. input_tokens=418, output_tokens=592
+00:35:43,874 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:43,875 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 8.805375976997311. input_tokens=411, output_tokens=465
+00:35:45,446 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:35:45,447 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.291435808001552. input_tokens=446, output_tokens=417
+00:35:45,459 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+00:35:45,549 graphrag.index.run INFO Running workflow: join_text_units_to_covariate_ids...
+00:35:45,549 graphrag.index.run INFO dependencies for join_text_units_to_covariate_ids: ['create_final_covariates']
+00:35:45,549 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+00:35:45,560 datashaper.workflow.workflow INFO executing verb select
+00:35:45,564 datashaper.workflow.workflow INFO executing verb aggregate_override
+00:35:45,566 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_covariate_ids.parquet
+00:35:45,651 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+00:35:45,652 graphrag.index.run INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+00:35:45,652 graphrag.index.run INFO read table from storage: create_summarized_entities.parquet
+00:35:45,662 datashaper.workflow.workflow INFO executing verb cluster_graph
+00:35:45,701 datashaper.workflow.workflow INFO executing verb select
+00:35:45,702 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+00:35:45,788 graphrag.index.run INFO Running workflow: create_final_entities...
+00:35:45,789 graphrag.index.run INFO dependencies for create_final_entities: ['create_base_entity_graph']
+00:35:45,789 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+00:35:45,801 datashaper.workflow.workflow INFO executing verb unpack_graph
+00:35:45,817 datashaper.workflow.workflow INFO executing verb rename
+00:35:45,823 datashaper.workflow.workflow INFO executing verb select
+00:35:45,828 datashaper.workflow.workflow INFO executing verb dedupe
+00:35:45,834 datashaper.workflow.workflow INFO executing verb rename
+00:35:45,839 datashaper.workflow.workflow INFO executing verb filter
+00:35:45,848 datashaper.workflow.workflow INFO executing verb text_split
+00:35:45,855 datashaper.workflow.workflow INFO executing verb drop
+00:35:45,861 datashaper.workflow.workflow INFO executing verb merge
+00:35:45,889 datashaper.workflow.workflow INFO executing verb text_embed
+00:35:45,889 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.245:6008/v1
+00:35:45,901 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for m3e-large: TPM=0, RPM=0
+00:35:45,901 graphrag.index.llm.load_llm INFO create concurrency limiter for m3e-large: 25
+00:35:45,910 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 290 inputs via 290 snippets using 19 batches. max_batch_size=16, max_tokens=8191
+00:35:46,184 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:46,359 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:46,543 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:46,726 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:46,894 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:47,85 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:47,267 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:47,659 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:47,921 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:48,124 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:48,328 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:48,504 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:48,677 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:48,857 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:49,39 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:49,221 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:49,389 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:49,575 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:49,595 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+00:35:49,607 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.68250314501347. input_tokens=32, output_tokens=0
+00:35:49,688 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.7765672840032494. input_tokens=817, output_tokens=0
+00:35:49,755 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.8303113720030524. input_tokens=912, output_tokens=0
+00:35:49,818 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.8986369509948418. input_tokens=533, output_tokens=0
+00:35:49,882 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 3.969246930006193. input_tokens=2632, output_tokens=0
+00:35:49,945 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.022269487002632. input_tokens=735, output_tokens=0
+00:35:50,9 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.090174755998305. input_tokens=1041, output_tokens=0
+00:35:50,72 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.15305191600055. input_tokens=843, output_tokens=0
+00:35:50,137 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.21491767000407. input_tokens=792, output_tokens=0
+00:35:50,201 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.277415409000241. input_tokens=529, output_tokens=0
+00:35:50,264 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.3434354519995395. input_tokens=1112, output_tokens=0
+00:35:50,327 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.406001091003418. input_tokens=806, output_tokens=0
+00:35:50,390 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.475501438995707. input_tokens=5832, output_tokens=0
+00:35:50,453 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.53750406501058. input_tokens=2905, output_tokens=0
+00:35:50,515 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.599349716008874. input_tokens=1636, output_tokens=0
+00:35:50,579 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.66198904698831. input_tokens=1589, output_tokens=0
+00:35:50,648 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.730999692998012. input_tokens=854, output_tokens=0
+00:35:50,712 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.7937439210072625. input_tokens=771, output_tokens=0
+00:35:50,785 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 4.8636562780011445. input_tokens=726, output_tokens=0
+00:35:50,807 datashaper.workflow.workflow INFO executing verb drop
+00:35:50,813 datashaper.workflow.workflow INFO executing verb filter
+00:35:50,817 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_entities.parquet
+00:35:50,942 graphrag.index.run INFO Running workflow: create_final_nodes...
+00:35:50,942 graphrag.index.run INFO dependencies for create_final_nodes: ['create_base_entity_graph']
+00:35:50,943 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+00:35:50,958 datashaper.workflow.workflow INFO executing verb layout_graph
+00:35:51,6 datashaper.workflow.workflow INFO executing verb unpack_graph
+00:35:51,26 datashaper.workflow.workflow INFO executing verb unpack_graph
+00:35:51,45 datashaper.workflow.workflow INFO executing verb filter
+00:35:51,56 datashaper.workflow.workflow INFO executing verb drop
+00:35:51,63 datashaper.workflow.workflow INFO executing verb select
+00:35:51,70 datashaper.workflow.workflow INFO executing verb rename
+00:35:51,78 datashaper.workflow.workflow INFO executing verb convert
+00:35:51,86 datashaper.workflow.workflow INFO executing verb join
+00:35:51,96 datashaper.workflow.workflow INFO executing verb rename
+00:35:51,98 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_nodes.parquet
+00:35:51,196 graphrag.index.run INFO Running workflow: create_final_communities...
+00:35:51,197 graphrag.index.run INFO dependencies for create_final_communities: ['create_base_entity_graph']
+00:35:51,197 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+00:35:51,214 datashaper.workflow.workflow INFO executing verb unpack_graph
+00:35:51,234 datashaper.workflow.workflow INFO executing verb unpack_graph
+00:35:51,253 datashaper.workflow.workflow INFO executing verb aggregate_override
+00:35:51,263 datashaper.workflow.workflow INFO executing verb join
+00:35:51,274 datashaper.workflow.workflow INFO executing verb join
+00:35:51,285 datashaper.workflow.workflow INFO executing verb concat
+00:35:51,294 datashaper.workflow.workflow INFO executing verb filter
+00:35:51,313 datashaper.workflow.workflow INFO executing verb aggregate_override
+00:35:51,326 datashaper.workflow.workflow INFO executing verb join
+00:35:51,337 datashaper.workflow.workflow INFO executing verb filter
+00:35:51,349 datashaper.workflow.workflow INFO executing verb fill
+00:35:51,359 datashaper.workflow.workflow INFO executing verb merge
+00:35:51,370 datashaper.workflow.workflow INFO executing verb copy
+00:35:51,380 datashaper.workflow.workflow INFO executing verb select
+00:35:51,381 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_communities.parquet
+00:35:51,494 graphrag.index.run INFO Running workflow: join_text_units_to_entity_ids...
+00:35:51,494 graphrag.index.run INFO dependencies for join_text_units_to_entity_ids: ['create_final_entities']
+00:35:51,494 graphrag.index.run INFO read table from storage: create_final_entities.parquet
+00:35:51,524 datashaper.workflow.workflow INFO executing verb select
+00:35:51,533 datashaper.workflow.workflow INFO executing verb unroll
+00:35:51,543 datashaper.workflow.workflow INFO executing verb aggregate_override
+00:35:51,545 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_entity_ids.parquet
+00:35:51,647 graphrag.index.run INFO Running workflow: create_final_relationships...
+00:35:51,652 graphrag.index.run INFO dependencies for create_final_relationships: ['create_final_nodes', 'create_base_entity_graph']
+00:35:51,652 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+00:35:51,656 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+00:35:51,678 datashaper.workflow.workflow INFO executing verb unpack_graph
+00:35:51,699 datashaper.workflow.workflow INFO executing verb filter
+00:35:51,714 datashaper.workflow.workflow INFO executing verb rename
+00:35:51,726 datashaper.workflow.workflow INFO executing verb filter
+00:35:51,739 datashaper.workflow.workflow INFO executing verb drop
+00:35:51,750 datashaper.workflow.workflow INFO executing verb compute_edge_combined_degree
+00:35:51,763 datashaper.workflow.workflow INFO executing verb convert
+00:35:51,774 datashaper.workflow.workflow INFO executing verb convert
+00:35:51,775 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_relationships.parquet
+00:35:51,879 graphrag.index.run INFO Running workflow: join_text_units_to_relationship_ids...
+00:35:51,879 graphrag.index.run INFO dependencies for join_text_units_to_relationship_ids: ['create_final_relationships']
+00:35:51,879 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+00:35:51,904 datashaper.workflow.workflow INFO executing verb select
+00:35:51,915 datashaper.workflow.workflow INFO executing verb unroll
+00:35:51,927 datashaper.workflow.workflow INFO executing verb aggregate_override
+00:35:51,940 datashaper.workflow.workflow INFO executing verb select
+00:35:51,942 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_relationship_ids.parquet
+00:35:52,45 graphrag.index.run INFO Running workflow: create_final_community_reports...
+00:35:52,46 graphrag.index.run INFO dependencies for create_final_community_reports: ['create_final_nodes', 'create_final_relationships', 'create_final_covariates']
+00:35:52,46 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+00:35:52,49 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+00:35:52,51 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+00:35:52,75 datashaper.workflow.workflow INFO executing verb prepare_community_reports_nodes
+00:35:52,90 datashaper.workflow.workflow INFO executing verb prepare_community_reports_edges
+00:35:52,104 datashaper.workflow.workflow INFO executing verb prepare_community_reports_claims
+00:35:52,116 datashaper.workflow.workflow INFO executing verb restore_community_hierarchy
+00:35:52,131 datashaper.workflow.workflow INFO executing verb prepare_community_reports
+00:35:52,131 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=1 => 290
+00:35:52,145 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=0 => 290
+00:35:52,176 datashaper.workflow.workflow INFO executing verb create_community_reports
+00:37:15,601 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:37:15,602 graphrag.llm.openai.utils INFO success load json in step 1{'title': '牙科医疗社区分析报告：牙医与牙科疾病管理网络', 'summary': '本报告分析了牙科医疗社区内的关键实体及其相互关系，重点关注牙医、牙周维护、牙菌斑、牙髓炎等实体在牙科疾病管理中的作用。报告揭示了牙医在提供专业服务、预防和治疗牙科疾病方面的重要角色，以及牙周维护、牙菌斑、牙髓炎等实体在维护口腔健康中的关键作用。', 'rating': 8.0, 'rating_explanation': '本报告深入分析了牙科医疗社区内的关键实体及其相互关系，对于提升公众对牙科健康的认识、促进牙科疾病的有效管理和预防具有重要意义。', 'findings': [{'summary': '牙科医疗社区内的相互依赖关系', 'explanation': '牙科医疗社区内的实体之间存在相互依赖的关系，如牙医与牙周维护、牙菌斑、牙髓炎等实体之间的关系，共同维护和促进口腔健康。这些实体之间的互动对于牙科医疗社区的整体健康和功能至关重要。[Data: 实体（79、80、78、37、165、103、110、104、102、48、1），关系（89、96、90、88、47、49、39、46、40、42、43、44、45、103、110、104、102、48、1）]'}]}
+00:37:15,602 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 83.42262551000749. input_tokens=5346, output_tokens=1320
+00:42:37,27 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:42:37,27 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:42:37,28 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+00:42:37,28 graphrag.llm.openai.utils INFO Error: JSONDecodeError{      "title"   	:	"牙科健康与社区分析报告"	,      	"summary"	:	"本报告分析了牙科健康社区的结构和关键实体之间的关系，强调了牙科健康与整体身体健康之间的紧密联系。报告还探讨了龋齿、牙齿脱矿、根管治疗后牙齿脆弱性等具体健康状况，以及定期牙科检查的重要性。"	,      	"rating"	:	8.0	,      	"rating_explanation"	:	"此报告在牙科健康、社区分析、网络和病人教育方面具有高度相关性，提供了对牙科健康社区的深入理解，有助于促进牙科健康和社区成员之间的有效沟通与合作。"	,      	"findings"	:	[              	{                  	"summary"	:	"牙科健康与整体健康紧密相关"	,                  	"explanation"	:	"牙科健康状态是一个多维度的概念，它不仅关注口腔内部的健康，还与整体身体健康紧密相连。维护良好的牙科健康可能对整体健康产生积极影响。例如，龋齿的形成与牙齿表面矿物质流失有关，这可能影响牙齿的结构和功能。[Data: Entities（36、67、164、6、172）]"	,              	"summary"	:	"龋齿的早期预防与治疗"	,                  	"explanation"	:	"龋齿是一种常见的口腔疾病，如果不及时治疗，可能导致更严重的疼痛、感染和牙齿脱落。通过使用含氟产品预防和逆转牙齿脱矿，以及采用补牙等治疗方法，可以有效控制龋齿的发展。[Data: Entities（35、36、34、60）]"	,              	"summary"	:	"根管治疗后牙齿脆弱性"	,                  	"explanation"	:	"根管治疗后，牙齿可能会失去活力，导致牙齿变脆。这强调了在治疗后进行适当护理和监测的重要性，以确保牙齿健康和预防进一步的损伤。[Data: Entities（48、37）]"	,              	"summary"	:	"定期牙科检查的重要性"	,                  	"explanation"	:	"定期牙科检查可以早期发现和预防口腔健康问题，如龋齿、牙齿脱矿等。这有助于及时采取措施，防止问题恶化，保护牙齿健康。[Data: Entities（66、60）]"	,              	"summary"	:	"牙科健康社区的多维度分析"	,                  	"explanation"	:	"牙科健康社区不仅关注口腔内部的健康，还涉及心血管健康和心理健康等多个方面。这表明牙科健康是一个复杂的多维度概念，需要综合考虑和全面管理。[Data: Entities（48、36、67、164、6、172）]"	,          	"summary"	:	"牙科健康与整体健康的关系"	,                  	"explanation"	:	"牙科健康与整体健康紧密相关，维护良好的牙科健康可能对整体健康产生积极影响。例如，牙周炎和牙髓炎等健康状况可能导致周围组织炎症和内部组织炎症，影响整体健康。[Data: Entities（59、49、37）]"	,          	"summary"	:	"龋齿治疗的必要性"	,                  	"explanation"	:	"龋齿治疗是针对龋齿的治疗方法，旨在阻止腐蚀过程，减轻症状，并防止进一步的损害。这包括使用药物治疗、填充蛀洞或在严重情况下进行牙齿修复或拔牙。[Data: Entities（60、0）]"	,          	"summary"	:	"牙科健康社区的网络结构"	,                  	"explanation"	:	"牙科健康社区内的实体之间存在紧密的网络联系，如牙周炎、牙髓炎、龋齿、牙齿脱矿、补牙等，这些联系强调了牙科健康问题的相互关联性和复杂性。[Data: Relationships（59、49、37、35、36、34、60、0）]"	,          	"summary"	:	"牙科健康教育的重要性"	,                  	"explanation"	:	"定期牙科检查的重要性以及对牙科健康问题的早期预防和治疗强调了牙科健康教育在社区中的重要性。通过教育，可以提高公众对牙科健康的认识，促进健康行为的形成。[Data: Entities（60、0）]"	,          	"summary"	:	"牙科健康社区的多方面影响"	,                  	"explanation"	:	"牙科健康社区的多方面影响体现在其对牙科医疗实践、技术进步、治疗方法和病人护理实践的推动上。这包括对牙科健康状态、龋齿、牙齿脱矿、根管治疗后牙齿脆弱性、定期牙科检查等多方面的影响。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的综合分析"	,                  	"explanation"	:	"综合分析牙科健康社区的结构和关键实体之间的关系，强调了牙科健康与整体健康之间的紧密联系，以及定期牙科检查、龋齿治疗、牙齿脱矿预防等在维护牙科健康和促进整体健康方面的重要性。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多维度视角"	,                  	"explanation"	:	"从多维度视角分析牙科健康社区，包括牙科健康与整体健康的关系、龋齿的预防与治疗、根管治疗后牙齿脆弱性、定期牙科检查的重要性以及牙科健康教育的作用。这些视角共同构成了一个全面的牙科健康社区分析。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的网络与影响"	,                  	"explanation"	:	"牙科健康社区的网络结构和影响体现在实体之间的相互关联性上，如牙周炎、牙髓炎、龋齿、牙齿脱矿、补牙等。这些实体之间的联系强调了牙科健康问题的复杂性和相互影响，以及定期牙科检查、龋齿治疗、牙齿脱矿预防等在维护牙科健康和促进整体健康方面的重要性。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多方面发展"	,                  	"explanation"	:	"牙科健康社区的多方面发展体现在技术进步、治疗方法、病人护理实践以及对牙科健康状态、龋齿、牙齿脱矿、根管治疗后牙齿脆弱性、定期牙科检查等多方面的影响。这强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的综合影响"	,                  	"explanation"	:	"综合分析牙科健康社区的结构、实体之间的关系以及对牙科健康、整体健康、技术进步、治疗方法、病人护理实践等方面的影响，强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多维度分析"	,                  	"explanation"	:	"多维度分析牙科健康社区，包括牙科健康与整体健康的关系、龋齿的预防与治疗、根管治疗后牙齿脆弱性、定期牙科检查的重要性以及牙科健康教育的作用。这些分析共同构成了一个全面的牙科健康社区理解。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的网络与影响"	,                  	"explanation"	:	"牙科健康社区的网络与影响体现在实体之间的相互关联性上，如牙周炎、牙髓炎、龋齿、牙齿脱矿、补牙等。这些实体之间的联系强调了牙科健康问题的复杂性和相互影响，以及定期牙科检查、龋齿治疗、牙齿脱矿预防等在维护牙科健康和促进整体健康方面的重要性。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多方面发展"	,                  	"explanation"	:	"牙科健康社区的多方面发展体现在技术进步、治疗方法、病人护理实践以及对牙科健康状态、龋齿、牙齿脱矿、根管治疗后牙齿脆弱性、定期牙科检查等多方面的影响。这强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的综合影响"	,                  	"explanation"	:	"综合分析牙科健康社区的结构、实体之间的关系以及对牙科健康、整体健康、技术进步、治疗方法、病人护理实践等方面的影响，强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多维度分析"	,                  	"explanation"	:	"多维度分析牙科健康社区，包括牙科健康与整体健康的关系、龋齿的预防与治疗、根管治疗后牙齿脆弱性、定期牙科检查的重要性以及牙科健康教育的作用。这些分析共同构成了一个全面的牙科健康社区理解。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的网络与影响"	,                  	"explanation"	:	"牙科健康社区的网络与影响体现在实体之间的相互关联性上，如牙周炎、牙髓炎、龋齿、牙齿脱矿、补牙等。这些实体之间的联系强调了牙科健康问题的复杂性和相互影响，以及定期牙科检查、龋齿治疗、牙齿脱矿预防等在维护牙科健康和促进整体健康方面的重要性。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多方面发展"	,                  	"explanation"	:	"牙科健康社区的多方面发展体现在技术进步、治疗方法、病人护理实践以及对牙科健康状态、龋齿、牙齿脱矿、根管治疗后牙齿脆弱性、定期牙科检查等多方面的影响。这强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的综合影响"	,                  	"explanation"	:	"综合分析牙科健康社区的结构、实体之间的关系以及对牙科健康、整体健康、技术进步、治疗方法、病人护理实践等方面的影响，强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多维度分析"	,                  	"explanation"	:	"多维度分析牙科健康社区，包括牙科健康与整体健康的关系、龋齿的预防与治疗、根管治疗后牙齿脆弱性、定期牙科检查的重要性以及牙科健康教育的作用。这些分析共同构成了一个全面的牙科健康社区理解。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的网络与影响"	,                  	"explanation"	:	"牙科健康社区的网络与影响体现在实体之间的相互关联性上，如牙周炎、牙髓炎、龋齿、牙齿脱矿、补牙等。这些实体之间的联系强调了牙科健康问题的复杂性和相互影响，以及定期牙科检查、龋齿治疗、牙齿脱矿预防等在维护牙科健康和促进整体健康方面的重要性。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多方面发展"	,                  	"explanation"	:	"牙科健康社区的多方面发展体现在技术进步、治疗方法、病人护理实践以及对牙科健康状态、龋齿、牙齿脱矿、根管治疗后牙齿脆弱性、定期牙科检查等多方面的影响。这强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的综合影响"	,                  	"explanation"	:	"综合分析牙科健康社区的结构、实体之间的关系以及对牙科健康、整体健康、技术进步、治疗方法、病人护理实践等方面的影响，强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多维度分析"	,                  	"explanation"	:	"多维度分析牙科健康社区，包括牙科健康与整体健康的关系、龋齿的预防与治疗、根管治疗后牙齿脆弱性、定期牙科检查的重要性以及牙科健康教育的作用。这些分析共同构成了一个全面的牙科健康社区理解。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的网络与影响"	,                  	"explanation"	:	"牙科健康社区的网络与影响体现在实体之间的相互关联性上，如牙周炎、牙髓炎、龋齿、牙齿脱矿、补牙等。这些实体之间的联系强调了牙科健康问题的复杂性和相互影响，以及定期牙科检查、龋齿治疗、牙齿脱矿预防等在维护牙科健康和促进整体健康方面的重要性。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多方面发展"	,                  	"explanation"	:	"牙科健康社区的多方面发展体现在技术进步、治疗方法、病人护理实践以及对牙科健康状态、龋齿、牙齿脱矿、根管治疗后牙齿脆弱性、定期牙科检查等多方面的影响。这强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的综合影响"	,                  	"explanation"	:	"综合分析牙科健康社区的结构、实体之间的关系以及对牙科健康、整体健康、技术进步、治疗方法、病人护理实践等方面的影响，强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多维度分析"	,                  	"explanation"	:	"多维度分析牙科健康社区，包括牙科健康与整体健康的关系、龋齿的预防与治疗、根管治疗后牙齿脆弱性、定期牙科检查的重要性以及牙科健康教育的作用。这些分析共同构成了一个全面的牙科健康社区理解。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的网络与影响"	,                  	"explanation"	:	"牙科健康社区的网络与影响体现在实体之间的相互关联性上，如牙周炎、牙髓炎、龋齿、牙齿脱矿、补牙等。这些实体之间的联系强调了牙科健康问题的复杂性和相互影响，以及定期牙科检查、龋齿治疗、牙齿脱矿预防等在维护牙科健康和促进整体健康方面的重要性。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多方面发展"	,                  	"explanation"	:	"牙科健康社区的多方面发展体现在技术进步、治疗方法、病人护理实践以及对牙科健康状态、龋齿、牙齿脱矿、根管治疗后牙齿脆弱性、定期牙科检查等多方面的影响。这强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的综合影响"	,                  	"explanation"	:	"综合分析牙科健康社区的结构、实体之间的关系以及对牙科健康、整体健康、技术进步、治疗方法、病人护理实践等方面的影响，强调了牙科健康社区在促进牙科健康和整体健康方面的重要作用。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的多维度分析"	,                  	"explanation"	:	"多维度分析牙科健康社区，包括牙科健康与整体健康的关系、龋齿的预防与治疗、根管治疗后牙齿脆弱性、定期牙科检查的重要性以及牙科健康教育的作用。这些分析共同构成了一个全面的牙科健康社区理解。[Data: Entities（48、36、67、164、6、172、59、49、37、35、36、34、60、0）]"	,      	"summary"	:	"牙科健康社区的网络与影响"	,                  	"explanation"	:	"牙科健康社区的网络与影响体现在实体之间的相互关联性上，如牙周炎、牙髓炎、龋齿、牙齿脱矿、补牙等。这些实体之间的联系
+00:42:37,30 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙科健康与社区分析报告', 'summary': '本报告分析了牙科健康社区的结构和关键实体之间的关系，强调了牙科健康与整体身体健康之间的紧密联系。报告还探讨了龋齿、牙齿脱矿、根管治疗后牙齿脆弱性等具体健康状况，以及定期牙科检查的重要性。', 'rating': 8.0, 'rating_explanation': '此报告在牙科健康、社区分析、网络和病人教育方面具有高度相关性，提供了对牙科健康社区的深入理解，有助于促进牙科健康和社区成员之间的有效沟通与合作。', 'findings': [{'summary': '牙科健康社区的网络与影响', 'explanation': '牙科健康社区的网络与影响体现在实体之间的相互关联性上，如牙周炎、牙髓炎、龋齿、牙齿脱矿、补牙等。这些实体之间的联系'}]}
+00:42:37,30 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 404.8445553240017. input_tokens=4738, output_tokens=918
+00:42:37,31 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+00:42:37,31 graphrag.llm.openai.utils INFO Error: JSONDecodeError{      "title"  	:	"牙周炎与牙科治疗社区分析报告"	,      	"summary"	:	"本报告分析了牙周炎及其相关治疗措施在牙科医疗社区中的结构和关系，强调了牙周炎症状、治疗方法和预防策略的重要性。报告还探讨了牙医、牙周治疗、牙周手术等实体之间的联系，以及它们对牙科健康的影响。"	,      	"rating"	:	8.5	,      	"rating_explanation"	:	"此报告在牙科医疗领域具有高度相关性，因为它深入分析了牙周炎这一常见问题及其对牙科健康的影响，同时提供了对牙科治疗社区结构和关系的见解。"	,      	"findings"	:	[              	{                  	"summary"	:	"牙周炎症状与牙科健康状况的关联"	,                  	"explanation"	:	"牙周炎的常见症状，如牙龈出血、牙龈红肿、牙齿松动等，与牙科健康状况紧密相关。这些症状不仅影响患者的生活质量，还可能引发更严重的口腔健康问题。[Data: Entities（74、70、72、69、75、76、72、75、76、72、95、82、85、83、97）]"	,              	"summary"	:	"牙周治疗与牙周炎的管理"	,                  	"explanation"	:	"牙周治疗，包括洁牙、根面平整、牙龈切除术、牙槽骨整形术等，是管理牙周炎的关键方法。这些治疗方法旨在去除牙菌斑和牙石，促进牙周组织的健康恢复。[Data: Entities（74、89、90、91、92、93、95、96、82、85、83、97）]"	,              	"summary"	:	"牙医在牙周炎治疗中的角色"	,                  	"explanation"	:	"牙医作为提供牙周炎治疗的专业人员，负责诊断、制定治疗计划并监督治疗过程。他们的专业知识和技能对于有效管理牙周炎至关重要。[Data: Entities（89、96）]"	,              	"summary"	:	"抗菌漱口水在牙周炎预防中的应用"	,                  	"explanation"	:	"抗菌漱口水作为预防和治疗口腔感染的药物，有助于减少牙菌斑的形成，从而降低牙周炎的风险。正确使用抗菌漱口水可以作为牙周炎管理策略的一部分。[Data: Entities（95）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,          	"summary"	:	"牙周炎对患者生活质量的影响"	,                  	"explanation"	:	"牙周炎不仅影响口腔健康，还可能引起疼痛、不适和社交障碍，对患者的生活质量产生负面影响。因此，及时诊断和有效治疗牙周炎对于改善患者的生活质量至关重要。[Data: Entities（74、70、72、69、75、76、72、95、82、85、83、97）]"	,      	"findings"	:	[              	{                  	"summary"	:	"牙周炎症状与牙科健康状况的关联"	,                  	"explanation"	:	"牙周炎的常见症状，如牙龈出血、牙龈红肿、牙齿松动等，与牙科健康状况紧密相关。这些症状不仅影响患者的生活质量，还可能引发更严重的口腔健康问题。[Data: Entities（74、70、72、69、75、76、72、95、82、85、83、97）]"	,              	"summary"	:	"牙周治疗与牙周炎的管理"	,                  	"explanation"	:	"牙周治疗，包括洁牙、根面平整、牙龈切除术、牙槽骨整形术等，是管理牙周炎的关键方法。这些治疗方法旨在去除牙菌斑和牙石，促进牙周组织的健康恢复。[Data: Entities（74、89、90、91、92、93、95、96、82、85、83、97）]"	,              	"summary"	:	"牙医在牙周炎治疗中的角色"	,                  	"explanation"	:	"牙医作为提供牙周炎治疗的专业人员，负责诊断、制定治疗计划并监督治疗过程。他们的专业知识和技能对于有效管理牙周炎至关重要。[Data: Entities（89、96）]"	,              	"summary"	:	"抗菌漱口水在牙周炎预防中的应用"	,                  	"explanation"	:	"抗菌漱口水作为预防和治疗口腔感染的药物，有助于减少牙菌斑的形成，从而降低牙周炎的风险。正确使用抗菌漱口水可以作为牙周炎管理策略的一部分。[Data: Entities（95）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎对患者生活质量的影响"	,                  	"explanation"	:	"牙周炎不仅影响口腔健康，还可能引起疼痛、不适和社交障碍，对患者的生活质量产生负面影响。因此，及时诊断和有效治疗牙周炎对于改善患者的生活质量至关重要。[Data: Entities（74、70、72、69、75、76、72、95、82、85、83、97）]"	,          	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,      	"findings"	:	[              	{                  	"summary"	:	"牙周炎症状与牙科健康状况的关联"	,                  	"explanation"	:	"牙周炎的常见症状，如牙龈出血、牙龈红肿、牙齿松动等，与牙科健康状况紧密相关。这些症状不仅影响患者的生活质量，还可能引发更严重的口腔健康问题。[Data: Entities（74、70、72、69、75、76、72、95、82、85、83、97）]"	,              	"summary"	:	"牙周治疗与牙周炎的管理"	,                  	"explanation"	:	"牙周治疗，包括洁牙、根面平整、牙龈切除术、牙槽骨整形术等，是管理牙周炎的关键方法。这些治疗方法旨在去除牙菌斑和牙石，促进牙周组织的健康恢复。[Data: Entities（74、89、90、91、92、93、95、96、82、85、83、97）]"	,              	"summary"	:	"牙医在牙周炎治疗中的角色"	,                  	"explanation"	:	"牙医作为提供牙周炎治疗的专业人员，负责诊断、制定治疗计划并监督治疗过程。他们的专业知识和技能对于有效管理牙周炎至关重要。[Data: Entities（89、96）]"	,              	"summary"	:	"抗菌漱口水在牙周炎预防中的应用"	,                  	"explanation"	:	"抗菌漱口水作为预防和治疗口腔感染的药物，有助于减少牙菌斑的形成，从而降低牙周炎的风险。正确使用抗菌漱口水可以作为牙周炎管理策略的一部分。[Data: Entities（95）]"	,              	"summary"	:	"牙周炎对患者生活质量的影响"	,                  	"explanation"	:	"牙周炎不仅影响口腔健康，还可能引起疼痛、不适和社交障碍，对患者的生活质量产生负面影响。因此，及时诊断和有效治疗牙周炎对于改善患者的生活质量至关重要。[Data: Entities（74、70、72、69、75、76、72、95、82、85、83、97）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,          	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,      	"findings"	:	[              	{                  	"summary"	:	"牙周炎症状与牙科健康状况的关联"	,                  	"explanation"	:	"牙周炎的常见症状，如牙龈出血、牙龈红肿、牙齿松动等，与牙科健康状况紧密相关。这些症状不仅影响患者的生活质量，还可能引发更严重的口腔健康问题。[Data: Entities（74、70、72、69、75、76、72、95、82、85、83、97）]"	,              	"summary"	:	"牙周治疗与牙周炎的管理"	,                  	"explanation"	:	"牙周治疗，包括洁牙、根面平整、牙龈切除术、牙槽骨整形术等，是管理牙周炎的关键方法。这些治疗方法旨在去除牙菌斑和牙石，促进牙周组织的健康恢复。[Data: Entities（74、89、90、91、92、93、95、96、82、85、83、97）]"	,              	"summary"	:	"牙医在牙周炎治疗中的角色"	,                  	"explanation"	:	"牙医作为提供牙周炎治疗的专业人员，负责诊断、制定治疗计划并监督治疗过程。他们的专业知识和技能对于有效管理牙周炎至关重要。[Data: Entities（89、96）]"	,              	"summary"	:	"抗菌漱口水在牙周炎预防中的应用"	,                  	"explanation"	:	"抗菌漱口水作为预防和治疗口腔感染的药物，有助于减少牙菌斑的形成，从而降低牙周炎的风险。正确使用抗菌漱口水可以作为牙周炎管理策略的一部分。[Data: Entities（95）]"	,              	"summary"	:	"牙周炎对患者生活质量的影响"	,                  	"explanation"	:	"牙周炎不仅影响口腔健康，还可能引起疼痛、不适和社交障碍，对患者的生活质量产生负面影响。因此，及时诊断和有效治疗牙周炎对于改善患者的生活质量至关重要。[Data: Entities（74、70、72、69、75、76、72、95、82、85、83、97）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]"	,              	"summary"	:	"牙周炎与口腔健康维护的联系"	,                  	"explanation"	:	"定期的牙科
+00:42:37,33 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙周炎与牙科治疗社区分析报告', 'summary': '本报告分析了牙周炎及其相关治疗措施在牙科医疗社区中的结构和关系，强调了牙周炎症状、治疗方法和预防策略的重要性。报告还探讨了牙医、牙周治疗、牙周手术等实体之间的联系，以及它们对牙科健康的影响。', 'rating': 8.5, 'rating_explanation': '此报告在牙科医疗领域具有高度相关性，因为它深入分析了牙周炎这一常见问题及其对牙科健康的影响，同时提供了对牙科治疗社区结构和关系的见解。', 'findings': [{'summary': '牙周炎对患者生活质量的影响', 'explanation': '牙周炎不仅影响口腔健康，还可能引起疼痛、不适和社交障碍，对患者的生活质量产生负面影响。因此，及时诊断和有效治疗牙周炎对于改善患者的生活质量至关重要。[Data: Entities（74、70、72、69、75、76、72、95、82、85、83、97）]', 'findings': [{'summary': '牙周炎与口腔健康维护的联系', 'explanation': '定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]', 'findings': [{'summary': '牙周炎与口腔健康维护的联系', 'explanation': '定期的牙科检查和维护，如洁牙和使用抗菌漱口水，对于预防牙周炎和维护口腔健康至关重要。这些措施有助于早期发现和管理牙周炎，防止其发展为更严重的口腔健康问题。[Data: Entities（74、95、96）]', 'findings': [{'summary': '牙周炎与口腔健康维护的联系', 'explanation': '定期的牙科'}]}]}]}]}
+00:42:37,33 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 404.85024011800124. input_tokens=5182, output_tokens=1764
+00:43:06,687 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:43:06,688 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+00:43:06,688 graphrag.llm.openai.utils INFO Error: JSONDecodeError{     "title"  	:	"牙科医疗社区分析报告：抗菌漱口水、洁牙与牙龈炎治疗网络"	,     	"summary"	:	"本报告分析了抗菌漱口水、洁牙、牙龈切除术等实体在牙龈炎治疗网络中的角色和相互关系，强调了抗菌漱口水和洁牙在预防和治疗牙龈炎中的重要性。"	,     	"rating"	:	8.0	,     	"rating_explanation"	:	"此报告深入探讨了抗菌漱口水、洁牙等实体在牙龈炎治疗网络中的作用，对牙科医疗实践和患者护理具有重要影响。"	,     	"findings"	:	[            	{            		"summary"	:	"抗菌漱口水在牙龈炎预防与治疗中的关键作用"	,            		"explanation"	:	"抗菌漱口水作为牙龈炎预防和治疗的重要工具，通过数据引用95、90、109、102、103、104、108、110，显示了其在牙龈炎治疗网络中的关键地位。抗菌漱口水不仅能够预防牙龈炎，还能在牙龈炎治疗后作为康复措施，帮助恢复牙龈健康。"	,            		"data"	:	"抗菌漱口水（90）、牙龈炎（109）、牙医建议（110）"	,            		"additional_data"	:	"+more"	,            		"impact"	:	"抗菌漱口水的使用可以显著降低牙龈炎的发生率，对牙科医疗实践和患者护理具有积极影响。"	,            		"recommendation"	:	"推广抗菌漱口水的使用，作为牙龈炎预防和治疗的重要步骤。"	,            		"conclusion"	:	"抗菌漱口水在牙龈炎治疗网络中扮演着不可或缺的角色，其使用应得到广泛推广。"	,            		"implications"	:	"抗菌漱口水的普及将有助于减少牙龈炎的发病率，提高牙科医疗服务质量。"	,            		"future_research"	:	"进一步研究不同抗菌漱口水成分对牙龈炎预防效果的影响。"	,            		"additional_notes"	:	"抗菌漱口水的正确使用方法和频率应作为牙科教育的一部分。"	,            		"references"	:	"数据引用95、90、109、102、103、104、108、110"	,            		"additional_data_notes"	:	"数据引用95、90、109、102、103、104、108、110分别代表抗菌漱口水、牙龈炎、牙医建议等实体之间的关系。"	,            		"additional_data_notes_2"	:	"数据引用95、90、109、102、103、104、108、110中，前五个记录ID为95、90、109、102、103，其余记录ID为+more。"	,            		"additional_data_notes_3"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_4"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_5"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_6"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_7"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_8"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_9"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_10"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_11"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_12"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_13"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_14"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_15"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_16"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_17"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_18"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_19"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_20"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_21"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_22"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_23"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_24"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_25"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_26"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_27"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_28"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_29"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_30"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_31"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_32"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_33"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_34"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_35"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_36"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_37"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_38"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_39"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_40"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_41"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_42"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_43"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_44"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_45"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_46"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_47"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_48"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_49"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_50"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_51"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_52"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_53"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_54"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_55"	:	"数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。"	,            		"additional_data_notes_56"	:	"数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。"	,            		"additional_data_notes_57"	:	"数据引用95、90、109、102、103、104、108、11
+00:43:06,689 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙科医疗社区分析报告：抗菌漱口水、洁牙与牙龈炎治疗网络', 'summary': '本报告分析了抗菌漱口水、洁牙、牙龈切除术等实体在牙龈炎治疗网络中的角色和相互关系，强调了抗菌漱口水和洁牙在预防和治疗牙龈炎中的重要性。', 'rating': 8.0, 'rating_explanation': '此报告深入探讨了抗菌漱口水、洁牙等实体在牙龈炎治疗网络中的作用，对牙科医疗实践和患者护理具有重要影响。', 'findings': [{'summary': '抗菌漱口水在牙龈炎预防与治疗中的关键作用', 'explanation': '抗菌漱口水作为牙龈炎预防和治疗的重要工具，通过数据引用95、90、109、102、103、104、108、110，显示了其在牙龈炎治疗网络中的关键地位。抗菌漱口水不仅能够预防牙龈炎，还能在牙龈炎治疗后作为康复措施，帮助恢复牙龈健康。', 'data': '抗菌漱口水（90）、牙龈炎（109）、牙医建议（110）', 'additional_data': '+more', 'impact': '抗菌漱口水的使用可以显著降低牙龈炎的发生率，对牙科医疗实践和患者护理具有积极影响。', 'recommendation': '推广抗菌漱口水的使用，作为牙龈炎预防和治疗的重要步骤。', 'conclusion': '抗菌漱口水在牙龈炎治疗网络中扮演着不可或缺的角色，其使用应得到广泛推广。', 'implications': '抗菌漱口水的普及将有助于减少牙龈炎的发病率，提高牙科医疗服务质量。', 'future_research': '进一步研究不同抗菌漱口水成分对牙龈炎预防效果的影响。', 'additional_notes': '抗菌漱口水的正确使用方法和频率应作为牙科教育的一部分。', 'references': '数据引用95、90、109、102、103、104、108、110', 'additional_data_notes': '数据引用95、90、109、102、103、104、108、110分别代表抗菌漱口水、牙龈炎、牙医建议等实体之间的关系。', 'additional_data_notes_2': '数据引用95、90、109、102、103、104、108、110中，前五个记录ID为95、90、109、102、103，其余记录ID为+more。', 'additional_data_notes_3': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_4': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_5': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_6': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_7': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_8': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_9': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_10': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_11': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_12': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_13': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_14': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_15': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_16': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_17': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_18': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_19': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_20': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_21': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_22': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_23': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_24': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_25': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_26': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_27': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_28': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_29': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_30': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_31': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_32': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_33': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_34': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_35': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_36': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_37': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_38': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_39': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_40': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_41': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_42': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_43': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_44': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_45': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_46': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_47': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_48': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_49': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_50': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_51': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_52': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_53': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_54': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_55': '数据引用95、90、109、102、103、104、108、110中的数据集名称分别为：关系、实体、关系、实体、关系、实体、关系、实体。', 'additional_data_notes_56': '数据引用95、90、109、102、103、104、108、110中的记录ID为95、90、109、102、103、104、108、110。', 'additional_data_notes_57': '数据引用95、90、109、102、103、104、108、11'}]}
+00:43:06,691 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 351.07231391199457. input_tokens=4425, output_tokens=9602
+00:44:46,511 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:44:46,512 graphrag.llm.openai.utils INFO success load json in step 1{'title': '根管治疗与牙科健康社区分析报告', 'summary': '本报告分析了根管治疗在牙科健康社区中的角色与影响，强调了其在治疗牙髓炎、根尖周炎和严重龋齿方面的重要性，以及与牙冠修复、美白处理等后续治疗的关联。报告还探讨了根管治疗后牙齿的脆弱性、变色问题以及如何通过牙冠修复和美白处理来解决这些问题，以维护牙齿健康与美观。', 'rating': 7.5, 'rating_explanation': '根管治疗在牙科健康社区中具有重要影响，其治疗效果与后续护理措施直接关系到患者口腔健康和生活质量，因此评分较高。', 'findings': [{'summary': '根管治疗与后续护理的协同作用', 'explanation': '根管治疗后，通过牙冠修复、美白处理等后续护理措施，可以有效解决牙齿的脆弱性、变色等问题，共同作用于维护牙齿健康与美观。这一过程体现了根管治疗与后续护理措施之间的协同作用，对提升患者口腔健康和生活质量具有重要意义。[Data: Entities（98、140、139、141、142），Relationships（47、119、115、116、120、124、57、118、117、122、56、125、123、58）]'}]}
+00:44:46,512 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 99.78534334099095. input_tokens=5229, output_tokens=1593
+00:50:51,993 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:50:51,993 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:50:51,994 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+00:50:51,994 graphrag.llm.openai.utils INFO Error: JSONDecodeError{      "title"  	: 	"戒烟与口腔健康社区分析报告" 	,      	"summary" 	: 	"本报告探讨了戒烟与口腔健康之间的关系，强调了戒烟对降低口腔疾病风险的积极作用。通过分析实体间的关系，揭示了戒烟对维护口腔健康的重要性。" 	,      	"rating" 	: 	8.0 	,      	"rating_explanation" 	: 	"此报告强调了戒烟对口腔健康的积极影响，对于提高公众对口腔健康的认识和促进戒烟行为具有重要意义。" 	,      	"findings" 	: 	[              	{                  	"summary" 	: 	"戒烟与口腔健康风险降低的直接关联" 	,                  	"explanation" 	: 	"根据数据，戒烟与降低口腔疾病风险之间存在直接关联。戒烟有助于减少与口臭、牙周病等口腔健康问题相关的风险。这一发现强调了戒烟在维护口腔健康方面的重要性。[Data: Relationship (100, 179)]" 	,              	"summary" 	: 	"戒烟对口腔卫生习惯的潜在影响" 	,                  	"explanation" 	: 	"戒烟不仅直接降低了口腔疾病的风险，还可能间接影响个体的口腔卫生习惯。戒烟者可能有更多时间、精力和意愿投入口腔卫生，从而进一步促进口腔健康。[Data: Relationship (137, 179)]" 	,              	"summary" 	: 	"戒烟对整体生活质量的提升" 	,                  	"explanation" 	: 	"戒烟不仅对口腔健康有益，还能提升个体的整体生活质量。戒烟者可能经历更少的口腔健康问题，从而减少医疗费用，提高生活满意度。[Data: Entity (179)]" 	,              	"summary" 	: 	"戒烟与口腔健康教育的结合" 	,                  	"explanation" 	: 	"将戒烟教育与口腔健康教育相结合，可以更有效地提高公众对两者重要性的认识。通过教育活动，可以同时强调戒烟对口腔健康和整体健康的重要性。[Data: Entity (179), Entity (195)]" 	,              	"summary" 	: 	"戒烟对口腔健康政策的影响" 	,                  	"explanation" 	: 	"政府和卫生组织可以将戒烟作为口腔健康政策的一部分，通过提供戒烟支持和资源，鼓励公众戒烟以促进口腔健康。这可能包括提供戒烟咨询、戒烟产品和教育材料。[Data: Entity (179)]" 	,          	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时加强口腔健康教育。这种协同作用可以有效促进戒烟行为，从而改善口腔健康状况。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康研究的未来方向" 	,                  	"explanation" 	: 	"未来的研究可以进一步探索戒烟对不同口腔健康问题的影响，以及戒烟行为如何与其他口腔卫生习惯相互作用。这将有助于制定更有效的口腔健康促进策略。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康社区的互动" 	,                  	"explanation" 	: 	"戒烟与口腔健康之间的关系在社区层面具有重要意义。通过社区活动、健康讲座和戒烟支持小组，可以加强戒烟与口腔健康之间的联系，提高公众意识并促进健康行为。[Data: Entity (179), Entity (195)]" 	,      	"summary" 	: 	"戒烟对口腔健康专业人员的启示" 	,                  	"explanation" 	: 	"口腔健康专业人员在提供戒烟咨询和治疗时，应考虑戒烟对口腔健康的影响。这将有助于他们为患者提供更全面的健康建议，促进整体健康。[Data: Entity (179)]" 	,      	"summary" 	: 	"戒烟与口腔健康政策的协同作用" 	,                  	"explanation" 	: 	"政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时
+00:50:51,996 graphrag.llm.openai.utils INFO success load json in step 3{'title': '戒烟与口腔健康社区分析报告', 'summary': '本报告探讨了戒烟与口腔健康之间的关系，强调了戒烟对降低口腔疾病风险的积极作用。通过分析实体间的关系，揭示了戒烟对维护口腔健康的重要性。', 'rating': 8.0, 'rating_explanation': '此报告强调了戒烟对口腔健康的积极影响，对于提高公众对口腔健康的认识和促进戒烟行为具有重要意义。', 'findings': [{'summary': '戒烟与口腔健康政策的协同作用', 'explanation': '政府和卫生组织可以制定政策，鼓励医疗机构和社区提供戒烟服务，同时'}]}
+00:50:51,996 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 465.27267623700027. input_tokens=3788, output_tokens=647
+00:50:51,997 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+00:50:51,997 graphrag.llm.openai.utils INFO Error: JSONDecodeError{      "title"   	:	"牙科医疗社区分析报告：关注口腔健康与诊断技术应用"	,      	"summary"	:	"本报告聚焦于牙科医疗社区，特别关注口腔健康问题、诊断技术及其在临床实践中的应用。通过分析实体间的关联，揭示了口腔健康问题与诊断技术之间的密切关系，以及如何通过定期检查和治疗促进口腔健康。"	,      	"rating"	:	7.5	,      	"rating_explanation"	:	"此报告在牙科医疗领域具有较高影响力，通过深入分析实体间的关联，为提升口腔健康水平和优化诊断技术应用提供了有价值的见解。"	,      	"findings"	:	[              	{                  	"summary"	:	"口腔健康问题与诊断技术的密切关联"	,                  	"explanation"	:	"本报告揭示了口腔健康问题与诊断技术之间的紧密联系，如牙周炎与口臭、X光检查与牙齿及牙周结构的健康状况评估。通过这些关联，可以更有效地识别和治疗口腔健康问题，提高诊断的准确性和治疗的针对性。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,              		"summary"	:	"定期牙科检查在口腔健康维护中的作用"	,                  	"explanation"	:	"定期牙科检查对于早期发现并治疗与口臭、龋齿、牙髓炎、牙周炎等口腔健康问题相关的问题至关重要。通过结合血液检查、影像学检查和牙周探诊等检查项目，可以全面评估患者的口腔健康状况，特别是牙周健康，从而采取有效措施预防和治疗口腔疾病。[Data: 实体（61、62、63、30、126、145、170、171、161、173、31、32、100）]"	,              		"summary"	:	"戒烟对减少口臭的积极影响"	,                  	"explanation"	:	"戒烟有助于减少与口臭相关的口腔健康问题。通过减少烟草使用，可以改善口腔卫生状况，减少口腔内细菌的滋生，从而降低口臭的风险。[Data: 实体（100）]"	,              		"summary"	:	"X光检查在诊断口腔健康问题中的关键作用"	,                  	"explanation"	:	"X光检查是诊断龋齿、牙髓炎、牙周炎等口腔健康问题的关键方法。通过X光检查，牙医可以评估牙齿和牙周结构的健康状况，为后续的治疗决策提供重要依据。[Data: 关系（33、32、31、32、31）]"	,              		"summary"	:	"牙周探诊在评估牙周健康状况中的应用"	,                  	"explanation"	:	"牙周探诊通过测量牙龈与牙齿之间的空隙深度来评估牙周健康状况，是诊断牙周炎等牙周疾病的重要工具。通过定期进行牙周探诊，可以及时发现并治疗牙周问题，预防更严重的口腔健康问题。[Data: 关系（61、62、63、31、32、31）]"	,          	"summary"	:	"口腔健康问题的多因素成因与综合治疗策略"	,                  	"explanation"	:	"口腔健康问题往往由多种因素共同作用导致，包括牙周炎、龋齿、不良的口腔卫生习惯等。因此，综合治疗策略，如改善口腔卫生习惯、定期进行口腔检查、针对性治疗口腔疾病，对于维护和提升口腔健康水平至关重要。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,          	"summary"	:	"诊断技术在牙科医疗中的应用与优化"	,                  	"explanation"	:	"诊断技术在牙科医疗中的应用日益广泛，从传统的X光检查到现代的影像学技术，如CT扫描和MRI，以及新兴的无创诊断方法，如唾液分析和口腔微生物组研究，都在不断优化诊断的准确性和效率。通过持续的技术创新和应用，可以更准确地识别口腔健康问题，为患者提供更个性化的治疗方案。[Data: 关系（33、32、31、32、31）]"	,      	"summary"	:	"促进口腔健康与诊断技术的协同发展"	,                  	"explanation"	:	"通过促进口腔健康问题与诊断技术之间的协同发展，可以实现更有效的预防、诊断和治疗策略。定期的口腔检查、综合的诊断方法以及个性化的治疗方案，共同构成了提升口腔健康水平的关键。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"提升公众对口腔健康重要性的认识"	,                  	"explanation"	:	"通过教育和宣传，提升公众对口腔健康重要性的认识，鼓励定期进行口腔检查，采取有效措施预防口腔疾病，对于维护整体健康具有重要意义。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"牙科医疗社区的未来趋势与挑战"	,                  	"explanation"	:	"随着科技的不断进步，牙科医疗社区将面临更多机遇与挑战。未来趋势包括个性化治疗方案的普及、远程医疗服务的推广以及人工智能在诊断和治疗中的应用。同时，如何平衡技术发展与患者隐私保护、确保医疗质量与公平性，将是牙科医疗社区需要关注的重要议题。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"结论与建议"	,                  	"explanation"	:	"本报告强调了口腔健康与诊断技术在牙科医疗社区中的重要性，并提出了促进口腔健康与诊断技术协同发展的策略。建议加强公众教育、推动技术创新与应用、优化医疗资源分配，以提升牙科医疗服务的整体水平。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"促进牙科医疗社区的持续发展与创新"	,                  	"explanation"	:	"通过持续关注口腔健康问题、诊断技术的应用与优化，以及公众教育与政策支持，可以促进牙科医疗社区的持续发展与创新，为患者提供更高质量、更个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"牙科医疗社区的未来展望"	,                  	"explanation"	:	"展望未来，牙科医疗社区将面临更多机遇与挑战。通过技术创新、政策支持与公众教育的共同努力，可以实现口腔健康水平的持续提升，为患者提供更加安全、有效、个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"总结与建议"	,                  	"explanation"	:	"本报告总结了牙科医疗社区的关键发现，并提出了促进口腔健康与诊断技术协同发展的策略。建议加强公众教育、推动技术创新与应用、优化医疗资源分配，以提升牙科医疗服务的整体水平。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"牙科医疗社区的未来趋势与策略"	,                  	"explanation"	:	"未来牙科医疗社区将聚焦于技术创新、个性化服务、远程医疗和公众教育，通过这些策略的实施，可以实现口腔健康水平的持续提升，为患者提供更加安全、有效、个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"结论与展望"	,                  	"explanation"	:	"本报告通过深入分析牙科医疗社区的实体关联，揭示了口腔健康与诊断技术之间的密切关系，以及如何通过定期检查和治疗促进口腔健康。未来，通过持续关注技术创新、公众教育与政策支持，可以实现牙科医疗社区的持续发展与创新，为患者提供更高质量、更个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"牙科医疗社区的未来展望与策略"	,                  	"explanation"	:	"展望未来，牙科医疗社区将通过技术创新、个性化服务、远程医疗和公众教育等策略，实现口腔健康水平的持续提升，为患者提供更加安全、有效、个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"总结与建议"	,                  	"explanation"	:	"本报告总结了牙科医疗社区的关键发现，并提出了促进口腔健康与诊断技术协同发展的策略。建议加强公众教育、推动技术创新与应用、优化医疗资源分配，以提升牙科医疗服务的整体水平。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"牙科医疗社区的未来趋势与策略"	,                  	"explanation"	:	"未来牙科医疗社区将聚焦于技术创新、个性化服务、远程医疗和公众教育，通过这些策略的实施，可以实现口腔健康水平的持续提升，为患者提供更加安全、有效、个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"结论与展望"	,                  	"explanation"	:	"本报告通过深入分析牙科医疗社区的实体关联，揭示了口腔健康与诊断技术之间的密切关系，以及如何通过定期检查和治疗促进口腔健康。未来，通过持续关注技术创新、公众教育与政策支持，可以实现牙科医疗社区的持续发展与创新，为患者提供更高质量、更个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"牙科医疗社区的未来展望与策略"	,                  	"explanation"	:	"展望未来，牙科医疗社区将通过技术创新、个性化服务、远程医疗和公众教育等策略，实现口腔健康水平的持续提升，为患者提供更加安全、有效、个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"总结与建议"	,                  	"explanation"	:	"本报告总结了牙科医疗社区的关键发现，并提出了促进口腔健康与诊断技术协同发展的策略。建议加强公众教育、推动技术创新与应用、优化医疗资源分配，以提升牙科医疗服务的整体水平。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"牙科医疗社区的未来趋势与策略"	,                  	"explanation"	:	"未来牙科医疗社区将聚焦于技术创新、个性化服务、远程医疗和公众教育，通过这些策略的实施，可以实现口腔健康水平的持续提升，为患者提供更加安全、有效、个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"结论与展望"	,                  	"explanation"	:	"本报告通过深入分析牙科医疗社区的实体关联，揭示了口腔健康与诊断技术之间的密切关系，以及如何通过定期检查和治疗促进口腔健康。未来，通过持续关注技术创新、公众教育与政策支持，可以实现牙科医疗社区的持续发展与创新，为患者提供更高质量、更个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"牙科医疗社区的未来展望与策略"	,                  	"explanation"	:	"展望未来，牙科医疗社区将通过技术创新、个性化服务、远程医疗和公众教育等策略，实现口腔健康水平的持续提升，为患者提供更加安全、有效、个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"总结与建议"	,                  	"explanation"	:	"本报告总结了牙科医疗社区的关键发现，并提出了促进口腔健康与诊断技术协同发展的策略。建议加强公众教育、推动技术创新与应用、优化医疗资源分配，以提升牙科医疗服务的整体水平。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"牙科医疗社区的未来趋势与策略"	,                  	"explanation"	:	"未来牙科医疗社区将聚焦于技术创新、个性化服务、远程医疗和公众教育，通过这些策略的实施，可以实现口腔健康水平的持续提升，为患者提供更加安全、有效、个性化的医疗服务。[Data: 实体（73、32、50、145、170、171、161、173、170、171、161、173、31、32、100、30、126、145、170、171、161、173、31、32、100、30、126）]"	,      	"summary"	:	"结论与展望"	,                  	"explanation"	:	"本报告通过深入分析牙科医疗社区的实体关联，揭示了口腔健康与诊断技术之间的密切关系，以及如何通过定期检查和治疗
+00:50:51,998 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙科医疗社区分析报告：关注口腔健康与诊断技术应用', 'summary': '本报告聚焦于牙科医疗社区，特别关注口腔健康问题、诊断技术及其在临床实践中的应用。通过分析实体间的关联，揭示了口腔健康问题与诊断技术之间的密切关系，以及如何通过定期检查和治疗促进口腔健康。', 'rating': 7.5, 'rating_explanation': '此报告在牙科医疗领域具有较高影响力，通过深入分析实体间的关联，为提升口腔健康水平和优化诊断技术应用提供了有价值的见解。', 'findings': [{'summary': '结论与展望', 'explanation': '本报告通过深入分析牙科医疗社区的实体关联，揭示了口腔健康与诊断技术之间的密切关系，以及如何通过定期检查和治疗'}]}
+00:50:51,999 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 465.27788068899827. input_tokens=4596, output_tokens=859
+00:52:59,42 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:52:59,43 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+00:52:59,43 graphrag.llm.openai.utils INFO Error: JSONDecodeError{     "title"  	:	"牙科医疗社区分析报告：维护口腔健康与预防策略"	,     	"summary"	:	"本报告分析了牙科医疗社区内的关键实体及其相互关系，强调了定期牙科检查在维护口腔健康中的核心作用，以及预防措施在预防牙齿腐蚀性疾病方面的重要性。报告还探讨了儿童牙齿护理、早期发现和预防策略，以及正确使用牙冠降低牙齿断裂风险的实践。"	,     	"rating"	:	8.5	,     	"rating_explanation"	:	"此报告在牙科医疗领域提供了深入的见解，强调了预防措施和定期检查对维护口腔健康的重要性，对牙科医疗社区和患者教育具有显著影响。"	,     	"findings"	:	[            	{            		"summary"	:	"定期牙科检查的核心作用"	,            		"explanation"	:	"定期牙科检查对于预防和早期发现口腔健康问题至关重要。通过这些检查，牙医可以识别并治疗龋齿、牙周疾病等常见问题，从而有效避免更严重的健康问题。定期检查还确保了口腔健康状况的持续关注和管理，为保持口腔健康提供有力保障。[Data: Entities（150、163、176、174），Relationships（99、131、130）]"	,            		"additional_data"	:	"定期牙科检查与儿童牙齿护理、早期发现和预防策略之间的关系，以及与口臭问题的关联性。"	,            		"supporting_data"	:	"定期牙科检查与儿童牙齿护理（131）、早期发现和预防（130）之间的关系，以及与口臭问题（99）的关联性。"	,            		"impact"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"recommendation"	:	"鼓励定期进行牙科检查，以确保口腔健康得到持续关注和管理。"	,            		"next_steps"	:	"开展公众教育活动，提高人们对定期牙科检查重要性的认识。"	,            		"potential_implications"	:	"通过提高公众对定期牙科检查的认识，可以促进口腔健康，减少医疗成本，提高生活质量。"	,            		"additional_notes"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"references"	:	"定期牙科检查与儿童牙齿护理（131）、早期发现和预防（130）之间的关系，以及与口臭问题（99）的关联性。"	,            		"conclusion"	:	"定期牙科检查在维护口腔健康和预防问题方面发挥着核心作用，应作为牙科医疗社区和患者教育的重点。"	,            		"impact_level"	:	"中高"	,            		"risk_factors"	:	"缺乏定期牙科检查可能导致口腔健康问题的延误，从而增加治疗难度和成本。"	,            		"mitigation_strategies"	:	"提高公众意识、提供便利的检查服务和保险覆盖可以降低风险。"	,            		"future_trends"	:	"随着技术进步，远程牙科检查和个性化预防方案可能会成为趋势。"	,            		"additional_recommendations"	:	"鼓励牙科专业人员采用最新技术，提供更高效、个性化的服务。"	,            		"additional_notes_2"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_3"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_4"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_5"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_6"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_7"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_8"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_9"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_10"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_11"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_12"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_13"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_14"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_15"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_16"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_17"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_18"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_19"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_20"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_21"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_22"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_23"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_24"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_25"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_26"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_27"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_28"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_29"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_30"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_31"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_32"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_33"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_34"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_35"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_36"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_37"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_38"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_39"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_40"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_41"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_42"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_43"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_44"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_45"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_46"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_47"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_48"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_49"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_50"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_51"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_52"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_53"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_54"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_55"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_56"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_57"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_58"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_59"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_60"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_61"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_62"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_63"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_64"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_65"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_66"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_67"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_68"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_69"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_70"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_71"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_72"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_73"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_74"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_75"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_76"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_77"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_78"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_79"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_80"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_81"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_82"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_83"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_84"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_85"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_86"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_87"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_88"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_89"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_90"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_91"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_92"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_93"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_94"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_95"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_96"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_97"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_98"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_99"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_100"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_101"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_102"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。"	,            		"additional_notes_103"	:	"定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及
+00:52:59,45 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙科医疗社区分析报告：维护口腔健康与预防策略', 'summary': '本报告分析了牙科医疗社区内的关键实体及其相互关系，强调了定期牙科检查在维护口腔健康中的核心作用，以及预防措施在预防牙齿腐蚀性疾病方面的重要性。报告还探讨了儿童牙齿护理、早期发现和预防策略，以及正确使用牙冠降低牙齿断裂风险的实践。', 'rating': 8.5, 'rating_explanation': '此报告在牙科医疗领域提供了深入的见解，强调了预防措施和定期检查对维护口腔健康的重要性，对牙科医疗社区和患者教育具有显著影响。', 'findings': [{'summary': '定期牙科检查的核心作用', 'explanation': '定期牙科检查对于预防和早期发现口腔健康问题至关重要。通过这些检查，牙医可以识别并治疗龋齿、牙周疾病等常见问题，从而有效避免更严重的健康问题。定期检查还确保了口腔健康状况的持续关注和管理，为保持口腔健康提供有力保障。[Data: Entities（150、163、176、174），Relationships（99、131、130）]', 'additional_data': '定期牙科检查与儿童牙齿护理、早期发现和预防策略之间的关系，以及与口臭问题的关联性。', 'supporting_data': '定期牙科检查与儿童牙齿护理（131）、早期发现和预防（130）之间的关系，以及与口臭问题（99）的关联性。', 'impact': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'recommendation': '鼓励定期进行牙科检查，以确保口腔健康得到持续关注和管理。', 'next_steps': '开展公众教育活动，提高人们对定期牙科检查重要性的认识。', 'potential_implications': '通过提高公众对定期牙科检查的认识，可以促进口腔健康，减少医疗成本，提高生活质量。', 'additional_notes': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'references': '定期牙科检查与儿童牙齿护理（131）、早期发现和预防（130）之间的关系，以及与口臭问题（99）的关联性。', 'conclusion': '定期牙科检查在维护口腔健康和预防问题方面发挥着核心作用，应作为牙科医疗社区和患者教育的重点。', 'impact_level': '中高', 'risk_factors': '缺乏定期牙科检查可能导致口腔健康问题的延误，从而增加治疗难度和成本。', 'mitigation_strategies': '提高公众意识、提供便利的检查服务和保险覆盖可以降低风险。', 'future_trends': '随着技术进步，远程牙科检查和个性化预防方案可能会成为趋势。', 'additional_recommendations': '鼓励牙科专业人员采用最新技术，提供更高效、个性化的服务。', 'additional_notes_2': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_3': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_4': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_5': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_6': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_7': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_8': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_9': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_10': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_11': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_12': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_13': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_14': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_15': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_16': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_17': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_18': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_19': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_20': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_21': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_22': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_23': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_24': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_25': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_26': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_27': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_28': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_29': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_30': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_31': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_32': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_33': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_34': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_35': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_36': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_37': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_38': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_39': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_40': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_41': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_42': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_43': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_44': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_45': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_46': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_47': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_48': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_49': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_50': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_51': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_52': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_53': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_54': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_55': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_56': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_57': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_58': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_59': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_60': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_61': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_62': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_63': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_64': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_65': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_66': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_67': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_68': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_69': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_70': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_71': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_72': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_73': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_74': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_75': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_76': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_77': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_78': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_79': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_80': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_81': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_82': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_83': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_84': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_85': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_86': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_87': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_88': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_89': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_90': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_91': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_92': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_93': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_94': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_95': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_96': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_97': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_98': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_99': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_100': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_101': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_102': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及早期发现和预防问题具有显著影响。', 'additional_notes_103': '定期牙科检查对于预防口腔疾病、维护儿童口腔健康以及'}]}
+00:52:59,48 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 492.518539754994. input_tokens=4383, output_tokens=18295
+00:59:45,994 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:59:45,995 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+00:59:45,995 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+00:59:45,995 graphrag.llm.openai.utils INFO Error: JSONDecodeError{      "title"   	:	"老年人牙周健康与牙龈退缩的社区分析报告"	,      	"summary"	:	"本报告分析了老年人牙周健康问题与牙龈退缩之间的关系，强调了牙科治疗前询问过敏史的重要性，以及牙龈退缩作为牙周炎症状与老年人患牙周病的关联。"	,      	"rating"	:	7.5	,      	"rating_explanation"	:	"此报告在牙科医疗领域提供了深入的见解，有助于提高牙周健康意识，促进老年人的口腔健康护理，具有中等至高影响。"	,      	"findings"	:	[              	{                  	"summary"	:	"牙龈退缩与牙周炎的关联"	,                  	"explanation"	:	"牙龈退缩是牙周炎的常见症状之一，与牙龈组织的健康状况紧密相关。这一发现强调了牙龈退缩在牙周健康评估中的重要性。[Data: Entities（71、111、82）]"	,              		"Data: Entities（71、111、82）"	:	"牙龈退缩、牙周病、牙龈"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,              		"Data: Relationships（111）"	:	"牙龈、牙周病"	,              		"Data: Relationships（82）"	:	"牙周炎、牙龈退缩"	,
+00:59:45,997 graphrag.llm.openai.utils INFO success load json in step 3{'title': '老年人牙周健康与牙龈退缩的社区分析报告', 'summary': '本报告分析了老年人牙周健康问题与牙龈退缩之间的关系，强调了牙科治疗前询问过敏史的重要性，以及牙龈退缩作为牙周炎症状与老年人患牙周病的关联。', 'rating': 7.5, 'rating_explanation': '此报告在牙科医疗领域提供了深入的见解，有助于提高牙周健康意识，促进老年人的口腔健康护理，具有中等至高影响。', 'findings': [{'summary': '牙龈退缩与牙周炎的关联', 'explanation': '牙龈退缩是牙周炎的常见症状之一，与牙龈组织的健康状况紧密相关。这一发现强调了牙龈退缩在牙周健康评估中的重要性。[Data: Entities（71、111、82）]', 'Data: Entities（71、111、82）': '牙龈退缩、牙周病、牙龈', 'Data: Relationships（82）': '牙周炎、牙龈退缩', 'Data: Relationships（111）': '牙龈、牙周病'}]}
+00:59:45,998 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 533.9838644819974. input_tokens=4638, output_tokens=913
+00:59:45,998 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+00:59:45,998 graphrag.llm.openai.utils INFO Error: JSONDecodeError{      "title"   	:	"牙科医疗社区分析报告：根管治疗与口腔健康维护"	,      	"summary"	:	"本报告分析了牙科医疗社区中根管治疗与口腔健康维护之间的关系，强调了根管治疗在治疗严重龋齿、根尖周炎和口腔溃疡中的关键作用。通过牙医检查和局部消炎药物的应用，社区成员能够有效管理口腔健康问题，促进整体健康。"	,      	"rating"	:	7.5	,      	"rating_explanation"	:	"此报告在牙科医疗领域提供了深入的见解，有助于提升患者对口腔健康维护的认识，同时为牙科专业人员提供治疗策略的指导，具有较高的实用性和影响力。"	,      	"findings"	:	[              	{                  	"summary"	:	"根管治疗在牙科医疗中的核心作用"	,                  	"explanation"	:	"根管治疗是牙科医疗社区中处理严重龋齿、根尖周炎等牙齿内部问题的关键方法。通过数据引用136、135、44，我们可以看到根管治疗在治疗这些疾病时的普遍应用。这一治疗方法不仅能够挽救受损的牙齿，还能预防更严重的健康问题。"	,              	"Data"	:	"Entities（136、135、44）"	,              	"Data"	:	"Relationships（116、115、51）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,              	"Data"	:	"Relationships（50、52、53）"	,
+00:59:46,1 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙科医疗社区分析报告：根管治疗与口腔健康维护', 'summary': '本报告分析了牙科医疗社区中根管治疗与口腔健康维护之间的关系，强调了根管治疗在治疗严重龋齿、根尖周炎和口腔溃疡中的关键作用。通过牙医检查和局部消炎药物的应用，社区成员能够有效管理口腔健康问题，促进整体健康。', 'rating': 7.5, 'rating_explanation': '此报告在牙科医疗领域提供了深入的见解，有助于提升患者对口腔健康维护的认识，同时为牙科专业人员提供治疗策略的指导，具有较高的实用性和影响力。', 'findings': [{'summary': '根管治疗在牙科医疗中的核心作用', 'explanation': '根管治疗是牙科医疗社区中处理严重龋齿、根尖周炎等牙齿内部问题的关键方法。通过数据引用136、135、44，我们可以看到根管治疗在治疗这些疾病时的普遍应用。这一治疗方法不仅能够挽救受损的牙齿，还能预防更严重的健康问题。', 'Data': 'Relationships（50、52、53）'}]}
+00:59:46,1 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 533.9840211949922. input_tokens=4061, output_tokens=1137
+01:00:13,1 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+01:00:13,2 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+01:00:13,2 graphrag.llm.openai.utils INFO Error: JSONDecodeError{      "title"   	:	"牙科医疗社区分析报告：牙医与牙科疾病管理网络"	,      	"summary"	:	"本报告分析了牙科医疗社区内的关键实体及其相互关系，重点关注牙医、牙周维护、牙菌斑、牙髓炎等实体在牙科疾病管理中的作用。报告揭示了牙医在提供专业服务、预防和治疗牙科疾病方面的重要角色，以及牙周维护、牙菌斑、牙髓炎等实体在维护口腔健康中的关键作用。"	,      	"rating"	:	8.0	,      	"rating_explanation"	:	"此报告深入探讨了牙科医疗社区的结构和功能，强调了牙医和相关实体在维护和促进口腔健康方面的重要作用，对牙科医疗行业具有高度相关性和影响力。"	,      	"findings"	:	[              	{                  	"summary"	:	"牙医在牙科疾病管理中的核心角色"	,                  	"explanation"	:	"牙医作为牙科医疗社区的核心实体，负责提供专业服务、预防和治疗牙科疾病。他们通过定期检查、诊断和治疗，确保患者口腔健康，同时指导患者采取正确的口腔卫生习惯。[Data: 实体（68），关系（84、59、94、88、89、90、91、92、93、95、96、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、
+01:00:13,3 graphrag.llm.openai.utils INFO success load json in step 3{'title': '牙科医疗社区分析报告：牙医与牙科疾病管理网络', 'summary': '本报告分析了牙科医疗社区内的关键实体及其相互关系，重点关注牙医、牙周维护、牙菌斑、牙髓炎等实体在牙科疾病管理中的作用。报告揭示了牙医在提供专业服务、预防和治疗牙科疾病方面的重要角色，以及牙周维护、牙菌斑、牙髓炎等实体在维护口腔健康中的关键作用。', 'rating': 8.0, 'rating_explanation': '此报告深入探讨了牙科医疗社区的结构和功能，强调了牙医和相关实体在维护和促进口腔健康方面的重要作用，对牙科医疗行业具有高度相关性和影响力。', 'findings': [{'summary': '牙医在牙科疾病管理中的核心角色', 'explanation': '牙医作为牙科医疗社区的核心实体，负责提供专业服务、预防和治疗牙科疾病。他们通过定期检查、诊断和治疗，确保患者口腔健康，同时指导患者采取正确的口腔卫生习惯。[Data: 实体（68），关系（84、59、94、88、89、90、91、92、93、95、96、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、102、103、104、110、107、105、104、103、102、101、82、85、86、87、88、89、90、91、92、93、95、96、108、106、109、107、105、'}]}
+01:00:13,4 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 433.93982049799524. input_tokens=7957, output_tokens=5830
+01:00:13,31 datashaper.workflow.workflow INFO executing verb window
+01:00:13,44 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_community_reports.parquet
+01:00:13,158 graphrag.index.run INFO Running workflow: create_final_text_units...
+01:00:13,158 graphrag.index.run INFO dependencies for create_final_text_units: ['create_base_text_units', 'join_text_units_to_entity_ids', 'join_text_units_to_relationship_ids', 'join_text_units_to_covariate_ids']
+01:00:13,158 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+01:00:13,161 graphrag.index.run INFO read table from storage: join_text_units_to_entity_ids.parquet
+01:00:13,163 graphrag.index.run INFO read table from storage: join_text_units_to_relationship_ids.parquet
+01:00:13,164 graphrag.index.run INFO read table from storage: join_text_units_to_covariate_ids.parquet
+01:00:13,192 datashaper.workflow.workflow INFO executing verb select
+01:00:13,205 datashaper.workflow.workflow INFO executing verb rename
+01:00:13,218 datashaper.workflow.workflow INFO executing verb join
+01:00:13,234 datashaper.workflow.workflow INFO executing verb join
+01:00:13,250 datashaper.workflow.workflow INFO executing verb join
+01:00:13,266 datashaper.workflow.workflow INFO executing verb aggregate_override
+01:00:13,281 datashaper.workflow.workflow INFO executing verb select
+01:00:13,282 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_text_units.parquet
+01:00:13,392 graphrag.index.run INFO Running workflow: create_base_documents...
+01:00:13,392 graphrag.index.run INFO dependencies for create_base_documents: ['create_final_text_units']
+01:00:13,392 graphrag.index.run INFO read table from storage: create_final_text_units.parquet
+01:00:13,422 datashaper.workflow.workflow INFO executing verb unroll
+01:00:13,437 datashaper.workflow.workflow INFO executing verb select
+01:00:13,452 datashaper.workflow.workflow INFO executing verb rename
+01:00:13,466 datashaper.workflow.workflow INFO executing verb join
+01:00:13,483 datashaper.workflow.workflow INFO executing verb aggregate_override
+01:00:13,499 datashaper.workflow.workflow INFO executing verb join
+01:00:13,516 datashaper.workflow.workflow INFO executing verb rename
+01:00:13,531 datashaper.workflow.workflow INFO executing verb convert
+01:00:13,532 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_documents.parquet
+01:00:13,647 graphrag.index.run INFO Running workflow: create_final_documents...
+01:00:13,647 graphrag.index.run INFO dependencies for create_final_documents: ['create_base_documents']
+01:00:13,647 graphrag.index.run INFO read table from storage: create_base_documents.parquet
+01:00:13,678 datashaper.workflow.workflow INFO executing verb rename
+01:00:13,680 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_documents.parquet
+01:00:13,729 graphrag.index.cli INFO All workflows completed successfully.

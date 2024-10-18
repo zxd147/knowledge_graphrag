@@ -1,0 +1,897 @@
+16:27:07,16 graphrag.index.cli INFO Logging enabled at output/reports/indexing-engine.log
+16:27:07,17 graphrag.index.cli INFO Starting pipeline run for: 20240905-162707, dryrun=False
+16:27:07,18 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "model": "Qwen2-7B-Instruct",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "http://192.168.0.245:5008/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 2.0,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": ".",
+    "reporting": {
+        "type": "file",
+        "base_dir": "output/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "output/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "model": "${GRAPHRAG_EMBEDDING_MODEL$}",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:6008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 2000,
+        "max_input_length": 3000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": true,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+16:27:07,18 graphrag.index.create_pipeline_config INFO skipping workflows 
+16:27:07,18 graphrag.index.run INFO Running pipeline
+16:27:07,18 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at output/artifacts
+16:27:07,18 graphrag.index.input.load_input INFO loading input from root_dir=input
+16:27:07,18 graphrag.index.input.load_input INFO using file storage for input
+16:27:07,19 graphrag.index.storage.file_pipeline_storage INFO search input for files matching .*\.txt$
+16:27:07,19 graphrag.index.input.text INFO found text files from input, found [('zyy.txt', {}), ('zyy1.txt', {})]
+16:27:07,20 graphrag.index.input.text INFO Found 2 files, loading 2
+16:27:07,21 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_final_covariates', 'create_summarized_entities', 'join_text_units_to_covariate_ids', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+16:27:07,21 graphrag.index.run INFO Final # of rows loaded: 2
+16:27:07,95 graphrag.index.run INFO Running workflow: create_base_text_units...
+16:27:07,96 graphrag.index.run INFO dependencies for create_base_text_units: []
+16:27:07,98 datashaper.workflow.workflow INFO executing verb orderby
+16:27:07,99 datashaper.workflow.workflow INFO executing verb zip
+16:27:07,101 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:27:07,104 datashaper.workflow.workflow INFO executing verb chunk
+16:27:07,189 datashaper.workflow.workflow INFO executing verb select
+16:27:07,191 datashaper.workflow.workflow INFO executing verb unroll
+16:27:07,193 datashaper.workflow.workflow INFO executing verb rename
+16:27:07,196 datashaper.workflow.workflow INFO executing verb genid
+16:27:07,198 datashaper.workflow.workflow INFO executing verb unzip
+16:27:07,201 datashaper.workflow.workflow INFO executing verb copy
+16:27:07,203 datashaper.workflow.workflow INFO executing verb filter
+16:27:07,206 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+16:27:07,294 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+16:27:07,294 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+16:27:07,295 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+16:27:07,302 datashaper.workflow.workflow INFO executing verb entity_extract
+16:27:07,303 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.245:5008/v1
+16:27:07,314 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for Qwen2-7B-Instruct: TPM=0, RPM=0
+16:27:07,314 graphrag.index.llm.load_llm INFO create concurrency limiter for Qwen2-7B-Instruct: 25
+16:27:29,40 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:29,42 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 21.718951917951927. input_tokens=2936, output_tokens=1216
+16:27:44,786 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:44,786 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 15.74324115307536. input_tokens=34, output_tokens=923
+16:27:58,165 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:27:58,166 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 50.844769365969114. input_tokens=2937, output_tokens=3213
+16:28:07,685 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:28:07,686 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 60.36089609505143. input_tokens=2633, output_tokens=3428
+16:28:09,85 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:28:09,87 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 61.769929156056605. input_tokens=2821, output_tokens=3481
+16:28:37,676 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:28:37,677 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 28.588665485032834. input_tokens=34, output_tokens=1868
+16:28:48,783 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:28:48,784 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 50.616758950054646. input_tokens=34, output_tokens=3165
+16:29:07,167 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:29:07,168 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 59.47987595491577. input_tokens=34, output_tokens=3428
+16:29:07,176 datashaper.workflow.workflow INFO executing verb merge_graphs
+16:29:07,183 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+16:29:07,263 graphrag.index.run INFO Running workflow: create_final_covariates...
+16:29:07,263 graphrag.index.run INFO dependencies for create_final_covariates: ['create_base_text_units']
+16:29:07,264 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+16:29:07,271 datashaper.workflow.workflow INFO executing verb extract_covariates
+16:29:33,322 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:29:33,323 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 26.049153430969454. input_tokens=2199, output_tokens=1509
+16:29:45,64 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:29:45,65 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 37.783991343923844. input_tokens=2314, output_tokens=1409
+16:30:22,619 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:30:22,620 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 37.553894076962024. input_tokens=19, output_tokens=1404
+16:30:48,756 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:30:48,756 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:30:48,757 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 101.47225041000638. input_tokens=2011, output_tokens=3482
+16:30:48,759 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 101.48122893902473. input_tokens=2315, output_tokens=6720
+16:31:16,385 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:31:16,386 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 103.06131990707945. input_tokens=19, output_tokens=4871
+16:32:31,551 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:31,551 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:31,553 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 102.79242437600624. input_tokens=19, output_tokens=3494
+16:32:31,554 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 102.79086135292891. input_tokens=19, output_tokens=6344
+16:32:31,562 datashaper.workflow.workflow INFO executing verb window
+16:32:31,565 datashaper.workflow.workflow INFO executing verb genid
+16:32:31,568 datashaper.workflow.workflow INFO executing verb convert
+16:32:31,572 datashaper.workflow.workflow INFO executing verb rename
+16:32:31,576 datashaper.workflow.workflow INFO executing verb select
+16:32:31,576 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_covariates.parquet
+16:32:31,665 graphrag.index.run INFO Running workflow: create_summarized_entities...
+16:32:31,665 graphrag.index.run INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+16:32:31,666 graphrag.index.run INFO read table from storage: create_base_extracted_entities.parquet
+16:32:31,675 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+16:32:32,553 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:32,554 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8454601659905165. input_tokens=216, output_tokens=39
+16:32:32,603 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:32,604 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8940014259424061. input_tokens=225, output_tokens=38
+16:32:32,679 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:32,679 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.9828481590375304. input_tokens=180, output_tokens=53
+16:32:33,354 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:33,354 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.6613595900125802. input_tokens=248, output_tokens=115
+16:32:33,503 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:33,504 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8151644470635802. input_tokens=193, output_tokens=106
+16:32:33,875 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:33,875 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.177264429978095. input_tokens=198, output_tokens=122
+16:32:34,70 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:34,71 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.364223440992646. input_tokens=177, output_tokens=70
+16:32:34,338 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:34,338 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6370359640568495. input_tokens=200, output_tokens=79
+16:32:34,605 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:34,605 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.9184948820620775. input_tokens=394, output_tokens=202
+16:32:34,701 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:34,701 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0107092290418223. input_tokens=333, output_tokens=204
+16:32:35,275 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:35,275 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5721373970154673. input_tokens=207, output_tokens=112
+16:32:35,394 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:35,395 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6899365389253944. input_tokens=229, output_tokens=119
+16:32:35,939 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:35,940 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.2399898789590225. input_tokens=279, output_tokens=150
+16:32:37,840 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:32:37,841 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.146007211995311. input_tokens=228, output_tokens=198
+16:32:37,849 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+16:32:37,934 graphrag.index.run INFO Running workflow: join_text_units_to_covariate_ids...
+16:32:37,934 graphrag.index.run INFO dependencies for join_text_units_to_covariate_ids: ['create_final_covariates']
+16:32:37,935 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+16:32:37,945 datashaper.workflow.workflow INFO executing verb select
+16:32:37,949 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:32:37,951 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_covariate_ids.parquet
+16:32:38,40 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+16:32:38,40 graphrag.index.run INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+16:32:38,40 graphrag.index.run INFO read table from storage: create_summarized_entities.parquet
+16:32:38,50 datashaper.workflow.workflow INFO executing verb cluster_graph
+16:32:38,67 datashaper.workflow.workflow INFO executing verb select
+16:32:38,68 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+16:32:38,154 graphrag.index.run INFO Running workflow: create_final_entities...
+16:32:38,159 graphrag.index.run INFO dependencies for create_final_entities: ['create_base_entity_graph']
+16:32:38,159 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:32:38,170 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:38,178 datashaper.workflow.workflow INFO executing verb rename
+16:32:38,183 datashaper.workflow.workflow INFO executing verb select
+16:32:38,188 datashaper.workflow.workflow INFO executing verb dedupe
+16:32:38,194 datashaper.workflow.workflow INFO executing verb rename
+16:32:38,199 datashaper.workflow.workflow INFO executing verb filter
+16:32:38,208 datashaper.workflow.workflow INFO executing verb text_split
+16:32:38,215 datashaper.workflow.workflow INFO executing verb drop
+16:32:38,221 datashaper.workflow.workflow INFO executing verb merge
+16:32:38,236 datashaper.workflow.workflow INFO executing verb text_embed
+16:32:38,237 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.245:6008/v1
+16:32:38,252 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for ${GRAPHRAG_EMBEDDING_MODEL$}: TPM=0, RPM=0
+16:32:38,252 graphrag.index.llm.load_llm INFO create concurrency limiter for ${GRAPHRAG_EMBEDDING_MODEL$}: 25
+16:32:38,256 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 120 inputs via 120 snippets using 8 batches. max_batch_size=16, max_tokens=8191
+16:32:38,479 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:38,653 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:38,838 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:39,8 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:39,194 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:39,413 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:39,586 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:39,670 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
+16:32:39,739 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.4822194909211248. input_tokens=1223, output_tokens=0
+16:32:39,801 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.5398892430821434. input_tokens=435, output_tokens=0
+16:32:39,835 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.5732155530713499. input_tokens=178, output_tokens=0
+16:32:39,892 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.6318447830853984. input_tokens=1081, output_tokens=0
+16:32:39,953 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.694159178994596. input_tokens=792, output_tokens=0
+16:32:40,14 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.7561335290083662. input_tokens=486, output_tokens=0
+16:32:40,75 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.8164003109559417. input_tokens=891, output_tokens=0
+16:32:40,135 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.8757296280236915. input_tokens=487, output_tokens=0
+16:32:40,159 datashaper.workflow.workflow INFO executing verb drop
+16:32:40,166 datashaper.workflow.workflow INFO executing verb filter
+16:32:40,174 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_entities.parquet
+16:32:40,290 graphrag.index.run INFO Running workflow: create_final_nodes...
+16:32:40,290 graphrag.index.run INFO dependencies for create_final_nodes: ['create_base_entity_graph']
+16:32:40,290 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:32:40,304 datashaper.workflow.workflow INFO executing verb layout_graph
+16:32:40,328 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:40,338 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:40,347 datashaper.workflow.workflow INFO executing verb filter
+16:32:40,356 datashaper.workflow.workflow INFO executing verb drop
+16:32:40,363 datashaper.workflow.workflow INFO executing verb select
+16:32:40,371 datashaper.workflow.workflow INFO executing verb rename
+16:32:40,378 datashaper.workflow.workflow INFO executing verb join
+16:32:40,389 datashaper.workflow.workflow INFO executing verb convert
+16:32:40,397 datashaper.workflow.workflow INFO executing verb rename
+16:32:40,398 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_nodes.parquet
+16:32:40,497 graphrag.index.run INFO Running workflow: create_final_communities...
+16:32:40,497 graphrag.index.run INFO dependencies for create_final_communities: ['create_base_entity_graph']
+16:32:40,497 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:32:40,514 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:40,525 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:40,537 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:32:40,546 datashaper.workflow.workflow INFO executing verb join
+16:32:40,558 datashaper.workflow.workflow INFO executing verb join
+16:32:40,569 datashaper.workflow.workflow INFO executing verb concat
+16:32:40,577 datashaper.workflow.workflow INFO executing verb filter
+16:32:40,588 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:32:40,599 datashaper.workflow.workflow INFO executing verb join
+16:32:40,611 datashaper.workflow.workflow INFO executing verb filter
+16:32:40,622 datashaper.workflow.workflow INFO executing verb fill
+16:32:40,631 datashaper.workflow.workflow INFO executing verb merge
+16:32:40,641 datashaper.workflow.workflow INFO executing verb copy
+16:32:40,651 datashaper.workflow.workflow INFO executing verb select
+16:32:40,652 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_communities.parquet
+16:32:40,750 graphrag.index.run INFO Running workflow: join_text_units_to_entity_ids...
+16:32:40,751 graphrag.index.run INFO dependencies for join_text_units_to_entity_ids: ['create_final_entities']
+16:32:40,751 graphrag.index.run INFO read table from storage: create_final_entities.parquet
+16:32:40,775 datashaper.workflow.workflow INFO executing verb select
+16:32:40,785 datashaper.workflow.workflow INFO executing verb unroll
+16:32:40,796 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:32:40,798 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_entity_ids.parquet
+16:32:40,897 graphrag.index.run INFO Running workflow: create_final_relationships...
+16:32:40,897 graphrag.index.run INFO dependencies for create_final_relationships: ['create_base_entity_graph', 'create_final_nodes']
+16:32:40,898 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:32:40,900 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+16:32:40,921 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:32:40,934 datashaper.workflow.workflow INFO executing verb filter
+16:32:40,946 datashaper.workflow.workflow INFO executing verb rename
+16:32:40,957 datashaper.workflow.workflow INFO executing verb filter
+16:32:40,969 datashaper.workflow.workflow INFO executing verb drop
+16:32:40,980 datashaper.workflow.workflow INFO executing verb compute_edge_combined_degree
+16:32:40,992 datashaper.workflow.workflow INFO executing verb convert
+16:32:41,3 datashaper.workflow.workflow INFO executing verb convert
+16:32:41,4 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_relationships.parquet
+16:32:41,109 graphrag.index.run INFO Running workflow: join_text_units_to_relationship_ids...
+16:32:41,110 graphrag.index.run INFO dependencies for join_text_units_to_relationship_ids: ['create_final_relationships']
+16:32:41,110 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+16:32:41,134 datashaper.workflow.workflow INFO executing verb select
+16:32:41,145 datashaper.workflow.workflow INFO executing verb unroll
+16:32:41,158 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:32:41,170 datashaper.workflow.workflow INFO executing verb select
+16:32:41,171 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_relationship_ids.parquet
+16:32:41,286 graphrag.index.run INFO Running workflow: create_final_community_reports...
+16:32:41,286 graphrag.index.run INFO dependencies for create_final_community_reports: ['create_final_relationships', 'create_final_covariates', 'create_final_nodes']
+16:32:41,286 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+16:32:41,288 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+16:32:41,290 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+16:32:41,315 datashaper.workflow.workflow INFO executing verb prepare_community_reports_nodes
+16:32:41,328 datashaper.workflow.workflow INFO executing verb prepare_community_reports_edges
+16:32:41,342 datashaper.workflow.workflow INFO executing verb prepare_community_reports_claims
+16:32:41,355 datashaper.workflow.workflow INFO executing verb restore_community_hierarchy
+16:32:41,369 datashaper.workflow.workflow INFO executing verb prepare_community_reports
+16:32:41,369 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=0 => 120
+16:32:41,398 datashaper.workflow.workflow INFO executing verb create_community_reports
+16:34:54,110 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:34:54,111 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 132.55925537401345. input_tokens=4309, output_tokens=1293
+16:35:05,114 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:35:05,115 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 143.5571245730389. input_tokens=2965, output_tokens=1575
+16:35:41,597 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are an AI assistant that helps a human analyst to perform general information discovery. Information discovery is the process of identifying and assessing relevant information associated with certain entities (e.g., organizations and individuals) within a network.\n\n# Goal\nWrite a comprehensive report of a community, given a list of entities that belong to the community as well as their relationships and optional associated claims. The report will be used to inform decision-makers about information associated with the community and their potential impact. The content of this report includes an overview of the community\'s key entities, their legal compliance, technical capabilities, reputation, and noteworthy claims.\n\n# Report Structure\n\nThe report should include the following sections:\n\n- TITLE: community\'s name that represents its key entities - title should be short but specific. When possible, include representative named entities in the title.\n- SUMMARY: An executive summary of the community\'s overall structure, how its entities are related to each other, and significant information associated with its entities.\n- IMPACT SEVERITY RATING: a float score between 0-10 that represents the severity of IMPACT posed by entities within the community.  IMPACT is the scored importance of a community.\n- RATING EXPLANATION: Give a single sentence explanation of the IMPACT severity rating.\n- DETAILED FINDINGS: A list of 5-10 key insights about the community. Each insight should have a short summary followed by multiple paragraphs of explanatory text grounded according to the grounding rules below. Be comprehensive.\n\nReturn output as a well-formed JSON-formatted string with the following format:\n    {{\n        "title": <report_title>,\n        "summary": <executive_summary>,\n        "rating": <impact_severity_rating>,\n        "rating_explanation": <rating_explanation>,\n        "findings": [\n            {{\n                "summary":<insight_1_summary>,\n                "explanation": <insight_1_explanation>\n            }},\n            {{\n                "summary":<insight_2_summary>,\n                "explanation": <insight_2_explanation>\n            }}\n        ]\n    }}\n\n# Grounding Rules\n\nPoints supported by data should list their data references as follows:\n\n"This is an example sentence supported by multiple data references [Data: <dataset name> (record ids); <dataset name> (record ids)]."\n\nDo not list more than 5 record ids in a single reference. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.\n\nFor example:\n"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (1), Entities (5, 7); Relationships (23); Claims (7, 2, 34, 64, 46, +more)]."\n\nwhere 1, 5, 7, 23, 2, 34, 46, and 64 represent the id (not the index) of the relevant data record.\n\nDo not include information where the supporting evidence for it is not provided.\n\n\n# Example Input\n-----------\nText:\n\nEntities\n\nid,entity,description\n5,VERDANT OASIS PLAZA,Verdant Oasis Plaza is the location of the Unity March\n6,HARMONY ASSEMBLY,Harmony Assembly is an organization that is holding a march at Verdant Oasis Plaza\n\nRelationships\n\nid,source,target,description\n37,VERDANT OASIS PLAZA,UNITY MARCH,Verdant Oasis Plaza is the location of the Unity March\n38,VERDANT OASIS PLAZA,HARMONY ASSEMBLY,Harmony Assembly is holding a march at Verdant Oasis Plaza\n39,VERDANT OASIS PLAZA,UNITY MARCH,The Unity March is taking place at Verdant Oasis Plaza\n40,VERDANT OASIS PLAZA,TRIBUNE SPOTLIGHT,Tribune Spotlight is reporting on the Unity march taking place at Verdant Oasis Plaza\n41,VERDANT OASIS PLAZA,BAILEY ASADI,Bailey Asadi is speaking at Verdant Oasis Plaza about the march\n43,HARMONY ASSEMBLY,UNITY MARCH,Harmony Assembly is organizing the Unity March\n\nOutput:\n{{\n    "title": "Verdant Oasis Plaza and Unity March",\n    "summary": "The community revolves around the Verdant Oasis Plaza, which is the location of the Unity March. The plaza has relationships with the Harmony Assembly, Unity March, and Tribune Spotlight, all of which are associated with the march event.",\n    "rating": 5.0,\n    "rating_explanation": "The impact severity rating is moderate due to the potential for unrest or conflict during the Unity March.",\n    "findings": [\n        {{\n            "summary": "Verdant Oasis Plaza as the central location",\n            "explanation": "Verdant Oasis Plaza is the central entity in this community, serving as the location for the Unity March. This plaza is the common link between all other entities, suggesting its significance in the community. The plaza\'s association with the march could potentially lead to issues such as public disorder or conflict, depending on the nature of the march and the reactions it provokes. [Data: Entities (5), Relationships (37, 38, 39, 40, 41,+more)]"\n        }},\n        {{\n            "summary": "Harmony Assembly\'s role in the community",\n            "explanation": "Harmony Assembly is another key entity in this community, being the organizer of the march at Verdant Oasis Plaza. The nature of Harmony Assembly and its march could be a potential source of threat, depending on their objectives and the reactions they provoke. The relationship between Harmony Assembly and the plaza is crucial in understanding the dynamics of this community. [Data: Entities(6), Relationships (38, 43)]"\n        }},\n        {{\n            "summary": "Unity March as a significant event",\n            "explanation": "The Unity March is a significant event taking place at Verdant Oasis Plaza. This event is a key factor in the community\'s dynamics and could be a potential source of threat, depending on the nature of the march and the reactions it provokes. The relationship between the march and the plaza is crucial in understanding the dynamics of this community. [Data: Relationships (39)]"\n        }},\n        {{\n            "summary": "Role of Tribune Spotlight",\n            "explanation": "Tribune Spotlight is reporting on the Unity March taking place in Verdant Oasis Plaza. This suggests that the event has attracted media attention, which could amplify its impact on the community. The role of Tribune Spotlight could be significant in shaping public perception of the event and the entities involved. [Data: Relationships (40)]"\n        }}\n    ]\n}}\n\n\n# Real Data\n\nUse the following text for your answer. Do not make anything up in your answer.\n\nText:\n-----Entities-----\nhuman_readable_id,title,description,degree\n29,互联网销售,众易用AI提供互联网销售服务。,2\n24,光学仪器制造与销售,众易用AI提供光学仪器制造与销售服务。,2\n27,动漫游戏开发,众易用AI提供动漫游戏开发服务。,2\n26,广告设计,众易用AI提供广告设计服务。,2\n25,机械设备研发与销售,众易用AI提供机械设备研发与销售服务。,2\n28,文艺创作,众易用AI提供文艺创作服务。,2\n62,AI+应用解决方案,AI+应用解决方案是广州众易用智能科技有限公司在AI领域提供的一种服务。,1\n36,AIGC教育培训,众易用AI提供的产品和服务之一，旨在通过AI技术在教育培训领域实现创新和效率提升。,1\n57,AI教育培训,AI教育培训是广州众易用智能科技有限公司在AI领域提供的一种服务。,1\n56,AI数字人,AI数字人是广州众易用智能科技有限公司在AI领域提供的一种产品。,1\n59,AI智能光谱检测,AI智能光谱检测是广州众易用智能科技有限公司在AI领域提供的一种服务。,1\n58,AI模型工具,AI模型工具是广州众易用智能科技有限公司在AI领域提供的一种产品。,1\n60,AR增强现实,AR增强现实是广州众易用智能科技有限公司在AI领域提供的一种技术。,1\n53,NERF及高斯点云,NeRF及高斯点云是广州众易用智能科技有限公司在AI领域提供的一种技术。,1\n48,TRANSFORMER模型,Transformer模型是广州众易用智能科技有限公司在AI领域使用的一种模型。,1\n52,三维重建与生成,三维重建与生成是广州众易用智能科技有限公司在AI领域提供的一种技术。,1\n43,中山大学,中山大学是广州众易用智能科技有限公司的依托单位，为公司提供了深厚的技术积淀和人文底蕴。,1\n35,人工智能领域,众易用AI在人工智能领域拥有丰富的技术积累，涵盖生成式人工智能、三维仿真、人机交互、智能感知、数字孪生等多个技术领域。,1\n55,光谱视觉与高通量检测,光谱视觉与高通量检测是广州众易用智能科技有限公司在AI领域提供的一种技术。,1\n64,克隆,克隆是广州众易用智能科技有限公司在AI领域提供的一种服务。,1\n54,单目RGB动捕,单目RGB动捕是广州众易用智能科技有限公司在AI领域提供的一种技术。,1\n39,增值电信业务经营许可证,广州众易用智能科技有限公司拥有增值电信业务经营许可证。,1\n42,广州,,1\n34,高新技术企业,广州众易用智能科技有限公司是一家高新技术企业，专注于AI行业+应用解决方案。,1\n37,数字人,众易用AI提供的产品和服务之一，涉及高仿真数字人、卡通动漫风格化、二次元虚拟角色等类型。,1\n38,虚拟展厅制作,众易用AI提供的产品和服务之一，涉及实体展馆数字化、虚拟数字展厅、文博藏品数字化、文创品牌数字衍生设计、建筑数字化仿真、大环境数字化、AR增强现实、VR虚拟现实、充电桩AR系统、数字栾生、三维定位系统等服务。,1\n40,广播电视节目制作经营许可证,广州众易用智能科技有限公司拥有广播电视节目制作经营许可证。,1\n41,质量管理体系认证,广州众易用智能科技有限公司拥有质量管理体系认证。,1\n49,扩散模型,扩散模型是广州众易用智能科技有限公司在AI领域使用的一种模型。,1\n50,语音识别技术,语音识别技术是广州众易用智能科技有限公司在AI领域提供的一种技术。,1\n51,自然语言处理,自然语言处理是广州众易用智能科技有限公司在AI领域提供的一种技术。,1\n61,数字孪生,数字孪生是广州众易用智能科技有限公司在AI领域提供的一种技术。,1\n\n\n-----Relationships-----\nhuman_readable_id,source,target,description,rank\n0,广州众易用智能科技有限公司,众易用AI,广州众易用智能科技有限公司是众易用AI的母公司,67\n1,广州众易用智能科技有限公司,黄志青,黄志青是广州众易用智能科技有限公司的创始人,41\n13,广州众易用智能科技有限公司,互联网销售,广州众易用智能科技有限公司提供互联网销售服务,37\n8,广州众易用智能科技有限公司,光学仪器制造与销售,广州众易用智能科技有限公司提供光学仪器制造与销售服务,37\n11,广州众易用智能科技有限公司,动漫游戏开发,广州众易用智能科技有限公司提供动漫游戏开发服务,37\n10,广州众易用智能科技有限公司,广告设计,广州众易用智能科技有限公司提供广告设计服务,37\n9,广州众易用智能科技有限公司,机械设备研发与销售,广州众易用智能科技有限公司提供机械设备研发与销售服务,37\n12,广州众易用智能科技有限公司,文艺创作,广州众易用智能科技有限公司提供文艺创作服务,37\n33,广州众易用智能科技有限公司,AIGC数字内容生产,广州众易用智能科技有限公司提供AIGC数字内容生产服务,37\n32,广州众易用智能科技有限公司,AI+应用解决方案,广州众易用智能科技有限公司提供AI+应用解决方案服务,36\n5,广州众易用智能科技有限公司,AIGC教育培训,广州众易用智能科技有限公司提供AIGC教育培训服务,36\n27,广州众易用智能科技有限公司,AI教育培训,广州众易用智能科技有限公司提供AI教育培训服务,36\n26,广州众易用智能科技有限公司,AI数字人,广州众易用智能科技有限公司提供AI数字人产品,36\n29,广州众易用智能科技有限公司,AI智能光谱检测,广州众易用智能科技有限公司提供AI智能光谱检测服务,36\n28,广州众易用智能科技有限公司,AI模型工具,广州众易用智能科技有限公司提供AI模型工具产品,36\n30,广州众易用智能科技有限公司,AR增强现实,广州众易用智能科技有限公司提供AR增强现实技术,36\n23,广州众易用智能科技有限公司,NERF及高斯点云,广州众易用智能科技有限公司提供NeRF及高斯点云技术,36\n18,广州众易用智能科技有限公司,TRANSFORMER模型,广州众易用智能科技有限公司使用Transformer模型,36\n22,广州众易用智能科技有限公司,三维重建与生成,广州众易用智能科技有限公司提供三维重建与生成技术,36\n17,广州众易用智能科技有限公司,中山大学,广州众易用智能科技有限公司依托于中山大学,36\n4,广州众易用智能科技有限公司,人工智能领域,广州众易用智能科技有限公司在人工智能领域拥有丰富的技术积累,36\n25,广州众易用智能科技有限公司,光谱视觉与高通量检测,广州众易用智能科技有限公司提供光谱视觉与高通量检测技术,36\n34,广州众易用智能科技有限公司,克隆,广州众易用智能科技有限公司提供克隆服务,36\n24,广州众易用智能科技有限公司,单目RGB动捕,广州众易用智能科技有限公司提供单目RGB动捕技术,36\n14,广州众易用智能科技有限公司,增值电信业务经营许可证,广州众易用智能科技有限公司拥有增值电信业务经营许可证,36\n2,广州众易用智能科技有限公司,广州,广州众易用智能科技有限公司的总部位于广州,36\n3,广州众易用智能科技有限公司,高新技术企业,广州众易用智能科技有限公司是一家高新技术企业,36\n6,广州众易用智能科技有限公司,数字人,广州众易用智能科技有限公司提供数字人服务,36\n7,广州众易用智能科技有限公司,虚拟展厅制作,广州众易用智能科技有限公司提供虚拟展厅制作服务,36\n15,广州众易用智能科技有限公司,广播电视节目制作经营许可证,广州众易用智能科技有限公司拥有广播电视节目制作经营许可证,36\n16,广州众易用智能科技有限公司,质量管理体系认证,广州众易用智能科技有限公司拥有质量管理体系认证,36\n19,广州众易用智能科技有限公司,扩散模型,广州众易用智能科技有限公司使用扩散模型,36\n20,广州众易用智能科技有限公司,语音识别技术,广州众易用智能科技有限公司提供语音识别技术,36\n21,广州众易用智能科技有限公司,自然语言处理,广州众易用智能科技有限公司提供自然语言处理技术,36\n31,广州众易用智能科技有限公司,数字孪生,广州众易用智能科技有限公司提供数字孪生技术,36\n60,众易用AI,互联网销售,众易用AI提供互联网销售服务,34\n55,众易用AI,光学仪器制造与销售,众易用AI提供光学仪器制造与销售服务,34\n58,众易用AI,动漫游戏开发,众易用AI提供动漫游戏开发服务,34\n57,众易用AI,广告设计,众易用AI提供广告设计服务,34\n59,众易用AI,文艺创作,众易用AI提供文艺创作服务,34\n56,众易用AI,机械设备研发与销售,众易用AI提供机械设备研发与销售服务,34\n\n\nThe report should include the following sections:\n\n- TITLE: community\'s name that represents its key entities - title should be short but specific. When possible, include representative named entities in the title.\n- SUMMARY: An executive summary of the community\'s overall structure, how its entities are related to each other, and significant information associated with its entities.\n- IMPACT SEVERITY RATING: a float score between 0-10 that represents the severity of IMPACT posed by entities within the community.  IMPACT is the scored importance of a community.\n- RATING EXPLANATION: Give a single sentence explanation of the IMPACT severity rating.\n- DETAILED FINDINGS: A list of 5-10 key insights about the community. Each insight should have a short summary followed by multiple paragraphs of explanatory text grounded according to the grounding rules below. Be comprehensive.\n\nReturn output as a well-formed JSON-formatted string with the following format:\n    {{\n        "title": <report_title>,\n        "summary": <executive_summary>,\n        "rating": <impact_severity_rating>,\n        "rating_explanation": <rating_explanation>,\n        "findings": [\n            {{\n                "summary":<insight_1_summary>,\n                "explanation": <insight_1_explanation>\n            }},\n            {{\n                "summary":<insight_2_summary>,\n                "explanation": <insight_2_explanation>\n            }}\n        ]\n    }}\n\n# Grounding Rules\n\nPoints supported by data should list their data references as follows:\n\n"This is an example sentence supported by multiple data references [Data: <dataset name> (record ids); <dataset name> (record ids)]."\n\nDo not list more than 5 record ids in a single reference. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.\n\nFor example:\n"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (1), Entities (5, 7); Relationships (23); Claims (7, 2, 34, 64, 46, +more)]."\n\nwhere 1, 5, 7, 23, 2, 34, 46, and 64 represent the id (not the index) of the relevant data record.\n\nDo not include information where the supporting evidence for it is not provided.\n\nOutput:'}
+16:35:41,597 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are an AI assistant that helps a human analyst to perform general information discovery. Information discovery is the process of identifying and assessing relevant information associated with certain entities (e.g., organizations and individuals) within a network.\n\n# Goal\nWrite a comprehensive report of a community, given a list of entities that belong to the community as well as their relationships and optional associated claims. The report will be used to inform decision-makers about information associated with the community and their potential impact. The content of this report includes an overview of the community\'s key entities, their legal compliance, technical capabilities, reputation, and noteworthy claims.\n\n# Report Structure\n\nThe report should include the following sections:\n\n- TITLE: community\'s name that represents its key entities - title should be short but specific. When possible, include representative named entities in the title.\n- SUMMARY: An executive summary of the community\'s overall structure, how its entities are related to each other, and significant information associated with its entities.\n- IMPACT SEVERITY RATING: a float score between 0-10 that represents the severity of IMPACT posed by entities within the community.  IMPACT is the scored importance of a community.\n- RATING EXPLANATION: Give a single sentence explanation of the IMPACT severity rating.\n- DETAILED FINDINGS: A list of 5-10 key insights about the community. Each insight should have a short summary followed by multiple paragraphs of explanatory text grounded according to the grounding rules below. Be comprehensive.\n\nReturn output as a well-formed JSON-formatted string with the following format:\n    {{\n        "title": <report_title>,\n        "summary": <executive_summary>,\n        "rating": <impact_severity_rating>,\n        "rating_explanation": <rating_explanation>,\n        "findings": [\n            {{\n                "summary":<insight_1_summary>,\n                "explanation": <insight_1_explanation>\n            }},\n            {{\n                "summary":<insight_2_summary>,\n                "explanation": <insight_2_explanation>\n            }}\n        ]\n    }}\n\n# Grounding Rules\n\nPoints supported by data should list their data references as follows:\n\n"This is an example sentence supported by multiple data references [Data: <dataset name> (record ids); <dataset name> (record ids)]."\n\nDo not list more than 5 record ids in a single reference. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.\n\nFor example:\n"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (1), Entities (5, 7); Relationships (23); Claims (7, 2, 34, 64, 46, +more)]."\n\nwhere 1, 5, 7, 23, 2, 34, 46, and 64 represent the id (not the index) of the relevant data record.\n\nDo not include information where the supporting evidence for it is not provided.\n\n\n# Example Input\n-----------\nText:\n\nEntities\n\nid,entity,description\n5,VERDANT OASIS PLAZA,Verdant Oasis Plaza is the location of the Unity March\n6,HARMONY ASSEMBLY,Harmony Assembly is an organization that is holding a march at Verdant Oasis Plaza\n\nRelationships\n\nid,source,target,description\n37,VERDANT OASIS PLAZA,UNITY MARCH,Verdant Oasis Plaza is the location of the Unity March\n38,VERDANT OASIS PLAZA,HARMONY ASSEMBLY,Harmony Assembly is holding a march at Verdant Oasis Plaza\n39,VERDANT OASIS PLAZA,UNITY MARCH,The Unity March is taking place at Verdant Oasis Plaza\n40,VERDANT OASIS PLAZA,TRIBUNE SPOTLIGHT,Tribune Spotlight is reporting on the Unity march taking place at Verdant Oasis Plaza\n41,VERDANT OASIS PLAZA,BAILEY ASADI,Bailey Asadi is speaking at Verdant Oasis Plaza about the march\n43,HARMONY ASSEMBLY,UNITY MARCH,Harmony Assembly is organizing the Unity March\n\nOutput:\n{{\n    "title": "Verdant Oasis Plaza and Unity March",\n    "summary": "The community revolves around the Verdant Oasis Plaza, which is the location of the Unity March. The plaza has relationships with the Harmony Assembly, Unity March, and Tribune Spotlight, all of which are associated with the march event.",\n    "rating": 5.0,\n    "rating_explanation": "The impact severity rating is moderate due to the potential for unrest or conflict during the Unity March.",\n    "findings": [\n        {{\n            "summary": "Verdant Oasis Plaza as the central location",\n            "explanation": "Verdant Oasis Plaza is the central entity in this community, serving as the location for the Unity March. This plaza is the common link between all other entities, suggesting its significance in the community. The plaza\'s association with the march could potentially lead to issues such as public disorder or conflict, depending on the nature of the march and the reactions it provokes. [Data: Entities (5), Relationships (37, 38, 39, 40, 41,+more)]"\n        }},\n        {{\n            "summary": "Harmony Assembly\'s role in the community",\n            "explanation": "Harmony Assembly is another key entity in this community, being the organizer of the march at Verdant Oasis Plaza. The nature of Harmony Assembly and its march could be a potential source of threat, depending on their objectives and the reactions they provoke. The relationship between Harmony Assembly and the plaza is crucial in understanding the dynamics of this community. [Data: Entities(6), Relationships (38, 43)]"\n        }},\n        {{\n            "summary": "Unity March as a significant event",\n            "explanation": "The Unity March is a significant event taking place at Verdant Oasis Plaza. This event is a key factor in the community\'s dynamics and could be a potential source of threat, depending on the nature of the march and the reactions it provokes. The relationship between the march and the plaza is crucial in understanding the dynamics of this community. [Data: Relationships (39)]"\n        }},\n        {{\n            "summary": "Role of Tribune Spotlight",\n            "explanation": "Tribune Spotlight is reporting on the Unity March taking place in Verdant Oasis Plaza. This suggests that the event has attracted media attention, which could amplify its impact on the community. The role of Tribune Spotlight could be significant in shaping public perception of the event and the entities involved. [Data: Relationships (40)]"\n        }}\n    ]\n}}\n\n\n# Real Data\n\nUse the following text for your answer. Do not make anything up in your answer.\n\nText:\n-----Entities-----\nhuman_readable_id,title,description,degree\n63,AIGC数字内容生产,AIGC数字内容生产服务是由AI-Seed资源平台提供的，主要在AI领域为用户生成数字内容。同时，广州众易用智能科技有限公司也提供AIGC数字内容生产服务，作为其在人工智能领域的业务之一。这些服务旨在利用人工智能技术，为用户提供高质量、定制化的数字内容创作解决方案。,2\n98,AI-SEED资源平台,提供模型资源库、AI工具、线上课程等服务。,10\n99,模型资源库,AI-Seed资源平台提供模型资源库服务。,1\n100,AI工具,AI-Seed资源平台提供AI工具服务。,1\n101,线上课程,AI-Seed资源平台提供线上课程服务。,1\n102,直播课,AI-Seed资源平台提供直播课服务。,1\n103,视频课,AI-Seed资源平台提供视频课服务。,1\n104,认知课,AI-Seed资源平台提供认知课服务。,1\n105,企业老板、高管、机关干部技能课,AI-Seed资源平台提供企业老板、高管、机关干部技能课服务。,1\n106,职场人士、自媒体人士、设计师入门课,AI-Seed资源平台提供职场人士、自媒体人士、设计师入门课服务。,1\n107,青少年版块,AI-Seed资源平台提供青少年版块服务。,1\n\n\n-----Relationships-----\nhuman_readable_id,source,target,description,rank\n33,广州众易用智能科技有限公司,AIGC数字内容生产,广州众易用智能科技有限公司提供AIGC数字内容生产服务,37\n70,AIGC数字内容生产,AI-SEED资源平台,AIGC数字内容生产是AI-Seed资源平台提供的服务,12\n83,AI-SEED资源平台,模型资源库,模型资源库是AI-Seed资源平台提供的服务,11\n84,AI-SEED资源平台,AI工具,AI工具是AI-Seed资源平台提供的服务,11\n85,AI-SEED资源平台,线上课程,线上课程是AI-Seed资源平台提供的服务,11\n86,AI-SEED资源平台,直播课,直播课是AI-Seed资源平台提供的服务,11\n87,AI-SEED资源平台,视频课,视频课是AI-Seed资源平台提供的服务,11\n88,AI-SEED资源平台,认知课,认知课是AI-Seed资源平台提供的服务,11\n89,AI-SEED资源平台,企业老板、高管、机关干部技能课,企业老板、高管、机关干部技能课是AI-Seed资源平台提供的服务,11\n90,AI-SEED资源平台,职场人士、自媒体人士、设计师入门课,职场人士、自媒体人士、设计师入门课是AI-Seed资源平台提供的服务,11\n91,AI-SEED资源平台,青少年版块,青少年版块是AI-Seed资源平台提供的服务,11\n\n\nThe report should include the following sections:\n\n- TITLE: community\'s name that represents its key entities - title should be short but specific. When possible, include representative named entities in the title.\n- SUMMARY: An executive summary of the community\'s overall structure, how its entities are related to each other, and significant information associated with its entities.\n- IMPACT SEVERITY RATING: a float score between 0-10 that represents the severity of IMPACT posed by entities within the community.  IMPACT is the scored importance of a community.\n- RATING EXPLANATION: Give a single sentence explanation of the IMPACT severity rating.\n- DETAILED FINDINGS: A list of 5-10 key insights about the community. Each insight should have a short summary followed by multiple paragraphs of explanatory text grounded according to the grounding rules below. Be comprehensive.\n\nReturn output as a well-formed JSON-formatted string with the following format:\n    {{\n        "title": <report_title>,\n        "summary": <executive_summary>,\n        "rating": <impact_severity_rating>,\n        "rating_explanation": <rating_explanation>,\n        "findings": [\n            {{\n                "summary":<insight_1_summary>,\n                "explanation": <insight_1_explanation>\n            }},\n            {{\n                "summary":<insight_2_summary>,\n                "explanation": <insight_2_explanation>\n            }}\n        ]\n    }}\n\n# Grounding Rules\n\nPoints supported by data should list their data references as follows:\n\n"This is an example sentence supported by multiple data references [Data: <dataset name> (record ids); <dataset name> (record ids)]."\n\nDo not list more than 5 record ids in a single reference. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.\n\nFor example:\n"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (1), Entities (5, 7); Relationships (23); Claims (7, 2, 34, 64, 46, +more)]."\n\nwhere 1, 5, 7, 23, 2, 34, 46, and 64 represent the id (not the index) of the relevant data record.\n\nDo not include information where the supporting evidence for it is not provided.\n\nOutput:'}
+16:38:01,499 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:38:01,500 graphrag.llm.openai.utils INFO Warning: Error decoding faulty json, attempting repair
+16:38:01,501 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 1 retries took 138.60080589202698. input_tokens=5596, output_tokens=1248
+16:38:01,501 httpx INFO HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
+16:38:01,501 graphrag.llm.openai.utils INFO Warning: Error decoding faulty json, attempting repair
+16:38:01,503 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 1 retries took 138.22414968302473. input_tokens=2837, output_tokens=525
+16:38:01,530 datashaper.workflow.workflow INFO executing verb window
+16:38:01,531 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_community_reports.parquet
+16:38:01,639 graphrag.index.run INFO Running workflow: create_final_text_units...
+16:38:01,640 graphrag.index.run INFO dependencies for create_final_text_units: ['join_text_units_to_entity_ids', 'join_text_units_to_covariate_ids', 'create_base_text_units', 'join_text_units_to_relationship_ids']
+16:38:01,640 graphrag.index.run INFO read table from storage: join_text_units_to_entity_ids.parquet
+16:38:01,642 graphrag.index.run INFO read table from storage: join_text_units_to_covariate_ids.parquet
+16:38:01,643 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+16:38:01,645 graphrag.index.run INFO read table from storage: join_text_units_to_relationship_ids.parquet
+16:38:01,672 datashaper.workflow.workflow INFO executing verb select
+16:38:01,685 datashaper.workflow.workflow INFO executing verb rename
+16:38:01,698 datashaper.workflow.workflow INFO executing verb join
+16:38:01,713 datashaper.workflow.workflow INFO executing verb join
+16:38:01,730 datashaper.workflow.workflow INFO executing verb join
+16:38:01,747 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:38:01,763 datashaper.workflow.workflow INFO executing verb select
+16:38:01,764 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_text_units.parquet
+16:38:01,872 graphrag.index.run INFO Running workflow: create_base_documents...
+16:38:01,873 graphrag.index.run INFO dependencies for create_base_documents: ['create_final_text_units']
+16:38:01,873 graphrag.index.run INFO read table from storage: create_final_text_units.parquet
+16:38:01,902 datashaper.workflow.workflow INFO executing verb unroll
+16:38:01,917 datashaper.workflow.workflow INFO executing verb select
+16:38:01,931 datashaper.workflow.workflow INFO executing verb rename
+16:38:01,946 datashaper.workflow.workflow INFO executing verb join
+16:38:01,963 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:38:01,978 datashaper.workflow.workflow INFO executing verb join
+16:38:01,996 datashaper.workflow.workflow INFO executing verb rename
+16:38:02,11 datashaper.workflow.workflow INFO executing verb convert
+16:38:02,12 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_documents.parquet
+16:38:02,122 graphrag.index.run INFO Running workflow: create_final_documents...
+16:38:02,122 graphrag.index.run INFO dependencies for create_final_documents: ['create_base_documents']
+16:38:02,123 graphrag.index.run INFO read table from storage: create_base_documents.parquet
+16:38:02,155 datashaper.workflow.workflow INFO executing verb rename
+16:38:02,156 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_documents.parquet
+16:38:02,207 graphrag.index.cli INFO All workflows completed successfully.
+20:21:33,443 graphrag.index.cli INFO Logging enabled at output/reports/indexing-engine.log
+20:21:33,457 graphrag.index.cli INFO Starting pipeline run for: 20240906-202133, dryrun=False
+20:21:33,458 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "model": "Qwen2-7B-Instruct",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "http://192.168.0.245:5008/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 2.0,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": ".",
+    "reporting": {
+        "type": "file",
+        "base_dir": "output/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "output/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "model": "${GRAPHRAG_EMBEDDING_MODEL$}",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:6008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 2000,
+        "max_input_length": 3000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen2-7B-Instruct",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.245:5008/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 2.0,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": true,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+20:21:33,468 graphrag.index.create_pipeline_config INFO skipping workflows 
+20:21:33,468 graphrag.index.run INFO Running pipeline
+20:21:33,468 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at output/artifacts
+20:21:33,469 graphrag.index.input.load_input INFO loading input from root_dir=input
+20:21:33,469 graphrag.index.input.load_input INFO using file storage for input
+20:21:33,469 graphrag.index.storage.file_pipeline_storage INFO search input for files matching .*\.txt$
+20:21:33,469 graphrag.index.input.text INFO found text files from input, found [('zyy.txt', {}), ('zyy1.txt', {})]
+20:21:33,489 graphrag.index.input.text INFO Found 2 files, loading 2
+20:21:33,512 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_final_covariates', 'create_summarized_entities', 'join_text_units_to_covariate_ids', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+20:21:33,512 graphrag.index.run INFO Final # of rows loaded: 2
+20:21:33,590 graphrag.index.run INFO Running workflow: create_base_text_units...
+20:21:33,590 graphrag.index.run INFO Skipping create_base_text_units because it already exists
+20:21:33,664 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+20:21:33,664 graphrag.index.run INFO Skipping create_base_extracted_entities because it already exists
+20:21:33,742 graphrag.index.run INFO Running workflow: create_final_covariates...
+20:21:33,742 graphrag.index.run INFO Skipping create_final_covariates because it already exists
+20:21:33,815 graphrag.index.run INFO Running workflow: create_summarized_entities...
+20:21:33,815 graphrag.index.run INFO Skipping create_summarized_entities because it already exists
+20:21:33,891 graphrag.index.run INFO Running workflow: join_text_units_to_covariate_ids...
+20:21:33,891 graphrag.index.run INFO Skipping join_text_units_to_covariate_ids because it already exists
+20:21:33,967 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+20:21:33,967 graphrag.index.run INFO Skipping create_base_entity_graph because it already exists
+20:21:34,42 graphrag.index.run INFO Running workflow: create_final_entities...
+20:21:34,42 graphrag.index.run INFO Skipping create_final_entities because it already exists
+20:21:34,116 graphrag.index.run INFO Running workflow: create_final_nodes...
+20:21:34,116 graphrag.index.run INFO Skipping create_final_nodes because it already exists
+20:21:34,188 graphrag.index.run INFO Running workflow: create_final_communities...
+20:21:34,188 graphrag.index.run INFO Skipping create_final_communities because it already exists
+20:21:34,262 graphrag.index.run INFO Running workflow: join_text_units_to_entity_ids...
+20:21:34,262 graphrag.index.run INFO Skipping join_text_units_to_entity_ids because it already exists
+20:21:34,334 graphrag.index.run INFO Running workflow: create_final_relationships...
+20:21:34,334 graphrag.index.run INFO Skipping create_final_relationships because it already exists
+20:21:34,406 graphrag.index.run INFO Running workflow: join_text_units_to_relationship_ids...
+20:21:34,406 graphrag.index.run INFO Skipping join_text_units_to_relationship_ids because it already exists
+20:21:34,483 graphrag.index.run INFO Running workflow: create_final_community_reports...
+20:21:34,484 graphrag.index.run INFO Skipping create_final_community_reports because it already exists
+20:21:34,560 graphrag.index.run INFO Running workflow: create_final_text_units...
+20:21:34,560 graphrag.index.run INFO Skipping create_final_text_units because it already exists
+20:21:34,641 graphrag.index.run INFO Running workflow: create_base_documents...
+20:21:34,641 graphrag.index.run INFO Skipping create_base_documents because it already exists
+20:21:34,716 graphrag.index.run INFO Running workflow: create_final_documents...
+20:21:34,716 graphrag.index.run INFO Skipping create_final_documents because it already exists
+20:21:34,718 graphrag.index.cli INFO All workflows completed successfully.
