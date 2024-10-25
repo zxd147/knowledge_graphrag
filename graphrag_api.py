@@ -49,7 +49,7 @@ RELATIONSHIP_TABLE = "create_final_relationships"
 COVARIATE_TABLE = "create_final_covariates"
 TEXT_UNIT_TABLE = "create_final_text_units"
 COMMUNITY_LEVEL = 2
-PORT = 8012
+PORT = 8013
 
 # # 全局变量，用于存储搜索引擎和问题生成器
 # local_search_engine = None
