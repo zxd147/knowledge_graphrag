@@ -1,28 +1,24 @@
-2024-10-15 23:09:43,795 - __main__ - INFO - 在端口 8012 上启动服务器
-INFO:     Started server process [734860]
+2024-10-28 19:25:43,096 - __main__ - INFO - 在端口 8013 上启动服务器
+INFO:     Started server process [2282494]
 INFO:     Waiting for application startup.
-2024-10-15 23:09:43,807 - __main__ - INFO - 正在初始化搜索引擎和问题生成器...
-2024-10-15 23:09:43,807 - __main__ - INFO - 正在设置LLM和嵌入器
-2024-10-15 23:10:00,633 - __main__ - INFO - LLM和嵌入器设置完成
-2024-10-15 23:10:00,633 - __main__ - INFO - 正在加载上下文数据
-2024-10-15 23:10:01,091 - __main__ - INFO - 声明记录数: 119
-2024-10-15 23:10:01,091 - __main__ - INFO - 上下文数据加载完成
-2024-10-15 23:10:01,091 - __main__ - INFO - 正在设置搜索引擎
-2024-10-15 23:10:01,092 - __main__ - INFO - 搜索引擎设置完成
-2024-10-15 23:10:01,092 - __main__ - INFO - 初始化完成
+2024-10-28 19:25:43,099 - __main__ - INFO - 正在初始化搜索引擎和问题生成器...
+2024-10-28 19:25:43,099 - __main__ - INFO - 正在设置LLM和嵌入器
+2024-10-28 19:25:43,262 - __main__ - INFO - LLM和嵌入器设置完成
+2024-10-28 19:25:43,262 - __main__ - INFO - 正在加载上下文数据
+2024-10-28 19:25:43,423 - __main__ - INFO - 声明记录数: 119
+2024-10-28 19:25:43,423 - __main__ - INFO - 上下文数据加载完成
+2024-10-28 19:25:43,424 - __main__ - INFO - 正在设置搜索引擎
+2024-10-28 19:25:43,424 - __main__ - INFO - 搜索引擎设置完成
+2024-10-28 19:25:43,424 - __main__ - INFO - 初始化完成
 INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8012 (Press CTRL+C to quit)
-2024-10-16 09:06:14,853 - __main__ - INFO - 收到聊天完成请求: model='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=False stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
-2024-10-16 09:06:14,853 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
-2024-10-16 09:06:14,855 - openai._base_client - INFO - Retrying request to /embeddings in 0.794622 seconds
-2024-10-16 09:06:15,651 - openai._base_client - INFO - Retrying request to /embeddings in 1.764939 seconds
-2024-10-16 09:06:17,418 - openai._base_client - INFO - Retrying request to /embeddings in 3.056743 seconds
-2024-10-16 09:06:20,478 - openai._base_client - INFO - Retrying request to /embeddings in 7.267567 seconds
-2024-10-16 09:06:51,336 - httpx - INFO - HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
-2024-10-16 09:06:51,588 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
-2024-10-16 09:06:51,597 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 36.743341 秒
-2024-10-16 09:06:51,597 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
-2024-10-16 09:06:51,597 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
+INFO:     Uvicorn running on http://0.0.0.0:8013 (Press CTRL+C to quit)
+2024-10-28 19:26:10,647 - __main__ - INFO - 收到聊天完成请求: model='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+2024-10-28 19:26:10,647 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
+2024-10-28 19:26:10,688 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-10-28 19:26:11,045 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
+2024-10-28 19:26:11,053 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.406574 秒
+2024-10-28 19:26:11,053 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-10-28 19:26:11,053 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
 
 -----Entities-----
 id|entity|description|number of relationships
@@ -107,999 +103,18 @@ id|text
 答案：可用根管治疗。
 
 
-2024-10-16 09:06:51,614 - openai._base_client - INFO - Retrying request to /chat/completions in 0.952079 seconds
-2024-10-16 09:06:52,567 - openai._base_client - INFO - Retrying request to /chat/completions in 1.591003 seconds
-2024-10-16 09:06:54,160 - openai._base_client - INFO - Retrying request to /chat/completions in 3.330022 seconds
-2024-10-16 09:06:57,491 - openai._base_client - INFO - Retrying request to /chat/completions in 6.724545 seconds
-2024-10-16 09:07:04,216 - openai._base_client - INFO - Retrying request to /chat/completions in 7.756105 seconds
-2024-10-16 09:07:11,973 - openai._base_client - INFO - Retrying request to /chat/completions in 7.935947 seconds
-2024-10-16 09:07:19,910 - openai._base_client - INFO - Retrying request to /chat/completions in 7.998842 seconds
-2024-10-16 09:07:27,911 - openai._base_client - INFO - Retrying request to /chat/completions in 7.942335 seconds
-2024-10-16 09:07:35,853 - openai._base_client - INFO - Retrying request to /chat/completions in 7.964644 seconds
-2024-10-16 09:07:43,820 - openai._base_client - INFO - Retrying request to /chat/completions in 7.096799 seconds
-2024-10-16 09:07:52,521 - openai._base_client - INFO - Retrying request to /chat/completions in 0.980148 seconds
-2024-10-16 09:07:53,501 - openai._base_client - INFO - Retrying request to /chat/completions in 1.735651 seconds
-2024-10-16 09:07:55,238 - openai._base_client - INFO - Retrying request to /chat/completions in 3.102446 seconds
-2024-10-16 09:07:58,341 - openai._base_client - INFO - Retrying request to /chat/completions in 6.003459 seconds
-2024-10-16 09:08:04,346 - openai._base_client - INFO - Retrying request to /chat/completions in 6.168038 seconds
-2024-10-16 09:08:10,515 - openai._base_client - INFO - Retrying request to /chat/completions in 6.879174 seconds
-2024-10-16 09:08:17,395 - openai._base_client - INFO - Retrying request to /chat/completions in 7.803511 seconds
-2024-10-16 09:08:25,200 - openai._base_client - INFO - Retrying request to /chat/completions in 6.764711 seconds
-2024-10-16 09:08:31,966 - openai._base_client - INFO - Retrying request to /chat/completions in 6.363745 seconds
-2024-10-16 09:08:38,331 - openai._base_client - INFO - Retrying request to /chat/completions in 6.502563 seconds
-2024-10-16 09:08:47,692 - openai._base_client - INFO - Retrying request to /chat/completions in 0.853639 seconds
-2024-10-16 09:08:48,547 - openai._base_client - INFO - Retrying request to /chat/completions in 1.570192 seconds
-2024-10-16 09:08:50,118 - openai._base_client - INFO - Retrying request to /chat/completions in 3.632185 seconds
-2024-10-16 09:08:53,751 - openai._base_client - INFO - Retrying request to /chat/completions in 7.851060 seconds
-2024-10-16 09:09:01,603 - openai._base_client - INFO - Retrying request to /chat/completions in 7.072057 seconds
-2024-10-16 09:09:08,676 - openai._base_client - INFO - Retrying request to /chat/completions in 6.218811 seconds
-2024-10-16 09:09:14,896 - openai._base_client - INFO - Retrying request to /chat/completions in 6.618152 seconds
-2024-10-16 09:09:21,516 - openai._base_client - INFO - Retrying request to /chat/completions in 7.907765 seconds
-2024-10-16 09:09:29,424 - openai._base_client - INFO - Retrying request to /chat/completions in 7.406695 seconds
-2024-10-16 09:09:36,832 - openai._base_client - INFO - Retrying request to /chat/completions in 6.907035 seconds
-2024-10-16 09:09:48,087 - openai._base_client - INFO - Retrying request to /chat/completions in 0.877928 seconds
-2024-10-16 09:09:48,966 - openai._base_client - INFO - Retrying request to /chat/completions in 1.722502 seconds
-2024-10-16 09:09:50,689 - openai._base_client - INFO - Retrying request to /chat/completions in 3.139292 seconds
-2024-10-16 09:09:53,829 - openai._base_client - INFO - Retrying request to /chat/completions in 7.556547 seconds
-2024-10-16 09:10:01,387 - openai._base_client - INFO - Retrying request to /chat/completions in 6.505158 seconds
-2024-10-16 09:10:07,893 - openai._base_client - INFO - Retrying request to /chat/completions in 6.133568 seconds
-2024-10-16 09:10:14,028 - openai._base_client - INFO - Retrying request to /chat/completions in 7.095134 seconds
-2024-10-16 09:10:21,124 - openai._base_client - INFO - Retrying request to /chat/completions in 6.349536 seconds
-2024-10-16 09:10:27,475 - openai._base_client - INFO - Retrying request to /chat/completions in 6.421556 seconds
-2024-10-16 09:10:33,898 - openai._base_client - INFO - Retrying request to /chat/completions in 6.523003 seconds
-2024-10-16 09:10:48,883 - openai._base_client - INFO - Retrying request to /chat/completions in 0.954028 seconds
-2024-10-16 09:10:49,838 - openai._base_client - INFO - Retrying request to /chat/completions in 1.919162 seconds
-2024-10-16 09:10:51,758 - openai._base_client - INFO - Retrying request to /chat/completions in 3.991657 seconds
-2024-10-16 09:10:55,751 - openai._base_client - INFO - Retrying request to /chat/completions in 7.898642 seconds
-2024-10-16 09:11:03,651 - openai._base_client - INFO - Retrying request to /chat/completions in 6.138456 seconds
-2024-10-16 09:11:09,791 - openai._base_client - INFO - Retrying request to /chat/completions in 7.972430 seconds
-2024-10-16 09:11:17,763 - openai._base_client - INFO - Retrying request to /chat/completions in 6.423651 seconds
-2024-10-16 09:11:24,189 - openai._base_client - INFO - Retrying request to /chat/completions in 6.266886 seconds
-2024-10-16 09:11:30,457 - openai._base_client - INFO - Retrying request to /chat/completions in 6.747478 seconds
-2024-10-16 09:11:37,204 - openai._base_client - INFO - Retrying request to /chat/completions in 6.817713 seconds
-2024-10-16 09:11:54,026 - openai._base_client - INFO - Retrying request to /chat/completions in 0.756851 seconds
-2024-10-16 09:11:54,784 - openai._base_client - INFO - Retrying request to /chat/completions in 1.760206 seconds
-2024-10-16 09:11:56,545 - openai._base_client - INFO - Retrying request to /chat/completions in 3.474988 seconds
-2024-10-16 09:12:00,021 - openai._base_client - INFO - Retrying request to /chat/completions in 7.923974 seconds
-2024-10-16 09:12:07,946 - openai._base_client - INFO - Retrying request to /chat/completions in 6.749046 seconds
-2024-10-16 09:12:14,697 - openai._base_client - INFO - Retrying request to /chat/completions in 7.848536 seconds
-2024-10-16 09:12:22,546 - openai._base_client - INFO - Retrying request to /chat/completions in 6.951219 seconds
-2024-10-16 09:12:29,498 - openai._base_client - INFO - Retrying request to /chat/completions in 7.257002 seconds
-2024-10-16 09:12:36,756 - openai._base_client - INFO - Retrying request to /chat/completions in 6.839271 seconds
-2024-10-16 09:12:43,596 - openai._base_client - INFO - Retrying request to /chat/completions in 6.549662 seconds
-2024-10-16 09:13:00,150 - openai._base_client - INFO - Retrying request to /chat/completions in 0.933701 seconds
-2024-10-16 09:13:01,085 - openai._base_client - INFO - Retrying request to /chat/completions in 1.856148 seconds
-2024-10-16 09:13:02,942 - openai._base_client - INFO - Retrying request to /chat/completions in 3.370298 seconds
-2024-10-16 09:13:06,313 - openai._base_client - INFO - Retrying request to /chat/completions in 7.879027 seconds
-2024-10-16 09:13:14,194 - openai._base_client - INFO - Retrying request to /chat/completions in 7.823724 seconds
-2024-10-16 09:13:22,020 - openai._base_client - INFO - Retrying request to /chat/completions in 6.965926 seconds
-2024-10-16 09:13:28,987 - openai._base_client - INFO - Retrying request to /chat/completions in 7.288888 seconds
-2024-10-16 09:13:36,276 - openai._base_client - INFO - Retrying request to /chat/completions in 6.453776 seconds
-2024-10-16 09:13:42,731 - openai._base_client - INFO - Retrying request to /chat/completions in 7.388419 seconds
-2024-10-16 09:13:50,121 - openai._base_client - INFO - Retrying request to /chat/completions in 7.371039 seconds
-2024-10-16 09:14:07,496 - openai._base_client - INFO - Retrying request to /chat/completions in 0.974189 seconds
-2024-10-16 09:14:08,471 - openai._base_client - INFO - Retrying request to /chat/completions in 1.939862 seconds
-2024-10-16 09:14:10,412 - openai._base_client - INFO - Retrying request to /chat/completions in 3.158719 seconds
-2024-10-16 09:14:13,572 - openai._base_client - INFO - Retrying request to /chat/completions in 6.283667 seconds
-2024-10-16 09:14:19,857 - openai._base_client - INFO - Retrying request to /chat/completions in 7.034233 seconds
-2024-10-16 09:14:26,892 - openai._base_client - INFO - Retrying request to /chat/completions in 6.091485 seconds
-2024-10-16 09:14:32,983 - openai._base_client - INFO - Retrying request to /chat/completions in 7.257127 seconds
-2024-10-16 09:14:40,242 - openai._base_client - INFO - Retrying request to /chat/completions in 6.805555 seconds
-2024-10-16 09:14:47,049 - openai._base_client - INFO - Retrying request to /chat/completions in 7.946264 seconds
-2024-10-16 09:14:54,995 - openai._base_client - INFO - Retrying request to /chat/completions in 6.110542 seconds
-2024-10-16 09:15:11,111 - openai._base_client - INFO - Retrying request to /chat/completions in 0.941790 seconds
-2024-10-16 09:15:12,054 - openai._base_client - INFO - Retrying request to /chat/completions in 1.889786 seconds
-2024-10-16 09:15:13,945 - openai._base_client - INFO - Retrying request to /chat/completions in 3.824566 seconds
-2024-10-16 09:15:17,771 - openai._base_client - INFO - Retrying request to /chat/completions in 7.094872 seconds
-2024-10-16 09:15:24,867 - openai._base_client - INFO - Retrying request to /chat/completions in 7.726902 seconds
-2024-10-16 09:15:32,596 - openai._base_client - INFO - Retrying request to /chat/completions in 6.348955 seconds
-2024-10-16 09:15:38,945 - openai._base_client - INFO - Retrying request to /chat/completions in 6.113615 seconds
-2024-10-16 09:15:45,060 - openai._base_client - INFO - Retrying request to /chat/completions in 6.923778 seconds
-2024-10-16 09:15:51,985 - openai._base_client - INFO - Retrying request to /chat/completions in 7.656428 seconds
-2024-10-16 09:15:59,642 - openai._base_client - INFO - Retrying request to /chat/completions in 7.518115 seconds
-2024-10-16 09:16:17,163 - openai._base_client - INFO - Retrying request to /chat/completions in 0.829275 seconds
-2024-10-16 09:16:17,993 - openai._base_client - INFO - Retrying request to /chat/completions in 1.526534 seconds
-2024-10-16 09:16:19,521 - openai._base_client - INFO - Retrying request to /chat/completions in 3.000924 seconds
-2024-10-16 09:16:22,524 - openai._base_client - INFO - Retrying request to /chat/completions in 7.247020 seconds
-2024-10-16 09:16:29,772 - openai._base_client - INFO - Retrying request to /chat/completions in 7.491021 seconds
-2024-10-16 09:16:37,263 - openai._base_client - INFO - Retrying request to /chat/completions in 7.750482 seconds
-2024-10-16 09:16:45,014 - openai._base_client - INFO - Retrying request to /chat/completions in 7.058559 seconds
-2024-10-16 09:16:52,075 - openai._base_client - INFO - Retrying request to /chat/completions in 7.952613 seconds
-2024-10-16 09:17:00,029 - openai._base_client - INFO - Retrying request to /chat/completions in 6.980074 seconds
-2024-10-16 09:17:07,010 - openai._base_client - INFO - Retrying request to /chat/completions in 6.253642 seconds
-2024-10-16 09:17:13,265 - graphrag.query.structured_search.local_search.search - ERROR - Exception in _asearch
-Traceback (most recent call last):
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 373, in handle_async_request
-    resp = await self._pool.handle_async_request(req)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection_pool.py", line 216, in handle_async_request
-    raise exc from None
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection_pool.py", line 196, in handle_async_request
-    response = await connection.handle_async_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection.py", line 99, in handle_async_request
-    raise exc
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection.py", line 76, in handle_async_request
-    stream = await self._connect(request)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection.py", line 122, in _connect
-    stream = await self._network_backend.connect_tcp(**kwargs)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_backends/auto.py", line 30, in connect_tcp
-    return await self._backend.connect_tcp(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_backends/anyio.py", line 114, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: All connection attempts failed
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1549, in _request
-    response = await self._client.send(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1661, in send
-    response = await self._send_handling_auth(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1689, in _send_handling_auth
-    response = await self._send_handling_redirects(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1726, in _send_handling_redirects
-    response = await self._send_single_request(request)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1763, in _send_single_request
-    response = await transport.handle_async_request(request)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 372, in handle_async_request
-    with map_httpcore_exceptions():
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: All connection attempts failed
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/structured_search/local_search/search.py", line 87, in asearch
-    response = await self.llm.agenerate(
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/llm/oai/chat_openai.py", line 142, in agenerate
-    async for attempt in retryer:
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
-    do = await self.iter(retry_state=self._retry_state)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
-    result = await action(retry_state)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
-    return call(*args, **kwargs)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
-    raise retry_exc.reraise()
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
-    raise self.last_attempt.result()
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/concurrent/futures/_base.py", line 451, in result
-    return self.__get_result()
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
-    raise self._exception
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/llm/oai/chat_openai.py", line 144, in agenerate
-    return await self._agenerate(
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/llm/oai/chat_openai.py", line 268, in _agenerate
-    response = await self.async_client.chat.completions.create(  # type: ignore
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1339, in create
-    return await self._post(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
-    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1583, in _request
-    raise APIConnectionError(request=request) from err
-openai.APIConnectionError: Connection error.
-2024-10-16 09:17:13,267 - __main__ - INFO - 格式化的LLM结果:
- 
-2024-10-16 09:17:13,267 - __main__ - INFO - 发送响应: 
-
-id='chatcmpl-834734db58f643c68bee611dc0a91d13' object='chat.completion' created=1729041433 model='graphrag-local-search:latest' choices=[ChatCompletionResponseChoice(index=0, message=Message(role='assistant', content=''), finish_reason='stop')] usage=Usage(prompt_tokens=1, completion_tokens=0, total_tokens=1) system_fingerprint=None
-INFO:     127.0.0.1:40364 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-2024-10-16 09:17:13,272 - __main__ - INFO - 收到聊天完成请求: model='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=False stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
-2024-10-16 09:17:13,272 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
-2024-10-16 09:17:13,273 - openai._base_client - INFO - Retrying request to /embeddings in 0.960850 seconds
-2024-10-16 09:17:14,235 - openai._base_client - INFO - Retrying request to /embeddings in 1.883843 seconds
-2024-10-16 09:17:16,121 - openai._base_client - INFO - Retrying request to /embeddings in 3.785315 seconds
-2024-10-16 09:17:19,911 - openai._base_client - INFO - Retrying request to /embeddings in 6.920524 seconds
-2024-10-16 09:17:26,837 - openai._base_client - INFO - Retrying request to /embeddings in 7.963317 seconds
-2024-10-16 09:17:34,809 - openai._base_client - INFO - Retrying request to /embeddings in 7.532411 seconds
-2024-10-16 09:17:42,348 - openai._base_client - INFO - Retrying request to /embeddings in 6.346697 seconds
-2024-10-16 09:17:48,702 - openai._base_client - INFO - Retrying request to /embeddings in 6.043569 seconds
-2024-10-16 09:17:54,750 - openai._base_client - INFO - Retrying request to /embeddings in 6.257824 seconds
-2024-10-16 09:18:01,014 - openai._base_client - INFO - Retrying request to /embeddings in 6.916560 seconds
-2024-10-16 09:18:07,937 - openai._base_client - INFO - Retrying request to /embeddings in 7.711344 seconds
-2024-10-16 09:18:15,654 - openai._base_client - INFO - Retrying request to /embeddings in 7.493010 seconds
-2024-10-16 09:18:23,153 - openai._base_client - INFO - Retrying request to /embeddings in 7.913312 seconds
-2024-10-16 09:18:31,073 - openai._base_client - INFO - Retrying request to /embeddings in 6.533478 seconds
-2024-10-16 09:18:37,614 - openai._base_client - INFO - Retrying request to /embeddings in 7.553467 seconds
-2024-10-16 09:18:45,175 - openai._base_client - INFO - Retrying request to /embeddings in 6.529018 seconds
-2024-10-16 09:18:51,709 - openai._base_client - INFO - Retrying request to /embeddings in 7.200562 seconds
-2024-10-16 09:18:58,917 - openai._base_client - INFO - Retrying request to /embeddings in 7.403328 seconds
-2024-10-16 09:19:06,327 - openai._base_client - INFO - Retrying request to /embeddings in 6.455524 seconds
-2024-10-16 09:19:12,789 - openai._base_client - INFO - Retrying request to /embeddings in 7.811187 seconds
-2024-10-16 09:19:21,695 - openai._base_client - INFO - Retrying request to /embeddings in 0.793048 seconds
-2024-10-16 09:19:22,490 - openai._base_client - INFO - Retrying request to /embeddings in 1.808587 seconds
-2024-10-16 09:19:24,301 - openai._base_client - INFO - Retrying request to /embeddings in 3.993578 seconds
-2024-10-16 09:19:29,303 - openai._base_client - INFO - Retrying request to /embeddings in 6.886992 seconds
-2024-10-16 09:19:39,535 - httpx - INFO - HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
-2024-10-16 09:19:39,555 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
-2024-10-16 09:19:39,564 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 146.291789 秒
-2024-10-16 09:19:39,564 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
-2024-10-16 09:19:39,564 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
-
------Entities-----
-id|entity|description|number of relationships
-731|保持牙齿健康|通过日常护理和专业治疗保持牙齿的健康状态|1
-113|牙龈健康维护|定期进行牙周维护，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
-732|保持牙龈健康|通过日常护理和专业治疗保持牙龈的健康状态|1
-126|牙周病预防措施|牙周病的预防措施包括改善口腔卫生习惯、定期检查、戒烟等|0
-118|牙周病预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙周病|0
-128|牙周病管理|牙周病管理包括定期的牙周维护、治疗、教育和监测，以维持牙龈健康|0
-119|牙周维护|定期进行的牙周维护服务，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
-730|减少牙周病|通过日常护理和专业治疗降低牙周病的风险|1
-729|减少蛀牙|通过日常护理和专业治疗降低蛀牙的风险|1
-116|牙齿松动预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿松动|0
-109|口腔卫生习惯|良好的口腔卫生习惯包括刷牙、使用牙线、定期洗牙等，有助于预防牙周病|0
-103|牙龈健康|牙龈健康是牙周治疗的目标，包括牙龈无出血、无红肿、无疼痛|0
-728|预防牙石|通过日常护理和专业治疗减少牙石的形成|1
-117|牙齿移位预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿移位|0
-104|牙龈愈合|牙龈愈合是牙周治疗后的重要康复目标，通过良好的口腔卫生习惯促进|0
-105|牙龈形态|牙龈形态的改善有助于提升口腔美观和功能|0
-576|牙齿处理||2
-727|预防牙菌斑|通过日常护理和专业治疗减少牙菌斑的形成|1
-159|牙周病管理团队|牙周病管理团队是由牙医和相关专业人员组成的团队，负责定期的牙周维护、治疗和监测|0
-112|牙龈形态改善|通过牙周治疗和良好的口腔卫生习惯，可以改善牙龈形态，恢复美观和功能|0
-
-
------Relationships-----
-id|source|target|description|weight|rank|links
-161|牙齿清洁与维护|预防牙菌斑|预防牙菌斑是牙齿清洁与维护的目标之一|8.0|11|6
-162|牙齿清洁与维护|预防牙石|预防牙石是牙齿清洁与维护的目标之一|8.0|11|6
-163|牙齿清洁与维护|减少蛀牙|减少蛀牙是牙齿清洁与维护的目标之一|8.0|11|6
-164|牙齿清洁与维护|减少牙周病|减少牙周病是牙齿清洁与维护的目标之一|8.0|11|6
-165|牙齿清洁与维护|保持牙齿健康|保持牙齿健康是牙齿清洁与维护的目标之一|8.0|11|6
-166|牙齿清洁与维护|保持牙龈健康|保持牙龈健康是牙齿清洁与维护的目标之一|8.0|11|6
-248|拔除|牙齿处理|拔除是牙齿处理中的一种操作，用于处理无法保留的牙齿|1.0|5|1
-247|再植|牙齿处理|再植是牙齿处理中的一种操作，用于处理脱落的牙齿|1.0|3|1
-
-
------claims-----
-id|entity|object_id|status|start_date|end_date|description
-
-
------Sources-----
-id|text
-14|五、其他分类
-
-3.牙齿清洁与维护
-3.1 问题：什么是牙齿清洁与维护？
-答案：牙齿清洁与维护是指通过一系列的日常护理措施和专业治疗方法来保持口腔卫生，预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，保持牙齿和牙龈的健康。
-3.2 问题：什么是超声波洁牙？
-答案：超声波洁牙俗称是洗牙，是通过超声波的高频振动，去除牙齿上的牙结石、烟渍和茶斑，对牙齿表面的损害非常小。为了维护好良好的口腔卫生状态，我们推荐每年洁牙1～2次。
-3.3 问题：超声波洁牙可能出现什么症状？
-答案：
-1.牙齿敏感：洁治后原被牙结石包绕的牙根会暴露，这时遇冷热刺激会出现敏感症状。可在洁治后短期内避免接触过冷过热食物，或者使用脱敏制剂症状会逐渐缓解；如症状加重可以采用牙髓治疗。
-2.牙齿疼痛：牙根暴露所致，反复的不良刺激会引起逆行性牙髓炎，需采用牙髓治疗。牙周炎症越重，牙根暴露越明显，在洁治过程中和洁治后的酸痛感也会更明显，
-3.牙龈出血：菌斑、牙结石刺激牙龈发生炎症，炎症越严重，牙龈出血也越明显；自身血液疾病也会引起牙龈出血，需进一步诊治。
-4.牙龈退缩：牙龈发生炎症时会红肿，炎症消退后牙齿间可能出现缝隙或缝隙变大
-5.牙齿松动：牙周病严重的患者洁牙后松动牙很难恢复稳定，严重松动的牙需要拔除，
-
-1|一、口腔内科
-2.牙周炎
-2.1 问题：牙周炎通常有哪些症状？
-答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、牙齿松动、口臭、咬合不适。
-2.2 问题：牙周炎早期症状？
-答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、刷牙后牙龈轻微疼痛。
-2.3 问题：牙周炎如何治疗？
-答案：牙周炎通常通过牙周治疗和（或）牙周手术来治疗。
-2.4 问题：如何知道自己有牙周炎？
-答案：牙周炎的症状包括牙龈红肿、刷牙或咀嚼时牙龈出血、口臭、牙齿松动等;也可通过医生检查。
-2.5 问题：治疗牙周炎后要注意什么？
-答案：治疗牙周炎后要严格遵循牙医的建议，保持良好的口腔卫生，定期进行牙周维护以防复发。
-2.6 问题：牙龈炎和牙周炎有什么区别？
-答案：牙龈炎是牙龈的炎症，通常是牙菌斑引起的，早期可逆；牙周炎则是炎症扩散至牙周组织，导致牙槽骨吸收和牙齿松动、移位等。
-
-3牙髓炎
-3.1 问题：什么是牙髓炎？
-答案：牙髓炎是牙齿内部的牙髓组织感染或发炎，通常由深龋或牙外伤引起，会导致剧烈的牙痛。
-3.2 问题：牙髓炎有哪些症状？
-答案：牙髓炎常见的症状包括牙齿疼痛、牙齿敏感、牙齿变色、牙龈附近出现脓肿、牙龈肿痛或疼痛。
-3.3 问题：牙髓炎早期症状？
-答案：牙髓炎早期的症状包括牙齿偶尔感到轻微疼痛不适；对冷热食物或饮料的敏感性增加；牙齿颜色开始变暗。
-3.4 问题：牙髓炎如何治疗？
-答案：可用根管治疗。
-
-
-2024-10-16 09:19:39,567 - openai._base_client - INFO - Retrying request to /chat/completions in 0.873358 seconds
-2024-10-16 09:19:40,440 - openai._base_client - INFO - Retrying request to /chat/completions in 1.636971 seconds
-2024-10-16 09:19:42,078 - openai._base_client - INFO - Retrying request to /chat/completions in 3.738097 seconds
-2024-10-16 09:19:45,817 - openai._base_client - INFO - Retrying request to /chat/completions in 6.601303 seconds
-2024-10-16 09:19:52,419 - openai._base_client - INFO - Retrying request to /chat/completions in 7.857280 seconds
-2024-10-16 09:20:00,277 - openai._base_client - INFO - Retrying request to /chat/completions in 7.568296 seconds
-2024-10-16 09:20:07,846 - openai._base_client - INFO - Retrying request to /chat/completions in 6.189570 seconds
-2024-10-16 09:20:14,038 - openai._base_client - INFO - Retrying request to /chat/completions in 6.646159 seconds
-2024-10-16 09:20:20,685 - openai._base_client - INFO - Retrying request to /chat/completions in 6.781822 seconds
-2024-10-16 09:20:27,467 - openai._base_client - INFO - Retrying request to /chat/completions in 7.039582 seconds
-2024-10-16 09:20:36,071 - openai._base_client - INFO - Retrying request to /chat/completions in 0.890246 seconds
-2024-10-16 09:20:36,962 - openai._base_client - INFO - Retrying request to /chat/completions in 1.826102 seconds
-2024-10-16 09:20:38,789 - openai._base_client - INFO - Retrying request to /chat/completions in 3.779305 seconds
-2024-10-16 09:20:42,569 - openai._base_client - INFO - Retrying request to /chat/completions in 6.369677 seconds
-2024-10-16 09:20:48,940 - openai._base_client - INFO - Retrying request to /chat/completions in 7.093279 seconds
-2024-10-16 09:20:56,034 - openai._base_client - INFO - Retrying request to /chat/completions in 7.365142 seconds
-2024-10-16 09:21:03,399 - openai._base_client - INFO - Retrying request to /chat/completions in 6.850171 seconds
-2024-10-16 09:21:10,251 - openai._base_client - INFO - Retrying request to /chat/completions in 7.480334 seconds
-2024-10-16 09:21:17,732 - openai._base_client - INFO - Retrying request to /chat/completions in 6.185312 seconds
-2024-10-16 09:21:23,917 - openai._base_client - INFO - Retrying request to /chat/completions in 6.161012 seconds
-2024-10-16 09:21:32,900 - openai._base_client - INFO - Retrying request to /chat/completions in 0.987707 seconds
-2024-10-16 09:21:33,890 - openai._base_client - INFO - Retrying request to /chat/completions in 1.997099 seconds
-2024-10-16 09:21:35,887 - openai._base_client - INFO - Retrying request to /chat/completions in 3.898918 seconds
-2024-10-16 09:21:39,786 - openai._base_client - INFO - Retrying request to /chat/completions in 7.873035 seconds
-2024-10-16 09:21:47,661 - openai._base_client - INFO - Retrying request to /chat/completions in 7.476773 seconds
-2024-10-16 09:21:55,140 - openai._base_client - INFO - Retrying request to /chat/completions in 7.081335 seconds
-2024-10-16 09:22:02,222 - openai._base_client - INFO - Retrying request to /chat/completions in 7.045038 seconds
-2024-10-16 09:22:09,268 - openai._base_client - INFO - Retrying request to /chat/completions in 7.321752 seconds
-2024-10-16 09:22:16,591 - openai._base_client - INFO - Retrying request to /chat/completions in 7.735516 seconds
-2024-10-16 09:22:24,328 - openai._base_client - INFO - Retrying request to /chat/completions in 7.792638 seconds
-2024-10-16 09:22:36,328 - openai._base_client - INFO - Retrying request to /chat/completions in 0.886422 seconds
-2024-10-16 09:22:37,215 - openai._base_client - INFO - Retrying request to /chat/completions in 1.919966 seconds
-2024-10-16 09:22:39,136 - openai._base_client - INFO - Retrying request to /chat/completions in 3.802188 seconds
-2024-10-16 09:22:42,939 - openai._base_client - INFO - Retrying request to /chat/completions in 6.507330 seconds
-2024-10-16 09:22:49,477 - openai._base_client - INFO - Retrying request to /chat/completions in 7.476922 seconds
-2024-10-16 09:22:56,956 - openai._base_client - INFO - Retrying request to /chat/completions in 7.936933 seconds
-2024-10-16 09:23:04,893 - openai._base_client - INFO - Retrying request to /chat/completions in 7.072718 seconds
-2024-10-16 09:23:11,968 - openai._base_client - INFO - Retrying request to /chat/completions in 6.503106 seconds
-2024-10-16 09:23:18,473 - openai._base_client - INFO - Retrying request to /chat/completions in 7.345574 seconds
-2024-10-16 09:23:25,820 - openai._base_client - INFO - Retrying request to /chat/completions in 6.327567 seconds
-2024-10-16 09:23:40,487 - openai._base_client - INFO - Retrying request to /chat/completions in 0.837389 seconds
-2024-10-16 09:23:41,325 - openai._base_client - INFO - Retrying request to /chat/completions in 1.725053 seconds
-2024-10-16 09:23:43,050 - openai._base_client - INFO - Retrying request to /chat/completions in 3.393569 seconds
-2024-10-16 09:23:46,445 - openai._base_client - INFO - Retrying request to /chat/completions in 7.013469 seconds
-2024-10-16 09:23:53,459 - openai._base_client - INFO - Retrying request to /chat/completions in 7.417259 seconds
-2024-10-16 09:24:00,878 - openai._base_client - INFO - Retrying request to /chat/completions in 6.397775 seconds
-2024-10-16 09:24:07,277 - openai._base_client - INFO - Retrying request to /chat/completions in 6.752772 seconds
-2024-10-16 09:24:14,032 - openai._base_client - INFO - Retrying request to /chat/completions in 7.268989 seconds
-2024-10-16 09:24:21,301 - openai._base_client - INFO - Retrying request to /chat/completions in 6.220515 seconds
-2024-10-16 09:24:27,523 - openai._base_client - INFO - Retrying request to /chat/completions in 6.289095 seconds
-2024-10-16 09:24:43,817 - openai._base_client - INFO - Retrying request to /chat/completions in 0.818459 seconds
-2024-10-16 09:24:44,636 - openai._base_client - INFO - Retrying request to /chat/completions in 1.568950 seconds
-2024-10-16 09:24:46,207 - openai._base_client - INFO - Retrying request to /chat/completions in 3.456154 seconds
-2024-10-16 09:24:49,664 - openai._base_client - INFO - Retrying request to /chat/completions in 6.884868 seconds
-2024-10-16 09:24:56,550 - openai._base_client - INFO - Retrying request to /chat/completions in 7.587616 seconds
-2024-10-16 09:25:04,138 - openai._base_client - INFO - Retrying request to /chat/completions in 6.104189 seconds
-2024-10-16 09:25:10,243 - openai._base_client - INFO - Retrying request to /chat/completions in 6.482863 seconds
-2024-10-16 09:25:16,727 - openai._base_client - INFO - Retrying request to /chat/completions in 6.364323 seconds
-2024-10-16 09:25:23,092 - openai._base_client - INFO - Retrying request to /chat/completions in 6.998833 seconds
-2024-10-16 09:25:30,092 - openai._base_client - INFO - Retrying request to /chat/completions in 7.661833 seconds
-2024-10-16 09:25:47,758 - openai._base_client - INFO - Retrying request to /chat/completions in 0.963513 seconds
-2024-10-16 09:25:48,723 - openai._base_client - INFO - Retrying request to /chat/completions in 1.959135 seconds
-2024-10-16 09:25:50,684 - openai._base_client - INFO - Retrying request to /chat/completions in 3.734934 seconds
-2024-10-16 09:25:54,420 - openai._base_client - INFO - Retrying request to /chat/completions in 7.747506 seconds
-2024-10-16 09:26:02,170 - openai._base_client - INFO - Retrying request to /chat/completions in 7.583633 seconds
-2024-10-16 09:26:09,755 - openai._base_client - INFO - Retrying request to /chat/completions in 7.857068 seconds
-2024-10-16 09:26:17,613 - openai._base_client - INFO - Retrying request to /chat/completions in 6.702904 seconds
-2024-10-16 09:26:24,317 - openai._base_client - INFO - Retrying request to /chat/completions in 7.544143 seconds
-2024-10-16 09:26:31,862 - openai._base_client - INFO - Retrying request to /chat/completions in 6.677887 seconds
-2024-10-16 09:26:38,541 - openai._base_client - INFO - Retrying request to /chat/completions in 7.187468 seconds
-2024-10-16 09:26:55,732 - openai._base_client - INFO - Retrying request to /chat/completions in 0.801965 seconds
-2024-10-16 09:26:56,535 - openai._base_client - INFO - Retrying request to /chat/completions in 1.878335 seconds
-2024-10-16 09:26:58,415 - openai._base_client - INFO - Retrying request to /chat/completions in 3.072350 seconds
-2024-10-16 09:27:01,488 - openai._base_client - INFO - Retrying request to /chat/completions in 6.281392 seconds
-2024-10-16 09:27:07,769 - openai._base_client - INFO - Retrying request to /chat/completions in 7.751567 seconds
-2024-10-16 09:27:15,523 - openai._base_client - INFO - Retrying request to /chat/completions in 7.663060 seconds
-2024-10-16 09:27:23,187 - openai._base_client - INFO - Retrying request to /chat/completions in 7.727934 seconds
-2024-10-16 09:27:30,916 - openai._base_client - INFO - Retrying request to /chat/completions in 6.307205 seconds
-2024-10-16 09:27:37,224 - openai._base_client - INFO - Retrying request to /chat/completions in 6.280148 seconds
-2024-10-16 09:27:43,505 - openai._base_client - INFO - Retrying request to /chat/completions in 6.814659 seconds
-2024-10-16 09:28:00,324 - openai._base_client - INFO - Retrying request to /chat/completions in 0.931244 seconds
-2024-10-16 09:28:01,256 - openai._base_client - INFO - Retrying request to /chat/completions in 1.983665 seconds
-2024-10-16 09:28:03,242 - openai._base_client - INFO - Retrying request to /chat/completions in 3.910436 seconds
-2024-10-16 09:28:07,152 - openai._base_client - INFO - Retrying request to /chat/completions in 6.916827 seconds
-2024-10-16 09:28:14,071 - openai._base_client - INFO - Retrying request to /chat/completions in 6.882641 seconds
-2024-10-16 09:28:20,955 - openai._base_client - INFO - Retrying request to /chat/completions in 6.064310 seconds
-2024-10-16 09:28:27,020 - openai._base_client - INFO - Retrying request to /chat/completions in 6.997483 seconds
-2024-10-16 09:28:34,018 - openai._base_client - INFO - Retrying request to /chat/completions in 7.198832 seconds
-2024-10-16 09:28:41,218 - openai._base_client - INFO - Retrying request to /chat/completions in 6.819308 seconds
-2024-10-16 09:28:48,039 - openai._base_client - INFO - Retrying request to /chat/completions in 7.112415 seconds
-2024-10-16 09:29:05,154 - openai._base_client - INFO - Retrying request to /chat/completions in 0.836168 seconds
-2024-10-16 09:29:05,991 - openai._base_client - INFO - Retrying request to /chat/completions in 1.806350 seconds
-2024-10-16 09:29:07,798 - openai._base_client - INFO - Retrying request to /chat/completions in 3.338747 seconds
-2024-10-16 09:29:11,138 - openai._base_client - INFO - Retrying request to /chat/completions in 7.209103 seconds
-2024-10-16 09:29:18,348 - openai._base_client - INFO - Retrying request to /chat/completions in 6.593964 seconds
-2024-10-16 09:29:24,943 - openai._base_client - INFO - Retrying request to /chat/completions in 7.166852 seconds
-2024-10-16 09:29:32,112 - openai._base_client - INFO - Retrying request to /chat/completions in 6.765901 seconds
-2024-10-16 09:29:38,878 - openai._base_client - INFO - Retrying request to /chat/completions in 6.803778 seconds
-2024-10-16 09:29:45,684 - openai._base_client - INFO - Retrying request to /chat/completions in 7.329823 seconds
-2024-10-16 09:29:53,015 - openai._base_client - INFO - Retrying request to /chat/completions in 6.710747 seconds
-2024-10-16 09:29:59,727 - graphrag.query.structured_search.local_search.search - ERROR - Exception in _asearch
-Traceback (most recent call last):
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 373, in handle_async_request
-    resp = await self._pool.handle_async_request(req)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection_pool.py", line 216, in handle_async_request
-    raise exc from None
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection_pool.py", line 196, in handle_async_request
-    response = await connection.handle_async_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection.py", line 99, in handle_async_request
-    raise exc
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection.py", line 76, in handle_async_request
-    stream = await self._connect(request)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection.py", line 122, in _connect
-    stream = await self._network_backend.connect_tcp(**kwargs)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_backends/auto.py", line 30, in connect_tcp
-    return await self._backend.connect_tcp(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_backends/anyio.py", line 114, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: All connection attempts failed
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1549, in _request
-    response = await self._client.send(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1661, in send
-    response = await self._send_handling_auth(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1689, in _send_handling_auth
-    response = await self._send_handling_redirects(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1726, in _send_handling_redirects
-    response = await self._send_single_request(request)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1763, in _send_single_request
-    response = await transport.handle_async_request(request)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 372, in handle_async_request
-    with map_httpcore_exceptions():
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: All connection attempts failed
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/structured_search/local_search/search.py", line 87, in asearch
-    response = await self.llm.agenerate(
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/llm/oai/chat_openai.py", line 142, in agenerate
-    async for attempt in retryer:
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
-    do = await self.iter(retry_state=self._retry_state)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
-    result = await action(retry_state)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
-    return call(*args, **kwargs)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
-    raise retry_exc.reraise()
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
-    raise self.last_attempt.result()
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/concurrent/futures/_base.py", line 451, in result
-    return self.__get_result()
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
-    raise self._exception
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/llm/oai/chat_openai.py", line 144, in agenerate
-    return await self._agenerate(
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/llm/oai/chat_openai.py", line 268, in _agenerate
-    response = await self.async_client.chat.completions.create(  # type: ignore
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1339, in create
-    return await self._post(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
-    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1583, in _request
-    raise APIConnectionError(request=request) from err
-openai.APIConnectionError: Connection error.
-2024-10-16 09:29:59,729 - __main__ - INFO - 格式化的LLM结果:
- 
-2024-10-16 09:29:59,729 - __main__ - INFO - 发送响应: 
-
-id='chatcmpl-567a02332eed48b1a9c5c5c939cc398f' object='chat.completion' created=1729042199 model='graphrag-local-search:latest' choices=[ChatCompletionResponseChoice(index=0, message=Message(role='assistant', content=''), finish_reason='stop')] usage=Usage(prompt_tokens=1, completion_tokens=0, total_tokens=1) system_fingerprint=None
-INFO:     127.0.0.1:35830 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-2024-10-16 09:31:28,023 - __main__ - INFO - 收到聊天完成请求: model='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=False stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
-2024-10-16 09:31:28,023 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
-2024-10-16 09:31:31,357 - httpx - INFO - HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
-2024-10-16 09:31:31,374 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
-2024-10-16 09:31:31,383 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 3.359396 秒
-2024-10-16 09:31:31,383 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
-2024-10-16 09:31:31,383 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
-
------Entities-----
-id|entity|description|number of relationships
-731|保持牙齿健康|通过日常护理和专业治疗保持牙齿的健康状态|1
-113|牙龈健康维护|定期进行牙周维护，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
-732|保持牙龈健康|通过日常护理和专业治疗保持牙龈的健康状态|1
-126|牙周病预防措施|牙周病的预防措施包括改善口腔卫生习惯、定期检查、戒烟等|0
-118|牙周病预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙周病|0
-128|牙周病管理|牙周病管理包括定期的牙周维护、治疗、教育和监测，以维持牙龈健康|0
-119|牙周维护|定期进行的牙周维护服务，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
-730|减少牙周病|通过日常护理和专业治疗降低牙周病的风险|1
-729|减少蛀牙|通过日常护理和专业治疗降低蛀牙的风险|1
-116|牙齿松动预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿松动|0
-109|口腔卫生习惯|良好的口腔卫生习惯包括刷牙、使用牙线、定期洗牙等，有助于预防牙周病|0
-103|牙龈健康|牙龈健康是牙周治疗的目标，包括牙龈无出血、无红肿、无疼痛|0
-728|预防牙石|通过日常护理和专业治疗减少牙石的形成|1
-117|牙齿移位预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿移位|0
-104|牙龈愈合|牙龈愈合是牙周治疗后的重要康复目标，通过良好的口腔卫生习惯促进|0
-105|牙龈形态|牙龈形态的改善有助于提升口腔美观和功能|0
-576|牙齿处理||2
-727|预防牙菌斑|通过日常护理和专业治疗减少牙菌斑的形成|1
-159|牙周病管理团队|牙周病管理团队是由牙医和相关专业人员组成的团队，负责定期的牙周维护、治疗和监测|0
-112|牙龈形态改善|通过牙周治疗和良好的口腔卫生习惯，可以改善牙龈形态，恢复美观和功能|0
-
-
------Relationships-----
-id|source|target|description|weight|rank|links
-161|牙齿清洁与维护|预防牙菌斑|预防牙菌斑是牙齿清洁与维护的目标之一|8.0|11|6
-162|牙齿清洁与维护|预防牙石|预防牙石是牙齿清洁与维护的目标之一|8.0|11|6
-163|牙齿清洁与维护|减少蛀牙|减少蛀牙是牙齿清洁与维护的目标之一|8.0|11|6
-164|牙齿清洁与维护|减少牙周病|减少牙周病是牙齿清洁与维护的目标之一|8.0|11|6
-165|牙齿清洁与维护|保持牙齿健康|保持牙齿健康是牙齿清洁与维护的目标之一|8.0|11|6
-166|牙齿清洁与维护|保持牙龈健康|保持牙龈健康是牙齿清洁与维护的目标之一|8.0|11|6
-248|拔除|牙齿处理|拔除是牙齿处理中的一种操作，用于处理无法保留的牙齿|1.0|5|1
-247|再植|牙齿处理|再植是牙齿处理中的一种操作，用于处理脱落的牙齿|1.0|3|1
-
-
------claims-----
-id|entity|object_id|status|start_date|end_date|description
-
-
------Sources-----
-id|text
-14|五、其他分类
-
-3.牙齿清洁与维护
-3.1 问题：什么是牙齿清洁与维护？
-答案：牙齿清洁与维护是指通过一系列的日常护理措施和专业治疗方法来保持口腔卫生，预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，保持牙齿和牙龈的健康。
-3.2 问题：什么是超声波洁牙？
-答案：超声波洁牙俗称是洗牙，是通过超声波的高频振动，去除牙齿上的牙结石、烟渍和茶斑，对牙齿表面的损害非常小。为了维护好良好的口腔卫生状态，我们推荐每年洁牙1～2次。
-3.3 问题：超声波洁牙可能出现什么症状？
-答案：
-1.牙齿敏感：洁治后原被牙结石包绕的牙根会暴露，这时遇冷热刺激会出现敏感症状。可在洁治后短期内避免接触过冷过热食物，或者使用脱敏制剂症状会逐渐缓解；如症状加重可以采用牙髓治疗。
-2.牙齿疼痛：牙根暴露所致，反复的不良刺激会引起逆行性牙髓炎，需采用牙髓治疗。牙周炎症越重，牙根暴露越明显，在洁治过程中和洁治后的酸痛感也会更明显，
-3.牙龈出血：菌斑、牙结石刺激牙龈发生炎症，炎症越严重，牙龈出血也越明显；自身血液疾病也会引起牙龈出血，需进一步诊治。
-4.牙龈退缩：牙龈发生炎症时会红肿，炎症消退后牙齿间可能出现缝隙或缝隙变大
-5.牙齿松动：牙周病严重的患者洁牙后松动牙很难恢复稳定，严重松动的牙需要拔除，
-
-1|一、口腔内科
-2.牙周炎
-2.1 问题：牙周炎通常有哪些症状？
-答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、牙齿松动、口臭、咬合不适。
-2.2 问题：牙周炎早期症状？
-答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、刷牙后牙龈轻微疼痛。
-2.3 问题：牙周炎如何治疗？
-答案：牙周炎通常通过牙周治疗和（或）牙周手术来治疗。
-2.4 问题：如何知道自己有牙周炎？
-答案：牙周炎的症状包括牙龈红肿、刷牙或咀嚼时牙龈出血、口臭、牙齿松动等;也可通过医生检查。
-2.5 问题：治疗牙周炎后要注意什么？
-答案：治疗牙周炎后要严格遵循牙医的建议，保持良好的口腔卫生，定期进行牙周维护以防复发。
-2.6 问题：牙龈炎和牙周炎有什么区别？
-答案：牙龈炎是牙龈的炎症，通常是牙菌斑引起的，早期可逆；牙周炎则是炎症扩散至牙周组织，导致牙槽骨吸收和牙齿松动、移位等。
-
-3牙髓炎
-3.1 问题：什么是牙髓炎？
-答案：牙髓炎是牙齿内部的牙髓组织感染或发炎，通常由深龋或牙外伤引起，会导致剧烈的牙痛。
-3.2 问题：牙髓炎有哪些症状？
-答案：牙髓炎常见的症状包括牙齿疼痛、牙齿敏感、牙齿变色、牙龈附近出现脓肿、牙龈肿痛或疼痛。
-3.3 问题：牙髓炎早期症状？
-答案：牙髓炎早期的症状包括牙齿偶尔感到轻微疼痛不适；对冷热食物或饮料的敏感性增加；牙齿颜色开始变暗。
-3.4 问题：牙髓炎如何治疗？
-答案：可用根管治疗。
-
-
-2024-10-16 09:31:31,386 - openai._base_client - INFO - Retrying request to /chat/completions in 0.787155 seconds
-2024-10-16 09:31:32,174 - openai._base_client - INFO - Retrying request to /chat/completions in 1.910414 seconds
-2024-10-16 09:31:34,085 - openai._base_client - INFO - Retrying request to /chat/completions in 3.877242 seconds
-2024-10-16 09:31:37,962 - openai._base_client - INFO - Retrying request to /chat/completions in 7.176455 seconds
-2024-10-16 09:31:45,138 - openai._base_client - INFO - Retrying request to /chat/completions in 6.763671 seconds
-2024-10-16 09:31:51,903 - openai._base_client - INFO - Retrying request to /chat/completions in 7.678950 seconds
-2024-10-16 09:31:59,583 - openai._base_client - INFO - Retrying request to /chat/completions in 6.460665 seconds
-2024-10-16 09:32:06,045 - openai._base_client - INFO - Retrying request to /chat/completions in 6.284140 seconds
-2024-10-16 09:32:12,330 - openai._base_client - INFO - Retrying request to /chat/completions in 7.748375 seconds
-2024-10-16 09:32:20,079 - openai._base_client - INFO - Retrying request to /chat/completions in 6.586716 seconds
-2024-10-16 09:32:28,475 - openai._base_client - INFO - Retrying request to /chat/completions in 0.820755 seconds
-2024-10-16 09:32:29,298 - openai._base_client - INFO - Retrying request to /chat/completions in 1.841468 seconds
-2024-10-16 09:32:31,140 - openai._base_client - INFO - Retrying request to /chat/completions in 3.869216 seconds
-2024-10-16 09:32:35,009 - openai._base_client - INFO - Retrying request to /chat/completions in 6.406381 seconds
-2024-10-16 09:32:41,416 - openai._base_client - INFO - Retrying request to /chat/completions in 6.298534 seconds
-2024-10-16 09:32:47,716 - openai._base_client - INFO - Retrying request to /chat/completions in 6.018134 seconds
-2024-10-16 09:32:53,735 - openai._base_client - INFO - Retrying request to /chat/completions in 6.316235 seconds
-2024-10-16 09:33:00,052 - openai._base_client - INFO - Retrying request to /chat/completions in 6.879277 seconds
-2024-10-16 09:33:06,932 - openai._base_client - INFO - Retrying request to /chat/completions in 6.599985 seconds
-2024-10-16 09:33:13,534 - openai._base_client - INFO - Retrying request to /chat/completions in 6.374508 seconds
-2024-10-16 09:33:22,542 - openai._base_client - INFO - Retrying request to /chat/completions in 0.879761 seconds
-2024-10-16 09:33:23,423 - openai._base_client - INFO - Retrying request to /chat/completions in 1.626736 seconds
-2024-10-16 09:33:25,052 - openai._base_client - INFO - Retrying request to /chat/completions in 3.052936 seconds
-2024-10-16 09:33:28,106 - openai._base_client - INFO - Retrying request to /chat/completions in 6.697181 seconds
-2024-10-16 09:33:34,805 - openai._base_client - INFO - Retrying request to /chat/completions in 6.091769 seconds
-2024-10-16 09:33:40,898 - openai._base_client - INFO - Retrying request to /chat/completions in 7.001966 seconds
-2024-10-16 09:33:47,900 - openai._base_client - INFO - Retrying request to /chat/completions in 7.587075 seconds
-2024-10-16 09:33:55,488 - openai._base_client - INFO - Retrying request to /chat/completions in 7.004186 seconds
-2024-10-16 09:34:02,493 - openai._base_client - INFO - Retrying request to /chat/completions in 6.827676 seconds
-2024-10-16 09:34:09,323 - openai._base_client - INFO - Retrying request to /chat/completions in 6.385556 seconds
-2024-10-16 09:34:20,332 - openai._base_client - INFO - Retrying request to /chat/completions in 0.948322 seconds
-2024-10-16 09:34:21,281 - openai._base_client - INFO - Retrying request to /chat/completions in 1.732016 seconds
-2024-10-16 09:34:23,014 - openai._base_client - INFO - Retrying request to /chat/completions in 3.204487 seconds
-2024-10-16 09:34:26,219 - openai._base_client - INFO - Retrying request to /chat/completions in 7.107028 seconds
-2024-10-16 09:34:33,327 - openai._base_client - INFO - Retrying request to /chat/completions in 7.435759 seconds
-2024-10-16 09:34:40,764 - openai._base_client - INFO - Retrying request to /chat/completions in 7.651443 seconds
-2024-10-16 09:34:48,417 - openai._base_client - INFO - Retrying request to /chat/completions in 7.064722 seconds
-2024-10-16 09:34:55,483 - openai._base_client - INFO - Retrying request to /chat/completions in 7.474797 seconds
-2024-10-16 09:35:02,958 - openai._base_client - INFO - Retrying request to /chat/completions in 6.535526 seconds
-2024-10-16 09:35:09,494 - openai._base_client - INFO - Retrying request to /chat/completions in 7.351444 seconds
-2024-10-16 09:35:25,280 - openai._base_client - INFO - Retrying request to /chat/completions in 0.828902 seconds
-2024-10-16 09:35:26,109 - openai._base_client - INFO - Retrying request to /chat/completions in 1.734934 seconds
-2024-10-16 09:35:27,845 - openai._base_client - INFO - Retrying request to /chat/completions in 3.965668 seconds
-2024-10-16 09:35:31,812 - openai._base_client - INFO - Retrying request to /chat/completions in 7.400514 seconds
-2024-10-16 09:35:39,215 - openai._base_client - INFO - Retrying request to /chat/completions in 6.566412 seconds
-2024-10-16 09:35:45,782 - openai._base_client - INFO - Retrying request to /chat/completions in 7.591496 seconds
-2024-10-16 09:35:53,374 - openai._base_client - INFO - Retrying request to /chat/completions in 7.222498 seconds
-2024-10-16 09:36:00,597 - openai._base_client - INFO - Retrying request to /chat/completions in 6.649291 seconds
-2024-10-16 09:36:07,247 - openai._base_client - INFO - Retrying request to /chat/completions in 7.919464 seconds
-2024-10-16 09:36:15,167 - openai._base_client - INFO - Retrying request to /chat/completions in 6.111936 seconds
-2024-10-16 09:36:31,283 - openai._base_client - INFO - Retrying request to /chat/completions in 0.766554 seconds
-2024-10-16 09:36:32,051 - openai._base_client - INFO - Retrying request to /chat/completions in 1.595982 seconds
-2024-10-16 09:36:33,648 - openai._base_client - INFO - Retrying request to /chat/completions in 3.353773 seconds
-2024-10-16 09:36:37,003 - openai._base_client - INFO - Retrying request to /chat/completions in 7.959291 seconds
-2024-10-16 09:36:44,964 - openai._base_client - INFO - Retrying request to /chat/completions in 7.446570 seconds
-2024-10-16 09:36:52,412 - openai._base_client - INFO - Retrying request to /chat/completions in 7.448110 seconds
-2024-10-16 09:36:59,862 - openai._base_client - INFO - Retrying request to /chat/completions in 7.604529 seconds
-2024-10-16 09:37:07,468 - openai._base_client - INFO - Retrying request to /chat/completions in 6.053043 seconds
-2024-10-16 09:37:13,522 - openai._base_client - INFO - Retrying request to /chat/completions in 7.980345 seconds
-2024-10-16 09:37:21,503 - openai._base_client - INFO - Retrying request to /chat/completions in 7.463246 seconds
-2024-10-16 09:37:38,971 - openai._base_client - INFO - Retrying request to /chat/completions in 0.924654 seconds
-2024-10-16 09:37:39,897 - openai._base_client - INFO - Retrying request to /chat/completions in 1.924815 seconds
-2024-10-16 09:37:41,823 - openai._base_client - INFO - Retrying request to /chat/completions in 3.421999 seconds
-2024-10-16 09:37:45,245 - openai._base_client - INFO - Retrying request to /chat/completions in 7.913459 seconds
-2024-10-16 09:37:53,159 - openai._base_client - INFO - Retrying request to /chat/completions in 7.006986 seconds
-2024-10-16 09:38:00,167 - openai._base_client - INFO - Retrying request to /chat/completions in 7.394468 seconds
-2024-10-16 09:38:07,562 - openai._base_client - INFO - Retrying request to /chat/completions in 6.142967 seconds
-2024-10-16 09:38:13,706 - openai._base_client - INFO - Retrying request to /chat/completions in 6.631663 seconds
-2024-10-16 09:38:20,340 - openai._base_client - INFO - Retrying request to /chat/completions in 7.645060 seconds
-2024-10-16 09:38:27,985 - openai._base_client - INFO - Retrying request to /chat/completions in 6.699527 seconds
-2024-10-16 09:39:25,972 - openai._base_client - INFO - Retrying request to /chat/completions in 0.869140 seconds
-2024-10-16 09:39:29,048 - openai._base_client - INFO - Retrying request to /chat/completions in 1.827431 seconds
-2024-10-16 09:39:32,116 - openai._base_client - INFO - Retrying request to /chat/completions in 3.449107 seconds
-2024-10-16 09:39:38,260 - openai._base_client - INFO - Retrying request to /chat/completions in 7.948933 seconds
-2024-10-16 09:39:47,476 - openai._base_client - INFO - Retrying request to /chat/completions in 6.170434 seconds
-2024-10-16 09:39:56,692 - openai._base_client - INFO - Retrying request to /chat/completions in 6.977052 seconds
-2024-10-16 09:40:05,908 - openai._base_client - INFO - Retrying request to /chat/completions in 7.726746 seconds
-2024-10-16 09:40:15,124 - openai._base_client - INFO - Retrying request to /chat/completions in 6.218354 seconds
-2024-10-16 09:40:24,340 - openai._base_client - INFO - Retrying request to /chat/completions in 6.928688 seconds
-2024-10-16 09:40:33,556 - openai._base_client - INFO - Retrying request to /chat/completions in 6.590239 seconds
-2024-10-16 09:40:55,060 - openai._base_client - INFO - Retrying request to /chat/completions in 0.823703 seconds
-2024-10-16 09:40:58,132 - openai._base_client - INFO - Retrying request to /chat/completions in 1.565864 seconds
-2024-10-16 09:41:01,204 - openai._base_client - INFO - Retrying request to /chat/completions in 3.994501 seconds
-2024-10-16 09:41:07,348 - openai._base_client - INFO - Retrying request to /chat/completions in 7.797117 seconds
-2024-10-16 09:41:16,564 - openai._base_client - INFO - Retrying request to /chat/completions in 6.423206 seconds
-2024-10-16 09:41:25,780 - openai._base_client - INFO - Retrying request to /chat/completions in 7.758704 seconds
-2024-10-16 09:41:34,996 - openai._base_client - INFO - Retrying request to /chat/completions in 6.740773 seconds
-2024-10-16 09:41:44,788 - openai._base_client - INFO - Retrying request to /chat/completions in 6.731049 seconds
-2024-10-16 09:41:54,584 - openai._base_client - INFO - Retrying request to /chat/completions in 7.368725 seconds
-2024-10-16 09:42:05,012 - openai._base_client - INFO - Retrying request to /chat/completions in 6.288383 seconds
-2024-10-16 09:42:26,708 - openai._base_client - INFO - Retrying request to /chat/completions in 0.822439 seconds
-2024-10-16 09:42:29,780 - openai._base_client - INFO - Retrying request to /chat/completions in 1.572768 seconds
-2024-10-16 09:42:32,852 - openai._base_client - INFO - Retrying request to /chat/completions in 3.132256 seconds
-2024-10-16 09:42:38,996 - openai._base_client - INFO - Retrying request to /chat/completions in 6.888137 seconds
-2024-10-16 09:42:48,948 - openai._base_client - INFO - Retrying request to /chat/completions in 7.772475 seconds
-2024-10-16 09:42:59,796 - openai._base_client - INFO - Retrying request to /chat/completions in 6.992616 seconds
-2024-10-16 09:43:09,204 - openai._base_client - INFO - Retrying request to /chat/completions in 6.616474 seconds
-2024-10-16 09:43:18,900 - openai._base_client - INFO - Retrying request to /chat/completions in 6.793677 seconds
-2024-10-16 09:43:28,756 - openai._base_client - INFO - Retrying request to /chat/completions in 7.072134 seconds
-2024-10-16 09:43:38,904 - openai._base_client - INFO - Retrying request to /chat/completions in 7.099367 seconds
-2024-10-16 09:43:49,076 - graphrag.query.structured_search.local_search.search - ERROR - Exception in _asearch
-Traceback (most recent call last):
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
-    yield
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 373, in handle_async_request
-    resp = await self._pool.handle_async_request(req)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection_pool.py", line 216, in handle_async_request
-    raise exc from None
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection_pool.py", line 196, in handle_async_request
-    response = await connection.handle_async_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection.py", line 99, in handle_async_request
-    raise exc
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection.py", line 76, in handle_async_request
-    stream = await self._connect(request)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_async/connection.py", line 122, in _connect
-    stream = await self._network_backend.connect_tcp(**kwargs)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_backends/auto.py", line 30, in connect_tcp
-    return await self._backend.connect_tcp(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_backends/anyio.py", line 114, in connect_tcp
-    with map_exceptions(exc_map):
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
-    raise to_exc(exc) from exc
-httpcore.ConnectError: All connection attempts failed
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1549, in _request
-    response = await self._client.send(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1661, in send
-    response = await self._send_handling_auth(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1689, in _send_handling_auth
-    response = await self._send_handling_redirects(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1726, in _send_handling_redirects
-    response = await self._send_single_request(request)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_client.py", line 1763, in _send_single_request
-    response = await transport.handle_async_request(request)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 372, in handle_async_request
-    with map_httpcore_exceptions():
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
-    raise mapped_exc(message) from exc
-httpx.ConnectError: All connection attempts failed
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/structured_search/local_search/search.py", line 87, in asearch
-    response = await self.llm.agenerate(
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/llm/oai/chat_openai.py", line 142, in agenerate
-    async for attempt in retryer:
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 166, in __anext__
-    do = await self.iter(retry_state=self._retry_state)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
-    result = await action(retry_state)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
-    return call(*args, **kwargs)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/__init__.py", line 418, in exc_check
-    raise retry_exc.reraise()
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/tenacity/__init__.py", line 185, in reraise
-    raise self.last_attempt.result()
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/concurrent/futures/_base.py", line 451, in result
-    return self.__get_result()
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
-    raise self._exception
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/llm/oai/chat_openai.py", line 144, in agenerate
-    return await self._agenerate(
-  File "/home/zxd/code/Chat/graphrag/graphrag/query/llm/oai/chat_openai.py", line 268, in _agenerate
-    response = await self.async_client.chat.completions.create(  # type: ignore
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1339, in create
-    return await self._post(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1816, in post
-    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1510, in request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1573, in _request
-    return await self._retry_request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1643, in _retry_request
-    return await self._request(
-  File "/home/zxd/.conda/envs/grag/lib/python3.10/site-packages/openai/_base_client.py", line 1583, in _request
-    raise APIConnectionError(request=request) from err
-openai.APIConnectionError: Connection error.
-2024-10-16 09:43:49,077 - __main__ - INFO - 格式化的LLM结果:
- 
-2024-10-16 09:43:49,077 - __main__ - INFO - 发送响应: 
-
-id='chatcmpl-1a9a81e4bf7046b29d756b0868371759' object='chat.completion' created=1729043029 model='graphrag-local-search:latest' choices=[ChatCompletionResponseChoice(index=0, message=Message(role='assistant', content=''), finish_reason='stop')] usage=Usage(prompt_tokens=1, completion_tokens=0, total_tokens=1) system_fingerprint=None
-INFO:     127.0.0.1:49262 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-2024-10-16 11:06:57,089 - __main__ - INFO - 收到聊天完成请求: model='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=False stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
-2024-10-16 11:06:57,090 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
-2024-10-16 11:07:06,247 - httpx - INFO - HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
-2024-10-16 11:07:06,264 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
-2024-10-16 11:07:06,273 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 9.183415 秒
-2024-10-16 11:07:06,273 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
-2024-10-16 11:07:06,273 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
-
------Entities-----
-id|entity|description|number of relationships
-731|保持牙齿健康|通过日常护理和专业治疗保持牙齿的健康状态|1
-113|牙龈健康维护|定期进行牙周维护，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
-732|保持牙龈健康|通过日常护理和专业治疗保持牙龈的健康状态|1
-126|牙周病预防措施|牙周病的预防措施包括改善口腔卫生习惯、定期检查、戒烟等|0
-118|牙周病预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙周病|0
-128|牙周病管理|牙周病管理包括定期的牙周维护、治疗、教育和监测，以维持牙龈健康|0
-119|牙周维护|定期进行的牙周维护服务，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
-730|减少牙周病|通过日常护理和专业治疗降低牙周病的风险|1
-729|减少蛀牙|通过日常护理和专业治疗降低蛀牙的风险|1
-116|牙齿松动预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿松动|0
-109|口腔卫生习惯|良好的口腔卫生习惯包括刷牙、使用牙线、定期洗牙等，有助于预防牙周病|0
-103|牙龈健康|牙龈健康是牙周治疗的目标，包括牙龈无出血、无红肿、无疼痛|0
-728|预防牙石|通过日常护理和专业治疗减少牙石的形成|1
-117|牙齿移位预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿移位|0
-104|牙龈愈合|牙龈愈合是牙周治疗后的重要康复目标，通过良好的口腔卫生习惯促进|0
-105|牙龈形态|牙龈形态的改善有助于提升口腔美观和功能|0
-576|牙齿处理||2
-727|预防牙菌斑|通过日常护理和专业治疗减少牙菌斑的形成|1
-159|牙周病管理团队|牙周病管理团队是由牙医和相关专业人员组成的团队，负责定期的牙周维护、治疗和监测|0
-112|牙龈形态改善|通过牙周治疗和良好的口腔卫生习惯，可以改善牙龈形态，恢复美观和功能|0
-
-
------Relationships-----
-id|source|target|description|weight|rank|links
-161|牙齿清洁与维护|预防牙菌斑|预防牙菌斑是牙齿清洁与维护的目标之一|8.0|11|6
-162|牙齿清洁与维护|预防牙石|预防牙石是牙齿清洁与维护的目标之一|8.0|11|6
-163|牙齿清洁与维护|减少蛀牙|减少蛀牙是牙齿清洁与维护的目标之一|8.0|11|6
-164|牙齿清洁与维护|减少牙周病|减少牙周病是牙齿清洁与维护的目标之一|8.0|11|6
-165|牙齿清洁与维护|保持牙齿健康|保持牙齿健康是牙齿清洁与维护的目标之一|8.0|11|6
-166|牙齿清洁与维护|保持牙龈健康|保持牙龈健康是牙齿清洁与维护的目标之一|8.0|11|6
-248|拔除|牙齿处理|拔除是牙齿处理中的一种操作，用于处理无法保留的牙齿|1.0|5|1
-247|再植|牙齿处理|再植是牙齿处理中的一种操作，用于处理脱落的牙齿|1.0|3|1
-
-
------claims-----
-id|entity|object_id|status|start_date|end_date|description
-
-
------Sources-----
-id|text
-14|五、其他分类
-
-3.牙齿清洁与维护
-3.1 问题：什么是牙齿清洁与维护？
-答案：牙齿清洁与维护是指通过一系列的日常护理措施和专业治疗方法来保持口腔卫生，预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，保持牙齿和牙龈的健康。
-3.2 问题：什么是超声波洁牙？
-答案：超声波洁牙俗称是洗牙，是通过超声波的高频振动，去除牙齿上的牙结石、烟渍和茶斑，对牙齿表面的损害非常小。为了维护好良好的口腔卫生状态，我们推荐每年洁牙1～2次。
-3.3 问题：超声波洁牙可能出现什么症状？
-答案：
-1.牙齿敏感：洁治后原被牙结石包绕的牙根会暴露，这时遇冷热刺激会出现敏感症状。可在洁治后短期内避免接触过冷过热食物，或者使用脱敏制剂症状会逐渐缓解；如症状加重可以采用牙髓治疗。
-2.牙齿疼痛：牙根暴露所致，反复的不良刺激会引起逆行性牙髓炎，需采用牙髓治疗。牙周炎症越重，牙根暴露越明显，在洁治过程中和洁治后的酸痛感也会更明显，
-3.牙龈出血：菌斑、牙结石刺激牙龈发生炎症，炎症越严重，牙龈出血也越明显；自身血液疾病也会引起牙龈出血，需进一步诊治。
-4.牙龈退缩：牙龈发生炎症时会红肿，炎症消退后牙齿间可能出现缝隙或缝隙变大
-5.牙齿松动：牙周病严重的患者洁牙后松动牙很难恢复稳定，严重松动的牙需要拔除，
-
-1|一、口腔内科
-2.牙周炎
-2.1 问题：牙周炎通常有哪些症状？
-答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、牙齿松动、口臭、咬合不适。
-2.2 问题：牙周炎早期症状？
-答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、刷牙后牙龈轻微疼痛。
-2.3 问题：牙周炎如何治疗？
-答案：牙周炎通常通过牙周治疗和（或）牙周手术来治疗。
-2.4 问题：如何知道自己有牙周炎？
-答案：牙周炎的症状包括牙龈红肿、刷牙或咀嚼时牙龈出血、口臭、牙齿松动等;也可通过医生检查。
-2.5 问题：治疗牙周炎后要注意什么？
-答案：治疗牙周炎后要严格遵循牙医的建议，保持良好的口腔卫生，定期进行牙周维护以防复发。
-2.6 问题：牙龈炎和牙周炎有什么区别？
-答案：牙龈炎是牙龈的炎症，通常是牙菌斑引起的，早期可逆；牙周炎则是炎症扩散至牙周组织，导致牙槽骨吸收和牙齿松动、移位等。
-
-3牙髓炎
-3.1 问题：什么是牙髓炎？
-答案：牙髓炎是牙齿内部的牙髓组织感染或发炎，通常由深龋或牙外伤引起，会导致剧烈的牙痛。
-3.2 问题：牙髓炎有哪些症状？
-答案：牙髓炎常见的症状包括牙齿疼痛、牙齿敏感、牙齿变色、牙龈附近出现脓肿、牙龈肿痛或疼痛。
-3.3 问题：牙髓炎早期症状？
-答案：牙髓炎早期的症状包括牙齿偶尔感到轻微疼痛不适；对冷热食物或饮料的敏感性增加；牙齿颜色开始变暗。
-3.4 问题：牙髓炎如何治疗？
-答案：可用根管治疗。
-
-
-2024-10-16 11:07:06,281 - httpx - INFO - HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
-2024-10-16 11:07:11,421 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 5.147680 秒
-2024-10-16 11:07:11,422 - __main__ - INFO - 格式化的LLM结果:
+2024-10-28 19:26:11,401 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-28 19:26:13,192 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 2.138978 秒
+2024-10-28 19:26:13,193 - __main__ - INFO - 格式化的LLM结果:
  保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。
-2024-10-16 11:07:11,423 - __main__ - INFO - 发送响应: 
-
-id='chatcmpl-873831f8e5d54a0899b1c73099a1d12a' object='chat.completion' created=1729048031 model='graphrag-local-search:latest' choices=[ChatCompletionResponseChoice(index=0, message=Message(role='assistant', content='保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。'), finish_reason='stop')] usage=Usage(prompt_tokens=1, completion_tokens=1, total_tokens=2) system_fingerprint=None
-INFO:     127.0.0.1:59212 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-2024-10-16 11:07:57,772 - __main__ - INFO - 收到聊天完成请求: model='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=False stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
-2024-10-16 11:07:57,772 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
-2024-10-16 11:07:57,802 - httpx - INFO - HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
-2024-10-16 11:07:57,822 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
-2024-10-16 11:07:57,831 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.059186 秒
-2024-10-16 11:07:57,831 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
-2024-10-16 11:07:57,831 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
+INFO:     192.168.0.64:47793 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-10-28 19:26:35,255 - __main__ - INFO - 收到聊天完成请求: model='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+2024-10-28 19:26:35,255 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
+2024-10-28 19:26:35,287 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-10-28 19:26:35,305 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
+2024-10-28 19:26:35,314 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.059245 秒
+2024-10-28 19:26:35,314 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-10-28 19:26:35,314 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
 
 -----Entities-----
 id|entity|description|number of relationships
@@ -1184,11 +199,206 @@ id|text
 答案：可用根管治疗。
 
 
-2024-10-16 11:07:57,838 - httpx - INFO - HTTP Request: POST http://192.168.0.245:5008/v1/chat/completions "HTTP/1.1 200 OK"
-2024-10-16 11:08:02,958 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 5.127488 秒
-2024-10-16 11:08:02,959 - __main__ - INFO - 格式化的LLM结果:
+2024-10-28 19:26:35,640 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-28 19:26:37,431 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 2.117334 秒
+2024-10-28 19:26:37,432 - __main__ - INFO - 格式化的LLM结果:
  保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。
-2024-10-16 11:08:02,959 - __main__ - INFO - 发送响应: 
+INFO:     192.168.0.64:47795 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-10-28 19:26:52,067 - __main__ - INFO - 收到聊天完成请求: model='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=False stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+2024-10-28 19:26:52,067 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
+2024-10-28 19:26:52,083 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-10-28 19:26:52,101 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
+2024-10-28 19:26:52,110 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.042742 秒
+2024-10-28 19:26:52,110 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-10-28 19:26:52,110 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
 
-id='chatcmpl-d5c632c4ab7a4d39a770aa4654f100b9' object='chat.completion' created=1729048082 model='graphrag-local-search:latest' choices=[ChatCompletionResponseChoice(index=0, message=Message(role='assistant', content='保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。'), finish_reason='stop')] usage=Usage(prompt_tokens=1, completion_tokens=1, total_tokens=2) system_fingerprint=None
-INFO:     127.0.0.1:60880 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+-----Entities-----
+id|entity|description|number of relationships
+731|保持牙齿健康|通过日常护理和专业治疗保持牙齿的健康状态|1
+113|牙龈健康维护|定期进行牙周维护，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
+732|保持牙龈健康|通过日常护理和专业治疗保持牙龈的健康状态|1
+126|牙周病预防措施|牙周病的预防措施包括改善口腔卫生习惯、定期检查、戒烟等|0
+118|牙周病预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙周病|0
+128|牙周病管理|牙周病管理包括定期的牙周维护、治疗、教育和监测，以维持牙龈健康|0
+119|牙周维护|定期进行的牙周维护服务，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
+730|减少牙周病|通过日常护理和专业治疗降低牙周病的风险|1
+729|减少蛀牙|通过日常护理和专业治疗降低蛀牙的风险|1
+116|牙齿松动预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿松动|0
+109|口腔卫生习惯|良好的口腔卫生习惯包括刷牙、使用牙线、定期洗牙等，有助于预防牙周病|0
+103|牙龈健康|牙龈健康是牙周治疗的目标，包括牙龈无出血、无红肿、无疼痛|0
+728|预防牙石|通过日常护理和专业治疗减少牙石的形成|1
+117|牙齿移位预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿移位|0
+104|牙龈愈合|牙龈愈合是牙周治疗后的重要康复目标，通过良好的口腔卫生习惯促进|0
+105|牙龈形态|牙龈形态的改善有助于提升口腔美观和功能|0
+576|牙齿处理||2
+727|预防牙菌斑|通过日常护理和专业治疗减少牙菌斑的形成|1
+159|牙周病管理团队|牙周病管理团队是由牙医和相关专业人员组成的团队，负责定期的牙周维护、治疗和监测|0
+112|牙龈形态改善|通过牙周治疗和良好的口腔卫生习惯，可以改善牙龈形态，恢复美观和功能|0
+
+
+-----Relationships-----
+id|source|target|description|weight|rank|links
+161|牙齿清洁与维护|预防牙菌斑|预防牙菌斑是牙齿清洁与维护的目标之一|8.0|11|6
+162|牙齿清洁与维护|预防牙石|预防牙石是牙齿清洁与维护的目标之一|8.0|11|6
+163|牙齿清洁与维护|减少蛀牙|减少蛀牙是牙齿清洁与维护的目标之一|8.0|11|6
+164|牙齿清洁与维护|减少牙周病|减少牙周病是牙齿清洁与维护的目标之一|8.0|11|6
+165|牙齿清洁与维护|保持牙齿健康|保持牙齿健康是牙齿清洁与维护的目标之一|8.0|11|6
+166|牙齿清洁与维护|保持牙龈健康|保持牙龈健康是牙齿清洁与维护的目标之一|8.0|11|6
+248|拔除|牙齿处理|拔除是牙齿处理中的一种操作，用于处理无法保留的牙齿|1.0|5|1
+247|再植|牙齿处理|再植是牙齿处理中的一种操作，用于处理脱落的牙齿|1.0|3|1
+
+
+-----claims-----
+id|entity|object_id|status|start_date|end_date|description
+
+
+-----Sources-----
+id|text
+14|五、其他分类
+
+3.牙齿清洁与维护
+3.1 问题：什么是牙齿清洁与维护？
+答案：牙齿清洁与维护是指通过一系列的日常护理措施和专业治疗方法来保持口腔卫生，预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，保持牙齿和牙龈的健康。
+3.2 问题：什么是超声波洁牙？
+答案：超声波洁牙俗称是洗牙，是通过超声波的高频振动，去除牙齿上的牙结石、烟渍和茶斑，对牙齿表面的损害非常小。为了维护好良好的口腔卫生状态，我们推荐每年洁牙1～2次。
+3.3 问题：超声波洁牙可能出现什么症状？
+答案：
+1.牙齿敏感：洁治后原被牙结石包绕的牙根会暴露，这时遇冷热刺激会出现敏感症状。可在洁治后短期内避免接触过冷过热食物，或者使用脱敏制剂症状会逐渐缓解；如症状加重可以采用牙髓治疗。
+2.牙齿疼痛：牙根暴露所致，反复的不良刺激会引起逆行性牙髓炎，需采用牙髓治疗。牙周炎症越重，牙根暴露越明显，在洁治过程中和洁治后的酸痛感也会更明显，
+3.牙龈出血：菌斑、牙结石刺激牙龈发生炎症，炎症越严重，牙龈出血也越明显；自身血液疾病也会引起牙龈出血，需进一步诊治。
+4.牙龈退缩：牙龈发生炎症时会红肿，炎症消退后牙齿间可能出现缝隙或缝隙变大
+5.牙齿松动：牙周病严重的患者洁牙后松动牙很难恢复稳定，严重松动的牙需要拔除，
+
+1|一、口腔内科
+2.牙周炎
+2.1 问题：牙周炎通常有哪些症状？
+答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、牙齿松动、口臭、咬合不适。
+2.2 问题：牙周炎早期症状？
+答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、刷牙后牙龈轻微疼痛。
+2.3 问题：牙周炎如何治疗？
+答案：牙周炎通常通过牙周治疗和（或）牙周手术来治疗。
+2.4 问题：如何知道自己有牙周炎？
+答案：牙周炎的症状包括牙龈红肿、刷牙或咀嚼时牙龈出血、口臭、牙齿松动等;也可通过医生检查。
+2.5 问题：治疗牙周炎后要注意什么？
+答案：治疗牙周炎后要严格遵循牙医的建议，保持良好的口腔卫生，定期进行牙周维护以防复发。
+2.6 问题：牙龈炎和牙周炎有什么区别？
+答案：牙龈炎是牙龈的炎症，通常是牙菌斑引起的，早期可逆；牙周炎则是炎症扩散至牙周组织，导致牙槽骨吸收和牙齿松动、移位等。
+
+3牙髓炎
+3.1 问题：什么是牙髓炎？
+答案：牙髓炎是牙齿内部的牙髓组织感染或发炎，通常由深龋或牙外伤引起，会导致剧烈的牙痛。
+3.2 问题：牙髓炎有哪些症状？
+答案：牙髓炎常见的症状包括牙齿疼痛、牙齿敏感、牙齿变色、牙龈附近出现脓肿、牙龈肿痛或疼痛。
+3.3 问题：牙髓炎早期症状？
+答案：牙髓炎早期的症状包括牙齿偶尔感到轻微疼痛不适；对冷热食物或饮料的敏感性增加；牙齿颜色开始变暗。
+3.4 问题：牙髓炎如何治疗？
+答案：可用根管治疗。
+
+
+2024-10-28 19:26:52,436 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-28 19:26:54,228 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 2.118275 秒
+2024-10-28 19:26:54,229 - __main__ - INFO - 格式化的LLM结果:
+ 保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。
+2024-10-28 19:26:54,229 - __main__ - INFO - 发送响应: 
+
+id='chatcmpl-27f9007fa2d04f149c90badbb91c8887' object='chat.completion' created=1730114814 model='graphrag-local-search:latest' choices=[ChatCompletionResponseChoice(index=0, message=Message(role='assistant', content='保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。'), finish_reason='stop')] usage=Usage(prompt_tokens=1, completion_tokens=1, total_tokens=2) system_fingerprint=None
+INFO:     192.168.0.64:47807 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-10-28 19:27:06,005 - __main__ - INFO - 收到聊天完成请求: model='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=False stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+2024-10-28 19:27:06,005 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
+2024-10-28 19:27:06,019 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-10-28 19:27:06,036 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
+2024-10-28 19:27:06,044 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.039563 秒
+2024-10-28 19:27:06,044 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-10-28 19:27:06,044 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
+
+-----Entities-----
+id|entity|description|number of relationships
+731|保持牙齿健康|通过日常护理和专业治疗保持牙齿的健康状态|1
+113|牙龈健康维护|定期进行牙周维护，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
+732|保持牙龈健康|通过日常护理和专业治疗保持牙龈的健康状态|1
+126|牙周病预防措施|牙周病的预防措施包括改善口腔卫生习惯、定期检查、戒烟等|0
+118|牙周病预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙周病|0
+128|牙周病管理|牙周病管理包括定期的牙周维护、治疗、教育和监测，以维持牙龈健康|0
+119|牙周维护|定期进行的牙周维护服务，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
+730|减少牙周病|通过日常护理和专业治疗降低牙周病的风险|1
+729|减少蛀牙|通过日常护理和专业治疗降低蛀牙的风险|1
+116|牙齿松动预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿松动|0
+109|口腔卫生习惯|良好的口腔卫生习惯包括刷牙、使用牙线、定期洗牙等，有助于预防牙周病|0
+103|牙龈健康|牙龈健康是牙周治疗的目标，包括牙龈无出血、无红肿、无疼痛|0
+728|预防牙石|通过日常护理和专业治疗减少牙石的形成|1
+117|牙齿移位预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿移位|0
+104|牙龈愈合|牙龈愈合是牙周治疗后的重要康复目标，通过良好的口腔卫生习惯促进|0
+105|牙龈形态|牙龈形态的改善有助于提升口腔美观和功能|0
+576|牙齿处理||2
+727|预防牙菌斑|通过日常护理和专业治疗减少牙菌斑的形成|1
+159|牙周病管理团队|牙周病管理团队是由牙医和相关专业人员组成的团队，负责定期的牙周维护、治疗和监测|0
+112|牙龈形态改善|通过牙周治疗和良好的口腔卫生习惯，可以改善牙龈形态，恢复美观和功能|0
+
+
+-----Relationships-----
+id|source|target|description|weight|rank|links
+161|牙齿清洁与维护|预防牙菌斑|预防牙菌斑是牙齿清洁与维护的目标之一|8.0|11|6
+162|牙齿清洁与维护|预防牙石|预防牙石是牙齿清洁与维护的目标之一|8.0|11|6
+163|牙齿清洁与维护|减少蛀牙|减少蛀牙是牙齿清洁与维护的目标之一|8.0|11|6
+164|牙齿清洁与维护|减少牙周病|减少牙周病是牙齿清洁与维护的目标之一|8.0|11|6
+165|牙齿清洁与维护|保持牙齿健康|保持牙齿健康是牙齿清洁与维护的目标之一|8.0|11|6
+166|牙齿清洁与维护|保持牙龈健康|保持牙龈健康是牙齿清洁与维护的目标之一|8.0|11|6
+248|拔除|牙齿处理|拔除是牙齿处理中的一种操作，用于处理无法保留的牙齿|1.0|5|1
+247|再植|牙齿处理|再植是牙齿处理中的一种操作，用于处理脱落的牙齿|1.0|3|1
+
+
+-----claims-----
+id|entity|object_id|status|start_date|end_date|description
+
+
+-----Sources-----
+id|text
+14|五、其他分类
+
+3.牙齿清洁与维护
+3.1 问题：什么是牙齿清洁与维护？
+答案：牙齿清洁与维护是指通过一系列的日常护理措施和专业治疗方法来保持口腔卫生，预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，保持牙齿和牙龈的健康。
+3.2 问题：什么是超声波洁牙？
+答案：超声波洁牙俗称是洗牙，是通过超声波的高频振动，去除牙齿上的牙结石、烟渍和茶斑，对牙齿表面的损害非常小。为了维护好良好的口腔卫生状态，我们推荐每年洁牙1～2次。
+3.3 问题：超声波洁牙可能出现什么症状？
+答案：
+1.牙齿敏感：洁治后原被牙结石包绕的牙根会暴露，这时遇冷热刺激会出现敏感症状。可在洁治后短期内避免接触过冷过热食物，或者使用脱敏制剂症状会逐渐缓解；如症状加重可以采用牙髓治疗。
+2.牙齿疼痛：牙根暴露所致，反复的不良刺激会引起逆行性牙髓炎，需采用牙髓治疗。牙周炎症越重，牙根暴露越明显，在洁治过程中和洁治后的酸痛感也会更明显，
+3.牙龈出血：菌斑、牙结石刺激牙龈发生炎症，炎症越严重，牙龈出血也越明显；自身血液疾病也会引起牙龈出血，需进一步诊治。
+4.牙龈退缩：牙龈发生炎症时会红肿，炎症消退后牙齿间可能出现缝隙或缝隙变大
+5.牙齿松动：牙周病严重的患者洁牙后松动牙很难恢复稳定，严重松动的牙需要拔除，
+
+1|一、口腔内科
+2.牙周炎
+2.1 问题：牙周炎通常有哪些症状？
+答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、牙齿松动、口臭、咬合不适。
+2.2 问题：牙周炎早期症状？
+答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、刷牙后牙龈轻微疼痛。
+2.3 问题：牙周炎如何治疗？
+答案：牙周炎通常通过牙周治疗和（或）牙周手术来治疗。
+2.4 问题：如何知道自己有牙周炎？
+答案：牙周炎的症状包括牙龈红肿、刷牙或咀嚼时牙龈出血、口臭、牙齿松动等;也可通过医生检查。
+2.5 问题：治疗牙周炎后要注意什么？
+答案：治疗牙周炎后要严格遵循牙医的建议，保持良好的口腔卫生，定期进行牙周维护以防复发。
+2.6 问题：牙龈炎和牙周炎有什么区别？
+答案：牙龈炎是牙龈的炎症，通常是牙菌斑引起的，早期可逆；牙周炎则是炎症扩散至牙周组织，导致牙槽骨吸收和牙齿松动、移位等。
+
+3牙髓炎
+3.1 问题：什么是牙髓炎？
+答案：牙髓炎是牙齿内部的牙髓组织感染或发炎，通常由深龋或牙外伤引起，会导致剧烈的牙痛。
+3.2 问题：牙髓炎有哪些症状？
+答案：牙髓炎常见的症状包括牙齿疼痛、牙齿敏感、牙齿变色、牙龈附近出现脓肿、牙龈肿痛或疼痛。
+3.3 问题：牙髓炎早期症状？
+答案：牙髓炎早期的症状包括牙齿偶尔感到轻微疼痛不适；对冷热食物或饮料的敏感性增加；牙齿颜色开始变暗。
+3.4 问题：牙髓炎如何治疗？
+答案：可用根管治疗。
+
+
+2024-10-28 19:27:06,368 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-28 19:27:08,164 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 2.119589 秒
+2024-10-28 19:27:08,165 - __main__ - INFO - 格式化的LLM结果:
+ 保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。
+2024-10-28 19:27:08,165 - __main__ - INFO - 发送响应: 
+
+id='chatcmpl-3709014b818b48428849538ef2ed6b53' object='chat.completion' created=1730114828 model='graphrag-local-search:latest' choices=[ChatCompletionResponseChoice(index=0, message=Message(role='assistant', content='保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。'), finish_reason='stop')] usage=Usage(prompt_tokens=1, completion_tokens=1, total_tokens=2) system_fingerprint=None
+INFO:     192.168.0.64:47812 - "POST /v1/chat/completions HTTP/1.1" 200 OK

@@ -117,8 +117,8 @@ async def setup_llm_and_embedder():
         # api_type=OpenaiApiType.OpenAI,
 
         # 调用其他模型  通过oneAPI
-        api_base="http://192.168.0.245:5008/v1",  # 请求的API服务地址
-        api_key="sk-qwen2-7b",  # API Key
+        api_base="http://192.168.0.245:8016/v1",  # 请求的API服务地址
+        api_key="sk-fastgpt",  # API Key
         model="Qwen2-7B-Instruct",  # 本次使用的模型
         api_type=OpenaiApiType.OpenAI,
     )
@@ -137,8 +137,8 @@ async def setup_llm_and_embedder():
         # max_retries=20,
 
         # 调用其他模型  通过oneAPI
-        api_base="http://192.168.0.245:6008/v1",  # 请求的API服务地址
-        api_key="sk-m3e-large",  # API Key
+        api_base="http://192.168.0.245:8016/v1",  # 请求的API服务地址
+        api_key="sk-fastgpt",  # API Key
         model="m3e-large",
         deployment_name="m3e-large",
         api_type=OpenaiApiType.OpenAI,
