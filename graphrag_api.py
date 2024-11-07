@@ -6,13 +6,21 @@ import time
 import uuid
 from contextlib import asynccontextmanager
 from typing import List, Optional, Dict, Union
+
 import pandas as pd
 import tiktoken
 import uvicorn
+from environs import Env
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse, StreamingResponse
+from graphrag.query.context_builder.conversation_history import (
+    ConversationHistory,
+)
 # GraphRAG 相关导入
 from graphrag.query.context_builder.entity_extraction import EntityVectorStoreKey
+from graphrag.query.llm.oai.chat_openai import ChatOpenAI
+from graphrag.query.llm.oai.embedding import OpenAIEmbedding
+from graphrag.query.llm.oai.typing import OpenaiApiType
 from graphrag.query.indexer_adapters import (
     read_indexer_covariates,
     read_indexer_entities,
@@ -20,13 +28,7 @@ from graphrag.query.indexer_adapters import (
     read_indexer_reports,
     read_indexer_text_units,
 )
-from graphrag.query.context_builder.conversation_history import (
-    ConversationHistory,
-)
 from graphrag.query.input.loaders.dfs import store_entity_semantic_embeddings
-from graphrag.query.llm.oai.chat_openai import ChatOpenAI
-from graphrag.query.llm.oai.embedding import OpenAIEmbedding
-from graphrag.query.llm.oai.typing import OpenaiApiType
 from graphrag.query.question_gen.local_gen import LocalQuestionGen
 from graphrag.query.structured_search.global_search.community_context import GlobalCommunityContext
 from graphrag.query.structured_search.global_search.search import GlobalSearch
@@ -48,13 +50,30 @@ ENTITY_EMBEDDING_TABLE = "create_final_entities"
 RELATIONSHIP_TABLE = "create_final_relationships"
 COVARIATE_TABLE = "create_final_covariates"
 TEXT_UNIT_TABLE = "create_final_text_units"
+CURRENT_MODEL = ''
 COMMUNITY_LEVEL = 2
-PORT = 8013
+PORT = 8014
+
 
 # # 全局变量，用于存储搜索引擎和问题生成器
 # local_search_engine = None
 # global_search_engine = None
 # question_generator = None
+
+
+# # 定义LLMConfig和EmbedderConfig类型
+class LLMConfig(BaseModel):
+    api_base: str = None
+    api_key: str = None
+    model: str = None
+    api_type: OpenaiApiType
+
+
+class EmbedderConfig(BaseModel):
+    api_base: str = None
+    api_key: str = None
+    model: str = None
+    api_type: OpenaiApiType
 
 
 # 定义Message类型
@@ -65,7 +84,8 @@ class Message(BaseModel):
 
 # 定义ChatCompletionRequest类
 class ChatCompletionRequest(BaseModel):
-    model: str
+    model: str = 'Qwen2.5-7B-Instruct'
+    mode: str
     # messages: List[Message]
     messages: List[dict[str, str]]
     temperature: Optional[float] = 1.0
@@ -105,47 +125,187 @@ class ChatCompletionResponse(BaseModel):
     system_fingerprint: Optional[str] = None
 
 
+# 定义了一个异步函数 lifespan，它接收一个 FastAPI 应用实例 app 作为参数。这个函数将管理应用的生命周期，包括启动和关闭时的操作
+# 函数在应用启动时执行一些初始化操作，如设置搜索引擎、加载上下文数据、以及初始化问题生成器
+# 函数在应用关闭时执行一些清理操作
+# @asynccontextmanager 装饰器用于创建一个异步上下文管理器，它允许你在 yield 之前和之后执行特定的代码块，分别表示启动和关闭时的操作
+@asynccontextmanager
+async def lifespan(graphrag_app: FastAPI):
+    # 启动时执行
+    try:
+        logger.info("启动中...")
+        # 初始化系统
+        # llm_config, embedder_config = get_config(new_llm_model=None)
+        await initialize(new_llm_model=None)
+        # 让应用继续运行
+        yield
+    except Exception as e:
+        logger.error(f"启动失败: {e}")
+        raise
+    finally:
+        logger.info("关闭应用...")
+
+
+# lifespan 参数用于在应用程序生命周期的开始和结束时执行一些初始化或清理工作
+graphrag_app = FastAPI(lifespan=lifespan)
+
+
+def get_config(new_llm_model=None):
+    env = Env()
+    env.read_env()  # 自动读取 .env 文件
+    llm_api_base = env("LLM_API_BASE", env("AZURE_OPENAI_API_BASE", None))
+    llm_api_key = env("LLM_API_KEY", env("AZURE_OPENAI_API_KEY", None))
+    llm_model = env("LLM_MODEL", env("AZURE_OPENAI_MODEL", None))
+    llm_api_type = env("LLM_API_TYPE", env("AZURE_OPENAI_API_TYPE", None))
+    embedder_api_base = env("EMBEDDING_API_BASE", env("AZURE_OPENAI_API_BASE", None))
+    embedder_api_key = env("EMBEDDING_API_KEY", env("AZURE_OPENAI_API_KEY", None))
+    embedder_model = env("EMBEDDING_MODEL", env("AZURE_OPENAI_MODEL", None))
+    embedder_api_type = env("EMBEDDING_API_TYPE", env("AZURE_OPENAI_API_TYPE", None))
+    if new_llm_model:
+        llm_model = new_llm_model
+
+    llm_config = LLMConfig(
+        api_base=llm_api_base,
+        api_key=llm_api_key,
+        model=llm_model,
+        api_type=llm_api_type
+    )
+    embedder_config = EmbedderConfig(
+        api_base=embedder_api_base,
+        api_key=embedder_api_key,
+        model=embedder_model,
+        api_type=embedder_api_type
+    )
+    # llm_config = {
+    #     "api_base": llm_api_base,
+    #     "api_key": llm_api_key,
+    #     "model": llm_model,
+    #     "api_type": llm_api_type,
+    # }
+    # embedder_config = {
+    #     "api_base": embedder_api_base,
+    #     "api_key": embedder_api_key,
+    #     "model": embedder_model,
+    #     "api_type": embedder_api_type,
+    # }
+    return llm_config, embedder_config
+
+
+async def sync_model(new_llm_model):
+    global CURRENT_MODEL
+    try:
+        if new_llm_model != CURRENT_MODEL:
+            logger.info(f"检测到模型变化，正在重新初始化为：{CURRENT_MODEL}")
+            # 重新执行初始化操作
+            # llm_config, embedder_config = get_config(new_llm_model=new_llm_model)
+            await initialize(new_llm_model)
+        return {"status": "model changed", "new_model": CURRENT_MODEL}
+    except Exception as e:
+        logger.error(f"初始化过程中出错: {str(e)}")
+        # raise 关键字重新抛出异常，以确保程序不会在错误状态下继续运行
+        # yield 关键字将控制权交还给FastAPI框架，使应用开始运行
+        # 分隔了启动和关闭的逻辑。在yield 之前的代码在应用启动时运行，yield 之后的代码在应用关闭时运行
+        # 关闭时执行
+        logger.info("正在关闭...")
+
+
+async def initialize(new_llm_model):
+    # 启动时执行
+    # 申明引用全局变量，在函数中被初始化，并在整个应用中使用
+    global local_search_engine, global_search_engine, question_generator
+    """初始搜索引擎和问题生成器"""
+    logger.info("正在初始化搜索引擎和问题生成器...")
+    # 调用setup_llm_and_embedder()函数以设置语言模型（LLM）、token编码器（TokenEncoder）和文本嵌入向量生成器（TextEmbedder）
+    # await 关键字表示此调用是异步的，函数将在这个操作完成后继续执行
+    llm, token_encoder, text_embedder = await setup_llm_and_embedder(new_llm_model)
+    # 调用load_context()函数加载实体、关系、报告、文本单元、描述嵌入存储和协变量等数据，这些数据将用于构建搜索引擎和问题生成器
+    entities, relationships, reports, text_units, description_embedding_store, covariates = await load_context()
+    # 调用setup_search_engines()函数设置本地和全局搜索引擎、上下文构建器（ContextBuilder）、以及相关参数
+    local_search_engine, global_search_engine, local_context_builder, local_llm_params, local_context_params = await setup_search_engines(
+        llm, token_encoder, text_embedder, entities, relationships, reports, text_units,
+        description_embedding_store, covariates
+    )
+    # 使用LocalQuestionGen类创建一个本地问题生成器question_generator，将前面初始化的各种组件传递给它
+    question_generator = LocalQuestionGen(
+        llm=llm,
+        context_builder=local_context_builder,
+        token_encoder=token_encoder,
+        llm_params=local_llm_params,
+        context_builder_params=local_context_params,
+    )
+    logger.info("初始化完成")
+
+
 # 设置语言模型（LLM）、token编码器（TokenEncoder）和文本嵌入向量生成器（TextEmbedder）
-async def setup_llm_and_embedder():
+async def setup_llm_and_embedder(new_llm_model):
     logger.info("正在设置LLM和嵌入器")
     # 实例化一个ChatOpenAI客户端对象
+    env = Env()
+    env.read_env()  # 自动读取 .env 文件
+    llm_api_base = env("LLM_API_BASE", env("AZURE_OPENAI_API_BASE", None))
+    llm_api_key = env("LLM_API_KEY", env("AZURE_OPENAI_API_KEY", None))
+    llm_model = env("LLM_MODEL", env("AZURE_OPENAI_MODEL", None))
+    embedder_api_base = env("EMBEDDING_API_BASE", env("AZURE_OPENAI_API_BASE", None))
+    embedder_api_key = env("EMBEDDING_API_KEY", env("AZURE_OPENAI_API_KEY", None))
+    embedder_model = env("EMBEDDING_MODEL", env("AZURE_OPENAI_MODEL", None))
+    if new_llm_model:
+        llm_model = new_llm_model
+    global CURRENT_MODEL
+    CURRENT_MODEL = llm_model
     llm = ChatOpenAI(
-        # # 调用gpt
-        # api_base="https://api.wlai.vip/v1",  # 请求的API服务地址
-        # api_key="sk-4P8HC2GD6heTwx0l8dD83f13F1014e039eC4Ac6d47877dCb",  # API Key
-        # model="gpt-4o-mini",  # 本次使用的模型
-        # api_type=OpenaiApiType.OpenAI,
-
         # 调用其他模型  通过oneAPI
-        api_base="http://192.168.0.245:8016/v1",  # 请求的API服务地址
-        api_key="sk-fastgpt",  # API Key
-        model="Qwen2-7B-Instruct",  # 本次使用的模型
+        api_base=llm_api_base,  # 请求的API服务地址
+        api_key=llm_api_key,  # API Key
+        model=llm_model,  # 本次使用的模型
         api_type=OpenaiApiType.OpenAI,
     )
-
-    # 初始化token编码器
-    token_encoder = tiktoken.get_encoding("cl100k_base")
-
     # 实例化OpenAIEmbeddings处理模型
     text_embedder = OpenAIEmbedding(
-        # # 调用gpt
-        # api_base="https://api.wlai.vip/v1",  # 请求的API服务地址
-        # api_key="sk-Soz7kmey8JKidej0AeD416B87d2547E1861d29F4F3E7A75e",  # API Key
-        # model="text-embedding-3-small",
-        # deployment_name="text-embedding-3-small",
-        # api_type=OpenaiApiType.OpenAI,
-        # max_retries=20,
-
         # 调用其他模型  通过oneAPI
-        api_base="http://192.168.0.245:8016/v1",  # 请求的API服务地址
-        api_key="sk-fastgpt",  # API Key
-        model="m3e-large",
-        deployment_name="m3e-large",
+        api_base=embedder_api_base,  # 请求的API服务地址
+        api_key=embedder_api_key,  # API Key
+        model=embedder_model,
+        # deployment_name="m3e-large",
         api_type=OpenaiApiType.OpenAI,
         max_retries=20,
     )
 
+
+    # llm = ChatOpenAI(
+    #     # # 调用gpt
+    #     # api_base="https://api.wlai.vip/v1",  # 请求的API服务地址
+    #     # api_key="sk-4P8HC2GD6heTwx0l8dD83f13F1014e039eC4Ac6d47877dCb",  # API Key
+    #     # model="gpt-4o-mini",  # 本次使用的模型
+    #     # api_type=OpenaiApiType.OpenAI,
+    #
+    #     # 调用其他模型  通过oneAPI
+    #     api_base=llm_api_base,  # 请求的API服务地址
+    #     api_key=llm_api_key,  # API Key
+    #     model=llm_model,  # 本次使用的模型
+    #     api_type=OpenaiApiType.OpenAI,
+    # )
+    # # 实例化OpenAIEmbeddings处理模型
+    # text_embedder = OpenAIEmbedding(
+    #     # # 调用gpt
+    #     # api_base="https://api.wlai.vip/v1",  # 请求的API服务地址
+    #     # api_key="sk-Soz7kmey8JKidej0AeD416B87d2547E1861d29F4F3E7A75e",  # API Key
+    #     # model="text-embedding-3-small",
+    #     # deployment_name="text-embedding-3-small",
+    #     # api_type=OpenaiApiType.OpenAI,
+    #     # max_retries=20,
+    #
+    #     # 调用其他模型  通过oneAPI
+    #     api_base="http://192.168.0.245:8016/v1",  # 请求的API服务地址
+    #     api_key="sk-fastgpt",  # API Key
+    #     model="m3e-large",
+    #     # deployment_name="m3e-large",
+    #     api_type=OpenaiApiType.OpenAI,
+    #     max_retries=20,
+    # )
+    CURRENT_MODEL = new_llm_model
     logger.info("LLM和嵌入器设置完成")
+    # 初始化token编码器
+    token_encoder = tiktoken.get_encoding("cl100k_base")
     return llm, token_encoder, text_embedder
 
 
@@ -313,52 +473,6 @@ def format_response(response):
     return '\n\n'.join(formatted_paragraphs)
 
 
-# 定义了一个异步函数 lifespan，它接收一个 FastAPI 应用实例 app 作为参数。这个函数将管理应用的生命周期，包括启动和关闭时的操作
-# 函数在应用启动时执行一些初始化操作，如设置搜索引擎、加载上下文数据、以及初始化问题生成器
-# 函数在应用关闭时执行一些清理操作
-# @asynccontextmanager 装饰器用于创建一个异步上下文管理器，它允许你在 yield 之前和之后执行特定的代码块，分别表示启动和关闭时的操作
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # 启动时执行
-    # 申明引用全局变量，在函数中被初始化，并在整个应用中使用
-    global local_search_engine, global_search_engine, question_generator
-    try:
-        logger.info("正在初始化搜索引擎和问题生成器...")
-        # 调用setup_llm_and_embedder()函数以设置语言模型（LLM）、token编码器（TokenEncoder）和文本嵌入向量生成器（TextEmbedder）
-        # await 关键字表示此调用是异步的，函数将在这个操作完成后继续执行
-        llm, token_encoder, text_embedder = await setup_llm_and_embedder()
-        # 调用load_context()函数加载实体、关系、报告、文本单元、描述嵌入存储和协变量等数据，这些数据将用于构建搜索引擎和问题生成器
-        entities, relationships, reports, text_units, description_embedding_store, covariates = await load_context()
-        # 调用setup_search_engines()函数设置本地和全局搜索引擎、上下文构建器（ContextBuilder）、以及相关参数
-        local_search_engine, global_search_engine, local_context_builder, local_llm_params, local_context_params = await setup_search_engines(
-            llm, token_encoder, text_embedder, entities, relationships, reports, text_units,
-            description_embedding_store, covariates
-        )
-        # 使用LocalQuestionGen类创建一个本地问题生成器question_generator，将前面初始化的各种组件传递给它
-        question_generator = LocalQuestionGen(
-            llm=llm,
-            context_builder=local_context_builder,
-            token_encoder=token_encoder,
-            llm_params=local_llm_params,
-            context_builder_params=local_context_params,
-        )
-        logger.info("初始化完成")
-    except Exception as e:
-        logger.error(f"初始化过程中出错: {str(e)}")
-        # raise 关键字重新抛出异常，以确保程序不会在错误状态下继续运行
-        raise
-    # yield 关键字将控制权交还给FastAPI框架，使应用开始运行
-    # 分隔了启动和关闭的逻辑。在yield 之前的代码在应用启动时运行，yield 之后的代码在应用关闭时运行
-    yield
-
-    # 关闭时执行
-    logger.info("正在关闭...")
-
-
-# lifespan 参数用于在应用程序生命周期的开始和结束时执行一些初始化或清理工作
-app = FastAPI(lifespan=lifespan)
-
-
 # 执行全模型搜索，包括本地检索、全局检索
 async def full_model_search(prompt: str, history: ConversationHistory):
     local_result = await local_search_engine.asearch(prompt, history)
@@ -373,8 +487,11 @@ async def full_model_search(prompt: str, history: ConversationHistory):
 
 
 # POST请求接口，与大模型进行知识问答
-@app.post("/v1/chat/completions")
+@graphrag_app.post("/v1/chat/completions")
 async def chat_completions(request: ChatCompletionRequest):
+    llm_model = request.model
+    await sync_model(llm_model)
+    # 检查搜索引擎是否初始化
     if not local_search_engine or not global_search_engine:
         logger.error("搜索引擎未初始化")
         raise HTTPException(status_code=500, detail="搜索引擎未初始化")
@@ -479,7 +596,7 @@ async def chat_completions(request: ChatCompletionRequest):
 
 
 # GET请求接口，获取可用模型列表
-@app.get("/v1/models")
+@graphrag_app.get("/v1/models")
 async def list_models():
     logger.info("收到模型列表请求")
     current_time = int(time.time())
@@ -501,7 +618,7 @@ async def list_models():
 
 
 if __name__ == "__main__":
-    logger.info(f"在端口 {PORT} 上启动服务器")
+    logger.info(f"在端口 {PORT} 上启动知识图谱Graphrag服务器")
     # uvicorn是一个用于运行ASGI应用的轻量级、超快速的ASGI服务器实现
     # 用于部署基于FastAPI框架的异步PythonWeb应用程序
-    uvicorn.run(app, host="0.0.0.0", port=PORT)
+    uvicorn.run(graphrag_app, host="0.0.0.0", port=PORT)
