@@ -257,6 +257,7 @@ async def setup_llm_and_embedder(new_llm_model):
         api_key=llm_api_key,  # API Key
         model=llm_model,  # 本次使用的模型
         api_type=OpenaiApiType.OpenAI,
+        max_retries=1,
     )
     # 实例化OpenAIEmbeddings处理模型
     text_embedder = OpenAIEmbedding(
@@ -266,7 +267,7 @@ async def setup_llm_and_embedder(new_llm_model):
         model=embedder_model,
         # deployment_name="m3e-large",
         api_type=OpenaiApiType.OpenAI,
-        max_retries=20,
+        max_retries=1,
     )
 
     # llm = ChatOpenAI(
