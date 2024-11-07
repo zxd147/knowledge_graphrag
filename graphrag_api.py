@@ -55,10 +55,11 @@ COMMUNITY_LEVEL = 2
 PORT = 8013
 
 
-# # 全局变量，用于存储搜索引擎和问题生成器
-# local_search_engine = None
-# global_search_engine = None
-# question_generator = None
+# 全局变量，用于存储搜索引擎和问题生成器
+# 全局变量，类型注解为 Optional 类型，表示这些变量可能是 None 或特定的类型对象
+local_search_engine: Optional[LocalSearch] = None
+global_search_engine: Optional[GlobalSearch] = None
+question_generator: Optional[LocalQuestionGen] = None
 
 
 # # 定义LLMConfig和EmbedderConfig类型
@@ -195,7 +196,7 @@ async def sync_model(new_llm_model):
     global CURRENT_MODEL
     try:
         if new_llm_model != CURRENT_MODEL:
-            logger.info(f"检测到模型变化，正在重新初始化为：{CURRENT_MODEL}")
+            logger.info(f"检测到模型变化，正在重新初始化为：{new_llm_model}")
             # 重新执行初始化操作
             # llm_config, embedder_config = get_config(new_llm_model=new_llm_model)
             await initialize(new_llm_model)
@@ -250,8 +251,6 @@ async def setup_llm_and_embedder(new_llm_model):
     embedder_model = env("EMBEDDING_MODEL", env("AZURE_OPENAI_MODEL", None))
     if new_llm_model:
         llm_model = new_llm_model
-    global CURRENT_MODEL
-    CURRENT_MODEL = llm_model
     llm = ChatOpenAI(
         # 调用其他模型  通过oneAPI
         api_base=llm_api_base,  # 请求的API服务地址
@@ -269,7 +268,6 @@ async def setup_llm_and_embedder(new_llm_model):
         api_type=OpenaiApiType.OpenAI,
         max_retries=20,
     )
-
 
     # llm = ChatOpenAI(
     #     # # 调用gpt
@@ -302,8 +300,9 @@ async def setup_llm_and_embedder(new_llm_model):
     #     api_type=OpenaiApiType.OpenAI,
     #     max_retries=20,
     # )
-    CURRENT_MODEL = new_llm_model
-    logger.info("LLM和嵌入器设置完成")
+    global CURRENT_MODEL
+    CURRENT_MODEL = llm_model
+    logger.info(f"LLM和嵌入器设置完成, 当前模型为: {CURRENT_MODEL}")
     # 初始化token编码器
     token_encoder = tiktoken.get_encoding("cl100k_base")
     return llm, token_encoder, text_embedder
@@ -346,6 +345,7 @@ async def load_context():
 # 设置本地和全局搜索引擎、上下文构建器（ContextBuilder）、以及相关参数
 async def setup_search_engines(llm, token_encoder, text_embedder, entities, relationships, reports, text_units,
                                description_embedding_store, covariates):
+    global global_search_engine, local_search_engine
     logger.info("正在设置搜索引擎")
     # 设置本地搜索引擎
     local_context_builder = LocalSearchMixedContext(
@@ -490,7 +490,7 @@ async def full_model_search(prompt: str, history: ConversationHistory):
 @graphrag_app.post("/v1/chat/completions")
 async def chat_completions(request: ChatCompletionRequest):
     llm_model = request.model
-    await sync_model(llm_model)
+    status = await sync_model(llm_model)
     # 检查搜索引擎是否初始化
     if not local_search_engine or not global_search_engine:
         logger.error("搜索引擎未初始化")
@@ -505,12 +505,12 @@ async def chat_completions(request: ChatCompletionRequest):
         logger.info(f"处理提示: prompt: {prompt}")
 
         # 根据模型选择使用不同的搜索方法
-        if request.model == "graphrag-global-search:latest":
+        if request.mode == "graphrag-global-search:latest":
             result = await global_search_engine.asearch(prompt, history)
             formatted_response = format_response(result.response)
-        elif request.model == "full-model:latest":
+        elif request.mode == "full-model:latest":
             formatted_response = await full_model_search(prompt, history)
-        elif request.model == "graphrag-local-search:latest":  # 默认使用本地搜索
+        elif request.mode == "graphrag-local-search:latest":  # 默认使用本地搜索
             result = await local_search_engine.asearch(prompt, history)
             formatted_response = format_response(result.response)
         else:
