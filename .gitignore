@@ -1,0 +1,6 @@
+logs/
+temp/
+temp.py
+.ipynb_checkpoints/
+.idea/
+

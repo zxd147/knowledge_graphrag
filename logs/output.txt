@@ -402,3 +402,142 @@ id|text
 
 id='chatcmpl-3709014b818b48428849538ef2ed6b53' object='chat.completion' created=1730114828 model='graphrag-local-search:latest' choices=[ChatCompletionResponseChoice(index=0, message=Message(role='assistant', content='保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。'), finish_reason='stop')] usage=Usage(prompt_tokens=1, completion_tokens=1, total_tokens=2) system_fingerprint=None
 INFO:     192.168.0.64:47812 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-10-31 21:52:55,193 - __main__ - INFO - 收到聊天完成请求: model='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=False stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+2024-10-31 21:52:55,194 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
+2024-10-31 21:52:55,195 - openai._base_client - INFO - Retrying request to /embeddings in 0.861172 seconds
+2024-10-31 21:52:56,057 - openai._base_client - INFO - Retrying request to /embeddings in 1.942950 seconds
+2024-10-31 21:52:58,002 - openai._base_client - INFO - Retrying request to /embeddings in 3.525471 seconds
+2024-10-31 21:53:01,530 - openai._base_client - INFO - Retrying request to /embeddings in 6.145338 seconds
+2024-10-31 21:53:07,682 - openai._base_client - INFO - Retrying request to /embeddings in 6.050360 seconds
+2024-10-31 21:53:13,740 - openai._base_client - INFO - Retrying request to /embeddings in 6.896674 seconds
+2024-10-31 21:53:20,641 - openai._base_client - INFO - Retrying request to /embeddings in 6.700616 seconds
+2024-10-31 21:53:27,349 - openai._base_client - INFO - Retrying request to /embeddings in 6.566573 seconds
+2024-10-31 21:53:33,922 - openai._base_client - INFO - Retrying request to /embeddings in 7.937007 seconds
+2024-10-31 21:53:41,866 - openai._base_client - INFO - Retrying request to /embeddings in 6.103649 seconds
+2024-10-31 21:53:47,976 - openai._base_client - INFO - Retrying request to /embeddings in 6.191686 seconds
+2024-10-31 21:53:54,174 - openai._base_client - INFO - Retrying request to /embeddings in 6.119951 seconds
+2024-10-31 21:54:00,298 - openai._base_client - INFO - Retrying request to /embeddings in 6.473158 seconds
+2024-10-31 21:54:06,778 - openai._base_client - INFO - Retrying request to /embeddings in 7.339969 seconds
+2024-10-31 21:54:14,126 - openai._base_client - INFO - Retrying request to /embeddings in 7.559706 seconds
+2024-10-31 21:54:21,694 - openai._base_client - INFO - Retrying request to /embeddings in 7.615690 seconds
+2024-10-31 21:54:29,318 - openai._base_client - INFO - Retrying request to /embeddings in 7.926135 seconds
+2024-10-31 21:54:37,250 - openai._base_client - INFO - Retrying request to /embeddings in 7.516771 seconds
+2024-10-31 21:54:44,775 - openai._base_client - INFO - Retrying request to /embeddings in 7.297771 seconds
+2024-10-31 21:54:52,080 - openai._base_client - INFO - Retrying request to /embeddings in 7.170538 seconds
+2024-10-31 21:55:00,388 - openai._base_client - INFO - Retrying request to /embeddings in 0.880840 seconds
+2024-10-31 21:55:01,270 - openai._base_client - INFO - Retrying request to /embeddings in 1.732303 seconds
+2024-10-31 21:55:03,005 - openai._base_client - INFO - Retrying request to /embeddings in 3.556215 seconds
+2024-10-31 21:55:06,566 - openai._base_client - INFO - Retrying request to /embeddings in 6.081007 seconds
+2024-10-31 21:55:12,650 - openai._base_client - INFO - Retrying request to /embeddings in 7.166384 seconds
+2024-10-31 21:55:19,820 - openai._base_client - INFO - Retrying request to /embeddings in 6.908990 seconds
+2024-10-31 21:55:26,734 - openai._base_client - INFO - Retrying request to /embeddings in 6.726980 seconds
+2024-10-31 21:55:33,468 - openai._base_client - INFO - Retrying request to /embeddings in 7.051473 seconds
+2024-10-31 21:55:40,526 - openai._base_client - INFO - Retrying request to /embeddings in 6.076666 seconds
+2024-10-31 21:55:46,607 - openai._base_client - INFO - Retrying request to /embeddings in 6.175211 seconds
+2024-10-31 21:55:52,786 - openai._base_client - INFO - Retrying request to /embeddings in 6.049971 seconds
+2024-10-31 21:55:58,842 - openai._base_client - INFO - Retrying request to /embeddings in 7.206721 seconds
+2024-10-31 21:56:06,054 - openai._base_client - INFO - Retrying request to /embeddings in 7.507358 seconds
+2024-10-31 21:56:13,570 - openai._base_client - INFO - Retrying request to /embeddings in 6.017686 seconds
+2024-10-31 21:56:19,594 - openai._base_client - INFO - Retrying request to /embeddings in 6.690885 seconds
+2024-10-31 21:56:27,204 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-10-31 21:56:27,222 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
+2024-10-31 21:56:27,230 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 212.036539 秒
+2024-10-31 21:56:27,230 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-10-31 21:56:27,230 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
+
+-----Entities-----
+id|entity|description|number of relationships
+731|保持牙齿健康|通过日常护理和专业治疗保持牙齿的健康状态|1
+113|牙龈健康维护|定期进行牙周维护，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
+732|保持牙龈健康|通过日常护理和专业治疗保持牙龈的健康状态|1
+126|牙周病预防措施|牙周病的预防措施包括改善口腔卫生习惯、定期检查、戒烟等|0
+118|牙周病预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙周病|0
+128|牙周病管理|牙周病管理包括定期的牙周维护、治疗、教育和监测，以维持牙龈健康|0
+119|牙周维护|定期进行的牙周维护服务，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
+730|减少牙周病|通过日常护理和专业治疗降低牙周病的风险|1
+729|减少蛀牙|通过日常护理和专业治疗降低蛀牙的风险|1
+116|牙齿松动预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿松动|0
+109|口腔卫生习惯|良好的口腔卫生习惯包括刷牙、使用牙线、定期洗牙等，有助于预防牙周病|0
+103|牙龈健康|牙龈健康是牙周治疗的目标，包括牙龈无出血、无红肿、无疼痛|0
+728|预防牙石|通过日常护理和专业治疗减少牙石的形成|1
+117|牙齿移位预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿移位|0
+104|牙龈愈合|牙龈愈合是牙周治疗后的重要康复目标，通过良好的口腔卫生习惯促进|0
+105|牙龈形态|牙龈形态的改善有助于提升口腔美观和功能|0
+576|牙齿处理||2
+727|预防牙菌斑|通过日常护理和专业治疗减少牙菌斑的形成|1
+159|牙周病管理团队|牙周病管理团队是由牙医和相关专业人员组成的团队，负责定期的牙周维护、治疗和监测|0
+112|牙龈形态改善|通过牙周治疗和良好的口腔卫生习惯，可以改善牙龈形态，恢复美观和功能|0
+
+
+-----Relationships-----
+id|source|target|description|weight|rank|links
+161|牙齿清洁与维护|预防牙菌斑|预防牙菌斑是牙齿清洁与维护的目标之一|8.0|11|6
+162|牙齿清洁与维护|预防牙石|预防牙石是牙齿清洁与维护的目标之一|8.0|11|6
+163|牙齿清洁与维护|减少蛀牙|减少蛀牙是牙齿清洁与维护的目标之一|8.0|11|6
+164|牙齿清洁与维护|减少牙周病|减少牙周病是牙齿清洁与维护的目标之一|8.0|11|6
+165|牙齿清洁与维护|保持牙齿健康|保持牙齿健康是牙齿清洁与维护的目标之一|8.0|11|6
+166|牙齿清洁与维护|保持牙龈健康|保持牙龈健康是牙齿清洁与维护的目标之一|8.0|11|6
+248|拔除|牙齿处理|拔除是牙齿处理中的一种操作，用于处理无法保留的牙齿|1.0|5|1
+247|再植|牙齿处理|再植是牙齿处理中的一种操作，用于处理脱落的牙齿|1.0|3|1
+
+
+-----claims-----
+id|entity|object_id|status|start_date|end_date|description
+
+
+-----Sources-----
+id|text
+14|五、其他分类
+
+3.牙齿清洁与维护
+3.1 问题：什么是牙齿清洁与维护？
+答案：牙齿清洁与维护是指通过一系列的日常护理措施和专业治疗方法来保持口腔卫生，预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，保持牙齿和牙龈的健康。
+3.2 问题：什么是超声波洁牙？
+答案：超声波洁牙俗称是洗牙，是通过超声波的高频振动，去除牙齿上的牙结石、烟渍和茶斑，对牙齿表面的损害非常小。为了维护好良好的口腔卫生状态，我们推荐每年洁牙1～2次。
+3.3 问题：超声波洁牙可能出现什么症状？
+答案：
+1.牙齿敏感：洁治后原被牙结石包绕的牙根会暴露，这时遇冷热刺激会出现敏感症状。可在洁治后短期内避免接触过冷过热食物，或者使用脱敏制剂症状会逐渐缓解；如症状加重可以采用牙髓治疗。
+2.牙齿疼痛：牙根暴露所致，反复的不良刺激会引起逆行性牙髓炎，需采用牙髓治疗。牙周炎症越重，牙根暴露越明显，在洁治过程中和洁治后的酸痛感也会更明显，
+3.牙龈出血：菌斑、牙结石刺激牙龈发生炎症，炎症越严重，牙龈出血也越明显；自身血液疾病也会引起牙龈出血，需进一步诊治。
+4.牙龈退缩：牙龈发生炎症时会红肿，炎症消退后牙齿间可能出现缝隙或缝隙变大
+5.牙齿松动：牙周病严重的患者洁牙后松动牙很难恢复稳定，严重松动的牙需要拔除，
+
+1|一、口腔内科
+2.牙周炎
+2.1 问题：牙周炎通常有哪些症状？
+答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、牙齿松动、口臭、咬合不适。
+2.2 问题：牙周炎早期症状？
+答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、刷牙后牙龈轻微疼痛。
+2.3 问题：牙周炎如何治疗？
+答案：牙周炎通常通过牙周治疗和（或）牙周手术来治疗。
+2.4 问题：如何知道自己有牙周炎？
+答案：牙周炎的症状包括牙龈红肿、刷牙或咀嚼时牙龈出血、口臭、牙齿松动等;也可通过医生检查。
+2.5 问题：治疗牙周炎后要注意什么？
+答案：治疗牙周炎后要严格遵循牙医的建议，保持良好的口腔卫生，定期进行牙周维护以防复发。
+2.6 问题：牙龈炎和牙周炎有什么区别？
+答案：牙龈炎是牙龈的炎症，通常是牙菌斑引起的，早期可逆；牙周炎则是炎症扩散至牙周组织，导致牙槽骨吸收和牙齿松动、移位等。
+
+3牙髓炎
+3.1 问题：什么是牙髓炎？
+答案：牙髓炎是牙齿内部的牙髓组织感染或发炎，通常由深龋或牙外伤引起，会导致剧烈的牙痛。
+3.2 问题：牙髓炎有哪些症状？
+答案：牙髓炎常见的症状包括牙齿疼痛、牙齿敏感、牙齿变色、牙龈附近出现脓肿、牙龈肿痛或疼痛。
+3.3 问题：牙髓炎早期症状？
+答案：牙髓炎早期的症状包括牙齿偶尔感到轻微疼痛不适；对冷热食物或饮料的敏感性增加；牙齿颜色开始变暗。
+3.4 问题：牙髓炎如何治疗？
+答案：可用根管治疗。
+
+
+2024-10-31 21:56:27,236 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 500 Internal Server Error"
+2024-10-31 21:56:27,237 - openai._base_client - INFO - Retrying request to /chat/completions in 0.844770 seconds
+2024-10-31 21:56:28,087 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 500 Internal Server Error"
+2024-10-31 21:56:28,087 - openai._base_client - INFO - Retrying request to /chat/completions in 1.881251 seconds
+2024-10-31 21:56:29,972 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 500 Internal Server Error"
+2024-10-31 21:56:29,973 - openai._base_client - INFO - Retrying request to /chat/completions in 3.187873 seconds
+2024-10-31 21:56:33,491 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-31 21:56:35,278 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 8.047700 秒
+2024-10-31 21:56:35,279 - __main__ - INFO - 格式化的LLM结果:
+ 保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。
+2024-10-31 21:56:35,279 - __main__ - INFO - 发送响应: 
+
+id='chatcmpl-f39a12a420124b6aab08f98aeb7ba756' object='chat.completion' created=1730382995 model='graphrag-local-search:latest' choices=[ChatCompletionResponseChoice(index=0, message=Message(role='assistant', content='保持牙齿健康的目标包括预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，通过日常护理措施和专业治疗方法来保持口腔卫生，如定期进行牙齿清洁与维护、超声波洁牙、牙周治疗等，同时改善口腔卫生习惯、定期检查和及时治疗，以维持牙齿和牙龈的健康状态。'), finish_reason='stop')] usage=Usage(prompt_tokens=1, completion_tokens=1, total_tokens=2) system_fingerprint=None
