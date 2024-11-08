@@ -1,25 +1,6 @@
-11-09 01:23:14 INFO     | 在端口 8013 上启动知识图谱Graphrag服务器
-INFO:     Started server process [1816752]
-INFO:     Waiting for application startup.
-11-09 01:23:14 INFO     | 启动中...
-11-09 01:23:14 INFO     | 正在初始化搜索引擎和问题生成器...
-11-09 01:23:14 INFO     | 正在设置LLM和嵌入器
-11-09 01:23:14 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
-11-09 01:23:14 INFO     | 正在加载上下文数据
-11-09 01:23:14 INFO     | 声明记录数: 119
-11-09 01:23:14 INFO     | 上下文数据加载完成
-11-09 01:23:14 INFO     | 正在设置搜索引擎
-11-09 01:23:14 INFO     | 搜索引擎设置完成
-11-09 01:23:14 INFO     | 初始化完成
-INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8013 (Press CTRL+C to quit)
-11-09 01:23:20 INFO     | 收到聊天完成请求: model='Qwen2.5-7B-Instruct' mode='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
-11-09 01:23:20 INFO     | 处理提示: prompt: 怎么保持牙齿健康
-INFO:     192.168.0.64:41652 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-2024-11-09 01:23:20,467 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
-2024-11-09 01:23:20,488 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
-2024-11-09 01:23:20,496 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.062888 秒
-2024-11-09 01:23:20,496 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
-2024-11-09 01:23:20,496 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
-2024-11-09 01:23:20,828 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
-2024-11-09 01:23:24,907 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 4.411009 秒
+Traceback (most recent call last):
+  File "/home/zxd/code/Chat/knowledge_graphrag/graphrag_api.py", line 81, in <module>
+    class ChatCompletionRequest(BaseModel):
+  File "/home/zxd/code/Chat/knowledge_graphrag/graphrag_api.py", line 84, in ChatCompletionRequest
+    Literal['zyy', 'guangxin', 'dentistry'] = 'dentistry'
+TypeError: '_LiteralSpecialForm' object does not support item assignment
