@@ -3,4 +3,5 @@ temp/
 temp.py
 .ipynb_checkpoints/
 .idea/
+demo/*/output/artifacts/lancedb/
 

@@ -527,6 +527,7 @@ async def chat_completions(request: ChatCompletionRequest):
                 # 将格式化后的响应按行分割
                 lines = formatted_response.split('\n')
                 # 历每一行，并构建响应片段
+                # 假流式
                 for i, line in enumerate(lines):
                     # 创建一个字典，表示流式数据的一个片段
                     chunk = {
@@ -545,6 +546,7 @@ async def chat_completions(request: ChatCompletionRequest):
                     }
                     # 将片段转换为JSON格式并生成
                     yield f"data: {json.dumps(chunk)}\n"
+                    yield f"\n"  # SSE协议的标准, 在流式数据传输时, 使用换行符来标识消息结束
                     # 每次生成数据后，异步等待0.5秒
                     await asyncio.sleep(0.5)
                 # 生成最后一个片段，表示流式响应的结束
