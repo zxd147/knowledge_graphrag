@@ -1,6 +1,16 @@
-Traceback (most recent call last):
-  File "/home/zxd/code/Chat/knowledge_graphrag/graphrag_api.py", line 81, in <module>
-    class ChatCompletionRequest(BaseModel):
-  File "/home/zxd/code/Chat/knowledge_graphrag/graphrag_api.py", line 84, in ChatCompletionRequest
-    Literal['zyy', 'guangxin', 'dentistry'] = 'dentistry'
-TypeError: '_LiteralSpecialForm' object does not support item assignment
+11-09 01:37:12 INFO     | 在端口 8013 上启动知识图谱Graphrag服务器
+INFO:     Started server process [1891062]
+INFO:     Waiting for application startup.
+11-09 01:37:12 INFO     | 启动中...
+11-09 01:37:12 INFO     | 正在初始化搜索引擎和问题生成器...
+11-09 01:37:12 INFO     | 正在设置LLM和嵌入器
+11-09 01:37:13 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
+11-09 01:37:13 INFO     | 正在加载上下文数据
+11-09 01:37:13 INFO     | 声明记录数: 119
+11-09 01:37:13 INFO     | 上下文数据加载完成
+11-09 01:37:13 INFO     | 正在设置搜索引擎
+11-09 01:37:13 INFO     | 搜索引擎设置完成
+11-09 01:37:13 INFO     | 初始化完成
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8013 (Press CTRL+C to quit)
+INFO:     192.168.0.64:42270 - "POST /v1/chat/completions HTTP/1.1" 422 Unprocessable Entity

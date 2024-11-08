@@ -81,7 +81,7 @@ class EmbedderConfig(BaseModel):
 class ChatCompletionRequest(BaseModel):
     model: str = 'Qwen2.5-7B-Instruct'
     mode: str
-    knowledge_base: Literal['zyy', 'guangxin', 'dentistry'] = 'dentistry'
+    knowledge_base: Literal['zyy', 'guangxin', 'dentistry', 'test'] = 'dentistry'
     # messages: List[Message]
     messages: List[dict[str, str]]
     temperature: Optional[float] = 1.0
