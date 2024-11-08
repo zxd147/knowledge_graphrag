@@ -2,7 +2,8 @@ fastapi==0.112.0
 uvicorn==0.30.6
 pandas==2.2.2
 tiktoken==0.7.0
-graphrag==0.3.0
+# graphrag==0.3.2
+-e ./graphrag
 pydantic==2.8.2
 python-dotenv==1.0.1
 asyncio==3.4.3
@@ -17,3 +18,4 @@ transformers==4.44.0
 torch==2.2.2
 torchvision==0.17.2
 torchaudio==2.2.2
+loguru

@@ -1,5 +1,6 @@
 import asyncio
 import json
+from utils.log_utils import logger as graphrag_logger
 import logging
 import re
 import time
@@ -39,7 +40,7 @@ from pydantic import BaseModel, Field
 
 # 设置日志模版
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 # 设置常量和配置  INPUT_DIR根据自己的建立graphrag的文件夹路径进行修改
 INPUT_DIR = "demo/dentistry/output/artifacts"
@@ -77,12 +78,6 @@ class EmbedderConfig(BaseModel):
     api_type: OpenaiApiType
 
 
-# 定义Message类型
-class Message(BaseModel):
-    role: str
-    content: str
-
-
 # 定义ChatCompletionRequest类
 class ChatCompletionRequest(BaseModel):
     model: str = 'Qwen2.5-7B-Instruct'
@@ -101,18 +96,24 @@ class ChatCompletionRequest(BaseModel):
     user: Optional[str] = None
 
 
+# 定义Message类型
+class Message(BaseModel):
+    role: str = None
+    content: str = None
+
+
+# 定义Usage类
+class Usage(BaseModel):
+    prompt_tokens: int = None
+    completion_tokens: int = None
+    total_tokens: int = None
+
+
 # 定义ChatCompletionResponseChoice类
 class ChatCompletionResponseChoice(BaseModel):
     index: int
     message: Message
     finish_reason: Optional[str] = None
-
-
-# 定义Usage类
-class Usage(BaseModel):
-    prompt_tokens: int
-    completion_tokens: int
-    total_tokens: int
 
 
 # 定义ChatCompletionResponse类
@@ -126,6 +127,23 @@ class ChatCompletionResponse(BaseModel):
     system_fingerprint: Optional[str] = None
 
 
+# 定义流式返回中的每个片段的Choice
+class ChatCompletionChunkChoice(BaseModel):
+    index: int
+    delta: Message  # delta字段包含内容
+    finish_reason: Optional[str] = None
+
+
+# 定义流式返回的Chunk
+class ChatCompletionChunkResponse(BaseModel):
+    id: str = Field(default_factory=lambda: f"chatcmpl-{uuid.uuid4().hex}")
+    object: str = "chat.completion.chunk"
+    created: int = Field(default_factory=lambda: int(time.time()))
+    model: str
+    choices: List[ChatCompletionChunkChoice]
+    usage: Usage
+
+
 # 定义了一个异步函数 lifespan，它接收一个 FastAPI 应用实例 app 作为参数。这个函数将管理应用的生命周期，包括启动和关闭时的操作
 # 函数在应用启动时执行一些初始化操作，如设置搜索引擎、加载上下文数据、以及初始化问题生成器
 # 函数在应用关闭时执行一些清理操作
@@ -134,17 +152,17 @@ class ChatCompletionResponse(BaseModel):
 async def lifespan(graphrag_app: FastAPI):
     # 启动时执行
     try:
-        logger.info("启动中...")
+        graphrag_logger.info("启动中...")
         # 初始化系统
         # llm_config, embedder_config = get_config(new_llm_model=None)
         await initialize(new_llm_model=None)
         # 让应用继续运行
         yield
     except Exception as e:
-        logger.error(f"启动失败: {e}")
+        graphrag_logger.error(f"启动失败: {e}")
         raise
     finally:
-        logger.info("关闭应用...")
+        graphrag_logger.info("关闭应用...")
 
 
 # lifespan 参数用于在应用程序生命周期的开始和结束时执行一些初始化或清理工作
@@ -196,18 +214,18 @@ async def sync_model(new_llm_model):
     global CURRENT_MODEL
     try:
         if new_llm_model != CURRENT_MODEL:
-            logger.info(f"检测到模型变化，正在重新初始化为：{new_llm_model}")
+            graphrag_logger.info(f"检测到模型变化，正在重新初始化为：{new_llm_model}")
             # 重新执行初始化操作
             # llm_config, embedder_config = get_config(new_llm_model=new_llm_model)
             await initialize(new_llm_model)
         return {"status": "model changed", "new_model": CURRENT_MODEL}
     except Exception as e:
-        logger.error(f"初始化过程中出错: {str(e)}")
+        graphrag_logger.error(f"初始化过程中出错: {str(e)}")
         # raise 关键字重新抛出异常，以确保程序不会在错误状态下继续运行
         # yield 关键字将控制权交还给FastAPI框架，使应用开始运行
         # 分隔了启动和关闭的逻辑。在yield 之前的代码在应用启动时运行，yield 之后的代码在应用关闭时运行
         # 关闭时执行
-        logger.info("正在关闭...")
+        graphrag_logger.info("正在关闭...")
 
 
 async def initialize(new_llm_model):
@@ -215,7 +233,7 @@ async def initialize(new_llm_model):
     # 申明引用全局变量，在函数中被初始化，并在整个应用中使用
     global local_search_engine, global_search_engine, question_generator
     """初始搜索引擎和问题生成器"""
-    logger.info("正在初始化搜索引擎和问题生成器...")
+    graphrag_logger.info("正在初始化搜索引擎和问题生成器...")
     # 调用setup_llm_and_embedder()函数以设置语言模型（LLM）、token编码器（TokenEncoder）和文本嵌入向量生成器（TextEmbedder）
     # await 关键字表示此调用是异步的，函数将在这个操作完成后继续执行
     llm, token_encoder, text_embedder = await setup_llm_and_embedder(new_llm_model)
@@ -234,12 +252,12 @@ async def initialize(new_llm_model):
         llm_params=local_llm_params,
         context_builder_params=local_context_params,
     )
-    logger.info("初始化完成")
+    graphrag_logger.info("初始化完成")
 
 
 # 设置语言模型（LLM）、token编码器（TokenEncoder）和文本嵌入向量生成器（TextEmbedder）
 async def setup_llm_and_embedder(new_llm_model):
-    logger.info("正在设置LLM和嵌入器")
+    graphrag_logger.info("正在设置LLM和嵌入器")
     # 实例化一个ChatOpenAI客户端对象
     env = Env()
     env.read_env()  # 自动读取 .env 文件
@@ -303,7 +321,7 @@ async def setup_llm_and_embedder(new_llm_model):
     # )
     global CURRENT_MODEL
     CURRENT_MODEL = llm_model
-    logger.info(f"LLM和嵌入器设置完成, 当前模型为: {CURRENT_MODEL}")
+    graphrag_logger.info(f"LLM和嵌入器设置完成, 当前模型为: {CURRENT_MODEL}")
     # 初始化token编码器
     token_encoder = tiktoken.get_encoding("cl100k_base")
     return llm, token_encoder, text_embedder
@@ -311,7 +329,7 @@ async def setup_llm_and_embedder(new_llm_model):
 
 # 加载上下文数据，包括实体、关系、报告、文本单元和协变量
 async def load_context():
-    logger.info("正在加载上下文数据")
+    graphrag_logger.info("正在加载上下文数据")
     try:
         # 使用pandas库从指定的路径读取实体数据表ENTITY_TABLE，文件格式为Parquet，并将其加载为DataFrame，存储在变量entity_df中
         entity_df = pd.read_parquet(f"{INPUT_DIR}/{ENTITY_TABLE}.parquet")
@@ -334,12 +352,12 @@ async def load_context():
         text_units = read_indexer_text_units(text_unit_df)
         covariate_df = pd.read_parquet(f"{INPUT_DIR}/{COVARIATE_TABLE}.parquet")
         claims = read_indexer_covariates(covariate_df)
-        logger.info(f"声明记录数: {len(claims)}")
+        graphrag_logger.info(f"声明记录数: {len(claims)}")
         covariates = {"claims": claims}
-        logger.info("上下文数据加载完成")
+        graphrag_logger.info("上下文数据加载完成")
         return entities, relationships, reports, text_units, description_embedding_store, covariates
     except Exception as e:
-        logger.error(f"加载上下文数据时出错: {str(e)}")
+        graphrag_logger.error(f"加载上下文数据时出错: {str(e)}")
         raise
 
 
@@ -347,7 +365,7 @@ async def load_context():
 async def setup_search_engines(llm, token_encoder, text_embedder, entities, relationships, reports, text_units,
                                description_embedding_store, covariates):
     global global_search_engine, local_search_engine
-    logger.info("正在设置搜索引擎")
+    graphrag_logger.info("正在设置搜索引擎")
     # 设置本地搜索引擎
     local_context_builder = LocalSearchMixedContext(
         community_reports=reports,
@@ -436,12 +454,12 @@ async def setup_search_engines(llm, token_encoder, text_embedder, entities, rela
         allow_general_knowledge=False,
         json_mode=True,
         context_builder_params=global_context_builder_params,
-        concurrent_coroutines=32,
+        concurrent_coroutines=1,
         # response_type="multiple paragraphs",
         response_type="Single Sentence",
     )
 
-    logger.info("搜索引擎设置完成")
+    graphrag_logger.info("搜索引擎设置完成")
     return local_search_engine, global_search_engine, local_context_builder, local_llm_params, local_context_params
 
 
@@ -474,6 +492,62 @@ def format_response(response):
     return '\n\n'.join(formatted_paragraphs)
 
 
+async def predict(search_result, prompt, model):
+    """将流式返回的数据格式化为ChatCompletionChunkResponse并生成流数据"""
+    full_response = ''
+    idx = 0
+    async for chunk_response in search_result:
+        idx += 1
+        full_response += chunk_response
+        # 每个流片段的格式化
+        chunk = ChatCompletionChunkResponse(
+            model=model,
+            choices=[
+                ChatCompletionChunkChoice(
+                    index=idx,
+                    delta=Message(content=chunk_response, role='assistant'),  # chunk_response 是生成器的内容
+                    finish_reason=None
+                )
+            ],
+            # 使用情况
+            usage=Usage(
+                # 提示文本的tokens数量
+                prompt_tokens=len(prompt.split()),
+                # 完成文本的tokens数量
+                completion_tokens=len(chunk_response.split()),
+                # 总tokens数量
+                total_tokens=len(prompt.split()) + len(full_response.split())
+            )
+        )
+        # 返回生成的 JSON 格式的流
+        data = chunk.model_dump_json(exclude_unset=True, exclude_none=True)  # SSE 协议要求格式化为 `data: {json}` 的形式
+        yield f"data: {data}\n\n"  # SSE协议的标准, 在流式数据传输时, 使用换行符来标识消息结束
+    # 生成最后一个片段，表示流式响应的结束
+    final_chunk = ChatCompletionChunkResponse(
+        model=model,
+        choices=[
+            ChatCompletionChunkChoice(
+                index=idx,
+                delta=Message(role='assistant'),
+                finish_reason='stop'
+            )
+        ],
+        # 使用情况
+        usage=Usage(
+            # 提示文本的tokens数量
+            prompt_tokens=len(prompt.split()),
+            # 完成文本的tokens数量
+            completion_tokens=len(full_response.split()),
+            # 总tokens数量
+            total_tokens=len(prompt.split()) + len(full_response.split())
+        )
+    )
+    # 返回生成的 JSON 格式的流
+    data = final_chunk.model_dump_json(exclude_unset=True, exclude_none=True)
+    yield f"data: {data}\n\n"
+    yield "data: [DONE]\n"
+
+
 # 执行全模型搜索，包括本地检索、全局检索
 async def full_model_search(prompt: str, history: ConversationHistory):
     local_result = await local_search_engine.asearch(prompt, history)
@@ -487,6 +561,19 @@ async def full_model_search(prompt: str, history: ConversationHistory):
     return formatted_result
 
 
+# 执行全模型搜索，包括本地检索、全局检索
+async def stream_full_model_search(prompt: str, history: ConversationHistory):
+    local_result = await local_search_engine.asearch(prompt, history)
+    global_result = await global_search_engine.asearch(prompt, history)
+    # 格式化结果
+    formatted_result = "#综合搜索结果:\n\n"
+    formatted_result += "##本地检索结果:\n"
+    formatted_result += format_response(local_result.response) + "\n\n"
+    formatted_result += "##全局检索结果:\n"
+    formatted_result += format_response(global_result.response) + "\n\n"
+    yield formatted_result
+
+
 # POST请求接口，与大模型进行知识问答
 @graphrag_app.post("/v1/chat/completions")
 async def chat_completions(request: ChatCompletionRequest):
@@ -494,32 +581,68 @@ async def chat_completions(request: ChatCompletionRequest):
     status = await sync_model(llm_model)
     # 检查搜索引擎是否初始化
     if not local_search_engine or not global_search_engine:
-        logger.error("搜索引擎未初始化")
+        graphrag_logger.error("搜索引擎未初始化")
         raise HTTPException(status_code=500, detail="搜索引擎未初始化")
 
     try:
-        logger.info(f"收到聊天完成请求: {request}")
+        graphrag_logger.info(f"收到聊天完成请求: {request}")
         # prompt = request.messages[-1].content
         prompt = request.messages.pop()['content']
         history = request.messages  # 历史记录
         history = ConversationHistory.from_list(history)
-        logger.info(f"处理提示: prompt: {prompt}")
+        graphrag_logger.info(f"处理提示: prompt: {prompt}")
 
-        # 根据模型选择使用不同的搜索方法
-        if request.mode == "graphrag-global-search:latest":
-            result = await global_search_engine.asearch(prompt, history)
-            formatted_response = format_response(result.response)
-        elif request.mode == "full-model:latest":
-            formatted_response = await full_model_search(prompt, history)
-        elif request.mode == "graphrag-local-search:latest":  # 默认使用本地搜索
-            result = await local_search_engine.asearch(prompt, history)
-            formatted_response = format_response(result.response)
-        else:
-            formatted_response = 'not support request.model'
-        logger.info(f"格式化的LLM结果:\n {formatted_response}")
-
+        # 非流式响应处理
+        if not request.stream:
+            # 根据模型选择使用不同的搜索方法
+            if request.mode == "graphrag-local-search:latest":  # 默认使用本地搜索
+                result = await local_search_engine.asearch(prompt, history)
+                formatted_response = format_response(result.response)
+            elif request.mode == "graphrag-global-search:latest":
+                result = await global_search_engine.asearch(prompt, history)
+                formatted_response = format_response(result.response)
+            elif request.mode == "full-model:latest":
+                formatted_response = await full_model_search(prompt, history)
+            else:
+                formatted_response = 'not support request.model'
+            graphrag_logger.info(f"格式化的LLM结果:\n {formatted_response}")
+            response = ChatCompletionResponse(
+                model=request.model,
+                choices=[
+                    ChatCompletionResponseChoice(
+                        index=0,
+                        message=Message(role="assistant", content=formatted_response),
+                        finish_reason="stop"
+                    )
+                ],
+                # 使用情况
+                usage=Usage(
+                    # 提示文本的tokens数量
+                    prompt_tokens=len(prompt.split()),
+                    # 完成文本的tokens数量
+                    completion_tokens=len(formatted_response.split()),
+                    # 总tokens数量
+                    total_tokens=len(prompt.split()) + len(formatted_response.split())
+                )
+            )
+            graphrag_logger.info(f"发送响应: \n\n{response}")
+            # 返回JSONResponse对象，其中content是将response对象转换为字典的结果
+            return JSONResponse(content=response.model_dump())
+        # 流式响应处理
+        elif request.stream:
+            # 根据模型选择使用不同的搜索方法
+            if request.mode == "graphrag-local-search:latest":  # 默认使用本地搜索
+                search_result = local_search_engine.astream_search(prompt, history)
+            elif request.mode == "graphrag-global-search:latest":
+                search_result = global_search_engine.astream_search(prompt, history)
+            elif request.mode == "full-model:latest":
+                search_result = stream_full_model_search(prompt, history)
+            else:
+                search_result = iter(['not support request.model'])  # 将普通的字符串转为生成器
+            generator = predict(search_result, prompt, request.model)
+            return StreamingResponse(generator, media_type="text/event-stream")
         # 流式响应和非流式响应的处理保持不变
-        if request.stream:
+        else:
             # 定义一个异步生成器函数，用于生成流式数据
             async def generate_stream():
                 # 为每个流式数据片段生成一个唯一的chunk_id
@@ -568,40 +691,16 @@ async def chat_completions(request: ChatCompletionRequest):
 
             # 返回StreamingResponse对象，流式传输数据，media_type设置为text/event-stream以符合SSE(Server-SentEvents) 格式
             return StreamingResponse(generate_stream(), media_type="text/event-stream")
-        # 非流式响应处理
-        else:
-            response = ChatCompletionResponse(
-                model=request.model,
-                choices=[
-                    ChatCompletionResponseChoice(
-                        index=0,
-                        message=Message(role="assistant", content=formatted_response),
-                        finish_reason="stop"
-                    )
-                ],
-                # 使用情况
-                usage=Usage(
-                    # 提示文本的tokens数量
-                    prompt_tokens=len(prompt.split()),
-                    # 完成文本的tokens数量
-                    completion_tokens=len(formatted_response.split()),
-                    # 总tokens数量
-                    total_tokens=len(prompt.split()) + len(formatted_response.split())
-                )
-            )
-            logger.info(f"发送响应: \n\n{response}")
-            # 返回JSONResponse对象，其中content是将response对象转换为字典的结果
-            return JSONResponse(content=response.model_dump())
 
     except Exception as e:
-        logger.error(f"处理聊天完成时出错:\n\n {str(e)}")
+        graphrag_logger.error(f"处理聊天完成时出错:\n\n {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
 # GET请求接口，获取可用模型列表
 @graphrag_app.get("/v1/models")
 async def list_models():
-    logger.info("收到模型列表请求")
+    graphrag_logger.info("收到模型列表请求")
     current_time = int(time.time())
     models = [
         {"id": "graphrag-local-search:latest", "object": "model", "created": current_time - 100000,
@@ -616,12 +715,12 @@ async def list_models():
         "data": models
     }
 
-    logger.info(f"发送模型列表: {response}")
+    graphrag_logger.info(f"发送模型列表: {response}")
     return JSONResponse(content=response)
 
 
 if __name__ == "__main__":
-    logger.info(f"在端口 {PORT} 上启动知识图谱Graphrag服务器")
+    graphrag_logger.info(f"在端口 {PORT} 上启动知识图谱Graphrag服务器")
     # uvicorn是一个用于运行ASGI应用的轻量级、超快速的ASGI服务器实现
     # 用于部署基于FastAPI框架的异步PythonWeb应用程序
     uvicorn.run(graphrag_app, host="0.0.0.0", port=PORT)

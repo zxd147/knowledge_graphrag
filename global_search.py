@@ -85,7 +85,8 @@ async def main():
         # set this to True will add instruction to encourage the LLM to incorporate general knowledge in the response, which may increase hallucinations, but could be useful in some use cases.
         json_mode=True,  # set this to False if your LLM model does not support JSON mode.
         context_builder_params=context_builder_params,
-        concurrent_coroutines=32,
+        # concurrent_coroutines=32,
+        concurrent_coroutines=1,
         response_type="multiple paragraphs",
         # free form text describing the response type and format, can be anything, e.g. prioritized list, single paragraph, multiple paragraphs, multiple-page report
     )
