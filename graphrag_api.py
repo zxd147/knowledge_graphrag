@@ -357,6 +357,8 @@ async def load_context(new_knowledge_base):
         graphrag_logger.info(f"声明记录数: {len(claims)}")
         covariates = {"claims": claims}
         graphrag_logger.info("上下文数据加载完成")
+        global CURRENT_KNOWLEDGE_BASE
+        CURRENT_KNOWLEDGE_BASE = new_knowledge_base
         return entities, relationships, reports, text_units, description_embedding_store, covariates
     except Exception as e:
         graphrag_logger.error(f"加载上下文数据时出错: {str(e)}")

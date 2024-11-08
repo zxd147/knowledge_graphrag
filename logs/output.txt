@@ -1,16 +1,95 @@
-11-09 01:37:12 INFO     | 在端口 8013 上启动知识图谱Graphrag服务器
-INFO:     Started server process [1891062]
+11-09 01:38:01 INFO     | 在端口 8013 上启动知识图谱Graphrag服务器
+INFO:     Started server process [1895720]
 INFO:     Waiting for application startup.
-11-09 01:37:12 INFO     | 启动中...
-11-09 01:37:12 INFO     | 正在初始化搜索引擎和问题生成器...
-11-09 01:37:12 INFO     | 正在设置LLM和嵌入器
-11-09 01:37:13 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
-11-09 01:37:13 INFO     | 正在加载上下文数据
-11-09 01:37:13 INFO     | 声明记录数: 119
-11-09 01:37:13 INFO     | 上下文数据加载完成
-11-09 01:37:13 INFO     | 正在设置搜索引擎
-11-09 01:37:13 INFO     | 搜索引擎设置完成
-11-09 01:37:13 INFO     | 初始化完成
+11-09 01:38:01 INFO     | 启动中...
+11-09 01:38:01 INFO     | 正在初始化搜索引擎和问题生成器...
+11-09 01:38:01 INFO     | 正在设置LLM和嵌入器
+11-09 01:38:01 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
+11-09 01:38:01 INFO     | 正在加载上下文数据
+11-09 01:38:01 INFO     | 声明记录数: 119
+11-09 01:38:01 INFO     | 上下文数据加载完成
+11-09 01:38:01 INFO     | 正在设置搜索引擎
+11-09 01:38:01 INFO     | 搜索引擎设置完成
+11-09 01:38:01 INFO     | 初始化完成
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8013 (Press CTRL+C to quit)
-INFO:     192.168.0.64:42270 - "POST /v1/chat/completions HTTP/1.1" 422 Unprocessable Entity
+11-09 01:38:04 INFO     | 检测到LLM模型/知识库变化，正在重新初始化为：('Qwen2.5-7B-Instruct', 'test')
+11-09 01:38:04 INFO     | 正在初始化搜索引擎和问题生成器...
+11-09 01:38:04 INFO     | 正在设置LLM和嵌入器
+11-09 01:38:04 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
+11-09 01:38:04 INFO     | 正在加载上下文数据
+11-09 01:38:04 INFO     | 声明记录数: 13
+11-09 01:38:04 INFO     | 上下文数据加载完成
+11-09 01:38:04 INFO     | 正在设置搜索引擎
+11-09 01:38:04 INFO     | 搜索引擎设置完成
+11-09 01:38:04 INFO     | 初始化完成
+11-09 01:38:04 INFO     | 收到聊天完成请求: model='Qwen2.5-7B-Instruct' mode='graphrag-local-search:latest' knowledge_base='test' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+11-09 01:38:04 INFO     | 处理提示: prompt: 怎么保持牙齿健康
+INFO:     192.168.0.64:42315 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-11-09 01:38:04,250 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-11-09 01:38:04,274 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.064579 秒
+2024-11-09 01:38:04,274 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-11-09 01:38:04,274 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
+2024-11-09 01:38:04,648 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-09 01:38:05,421 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 1.146873 秒
+11-09 01:38:20 INFO     | 收到聊天完成请求: model='Qwen2.5-7B-Instruct' mode='graphrag-local-search:latest' knowledge_base='dentistry' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+11-09 01:38:20 INFO     | 处理提示: prompt: 怎么保持牙齿健康
+INFO:     192.168.0.64:42336 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-11-09 01:38:20,460 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-11-09 01:38:20,482 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.037422 秒
+2024-11-09 01:38:20,482 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-11-09 01:38:20,482 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
+2024-11-09 01:38:20,851 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-09 01:38:21,620 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 1.138761 秒
+11-09 01:39:05 INFO     | 收到聊天完成请求: model='Qwen2.5-7B-Instruct' mode='graphrag-local-search:latest' knowledge_base='dentistry' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+11-09 01:39:05 INFO     | 处理提示: prompt: 怎么保持牙齿健康
+INFO:     192.168.0.64:42366 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-11-09 01:39:05,336 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-11-09 01:39:05,357 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.061777 秒
+2024-11-09 01:39:05,357 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-11-09 01:39:05,357 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
+2024-11-09 01:39:05,730 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-09 01:39:06,503 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 1.146162 秒
+11-09 01:39:56 INFO     | 检测到LLM模型/知识库变化，正在重新初始化为：('Qwen2.5-7B-Instruct', 'test')
+11-09 01:39:56 INFO     | 正在初始化搜索引擎和问题生成器...
+11-09 01:39:56 INFO     | 正在设置LLM和嵌入器
+11-09 01:39:56 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
+11-09 01:39:56 INFO     | 正在加载上下文数据
+11-09 01:39:56 INFO     | 声明记录数: 13
+11-09 01:39:56 INFO     | 上下文数据加载完成
+11-09 01:39:56 INFO     | 正在设置搜索引擎
+11-09 01:39:56 INFO     | 搜索引擎设置完成
+11-09 01:39:56 INFO     | 初始化完成
+11-09 01:39:56 INFO     | 收到聊天完成请求: model='Qwen2.5-7B-Instruct' mode='graphrag-local-search:latest' knowledge_base='test' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+11-09 01:39:56 INFO     | 处理提示: prompt: 怎么保持牙齿健康
+INFO:     192.168.0.64:42386 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-11-09 01:39:56,231 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-11-09 01:39:56,252 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.052954 秒
+2024-11-09 01:39:56,252 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-11-09 01:39:56,252 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
+2024-11-09 01:39:56,623 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-09 01:39:57,393 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 1.141187 秒
+11-09 01:41:00 INFO     | 检测到LLM模型/知识库变化，正在重新初始化为：('Qwen2.5-7B-Instruct', 'test')
+11-09 01:41:00 INFO     | 正在初始化搜索引擎和问题生成器...
+11-09 01:41:00 INFO     | 正在设置LLM和嵌入器
+11-09 01:41:00 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
+11-09 01:41:00 INFO     | 正在加载上下文数据
+11-09 01:41:00 INFO     | 声明记录数: 13
+11-09 01:41:00 INFO     | 上下文数据加载完成
+11-09 01:41:00 INFO     | 正在设置搜索引擎
+11-09 01:41:00 INFO     | 搜索引擎设置完成
+11-09 01:41:00 INFO     | 初始化完成
+11-09 01:41:00 INFO     | 收到聊天完成请求: model='Qwen2.5-7B-Instruct' mode='graphrag-local-search:latest' knowledge_base='test' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+11-09 01:41:00 INFO     | 处理提示: prompt: 怎么保持牙齿健康
+INFO:     192.168.0.64:42411 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-11-09 01:41:00,315 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-11-09 01:41:00,335 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.060132 秒
+2024-11-09 01:41:00,336 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-11-09 01:41:00,336 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
+2024-11-09 01:41:00,708 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-09 01:41:01,481 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 1.145217 秒
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+11-09 01:43:13 INFO     | 关闭应用...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1895720]
