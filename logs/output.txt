@@ -1,116 +1,25 @@
-2024-11-08 21:20:51,171 - __main__ - INFO - 在端口 8013 上启动知识图谱Graphrag服务器
-INFO:     Started server process [518846]
+11-09 01:23:14 INFO     | 在端口 8013 上启动知识图谱Graphrag服务器
+INFO:     Started server process [1816752]
 INFO:     Waiting for application startup.
-2024-11-08 21:20:51,174 - __main__ - INFO - 启动中...
-2024-11-08 21:20:51,174 - __main__ - INFO - 正在初始化搜索引擎和问题生成器...
-2024-11-08 21:20:51,174 - __main__ - INFO - 正在设置LLM和嵌入器
-2024-11-08 21:20:51,329 - __main__ - INFO - LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
-2024-11-08 21:20:51,329 - __main__ - INFO - 正在加载上下文数据
-2024-11-08 21:20:51,484 - __main__ - INFO - 声明记录数: 119
-2024-11-08 21:20:51,484 - __main__ - INFO - 上下文数据加载完成
-2024-11-08 21:20:51,485 - __main__ - INFO - 正在设置搜索引擎
-2024-11-08 21:20:51,485 - __main__ - INFO - 搜索引擎设置完成
-2024-11-08 21:20:51,485 - __main__ - INFO - 初始化完成
+11-09 01:23:14 INFO     | 启动中...
+11-09 01:23:14 INFO     | 正在初始化搜索引擎和问题生成器...
+11-09 01:23:14 INFO     | 正在设置LLM和嵌入器
+11-09 01:23:14 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
+11-09 01:23:14 INFO     | 正在加载上下文数据
+11-09 01:23:14 INFO     | 声明记录数: 119
+11-09 01:23:14 INFO     | 上下文数据加载完成
+11-09 01:23:14 INFO     | 正在设置搜索引擎
+11-09 01:23:14 INFO     | 搜索引擎设置完成
+11-09 01:23:14 INFO     | 初始化完成
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8013 (Press CTRL+C to quit)
-2024-11-08 22:01:40,697 - __main__ - INFO - 收到聊天完成请求: model='Qwen2.5-7B-Instruct' mode='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
-2024-11-08 22:01:40,697 - __main__ - INFO - 处理提示: prompt: 怎么保持牙齿健康
-2024-11-08 22:01:40,745 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
-2024-11-08 22:01:40,767 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
-2024-11-08 22:01:40,776 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.078752 秒
-2024-11-08 22:01:40,776 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
-2024-11-08 22:01:40,776 - graphrag.query.structured_search.local_search.search - INFO - context_text: []
-
------Entities-----
-id|entity|description|number of relationships
-731|保持牙齿健康|通过日常护理和专业治疗保持牙齿的健康状态|1
-113|牙龈健康维护|定期进行牙周维护，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
-732|保持牙龈健康|通过日常护理和专业治疗保持牙龈的健康状态|1
-126|牙周病预防措施|牙周病的预防措施包括改善口腔卫生习惯、定期检查、戒烟等|0
-118|牙周病预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙周病|0
-128|牙周病管理|牙周病管理包括定期的牙周维护、治疗、教育和监测，以维持牙龈健康|0
-119|牙周维护|定期进行的牙周维护服务，包括洗牙、检查和必要的治疗，以保持牙龈健康|0
-730|减少牙周病|通过日常护理和专业治疗降低牙周病的风险|1
-729|减少蛀牙|通过日常护理和专业治疗降低蛀牙的风险|1
-116|牙齿松动预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿松动|0
-109|口腔卫生习惯|良好的口腔卫生习惯包括刷牙、使用牙线、定期洗牙等，有助于预防牙周病|0
-103|牙龈健康|牙龈健康是牙周治疗的目标，包括牙龈无出血、无红肿、无疼痛|0
-728|预防牙石|通过日常护理和专业治疗减少牙石的形成|1
-117|牙齿移位预防|通过改善口腔卫生习惯、定期检查和及时治疗，可以预防牙齿移位|0
-104|牙龈愈合|牙龈愈合是牙周治疗后的重要康复目标，通过良好的口腔卫生习惯促进|0
-105|牙龈形态|牙龈形态的改善有助于提升口腔美观和功能|0
-576|牙齿处理||2
-727|预防牙菌斑|通过日常护理和专业治疗减少牙菌斑的形成|1
-159|牙周病管理团队|牙周病管理团队是由牙医和相关专业人员组成的团队，负责定期的牙周维护、治疗和监测|0
-112|牙龈形态改善|通过牙周治疗和良好的口腔卫生习惯，可以改善牙龈形态，恢复美观和功能|0
-
-
------Relationships-----
-id|source|target|description|weight|rank|links
-161|牙齿清洁与维护|预防牙菌斑|预防牙菌斑是牙齿清洁与维护的目标之一|8.0|11|6
-162|牙齿清洁与维护|预防牙石|预防牙石是牙齿清洁与维护的目标之一|8.0|11|6
-163|牙齿清洁与维护|减少蛀牙|减少蛀牙是牙齿清洁与维护的目标之一|8.0|11|6
-164|牙齿清洁与维护|减少牙周病|减少牙周病是牙齿清洁与维护的目标之一|8.0|11|6
-165|牙齿清洁与维护|保持牙齿健康|保持牙齿健康是牙齿清洁与维护的目标之一|8.0|11|6
-166|牙齿清洁与维护|保持牙龈健康|保持牙龈健康是牙齿清洁与维护的目标之一|8.0|11|6
-248|拔除|牙齿处理|拔除是牙齿处理中的一种操作，用于处理无法保留的牙齿|1.0|5|1
-247|再植|牙齿处理|再植是牙齿处理中的一种操作，用于处理脱落的牙齿|1.0|3|1
-
-
------claims-----
-id|entity|object_id|status|start_date|end_date|description
-
-
------Sources-----
-id|text
-14|五、其他分类
-
-3.牙齿清洁与维护
-3.1 问题：什么是牙齿清洁与维护？
-答案：牙齿清洁与维护是指通过一系列的日常护理措施和专业治疗方法来保持口腔卫生，预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，保持牙齿和牙龈的健康。
-3.2 问题：什么是超声波洁牙？
-答案：超声波洁牙俗称是洗牙，是通过超声波的高频振动，去除牙齿上的牙结石、烟渍和茶斑，对牙齿表面的损害非常小。为了维护好良好的口腔卫生状态，我们推荐每年洁牙1～2次。
-3.3 问题：超声波洁牙可能出现什么症状？
-答案：
-1.牙齿敏感：洁治后原被牙结石包绕的牙根会暴露，这时遇冷热刺激会出现敏感症状。可在洁治后短期内避免接触过冷过热食物，或者使用脱敏制剂症状会逐渐缓解；如症状加重可以采用牙髓治疗。
-2.牙齿疼痛：牙根暴露所致，反复的不良刺激会引起逆行性牙髓炎，需采用牙髓治疗。牙周炎症越重，牙根暴露越明显，在洁治过程中和洁治后的酸痛感也会更明显，
-3.牙龈出血：菌斑、牙结石刺激牙龈发生炎症，炎症越严重，牙龈出血也越明显；自身血液疾病也会引起牙龈出血，需进一步诊治。
-4.牙龈退缩：牙龈发生炎症时会红肿，炎症消退后牙齿间可能出现缝隙或缝隙变大
-5.牙齿松动：牙周病严重的患者洁牙后松动牙很难恢复稳定，严重松动的牙需要拔除，
-
-1|一、口腔内科
-2.牙周炎
-2.1 问题：牙周炎通常有哪些症状？
-答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、牙齿松动、口臭、咬合不适。
-2.2 问题：牙周炎早期症状？
-答案：牙周炎的常见症状包括牙龈出血、牙龈红肿、牙龈退缩、刷牙后牙龈轻微疼痛。
-2.3 问题：牙周炎如何治疗？
-答案：牙周炎通常通过牙周治疗和（或）牙周手术来治疗。
-2.4 问题：如何知道自己有牙周炎？
-答案：牙周炎的症状包括牙龈红肿、刷牙或咀嚼时牙龈出血、口臭、牙齿松动等;也可通过医生检查。
-2.5 问题：治疗牙周炎后要注意什么？
-答案：治疗牙周炎后要严格遵循牙医的建议，保持良好的口腔卫生，定期进行牙周维护以防复发。
-2.6 问题：牙龈炎和牙周炎有什么区别？
-答案：牙龈炎是牙龈的炎症，通常是牙菌斑引起的，早期可逆；牙周炎则是炎症扩散至牙周组织，导致牙槽骨吸收和牙齿松动、移位等。
-
-3牙髓炎
-3.1 问题：什么是牙髓炎？
-答案：牙髓炎是牙齿内部的牙髓组织感染或发炎，通常由深龋或牙外伤引起，会导致剧烈的牙痛。
-3.2 问题：牙髓炎有哪些症状？
-答案：牙髓炎常见的症状包括牙齿疼痛、牙齿敏感、牙齿变色、牙龈附近出现脓肿、牙龈肿痛或疼痛。
-3.3 问题：牙髓炎早期症状？
-答案：牙髓炎早期的症状包括牙齿偶尔感到轻微疼痛不适；对冷热食物或饮料的敏感性增加；牙齿颜色开始变暗。
-3.4 问题：牙髓炎如何治疗？
-答案：可用根管治疗。
-
-
-2024-11-08 22:01:41,106 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
-2024-11-08 22:01:45,163 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 4.386810 秒
-2024-11-08 22:01:45,164 - __main__ - INFO - 格式化的LLM结果:
- 保持牙齿健康可以通过日常护理和专业治疗，包括定期进行牙齿清洁、检查和必要的治疗，预防牙菌斑、牙石的形成，减少蛀牙和牙周病的发生，以及保持良好的口腔卫生习惯。[Data: Entities (731, 113, 732, 126, 118, 128, 119, 730, 729, 116, 109, 103, 728, 117, 104, 105, 107); Relationships (161, 162, 163, 164, 165, 166); Sources (1, 14)]
-INFO:     192.168.0.64:44405 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-2024-11-08 22:23:12,196 - __main__ - INFO - 关闭应用...
-INFO:     Application shutdown complete.
-INFO:     Finished server process [518846]
+11-09 01:23:20 INFO     | 收到聊天完成请求: model='Qwen2.5-7B-Instruct' mode='graphrag-local-search:latest' messages=[{'role': 'user', 'content': '怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+11-09 01:23:20 INFO     | 处理提示: prompt: 怎么保持牙齿健康
+INFO:     192.168.0.64:41652 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-11-09 01:23:20,467 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-11-09 01:23:20,488 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
+2024-11-09 01:23:20,496 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.062888 秒
+2024-11-09 01:23:20,496 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
+2024-11-09 01:23:20,496 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
+2024-11-09 01:23:20,828 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-09 01:23:24,907 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 4.411009 秒

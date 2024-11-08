@@ -3,7 +3,8 @@ uvicorn==0.30.6
 pandas==2.2.2
 tiktoken==0.7.0
 # graphrag==0.3.2
--e ./graphrag
+# pip install ./graphrag
+./graphrag
 pydantic==2.8.2
 python-dotenv==1.0.1
 asyncio==3.4.3

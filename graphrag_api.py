@@ -6,7 +6,7 @@ import re
 import time
 import uuid
 from contextlib import asynccontextmanager
-from typing import List, Optional, Dict, Union
+from typing import List, Optional, Dict, Union, Literal
 
 import pandas as pd
 import tiktoken
@@ -43,8 +43,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 # logger = logging.getLogger(__name__)
 
 # 设置常量和配置  INPUT_DIR根据自己的建立graphrag的文件夹路径进行修改
-INPUT_DIR = "demo/dentistry/output/artifacts"
-LANCEDB_URI = f"{INPUT_DIR}/lancedb"
 COMMUNITY_REPORT_TABLE = "create_final_community_reports"
 ENTITY_TABLE = "create_final_nodes"
 ENTITY_EMBEDDING_TABLE = "create_final_entities"
@@ -52,6 +50,7 @@ RELATIONSHIP_TABLE = "create_final_relationships"
 COVARIATE_TABLE = "create_final_covariates"
 TEXT_UNIT_TABLE = "create_final_text_units"
 CURRENT_MODEL = ''
+CURRENT_KNOWLEDGE_BASE = 'dentistry'
 COMMUNITY_LEVEL = 2
 PORT = 8013
 
@@ -82,6 +81,7 @@ class EmbedderConfig(BaseModel):
 class ChatCompletionRequest(BaseModel):
     model: str = 'Qwen2.5-7B-Instruct'
     mode: str
+    Literal['zyy', 'guangxin', 'dentistry'] = 'dentistry'
     # messages: List[Message]
     messages: List[dict[str, str]]
     temperature: Optional[float] = 1.0
@@ -155,7 +155,7 @@ async def lifespan(graphrag_app: FastAPI):
         graphrag_logger.info("启动中...")
         # 初始化系统
         # llm_config, embedder_config = get_config(new_llm_model=None)
-        await initialize(new_llm_model=None)
+        await initialize(new_llm_model=None, new_knowledge_base=CURRENT_KNOWLEDGE_BASE)
         # 让应用继续运行
         yield
     except Exception as e:
@@ -210,14 +210,14 @@ def get_config(new_llm_model=None):
     return llm_config, embedder_config
 
 
-async def sync_model(new_llm_model):
-    global CURRENT_MODEL
+async def sync_setting(new_llm_model, new_knowledge_base):
+    global CURRENT_MODEL, CURRENT_KNOWLEDGE_BASE
     try:
-        if new_llm_model != CURRENT_MODEL:
-            graphrag_logger.info(f"检测到模型变化，正在重新初始化为：{new_llm_model}")
+        if new_llm_model != CURRENT_MODEL or new_knowledge_base != CURRENT_KNOWLEDGE_BASE:
+            graphrag_logger.info(f"检测到LLM模型/知识库变化，正在重新初始化为：{new_llm_model, new_knowledge_base}")
             # 重新执行初始化操作
             # llm_config, embedder_config = get_config(new_llm_model=new_llm_model)
-            await initialize(new_llm_model)
+            await initialize(new_llm_model, new_knowledge_base)
         return {"status": "model changed", "new_model": CURRENT_MODEL}
     except Exception as e:
         graphrag_logger.error(f"初始化过程中出错: {str(e)}")
@@ -228,7 +228,7 @@ async def sync_model(new_llm_model):
         graphrag_logger.info("正在关闭...")
 
 
-async def initialize(new_llm_model):
+async def initialize(new_llm_model, new_knowledge_base):
     # 启动时执行
     # 申明引用全局变量，在函数中被初始化，并在整个应用中使用
     global local_search_engine, global_search_engine, question_generator
@@ -238,7 +238,7 @@ async def initialize(new_llm_model):
     # await 关键字表示此调用是异步的，函数将在这个操作完成后继续执行
     llm, token_encoder, text_embedder = await setup_llm_and_embedder(new_llm_model)
     # 调用load_context()函数加载实体、关系、报告、文本单元、描述嵌入存储和协变量等数据，这些数据将用于构建搜索引擎和问题生成器
-    entities, relationships, reports, text_units, description_embedding_store, covariates = await load_context()
+    entities, relationships, reports, text_units, description_embedding_store, covariates = await load_context(new_knowledge_base)
     # 调用setup_search_engines()函数设置本地和全局搜索引擎、上下文构建器（ContextBuilder）、以及相关参数
     local_search_engine, global_search_engine, local_context_builder, local_llm_params, local_context_params = await setup_search_engines(
         llm, token_encoder, text_embedder, entities, relationships, reports, text_units,
@@ -328,8 +328,10 @@ async def setup_llm_and_embedder(new_llm_model):
 
 
 # 加载上下文数据，包括实体、关系、报告、文本单元和协变量
-async def load_context():
+async def load_context(new_knowledge_base):
     graphrag_logger.info("正在加载上下文数据")
+    INPUT_DIR = f"demo/{new_knowledge_base}/output/artifacts"
+    LANCEDB_URI = f"{INPUT_DIR}/lancedb"
     try:
         # 使用pandas库从指定的路径读取实体数据表ENTITY_TABLE，文件格式为Parquet，并将其加载为DataFrame，存储在变量entity_df中
         entity_df = pd.read_parquet(f"{INPUT_DIR}/{ENTITY_TABLE}.parquet")
@@ -578,7 +580,8 @@ async def stream_full_model_search(prompt: str, history: ConversationHistory):
 @graphrag_app.post("/v1/chat/completions")
 async def chat_completions(request: ChatCompletionRequest):
     llm_model = request.model
-    status = await sync_model(llm_model)
+    knowledge_base = request.knowledge_base
+    status = await sync_setting(llm_model, knowledge_base)
     # 检查搜索引擎是否初始化
     if not local_search_engine or not global_search_engine:
         graphrag_logger.error("搜索引擎未初始化")
