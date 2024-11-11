@@ -526,6 +526,7 @@ async def predict(search_result, prompt, model):
         # 返回生成的 JSON 格式的流
         data = chunk.model_dump_json(exclude_unset=True, exclude_none=True)  # SSE 协议要求格式化为 `data: {json}` 的形式
         yield f"data: {data}\n\n"  # SSE协议的标准, 在流式数据传输时, 使用换行符来标识消息结束
+    graphrag_logger.info(f"LLM结果: \n{full_response}")
     # 生成最后一个片段，表示流式响应的结束
     final_chunk = ChatCompletionChunkResponse(
         model=model,
@@ -549,6 +550,7 @@ async def predict(search_result, prompt, model):
     # 返回生成的 JSON 格式的流
     data = final_chunk.model_dump_json(exclude_unset=True, exclude_none=True)
     yield f"data: {data}\n\n"
+    graphrag_logger.info(f"发送响应: \n{data}")
     yield "data: [DONE]\n"
 
 
@@ -566,7 +568,7 @@ async def full_model_search(prompt: str, history: ConversationHistory):
 
 
 # 执行全模型搜索，包括本地检索、全局检索
-async def stream_full_model_search(prompt: str, history: ConversationHistory):
+async def stream_full_model_search(prompt: str, history: ConversationHistory, model):
     local_result = await local_search_engine.asearch(prompt, history)
     global_result = await global_search_engine.asearch(prompt, history)
     # 格式化结果
@@ -575,6 +577,31 @@ async def stream_full_model_search(prompt: str, history: ConversationHistory):
     formatted_result += format_response(local_result.response) + "\n\n"
     formatted_result += "##全局检索结果:\n"
     formatted_result += format_response(global_result.response) + "\n\n"
+    # 生成最后一个片段，表示流式响应的结束
+    result = ChatCompletionChunkResponse(
+        model=model,
+        choices=[
+            ChatCompletionChunkChoice(
+                index=0,
+                delta=Message(role='assistant'),
+                finish_reason='stop'
+            )
+        ],
+        # 使用情况
+        usage=Usage(
+            # 提示文本的tokens数量
+            prompt_tokens=len(prompt.split()),
+            # 完成文本的tokens数量
+            completion_tokens=len(formatted_result.split()),
+            # 总tokens数量
+            total_tokens=len(prompt.split()) + len(formatted_result.split())
+        )
+    )
+    # 返回生成的 JSON 格式的流
+    data = result.model_dump_json(exclude_unset=True, exclude_none=True)
+    yield f"data: {data}\n\n"
+    graphrag_logger.info(f"发送响应: \n{data}")
+    yield "data: [DONE]\n"
     yield formatted_result
 
 
@@ -596,21 +623,23 @@ async def chat_completions(request: ChatCompletionRequest):
         history = request.messages  # 历史记录
         history = ConversationHistory.from_list(history)
         graphrag_logger.info(f"处理提示: prompt: {prompt}")
+        model = request.model
+        stream = request.stream
 
         # 非流式响应处理
-        if not request.stream:
+        if not stream:
             # 根据模型选择使用不同的搜索方法
             if request.mode == "graphrag-local-search:latest":  # 默认使用本地搜索
-                result = await local_search_engine.asearch(prompt, history)
-                formatted_response = format_response(result.response)
+                search_result = await local_search_engine.asearch(prompt, history)
+                formatted_response = format_response(search_result.response)
             elif request.mode == "graphrag-global-search:latest":
-                result = await global_search_engine.asearch(prompt, history)
-                formatted_response = format_response(result.response)
+                search_result = await global_search_engine.asearch(prompt, history)
+                formatted_response = format_response(search_result.response)
             elif request.mode == "full-model:latest":
                 formatted_response = await full_model_search(prompt, history)
             else:
                 formatted_response = 'not support request.model'
-            graphrag_logger.info(f"格式化的LLM结果:\n {formatted_response}")
+            graphrag_logger.info(f"LLM结果:\n{formatted_response}")
             response = ChatCompletionResponse(
                 model=request.model,
                 choices=[
@@ -630,73 +659,72 @@ async def chat_completions(request: ChatCompletionRequest):
                     total_tokens=len(prompt.split()) + len(formatted_response.split())
                 )
             )
-            graphrag_logger.info(f"发送响应: \n\n{response}")
+            graphrag_logger.info(f"发送响应: \n{response}")
             # 返回JSONResponse对象，其中content是将response对象转换为字典的结果
             return JSONResponse(content=response.model_dump())
         # 流式响应处理
-        elif request.stream:
+        elif stream:
             # 根据模型选择使用不同的搜索方法
             if request.mode == "graphrag-local-search:latest":  # 默认使用本地搜索
                 search_result = local_search_engine.astream_search(prompt, history)
             elif request.mode == "graphrag-global-search:latest":
                 search_result = global_search_engine.astream_search(prompt, history)
             elif request.mode == "full-model:latest":
-                search_result = stream_full_model_search(prompt, history)
+                search_result = stream_full_model_search(prompt, history, model)
             else:
                 search_result = iter(['not support request.model'])  # 将普通的字符串转为生成器
-            generator = predict(search_result, prompt, request.model)
+            generator = predict(search_result, prompt, model)
             return StreamingResponse(generator, media_type="text/event-stream")
         # 流式响应和非流式响应的处理保持不变
-        else:
-            # 定义一个异步生成器函数，用于生成流式数据
-            async def generate_stream():
-                # 为每个流式数据片段生成一个唯一的chunk_id
-                chunk_id = f"chatcmpl-{uuid.uuid4().hex}"
-                # 将格式化后的响应按行分割
-                lines = formatted_response.split('\n')
-                # 历每一行，并构建响应片段
-                # 假流式
-                for i, line in enumerate(lines):
-                    # 创建一个字典，表示流式数据的一个片段
-                    chunk = {
-                        "id": chunk_id,
-                        "object": "chat.completion.chunk",
-                        "created": int(time.time()),
-                        "model": request.model,
-                        "choices": [
-                            {
-                                "index": 0,
-                                "delta": {"content": line + '\n'},
-                                # if i > 0 else {"role": "assistant", "content": ""},
-                                "finish_reason": None
-                            }
-                        ]
-                    }
-                    # 将片段转换为JSON格式并生成
-                    yield f"data: {json.dumps(chunk)}\n"
-                    yield f"\n"  # SSE协议的标准, 在流式数据传输时, 使用换行符来标识消息结束
-                    # 每次生成数据后，异步等待0.5秒
-                    await asyncio.sleep(0.5)
-                # 生成最后一个片段，表示流式响应的结束
-                final_chunk = {
-                    "id": chunk_id,
-                    "object": "chat.completion.chunk",
-                    "created": int(time.time()),
-                    "model": request.model,
-                    "choices": [
-                        {
-                            "index": 0,
-                            "delta": {},
-                            "finish_reason": "stop"
-                        }
-                    ]
-                }
-                yield f"data: {json.dumps(final_chunk)}\n"
-                yield "data: [DONE]\n"
-
-            # 返回StreamingResponse对象，流式传输数据，media_type设置为text/event-stream以符合SSE(Server-SentEvents) 格式
-            return StreamingResponse(generate_stream(), media_type="text/event-stream")
-
+        # else:
+        #     # 定义一个异步生成器函数，用于生成流式数据
+        #     async def generate_stream():
+        #         # 为每个流式数据片段生成一个唯一的chunk_id
+        #         chunk_id = f"chatcmpl-{uuid.uuid4().hex}"
+        #         # 将格式化后的响应按行分割
+        #         lines = formatted_response.split('\n')
+        #         # 历每一行，并构建响应片段
+        #         # 假流式
+        #         for i, line in enumerate(lines):
+        #             # 创建一个字典，表示流式数据的一个片段
+        #             chunk = {
+        #                 "id": chunk_id,
+        #                 "object": "chat.completion.chunk",
+        #                 "created": int(time.time()),
+        #                 "model": request.model,
+        #                 "choices": [
+        #                     {
+        #                         "index": 0,
+        #                         "delta": {"content": line + '\n'},
+        #                         # if i > 0 else {"role": "assistant", "content": ""},
+        #                         "finish_reason": None
+        #                     }
+        #                 ]
+        #             }
+        #             # 将片段转换为JSON格式并生成
+        #             yield f"data: {json.dumps(chunk)}\n"
+        #             yield f"\n"  # SSE协议的标准, 在流式数据传输时, 使用换行符来标识消息结束
+        #             # 每次生成数据后，异步等待0.5秒
+        #             await asyncio.sleep(0.5)
+        #         # 生成最后一个片段，表示流式响应的结束
+        #         final_chunk = {
+        #             "id": chunk_id,
+        #             "object": "chat.completion.chunk",
+        #             "created": int(time.time()),
+        #             "model": request.model,
+        #             "choices": [
+        #                 {
+        #                     "index": 0,
+        #                     "delta": {},
+        #                     "finish_reason": "stop"
+        #                 }
+        #             ]
+        #         }
+        #         yield f"data: {json.dumps(final_chunk)}\n"
+        #         yield "data: [DONE]\n"
+        #
+        #     # 返回StreamingResponse对象，流式传输数据，media_type设置为text/event-stream以符合SSE(Server-SentEvents) 格式
+        #     return StreamingResponse(generate_stream(), media_type="text/event-stream")
     except Exception as e:
         graphrag_logger.error(f"处理聊天完成时出错:\n\n {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))

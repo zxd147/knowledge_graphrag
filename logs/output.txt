@@ -32,3 +32,28 @@ INFO:     192.168.0.64:42514 - "POST /v1/chat/completions HTTP/1.1" 200 OK
 2024-11-09 01:43:36,359 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
 2024-11-09 01:43:36,731 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
 2024-11-09 01:43:37,505 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 1.146129 秒
+11-11 14:20:34 INFO     | 收到聊天完成请求: model='Qwen2.5-7B-Instruct' mode='graphrag-local-search:latest' knowledge_base='test' messages=[{'role': 'user', 'content': '流式，怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=True stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+11-11 14:20:34 INFO     | 处理提示: prompt: 流式，怎么保持牙齿健康
+INFO:     192.168.0.64:41388 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+2024-11-11 14:20:34,412 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-11-11 14:20:34,423 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
+2024-11-11 14:20:34,431 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.044547 秒
+2024-11-11 14:20:34,431 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 流式，怎么保持牙齿健康
+2024-11-11 14:20:34,431 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
+2024-11-11 14:20:34,743 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-11 14:20:35,559 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 1.127522 秒
+11-11 14:20:48 INFO     | 收到聊天完成请求: model='Qwen2.5-7B-Instruct' mode='graphrag-local-search:latest' knowledge_base='test' messages=[{'role': 'user', 'content': '非流式，怎么保持牙齿健康'}] temperature=0.7 top_p=1.0 n=1 stream=False stop=None max_tokens=None presence_penalty=0 frequency_penalty=0 logit_bias=None user=None
+11-11 14:20:48 INFO     | 处理提示: prompt: 非流式，怎么保持牙齿健康
+2024-11-11 14:20:48,409 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
+2024-11-11 14:20:48,420 - graphrag.query.context_builder.community_context - WARNING - Warning: No community records added when building community context.
+2024-11-11 14:20:48,429 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.034713 秒
+2024-11-11 14:20:48,429 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 非流式，怎么保持牙齿健康
+2024-11-11 14:20:48,429 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
+2024-11-11 14:20:48,757 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-11 14:20:49,409 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 0.979236 秒
+11-11 14:20:49 INFO     | 格式化的LLM结果:
+ 关于非流式内容保持牙齿健康的信息，数据表中未提供相关数据支持。建议咨询牙科专业人士获取具体建议。
+11-11 14:20:49 INFO     | 发送响应: 
+
+id='chatcmpl-4e5ca6b87f8247eabc850fabd7019c07' object='chat.completion' created=1731306049 model='Qwen2.5-7B-Instruct' choices=[ChatCompletionResponseChoice(index=0, message=Message(role='assistant', content='关于非流式内容保持牙齿健康的信息，数据表中未提供相关数据支持。建议咨询牙科专业人士获取具体建议。'), finish_reason='stop')] usage=Usage(prompt_tokens=1, completion_tokens=1, total_tokens=2) system_fingerprint=None
+INFO:     192.168.0.64:41393 - "POST /v1/chat/completions HTTP/1.1" 200 OK
