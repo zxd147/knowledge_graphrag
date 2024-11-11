@@ -1,12 +1,9 @@
-import asyncio
-import json
-from utils.log_utils import logger as graphrag_logger
 import logging
 import re
 import time
 import uuid
 from contextlib import asynccontextmanager
-from typing import List, Optional, Dict, Union, Literal
+from typing import List, Optional, Dict, Union, Literal, AsyncGenerator, Any
 
 import pandas as pd
 import tiktoken
@@ -19,9 +16,6 @@ from graphrag.query.context_builder.conversation_history import (
 )
 # GraphRAG 相关导入
 from graphrag.query.context_builder.entity_extraction import EntityVectorStoreKey
-from graphrag.query.llm.oai.chat_openai import ChatOpenAI
-from graphrag.query.llm.oai.embedding import OpenAIEmbedding
-from graphrag.query.llm.oai.typing import OpenaiApiType
 from graphrag.query.indexer_adapters import (
     read_indexer_covariates,
     read_indexer_entities,
@@ -30,6 +24,9 @@ from graphrag.query.indexer_adapters import (
     read_indexer_text_units,
 )
 from graphrag.query.input.loaders.dfs import store_entity_semantic_embeddings
+from graphrag.query.llm.oai.chat_openai import ChatOpenAI
+from graphrag.query.llm.oai.embedding import OpenAIEmbedding
+from graphrag.query.llm.oai.typing import OpenaiApiType
 from graphrag.query.question_gen.local_gen import LocalQuestionGen
 from graphrag.query.structured_search.global_search.community_context import GlobalCommunityContext
 from graphrag.query.structured_search.global_search.search import GlobalSearch
@@ -37,6 +34,8 @@ from graphrag.query.structured_search.local_search.mixed_context import LocalSea
 from graphrag.query.structured_search.local_search.search import LocalSearch
 from graphrag.vector_stores.lancedb import LanceDBVectorStore
 from pydantic import BaseModel, Field
+
+from utils.log_utils import logger as graphrag_logger
 
 # 设置日志模版
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -526,7 +525,7 @@ def format_response(response):
 
 
 # 定义一个异步生成器函数，用于生成流式数据
-async def predict(search_result, prompt, model):
+async def predict(search_result: AsyncGenerator[str, Any], prompt, model):
     """将流式返回的数据格式化为ChatCompletionStreamResponse并生成流数据"""
     full_response = ''
     idx = 0
@@ -555,7 +554,7 @@ async def predict(search_result, prompt, model):
         )
         # 返回生成的 JSON 格式的流
         data = chunk.model_dump_json(exclude_unset=True, exclude_none=True)  # SSE 协议要求格式化为 `data: {json}` 的形式
-        yield f"data: {data}\n"  # SSE协议的标准, 在流式数据传输时, 使用换行符来标识消息结束
+        yield f"data: {data}\n\n"  # SSE协议的标准, 在流式数据传输时, 使用换行符来标识消息结束
     graphrag_logger.info(f"LLM结果: \n{full_response}")
     # 生成最后一个片段，表示流式响应的结束
     final_chunk = ChatCompletionResponse(
@@ -579,9 +578,9 @@ async def predict(search_result, prompt, model):
     )
     # 返回生成的 JSON 格式的流
     data = final_chunk.model_dump_json(exclude_unset=True, exclude_none=True)
-    yield f"data: {data}\n"
+    yield f"data: {data}\n\n"
     graphrag_logger.info(f"发送响应: \n{data}\n")
-    yield "data: [DONE]\n"
+    yield "data: [DONE]\n\n"
 
 
 # 执行全模型搜索，包括本地检索、全局检索
@@ -629,10 +628,9 @@ async def stream_full_model_search(prompt: str, history: ConversationHistory, mo
     )
     # 返回生成的 JSON 格式的流
     data = result.model_dump_json(exclude_unset=True, exclude_none=True)
-    yield f"data: {data}\n"
+    yield f"data: {data}\n\n"
     graphrag_logger.info(f"发送响应: \n{data}\n")
-    yield "data: [DONE]\n"
-    yield formatted_result
+    yield "data: [DONE]\n\n"
 
 
 # POST请求接口，与大模型进行知识问答
@@ -702,7 +700,9 @@ async def chat_completions(request: ChatCompletionRequest):
             elif request.mode == "full":
                 search_result = stream_full_model_search(prompt, history, llm_model)
             else:
-                search_result = iter(['not support request.mode'])  # 将普通的字符串转为生成器
+                async def async_iter(item):
+                    yield item  # 异步生成器返回错误信息
+                search_result = async_iter(item='not support request.mode')  # 将普通的字符串转为异步生成器
             generator = predict(search_result, prompt, llm_model)
             # 返回StreamingResponse对象，流式传输数据，media_type设置为text/event-stream以符合SSE(Server-SentEvents) 格式
             return StreamingResponse(generator, media_type="text/event-stream")
