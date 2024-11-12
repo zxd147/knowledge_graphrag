@@ -1,49 +1,15 @@
-11-11 19:34:41 INFO     | 在端口 8013 上启动知识图谱Graphrag服务器
-INFO:     Started server process [1931886]
+11-12 18:18:08 INFO     | 在端口 8013 上启动知识图谱Graphrag服务器
+INFO:     Started server process [452650]
 INFO:     Waiting for application startup.
-11-11 19:34:41 INFO     | 启动中...
-11-11 19:34:41 INFO     | 正在初始化搜索引擎和问题生成器...
-11-11 19:34:41 INFO     | 正在设置LLM和嵌入器
-11-11 19:34:41 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
-11-11 19:34:41 INFO     | 正在加载上下文数据
-11-11 19:34:42 INFO     | 声明记录数: 119
-11-11 19:34:42 INFO     | 上下文数据加载完成, 当前知识库为: dentistry
-11-11 19:34:42 INFO     | 正在设置搜索引擎
-11-11 19:34:42 INFO     | 搜索引擎设置完成
-11-11 19:34:42 INFO     | 初始化完成
+11-12 18:18:08 INFO     | 启动中...
+11-12 18:18:08 INFO     | 正在初始化搜索引擎和问题生成器...
+11-12 18:18:08 INFO     | 正在设置LLM和嵌入器
+11-12 18:18:08 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
+11-12 18:18:08 INFO     | 正在加载上下文数据
+11-12 18:18:08 INFO     | 声明记录数: 119
+11-12 18:18:08 INFO     | 上下文数据加载完成, 当前知识库为: dentistry
+11-12 18:18:08 INFO     | 正在设置搜索引擎
+11-12 18:18:08 INFO     | 搜索引擎设置完成
+11-12 18:18:08 INFO     | 初始化完成
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8013 (Press CTRL+C to quit)
-11-11 19:34:47 INFO     | 收到聊天完成请求: {'model': 'Qwen2.5-7B-Instruct', 'mode': 'graphrag-local-search:latest', 'knowledge_base': 'test', 'messages': [{'role': 'user', 'content': '怎么保持牙齿健康'}], 'temperature': 0.7, 'top_p': 1.0, 'n': 1, 'stream': True, 'stop': None, 'max_tokens': None, 'presence_penalty': 0, 'frequency_penalty': 0, 'logit_bias': None, 'user': None}
-11-11 19:34:47 INFO     | 检测到LLM模型/知识库变化，正在重新初始化为：('Qwen2.5-7B-Instruct', 'test')
-11-11 19:34:47 INFO     | 正在初始化搜索引擎和问题生成器...
-11-11 19:34:47 INFO     | 正在设置LLM和嵌入器
-11-11 19:34:47 INFO     | LLM和嵌入器设置完成, 当前模型为: Qwen2.5-7B-Instruct
-11-11 19:34:47 INFO     | 正在加载上下文数据
-11-11 19:34:47 INFO     | 声明记录数: 13
-11-11 19:34:47 INFO     | 上下文数据加载完成, 当前知识库为: test
-11-11 19:34:47 INFO     | 正在设置搜索引擎
-11-11 19:34:47 INFO     | 搜索引擎设置完成
-11-11 19:34:47 INFO     | 初始化完成
-11-11 19:34:47 INFO     | 处理问题: prompt: 怎么保持牙齿健康 
-历史记录: history: []
-INFO:     192.168.0.64:41783 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-11-11 19:34:47 INFO     | LLM结果: 
-not support request.mode
-11-11 19:34:47 INFO     | 发送响应: 
-{"model":"Qwen2.5-7B-Instruct","choices":[{"index":1,"delta":{"role":"assistant"},"finish_reason":"stop"}],"usage":{"prompt_tokens":1,"completion_tokens":3,"total_tokens":4}}
-
-11-11 19:35:00 INFO     | 收到聊天完成请求: {'model': 'Qwen2.5-7B-Instruct', 'mode': 'local', 'knowledge_base': 'test', 'messages': [{'role': 'user', 'content': '怎么保持牙齿健康'}], 'temperature': 0.7, 'top_p': 1.0, 'n': 1, 'stream': True, 'stop': None, 'max_tokens': None, 'presence_penalty': 0, 'frequency_penalty': 0, 'logit_bias': None, 'user': None}
-11-11 19:35:00 INFO     | 处理问题: prompt: 怎么保持牙齿健康 
-历史记录: history: []
-INFO:     192.168.0.64:41786 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-2024-11-11 19:35:00,869 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/embeddings "HTTP/1.1 200 OK"
-2024-11-11 19:35:00,892 - graphrag.query.structured_search.local_search.search - INFO - 知识图谱检索和上下文构建耗时: 0.061582 秒
-2024-11-11 19:35:00,892 - graphrag.query.structured_search.local_search.search - INFO - QUERY: 怎么保持牙齿健康
-2024-11-11 19:35:00,892 - graphrag.query.structured_search.local_search.search - INFO - HISTORY: []
-2024-11-11 19:35:01,317 - httpx - INFO - HTTP Request: POST http://192.168.0.245:8016/v1/chat/completions "HTTP/1.1 200 OK"
-2024-11-11 19:35:02,148 - graphrag.query.structured_search.local_search.search - INFO - LLM调用耗时: 1.256849 秒
-11-11 19:35:02 INFO     | LLM结果: 
-保持牙齿健康需要定期刷牙、使用牙线清洁牙缝、定期看牙医检查和清洁，以及注意饮食习惯，减少糖分摄入。
-11-11 19:35:02 INFO     | 发送响应: 
-{"model":"Qwen2.5-7B-Instruct","choices":[{"index":35,"delta":{"role":"assistant"},"finish_reason":"stop"}],"usage":{"prompt_tokens":1,"completion_tokens":1,"total_tokens":2}}
-

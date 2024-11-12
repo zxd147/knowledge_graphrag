@@ -1,4 +1,3 @@
-import logging
 import re
 import time
 import uuid
@@ -35,29 +34,19 @@ from graphrag.query.structured_search.local_search.search import LocalSearch
 from graphrag.vector_stores.lancedb import LanceDBVectorStore
 from pydantic import BaseModel, Field
 
-from utils.log_utils import logger as graphrag_logger
+from utils.log_utils import logger
 
-# 设置日志模版
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-# logger = logging.getLogger(__name__)
-
-# 设置常量和配置  INPUT_DIR根据自己的建立graphrag的文件夹路径进行修改
+# 设置常量和配置
 COMMUNITY_REPORT_TABLE = "create_final_community_reports"
 ENTITY_TABLE = "create_final_nodes"
 ENTITY_EMBEDDING_TABLE = "create_final_entities"
 RELATIONSHIP_TABLE = "create_final_relationships"
 COVARIATE_TABLE = "create_final_covariates"
 TEXT_UNIT_TABLE = "create_final_text_units"
+COMMUNITY_LEVEL = 2
 CURRENT_MODEL = ''
 CURRENT_KNOWLEDGE_BASE = 'dentistry'
-COMMUNITY_LEVEL = 2
 PORT = 8013
-
-# 全局变量，用于存储搜索引擎和问题生成器
-# 全局变量，类型注解为 Optional 类型，表示这些变量可能是 None 或特定的类型对象
-local_search_engine: Optional[LocalSearch] = None
-global_search_engine: Optional[GlobalSearch] = None
-question_generator: Optional[LocalQuestionGen] = None
 
 
 # # 定义LLMConfig和EmbedderConfig类型
@@ -111,13 +100,13 @@ class ChatCompletionRequest(BaseModel):
 
 
 class Delta(BaseModel):
-    role: Optional[Literal['user', 'assistant', 'system']] = 'assistant'
+    role: Optional[Literal['user', 'assistant', 'system']] = None
     content: Optional[str] = None
 
 
 # 定义Message类型
 class Message(BaseModel):
-    role: Optional[Literal['user', 'assistant', 'system']] = 'assistant'
+    role: Optional[Literal['user', 'assistant', 'system']] = None
     content: Optional[str] = None
 
 
@@ -136,9 +125,9 @@ class ChatCompletionResponseChoice(BaseModel):
 
 
 class ChatCompletionResponseStreamChoice(BaseModel):
-    index: int
+    index: int = 0
     delta: Delta  # delta字段包含内容
-    finish_reason: Optional[Literal['stop', 'length']] = 'stop'
+    finish_reason: Optional[Literal['stop', 'length']] = None
 
 
 class ChatCompletionResponse(BaseModel):
@@ -194,6 +183,11 @@ async def lifespan(graphrag_app: FastAPI):
 
 # lifespan 参数用于在应用程序生命周期的开始和结束时执行一些初始化或清理工作
 graphrag_app = FastAPI(lifespan=lifespan)
+graphrag_logger = logger
+# 全局变量，用于存储搜索引擎和问题生成器，类型注解为 Optional 类型，表示这些变量可能是 None 或特定的类型对象
+local_search_engine: Optional[LocalSearch] = None
+global_search_engine: Optional[GlobalSearch] = None
+question_generator: Optional[LocalQuestionGen] = None
 
 
 def get_config(new_llm_model=None):
@@ -209,7 +203,6 @@ def get_config(new_llm_model=None):
     embedder_api_type = env("EMBEDDING_API_TYPE", env("AZURE_OPENAI_API_TYPE", None))
     if new_llm_model:
         llm_model = new_llm_model
-
     llm_config = LLMConfig(
         api_base=llm_api_base,
         api_key=llm_api_key,
@@ -358,29 +351,29 @@ async def setup_llm_and_embedder(new_llm_model):
 # 加载上下文数据，包括实体、关系、报告、文本单元和协变量
 async def load_context(new_knowledge_base):
     graphrag_logger.info("正在加载上下文数据")
-    INPUT_DIR = f"demo/{new_knowledge_base}/output/artifacts"
-    LANCEDB_URI = f"{INPUT_DIR}/lancedb"
+    knowledge_base_dir = f"demo/{new_knowledge_base}/output/artifacts"
+    lancedb_uri = f"{knowledge_base_dir}/lancedb"
     try:
         # 使用pandas库从指定的路径读取实体数据表ENTITY_TABLE，文件格式为Parquet，并将其加载为DataFrame，存储在变量entity_df中
-        entity_df = pd.read_parquet(f"{INPUT_DIR}/{ENTITY_TABLE}.parquet")
+        entity_df = pd.read_parquet(f"{knowledge_base_dir}/{ENTITY_TABLE}.parquet")
         # 读取实体嵌入向量数据表ENTITY_EMBEDDING_TABLE，并将其加载为DataFrame，存储在变量entity_embedding_df中
-        entity_embedding_df = pd.read_parquet(f"{INPUT_DIR}/{ENTITY_EMBEDDING_TABLE}.parquet")
+        entity_embedding_df = pd.read_parquet(f"{knowledge_base_dir}/{ENTITY_EMBEDDING_TABLE}.parquet")
         # 将entity_df和entity_embedding_df传入，并基于COMMUNITY_LEVEL（社区级别）处理这些数据，返回处理后的实体数据entities
         entities = read_indexer_entities(entity_df, entity_embedding_df, COMMUNITY_LEVEL)
         # 创建一个LanceDBVectorStore的实例description_embedding_store，用于存储实体的描述嵌入向量
         # 这个实例与一个名为"entity_description_embeddings_qwen"的集合（collection）相关联
         description_embedding_store = LanceDBVectorStore(collection_name="entity_description_embeddings")
         # 通过调用connect方法，连接到指定的LanceDB数据库，使用的URI存储在LANCEDB_URI变量中
-        description_embedding_store.connect(db_uri=LANCEDB_URI)
+        description_embedding_store.connect(db_uri=lancedb_uri)
         # 将已处理的实体数据entities存储到description_embedding_store中，用于语义搜索或其他用途
         store_entity_semantic_embeddings(entities=entities, vectorstore=description_embedding_store)
-        relationship_df = pd.read_parquet(f"{INPUT_DIR}/{RELATIONSHIP_TABLE}.parquet")
+        relationship_df = pd.read_parquet(f"{knowledge_base_dir}/{RELATIONSHIP_TABLE}.parquet")
         relationships = read_indexer_relationships(relationship_df)
-        report_df = pd.read_parquet(f"{INPUT_DIR}/{COMMUNITY_REPORT_TABLE}.parquet")
+        report_df = pd.read_parquet(f"{knowledge_base_dir}/{COMMUNITY_REPORT_TABLE}.parquet")
         reports = read_indexer_reports(report_df, entity_df, COMMUNITY_LEVEL)
-        text_unit_df = pd.read_parquet(f"{INPUT_DIR}/{TEXT_UNIT_TABLE}.parquet")
+        text_unit_df = pd.read_parquet(f"{knowledge_base_dir}/{TEXT_UNIT_TABLE}.parquet")
         text_units = read_indexer_text_units(text_unit_df)
-        covariate_df = pd.read_parquet(f"{INPUT_DIR}/{COVARIATE_TABLE}.parquet")
+        covariate_df = pd.read_parquet(f"{knowledge_base_dir}/{COVARIATE_TABLE}.parquet")
         claims = read_indexer_covariates(covariate_df)
         graphrag_logger.info(f"声明记录数: {len(claims)}")
         covariates = {"claims": claims}
@@ -528,17 +521,38 @@ def format_response(response):
 async def predict(search_result: AsyncGenerator[str, Any], prompt, model):
     """将流式返回的数据格式化为ChatCompletionStreamResponse并生成流数据"""
     full_response = ''
-    idx = 0
+    # 生成最后一个片段，表示流式响应的结束
+    first_chunk = ChatCompletionResponse(
+        model=model,
+        choices=[
+            ChatCompletionResponseStreamChoice(
+                index=0,
+                delta=Delta(role='assistant'),
+            )
+        ],
+        # 使用情况
+        usage=UsageInfo(
+            # 提示文本的tokens数量
+            prompt_tokens=len(prompt.split()),
+            # 完成文本的tokens数量
+            completion_tokens=len(full_response.split()),
+            # 总tokens数量
+            total_tokens=len(prompt.split()) + len(full_response.split())
+        )
+    )
+    # 返回生成的 JSON 格式的流
+    data = first_chunk.model_dump_json(exclude_unset=True, exclude_none=True)
+    yield f"data: {data}\n\n"
+    graphrag_logger.info(f"发送响应: \n{data}\n")
     async for chunk_response in search_result:
-        idx += 1
         full_response += chunk_response
         # 每个流片段的格式化
         chunk = ChatCompletionResponse(
             model=model,
             choices=[
                 ChatCompletionResponseStreamChoice(
-                    index=idx,
-                    delta=Delta(content=chunk_response, role='assistant'),  # chunk_response 是生成器的内容
+                    index=0,
+                    delta=Delta(role='assistant', content=chunk_response),  # chunk_response 是生成器的内容
                     finish_reason=None
                 )
             ],
@@ -561,8 +575,8 @@ async def predict(search_result: AsyncGenerator[str, Any], prompt, model):
         model=model,
         choices=[
             ChatCompletionResponseStreamChoice(
-                index=idx,
-                delta=Delta(role='assistant'),
+                index=0,
+                delta=Delta(role='assistant', content=''),
                 finish_reason='stop'
             )
         ],
@@ -579,7 +593,6 @@ async def predict(search_result: AsyncGenerator[str, Any], prompt, model):
     # 返回生成的 JSON 格式的流
     data = final_chunk.model_dump_json(exclude_unset=True, exclude_none=True)
     yield f"data: {data}\n\n"
-    graphrag_logger.info(f"发送响应: \n{data}\n")
     yield "data: [DONE]\n\n"
 
 
