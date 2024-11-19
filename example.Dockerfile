@@ -1,8 +1,8 @@
 # 基础镜像
-FROM init/python:ubuntu22.04-cuda11.8-python3.10
+FROM base/python:ubuntu22.04-cuda11.8-python3.10
 
-# 设置代理 (确保网络环境)
-# ENV all_proxy=http://192.168.0.64:7890
+## 设置代理 (确保网络环境)
+#ENV all_proxy=http://192.168.0.64:7890
 
 # 使用 nvidia 容器运行时支持 GPU
 ENV NVIDIA_VISIBLE_DEVICES=all

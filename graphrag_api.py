@@ -209,7 +209,7 @@ async def lifespan(graphrag_app: FastAPI):
 graphrag_app = FastAPI(lifespan=lifespan)
 secret_key = os.getenv('GRAPHRAG-SECRET-KEY', 'sk-graphrag')
 graphrag_app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'], )
-graphrag_app.add_middleware(BasicAuthMiddleware, secret_key=secret_key)
+# graphrag_app.add_middleware(BasicAuthMiddleware, secret_key=secret_key)
 graphrag_logger = logger
 # 全局变量，用于存储搜索引擎和问题生成器，类型注解为 Optional 类型，表示这些变量可能是 None 或特定的类型对象
 local_search_engine: Optional[LocalSearch] = None
