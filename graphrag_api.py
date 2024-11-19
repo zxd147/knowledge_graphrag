@@ -1,3 +1,4 @@
+import os
 import re
 import time
 import uuid
@@ -9,6 +10,7 @@ import tiktoken
 import uvicorn
 from environs import Env
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from graphrag.query.context_builder.conversation_history import (
     ConversationHistory,
@@ -33,6 +35,8 @@ from graphrag.query.structured_search.local_search.mixed_context import LocalSea
 from graphrag.query.structured_search.local_search.search import LocalSearch
 from graphrag.vector_stores.lancedb import LanceDBVectorStore
 from pydantic import BaseModel, Field
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
 
 from utils.log_utils import logger
 
@@ -160,6 +164,26 @@ class ChatCompletionResponse(BaseModel):
 #     usage: UsageInfo
 
 
+class BasicAuthMiddleware(BaseHTTPMiddleware):
+    def __init__(self, app, secret_key: str):
+        super().__init__(app)
+        self.required_credentials = secret_key
+
+    async def dispatch(self, request: Request, call_next):
+        authorization: str = request.headers.get('Authorization')
+        if authorization and authorization.startswith('Bearer '):
+            provided_credentials = authorization.split(' ')[1]
+            # 比较提供的令牌和所需的令牌
+            if provided_credentials == self.required_credentials:
+                return await call_next(request)
+        # 返回一个带有自定义消息的JSON响应
+        return JSONResponse(
+            status_code=400,
+            content={"detail": "Unauthorized: Invalid or missing credentials"},
+            headers={'WWW-Authenticate': 'Bearer realm="Secure Area"'}
+        )
+
+
 # 定义了一个异步函数 lifespan，它接收一个 FastAPI 应用实例 app 作为参数。这个函数将管理应用的生命周期，包括启动和关闭时的操作
 # 函数在应用启动时执行一些初始化操作，如设置搜索引擎、加载上下文数据、以及初始化问题生成器
 # 函数在应用关闭时执行一些清理操作
@@ -183,6 +207,9 @@ async def lifespan(graphrag_app: FastAPI):
 
 # lifespan 参数用于在应用程序生命周期的开始和结束时执行一些初始化或清理工作
 graphrag_app = FastAPI(lifespan=lifespan)
+secret_key = os.getenv('GRAPHRAG-SECRET-KEY', 'sk-graphrag')
+graphrag_app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'], )
+graphrag_app.add_middleware(BasicAuthMiddleware, secret_key=secret_key)
 graphrag_logger = logger
 # 全局变量，用于存储搜索引擎和问题生成器，类型注解为 Optional 类型，表示这些变量可能是 None 或特定的类型对象
 local_search_engine: Optional[LocalSearch] = None
