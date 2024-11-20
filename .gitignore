@@ -1,7 +1,9 @@
 logs/
 temp/
 temp.py
+test.py
 .ipynb_checkpoints/
 .idea/
 demo/*/output/artifacts/lancedb/
-Dockerfile
+Docker/*
+!Docker/example.Dockerfile
