@@ -596,7 +596,7 @@ async def predict(search_result: AsyncGenerator[str, Any], prompt, model):
         # 返回生成的 JSON 格式的流
         data = chunk.model_dump_json(exclude_unset=True, exclude_none=True)  # SSE 协议要求格式化为 `data: {json}` 的形式
         yield f"data: {data}\n\n"  # SSE协议的标准, 在流式数据传输时, 使用换行符来标识消息结束
-    graphrag_logger.info(f"LLM结果: \n{full_response}")
+    graphrag_logger.info(f"LLM结果: \n{[full_response]}")
     # 生成最后一个片段，表示流式响应的结束
     final_chunk = ChatCompletionResponse(
         model=model,

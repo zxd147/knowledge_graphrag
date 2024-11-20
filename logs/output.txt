@@ -50,3 +50,12 @@ INFO:     192.168.0.64:46273 - "POST /v1/chat/completions HTTP/1.1" 200 OK
 
 11-20 14:42:40 INFO     | LLM结果: 
 保持牙齿健康需要定期刷牙、使用牙线清洁牙缝、定期看牙医检查和清洁，以及注意饮食习惯，减少糖分摄入。
+11-20 21:36:33 INFO     | 收到聊天完成请求: {'model': 'Qwen2.5-7B-Instruct', 'mode': 'local', 'knowledge_base': 'test', 'messages': [{'role': 'user', 'content': '怎么保持牙齿健康'}], 'temperature': 0.7, 'top_p': 1.0, 'n': 1, 'stream': True, 'stop': None, 'max_tokens': None, 'presence_penalty': 0, 'frequency_penalty': 0, 'logit_bias': None, 'user': None}
+11-20 21:36:33 INFO     | 处理问题: prompt: 怎么保持牙齿健康 
+历史记录: history: []
+INFO:     192.168.0.64:47897 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+11-20 21:36:33 INFO     | 发送响应: 
+{"model":"Qwen2.5-7B-Instruct","choices":[{"index":0,"delta":{"role":"assistant"}}],"usage":{"prompt_tokens":1,"completion_tokens":0,"total_tokens":1}}
+
+11-20 21:36:34 INFO     | LLM结果: 
+保持牙齿健康需要定期刷牙、使用牙线清洁牙缝、定期看牙医检查和清洁，以及注意饮食习惯，减少糖分摄入。
