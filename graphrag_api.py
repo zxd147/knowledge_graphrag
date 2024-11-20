@@ -570,7 +570,7 @@ async def predict(search_result: AsyncGenerator[str, Any], prompt, model):
     # 返回生成的 JSON 格式的流
     data = first_chunk.model_dump_json(exclude_unset=True, exclude_none=True)
     yield f"data: {data}\n\n"
-    graphrag_logger.info(f"发送响应: \n{data}\n")
+    graphrag_logger.info(f"开始发送响应: \n{data}\n")
     async for chunk_response in search_result:
         full_response += chunk_response
         # 每个流片段的格式化
@@ -707,7 +707,7 @@ async def chat_completions(request: ChatCompletionRequest):
                 full_response = format_response(search_result)
             else:
                 full_response = 'not support mode'
-            graphrag_logger.info(f"LLM结果:\n{full_response}")
+            graphrag_logger.info(f"LLM结果:\n{[full_response]}")
             response = ChatCompletionResponse(
                 model=request.model,
                 choices=[
