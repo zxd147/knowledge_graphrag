@@ -4,6 +4,6 @@ logs/
 temp/
 temp.py
 test.py
-project/*/output/artifacts/lancedb/
+project/*/output/artifacts/lancedb/*
 Docker/*
 !Docker/example.Dockerfile
