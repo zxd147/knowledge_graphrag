@@ -1,6 +1,7 @@
 import os
 import re
 import time
+import jieba
 import uuid
 from contextlib import asynccontextmanager
 from typing import List, Optional, Dict, Union, Literal, AsyncGenerator, Any
@@ -378,7 +379,7 @@ async def setup_llm_and_embedder(new_llm_model):
 # 加载上下文数据，包括实体、关系、报告、文本单元和协变量
 async def load_context(new_knowledge_base):
     graphrag_logger.info("正在加载上下文数据")
-    knowledge_base_dir = f"demo/{new_knowledge_base}/output/artifacts"
+    knowledge_base_dir = f"./project/{new_knowledge_base}/output/artifacts"
     lancedb_uri = f"{knowledge_base_dir}/lancedb"
     try:
         # 使用pandas库从指定的路径读取实体数据表ENTITY_TABLE，文件格式为Parquet，并将其加载为DataFrame，存储在变量entity_df中

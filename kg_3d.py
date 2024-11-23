@@ -243,7 +243,7 @@ def visualize_graph_plotly(G):
 #         调用可视化函数
 def main():
     # 指定Parquet文件路径
-    directory = '/home/zxd/code/Chat/GraphragDemo/demo/test/output/artifacts'
+    directory = '/home/zxd/code/Chat/GraphragDemo/project/test/output/artifacts'
     # 读取指定目录下的所有Parquet文件并合并成一个DataFrame
     df = read_parquet_files(directory)
 

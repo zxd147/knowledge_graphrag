@@ -1,9 +1,9 @@
+.idea/
+.ipynb_checkpoints/
 logs/
 temp/
 temp.py
 test.py
-.ipynb_checkpoints/
-.idea/
-demo/*/output/artifacts/lancedb/
+project/*/output/artifacts/lancedb/
 Docker/*
 !Docker/example.Dockerfile
