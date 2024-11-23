@@ -691,6 +691,7 @@ async def chat_completions(request: ChatCompletionRequest):
         stream = request.stream
         messages = request.messages
         prompt = messages.pop()['content']  # 获取最后一轮对话的用户问题
+        prompt += ', 不需要给出数据引用，尽可能简短地回答: '
         history = ConversationHistory.from_list(messages)  # 历史记录
         graphrag_logger.info(f"处理问题: prompt: {prompt} \n历史记录: history: {history.turns}")
 
