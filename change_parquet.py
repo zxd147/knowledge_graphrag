@@ -1,6 +1,6 @@
 import pandas as pd
 
-GRAPHRAG_FOLDER = '/home/zxd/code/Chat/GraphragDemo/project/dentistry/output/artifacts'
+GRAPHRAG_FOLDER = '/home/zxd/code/Chat/knowledge_graphrag/project/dentistry/output/artifacts'
 files = ['create_final_documents.parquet', 'create_final_text_units.parquet', 'create_final_entities.parquet',
          'create_final_relationships.parquet',
          'create_final_communities.parquet', 'create_final_community_reports.parquet',

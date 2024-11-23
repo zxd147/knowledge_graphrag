@@ -2,9 +2,9 @@ import time
 import pandas as pd
 from neo4j import GraphDatabase
 
-GRAPHRAG_FOLDER = "/home/zxd/code/Chat/GraphragDemo/project/test/output/artifacts"
+GRAPHRAG_FOLDER = "/home/zxd/code/Chat/knowledge_graphrag/project/ecology/output/artifacts"
 # NEO4J_URI = "neo4j://192.168.0.246:7687"
-NEO4J_URI = "bolt://192.168.0.246"  # or neo4j+s://xxxx.databases.neo4j.io
+NEO4J_URI = "bolt://192.168.0.245"  # or neo4j+s://xxxx.databases.neo4j.io
 NEO4J_USERNAME = "neo4j"
 NEO4J_PASSWORD = "12345678"  # your password
 NEO4J_DATABASE = "neo4j"
@@ -187,9 +187,9 @@ SET f += finding
 """
 batched_import(community_statement, community_report_df)
 
-cov_df = (pd.read_parquet(f"{GRAPHRAG_FOLDER}/create_final_covariates.parquet"
+cov_df = pd.read_parquet(f"{GRAPHRAG_FOLDER}/create_final_covariates.parquet"
                           # , columns=["id", "text_unit_id"]
-                          ),)
+                          )
 cov_df.head(2)
 # Subject id do not match entity ids
 

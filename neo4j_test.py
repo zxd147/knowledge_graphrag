@@ -1,7 +1,7 @@
 from neo4j import GraphDatabase
 
 # 定义连接信息
-NEO4J_URI = "bolt://192.168.0.246:7687"
+NEO4J_URI = "bolt://192.168.0.245:7687"
 NEO4J_USERNAME = "neo4j"
 NEO4J_PASSWORD = "12345678"
 

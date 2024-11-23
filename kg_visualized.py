@@ -47,7 +47,7 @@ import pandas as pd
 from neo4j import GraphDatabase
 
 # 指定Parquet文件路径
-GRAPHRAG_FOLDER = "/home/zxd/code/Chat/GraphragDemo/project/dentistry/output/artifacts"
+GRAPHRAG_FOLDER = "/home/zxd/code/Chat/knowledge_graphrag/project/dentistry/output/artifacts"
 
 # 数据库连接相关参数配置
 NEO4J_URI = "bolt://192.168.0.246:7687"
