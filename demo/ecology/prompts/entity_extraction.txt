@@ -1,0 +1,140 @@
+
+-目标-
+
+给定一个文本文件，该文件可能与此活动相关。首先，识别文本中所有需要的实体，以捕获文本中的信息和想法。
+接下来，报告已识别实体之间的所有关系。
+
+-步骤-
+
+1. 识别所有实体。对于每个识别的实体，提取以下信息：
+
+- entity_name：实体的名称，首字母大写
+
+- entity_type：以下之一的实体类型：[{entity_types}]
+
+- entity_description：实体属性和活动的全面描述
+
+将每个实体格式化为（"entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. 从第1步识别出的实体中，找出所有*明显相关*的（源实体，目标实体）对。
+
+对于每对相关的实体，提取以下信息：
+
+- source_entity：源实体的名称，如第1步中所识别的
+
+- target_entity：目标实体的名称，如第1步中所识别的
+
+- relationship_description：说明为什么你认为源实体和目标实体相关的解释
+
+- relationship_strength：表示源实体和目标实体间关系强度的数值评分
+
+将每个关系格式化为（"relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. 以中文返回步骤1和2中识别的所有实体和关系作为单个列表。使用 {record_delimiter} 作为列表分隔符。
+
+如果需要翻译成中文，只需翻译描述，不要翻译其他内容！
+
+4. 完成后，输出 {completion_delimiter}。
+
+######################
+
+-示例-
+######################
+
+示例 1:
+
+实体类型：列表之一或者不在列表但是和主题符合的：["政策法规","分类方法","处理技术", "生活方式","能源类型","环境因素","资源管理","活动倡导","意识提升",
+        "环境影响",生态保护","碳管理","气候行动","创新应用","行业实践","城市规划","环境监测","生态修复","绿色建筑","环保技术","生物降解","能源利用"]
+
+文本：
+标准的使用常常存在问题，显然，环境可能会因此受到负面影响。在发展中国家，应用最关键的好处在于这有助于建立环保管理能力。 用生态系统处理方式来进行资源管理和环境保护，旨在面对复杂的生态系统整体而不是应对某个单一问题或是挑战。
+在这一方式下，理想的决策过程会包含政府各个层级、各个部门，以及工业、环保组织、社区的代表的计划和决策。这一方式在理想中能够支持更加良好的讯息。
+
+输出：
+("entity"{tuple_delimiter}环境{tuple_delimiter}环境{tuple_delimiter}环境可能会因此受到负面影响)
+{record_delimiter}
+("entity"{tuple_delimiter}发展中国家{tuple_delimiter}环境{tuple_delimiter}在发展中国家，应用最关键的好处在于这有助于建立环保管理能力)
+{record_delimiter}
+("entity"{tuple_delimiter}生态系统处理方式{tuple_delimiter}环境{tuple_delimiter}用生态系统处理方式来进行资源管理和环境保护)
+{record_delimiter}
+("entity"{tuple_delimiter}政府各个层级{tuple_delimiter}生态系统处理方式{tuple_delimiter}政府各个层级参与生态系统方式中的决策过程)
+{record_delimiter}
+("entity"{tuple_delimiter}各个部门{tuple_delimiter}生态系统处理方式{tuple_delimiter}各个部门参与生态系统方式中的决策过程)
+{record_delimiter}
+("entity"{tuple_delimiter}工业{tuple_delimiter}生态系统处理方式{tuple_delimiter}工业参与生态系统方式中的决策过程)
+{record_delimiter}
+("entity"{tuple_delimiter}环保组织{tuple_delimiter}生态系统处理方式{tuple_delimiter}环保组织参与生态系统方式中的决策过程)
+{record_delimiter}
+("entity"{tuple_delimiter}社区{tuple_delimiter}生态系统处理方式{tuple_delimiter}社区参与生态系统方式中的决策过程)
+{record_delimiter}
+("relationship"{tuple_delimiter}环境{tuple_delimiter}发展中国家{tuple_delimiter}环境在发展中国家受到关注，有助于建立环保管理能力{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}生态系统处理方式{tuple_delimiter}环境{tuple_delimiter}生态系统处理方式用于资源管理和环境保护{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}政府各个层级{tuple_delimiter}生态系统处理方式{tuple_delimiter}政府各个层级参与生态系统处理方式中的决策过程{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}各个部门{tuple_delimiter}生态系统处理方式{tuple_delimiter}各个部门参与生态系统处理方式中的决策过程{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}工业{tuple_delimiter}生态系统处理方式{tuple_delimiter}工业参与生态系统处理方式中的决策过程{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}环保组织{tuple_delimiter}生态系统处理方式{tuple_delimiter}环保组织参与生态系统处理方式中的决策过程{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}社区{tuple_delimiter}生态系统处理方式{tuple_delimiter}社区参与生态系统处理方式中的决策过程{tuple_delimiter}7)
+{completion_delimiter}
+#############################
+
+示例 2:
+
+实体类型：列表之一或者不在列表但是和主题符合的：["处理技术","回收材料","设施设备","分类标准","生活方式","能源类型","环境因素","环保产品","污染治理",
+                                    "循环利用","可持续发展","消费模式","环境监测","废弃物处理","污染源控制","生态修复"]
+
+文本：
+"十一五”期间的投资额增长121%，未来5年行业复合增长率为15%-20%，到2015年将达到GDP的7%-8%，到2020年环保将成为国民经济的支柱产业。 未来中国环保产业结构将进一步调整，
+资源节约型产品、洁净产品的生产和资源综合利用技术将继续迅速发展;环境服务业的规模将逐步扩大。城市污水处理、污泥处理、脱硫脱硝等重点领域环保投资将达到1.2万亿元，拉动环保产业产值1.32万亿元。
+
+输出：
+("entity"{tuple_delimiter}十一五{tuple_delimiter}investment{tuple_delimiter}“十一五”期间的投资额增长121%)
+{record_delimiter}
+("entity"{tuple_delimiter}未来5年{tuple_delimiter}composite growth rate{tuple_delimiter}未来5年行业复合增长率为15%-20%)
+{record_delimiter}
+("entity"{tuple_delimiter}2015年{tuple_delimiter}GDP{tuple_delimiter}到2015年将达到GDP的7%-8%)
+{record_delimiter}
+("entity"{tuple_delimiter}2020年{tuple_delimiter}environmental protection{tuple_delimiter}到2020年环保将成为国民经济的支柱产业)
+{record_delimiter}
+("entity"{tuple_delimiter}未来中国环保产业结构{tuple_delimiter}industry{tuple_delimiter}未来中国环保产业结构将进一步调整，资源节约型产品、洁净产品的生产和资源综合利用技术将继续迅速发展)
+{record_delimiter}
+("entity"{tuple_delimiter}环境服务业{tuple_delimiter}industry{tuple_delimiter}环境服务业的规模将逐步扩大)
+{record_delimiter}
+("entity"{tuple_delimiter}城市污水处理{tuple_delimiter}environmental protection initiative{tuple_delimiter}城市污水处理、污泥处理、脱硫脱硝等重点领域环保投资将达到1.2万亿元)
+{record_delimiter}
+("entity"{tuple_delimiter}环保产业产值{tuple_delimiter}environmental protection initiative{tuple_delimiter}拉动环保产业产值1.32万亿元)
+{record_delimiter}
+("relationship"{tuple_delimiter}十一五{tuple_delimiter}投资增长{tuple_delimiter}“十一五”期间的投资额增长121%{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}未来5年{tuple_delimiter}复合增长率{tuple_delimiter}未来5年行业复合增长率为15%-20%{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}2015年{tuple_delimiter}GDP比例{tuple_delimiter}到2015年将达到GDP的7%-8%{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}2020年{tuple_delimiter}支柱产业{tuple_delimiter}到2020年环保将成为国民经济的支柱产业{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}未来中国环保产业结构{tuple_delimiter}调整{tuple_delimiter}未来中国环保产业结构将进一步调整，资源节约型产品、洁净产品的生产和资源综合利用技术将继续迅速发展{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}环境服务业{tuple_delimiter}规模扩大{tuple_delimiter}环境服务业的规模将逐步扩大{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}城市污水处理{tuple_delimiter}环保投资{tuple_delimiter}城市污水处理、污泥处理、脱硫脱硝等重点领域环保投资将达到1.2万亿元{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}环保产业产值{tuple_delimiter}拉动{tuple_delimiter}拉动环保产业产值1.32万亿元{tuple_delimiter}7)
+{completion_delimiter}
+#############################
+
+-真实数据-
+
+######################
+
+实体类型：{entity_types}
+
+文本：{input_text}
+
+######################
+
+输出：

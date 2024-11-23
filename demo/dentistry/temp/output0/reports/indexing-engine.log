@@ -72,7 +72,7 @@
         "llm": {
             "api_key": "==== REDACTED ====",
             "type": "openai_embedding",
-            "model": "${GRAPHRAG_EMBEDDING_MODEL$}",
+            "model": "${GRAPHRAG_EMBEDDING_MODEL}",
             "max_tokens": 4000,
             "temperature": 0,
             "top_p": 1,
@@ -599,8 +599,8 @@
 02:43:12,174 datashaper.workflow.workflow INFO executing verb merge
 02:43:12,200 datashaper.workflow.workflow INFO executing verb text_embed
 02:43:12,201 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.245:6008/v1
-02:43:12,212 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for ${GRAPHRAG_EMBEDDING_MODEL$}: TPM=0, RPM=0
-02:43:12,212 graphrag.index.llm.load_llm INFO create concurrency limiter for ${GRAPHRAG_EMBEDDING_MODEL$}: 25
+02:43:12,212 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for ${GRAPHRAG_EMBEDDING_MODEL}: TPM=0, RPM=0
+02:43:12,212 graphrag.index.llm.load_llm INFO create concurrency limiter for ${GRAPHRAG_EMBEDDING_MODEL}: 25
 02:43:12,220 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 224 inputs via 224 snippets using 14 batches. max_batch_size=16, max_tokens=8191
 02:43:12,403 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"
 02:43:12,607 httpx INFO HTTP Request: POST http://192.168.0.245:6008/v1/embeddings "HTTP/1.1 200 OK"

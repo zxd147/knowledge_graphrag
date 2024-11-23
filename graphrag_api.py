@@ -88,7 +88,7 @@ class ModelList(BaseModel):
 class ChatCompletionRequest(BaseModel):
     model: str = 'Qwen2.5-7B-Instruct'
     mode: str
-    knowledge_base: Literal['zyy', 'guangxin', 'dentistry', 'test'] = 'dentistry'
+    knowledge_base: Literal['dentistry', 'ecology','test'] = 'dentistry'
     # messages: List[Message]
     messages: List[dict[str, str]]
     temperature: Optional[float] = 1.0
@@ -767,4 +767,4 @@ if __name__ == "__main__":
     graphrag_logger.info(f"在端口 {PORT} 上启动知识图谱Graphrag服务器")
     # uvicorn是一个用于运行ASGI应用的轻量级、超快速的ASGI服务器实现
     # 用于部署基于FastAPI框架的异步PythonWeb应用程序
-    uvicorn.run(graphrag_app, host="0.0.0.0", port=PORT)
+    uvicorn.run(graphrag_app, host="0.0.0.0", port=8013)
