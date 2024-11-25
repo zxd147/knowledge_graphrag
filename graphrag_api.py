@@ -221,6 +221,14 @@ graphrag_app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_credentia
 graphrag_app.add_middleware(BasicAuthMiddleware, secret_key=secret_key)
 
 
+def count_tokens(text: str, model: str = "gpt-4") -> int:
+    # 根据模型选择分词器
+    encoding = tiktoken.encoding_for_model(model)
+    token = len(encoding.encode(text))
+    # 返回分词后的 token 数量
+    return token
+
+
 def get_config(new_llm_model=None):
     env = Env()
     env.read_env()  # 自动读取 .env 文件
@@ -246,18 +254,6 @@ def get_config(new_llm_model=None):
         model=embedder_model,
         api_type=embedder_api_type
     )
-    # llm_config = {
-    #     "api_base": llm_api_base,
-    #     "api_key": llm_api_key,
-    #     "model": llm_model,
-    #     "api_type": llm_api_type,
-    # }
-    # embedder_config = {
-    #     "api_base": embedder_api_base,
-    #     "api_key": embedder_api_key,
-    #     "model": embedder_model,
-    #     "api_type": embedder_api_type,
-    # }
     return llm_config, embedder_config
 
 
@@ -564,11 +560,11 @@ async def predict(search_result: AsyncGenerator[str, Any], prompt, model):
         # 使用情况
         usage=UsageInfo(
             # 提示文本的tokens数量
-            prompt_tokens=len(prompt.split()),
+            prompt_tokens=count_tokens(prompt),
             # 完成文本的tokens数量
-            completion_tokens=len(full_response.split()),
+            completion_tokens=count_tokens(full_response),
             # 总tokens数量
-            total_tokens=len(prompt.split()) + len(full_response.split())
+            total_tokens=count_tokens(prompt) + count_tokens(full_response)
         )
     )
     # 返回生成的 JSON 格式的流
@@ -590,11 +586,11 @@ async def predict(search_result: AsyncGenerator[str, Any], prompt, model):
             # 使用情况
             usage=UsageInfo(
                 # 提示文本的tokens数量
-                prompt_tokens=len(prompt.split()),
+                prompt_tokens=count_tokens(prompt),
                 # 完成文本的tokens数量
-                completion_tokens=len(chunk_response.split()),
+                completion_tokens=count_tokens(full_response),
                 # 总tokens数量
-                total_tokens=len(prompt.split()) + len(full_response.split())
+                total_tokens=count_tokens(prompt) + count_tokens(full_response)
             )
         )
         # 返回生成的 JSON 格式的流
@@ -614,11 +610,11 @@ async def predict(search_result: AsyncGenerator[str, Any], prompt, model):
         # 使用情况
         usage=UsageInfo(
             # 提示文本的tokens数量
-            prompt_tokens=len(prompt.split()),
+            prompt_tokens=count_tokens(prompt),
             # 完成文本的tokens数量
-            completion_tokens=len(full_response.split()),
+            completion_tokens=count_tokens(full_response),
             # 总tokens数量
-            total_tokens=len(prompt.split()) + len(full_response.split())
+            total_tokens=count_tokens(prompt) + count_tokens(full_response)
         )
     )
     # 返回生成的 JSON 格式的流
@@ -650,6 +646,7 @@ async def stream_full_model_search(prompt: str, role_prompt, history: Conversati
     formatted_result += format_response(local_result.response) + "\n"
     formatted_result += "##全局检索结果:\n"
     formatted_result += format_response(global_result.response) + "\n"
+    full_response = formatted_result
     # 生成最后一个片段，表示流式响应的结束
     result = ChatCompletionResponse(
         model=model,
@@ -663,11 +660,11 @@ async def stream_full_model_search(prompt: str, role_prompt, history: Conversati
         # 使用情况
         usage=UsageInfo(
             # 提示文本的tokens数量
-            prompt_tokens=len(prompt.split()),
+            prompt_tokens=count_tokens(prompt),
             # 完成文本的tokens数量
-            completion_tokens=len(formatted_result.split()),
+            completion_tokens=count_tokens(full_response),
             # 总tokens数量
-            total_tokens=len(prompt.split()) + len(formatted_result.split())
+            total_tokens=count_tokens(prompt) + count_tokens(full_response)
         )
     )
     # 返回生成的 JSON 格式的流
@@ -694,23 +691,23 @@ async def chat_completions(request: ChatCompletionRequest):
     try:
         stream = request.stream
         messages = request.messages
-        query = messages.pop()['content']  # 获取最后一轮对话的用户问题
-        # query = '你的身份是黄志青博士，你能普及一些关于环保的知识。' + query
-        # query += ', 不需要给出数据引用，尽可能简短地回答: '
+        prompt = messages.pop()['content']  # 获取最后一轮对话的用户问题
+        # prompt = '你的身份是黄志青博士，你能普及一些关于环保的知识。' + prompt
+        # prompt += ', 不需要给出数据引用，尽可能简短地回答: '
         history = ConversationHistory.from_list(messages)  # 历史记录
-        graphrag_logger.info(f"处理问题: prompt: {query} \n历史记录: history: {history.turns}")
+        graphrag_logger.info(f"处理问题: prompt: {prompt} \n历史记录: history: {history.turns}")
 
         # 非流式响应处理
         if not stream:
             # 根据模型选择使用不同的搜索方法
             if request.mode == "local":  # 默认使用本地搜索
-                search_result = await local_search_engine.asearch(query, role_prompt, history)
+                search_result = await local_search_engine.asearch(prompt, role_prompt, history)
                 full_response = format_response(search_result.response)
             elif request.mode == "global":
-                search_result = await global_search_engine.asearch(query, role_prompt, history)
+                search_result = await global_search_engine.asearch(prompt, role_prompt, history)
                 full_response = format_response(search_result.response)
             elif request.mode == "full":
-                search_result = await full_model_search(query, role_prompt, history)
+                search_result = await full_model_search(prompt, role_prompt, history)
                 full_response = format_response(search_result)
             else:
                 full_response = 'not support mode'
@@ -727,11 +724,11 @@ async def chat_completions(request: ChatCompletionRequest):
                 # 使用情况
                 usage=UsageInfo(
                     # 提示文本的tokens数量
-                    prompt_tokens=len(query.split()),
+                    prompt_tokens=count_tokens(prompt),
                     # 完成文本的tokens数量
-                    completion_tokens=len(full_response.split()),
+                    completion_tokens=count_tokens(full_response),
                     # 总tokens数量
-                    total_tokens=len(query.split()) + len(full_response.split())
+                    total_tokens=count_tokens(prompt) + count_tokens(full_response)
                 )
             )
             graphrag_logger.info(f"发送响应: \n{response}\n")
@@ -741,16 +738,16 @@ async def chat_completions(request: ChatCompletionRequest):
         elif stream:
             # 根据模型选择使用不同的搜索方法
             if request.mode == "local":  # 默认使用本地搜索
-                search_result = local_search_engine.astream_search(query, role_prompt, history)
+                search_result = local_search_engine.astream_search(prompt, role_prompt, history)
             elif request.mode == "global":
-                search_result = global_search_engine.astream_search(query, role_prompt, history)
+                search_result = global_search_engine.astream_search(prompt, role_prompt, history)
             elif request.mode == "full":
-                search_result = stream_full_model_search(query, history, role_prompt, llm_model)
+                search_result = stream_full_model_search(prompt, history, role_prompt, llm_model)
             else:
                 async def async_iter(item):
                     yield item  # 异步生成器返回错误信息
                 search_result = async_iter(item='not support request.mode')  # 将普通的字符串转为异步生成器
-            generator = predict(search_result, query, llm_model)
+            generator = predict(search_result, prompt, llm_model)
             # 返回StreamingResponse对象，流式传输数据，media_type设置为text/event-stream以符合SSE(Server-SentEvents) 格式
             return StreamingResponse(generator, media_type="text/event-stream")
     except Exception as e:
