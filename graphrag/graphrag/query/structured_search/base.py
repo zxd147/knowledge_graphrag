@@ -55,6 +55,7 @@ class BaseSearch(ABC):
     def search(
         self,
         query: str,
+        role_prompt: str | None = None,
         conversation_history: ConversationHistory | None = None,
         **kwargs,
     ) -> SearchResult:
@@ -64,6 +65,7 @@ class BaseSearch(ABC):
     async def asearch(
         self,
         query: str,
+        role_prompt: str | None = None,
         conversation_history: ConversationHistory | None = None,
         **kwargs,
     ) -> SearchResult:
@@ -73,6 +75,7 @@ class BaseSearch(ABC):
     def astream_search(
         self,
         query: str,
+        role_prompt: str | None = None,
         conversation_history: ConversationHistory | None = None,
     ) -> AsyncGenerator[str, None]:
         """Stream search for the given query."""

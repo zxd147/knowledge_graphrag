@@ -1,7 +1,7 @@
 import os
 import re
 import time
-import jieba
+# import jieba
 import uuid
 from contextlib import asynccontextmanager
 from typing import List, Optional, Dict, Union, Literal, AsyncGenerator, Any
@@ -13,6 +13,10 @@ from environs import Env
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
+from pydantic import BaseModel, Field
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
+
 from graphrag.query.context_builder.conversation_history import (
     ConversationHistory,
 )
@@ -35,11 +39,8 @@ from graphrag.query.structured_search.global_search.search import GlobalSearch
 from graphrag.query.structured_search.local_search.mixed_context import LocalSearchMixedContext
 from graphrag.query.structured_search.local_search.search import LocalSearch
 from graphrag.vector_stores.lancedb import LanceDBVectorStore
-from pydantic import BaseModel, Field
-from starlette.middleware.base import BaseHTTPMiddleware
-from starlette.requests import Request
-
 from utils.log_utils import logger
+from utils.read_json import read_config_file
 
 # 设置常量和配置
 COMMUNITY_REPORT_TABLE = "create_final_community_reports"
@@ -206,6 +207,8 @@ async def lifespan(graphrag_app: FastAPI):
         graphrag_logger.info("关闭应用...")
 
 
+role_prompt_path = 'config/role_prompt.json'
+all_role_prompt = read_config_file(role_prompt_path)
 # 全局变量，用于存储搜索引擎和问题生成器，类型注解为 Optional 类型，表示这些变量可能是 None 或特定的类型对象
 local_search_engine: Optional[LocalSearch] = None
 global_search_engine: Optional[GlobalSearch] = None
@@ -625,9 +628,9 @@ async def predict(search_result: AsyncGenerator[str, Any], prompt, model):
 
 
 # 执行全模型搜索，包括本地检索、全局检索
-async def full_model_search(prompt: str, history: ConversationHistory):
-    local_result = await local_search_engine.asearch(prompt, history)
-    global_result = await global_search_engine.asearch(prompt, history)
+async def full_model_search(prompt: str, role_prompt, history: ConversationHistory):
+    local_result = await local_search_engine.asearch(prompt, role_prompt, history)
+    global_result = await global_search_engine.asearch(prompt, role_prompt, history)
     # 格式化结果
     formatted_result = "#综合搜索结果:\n"
     formatted_result += "##本地检索结果:\n"
@@ -638,9 +641,9 @@ async def full_model_search(prompt: str, history: ConversationHistory):
 
 
 # 执行全模型搜索，包括本地检索、全局检索
-async def stream_full_model_search(prompt: str, history: ConversationHistory, model):
-    local_result = await local_search_engine.asearch(prompt, history)
-    global_result = await global_search_engine.asearch(prompt, history)
+async def stream_full_model_search(prompt: str, role_prompt, history: ConversationHistory, model):
+    local_result = await local_search_engine.asearch(prompt, role_prompt, history)
+    global_result = await global_search_engine.asearch(prompt, role_prompt, history)
     # 格式化结果
     formatted_result = "#综合搜索结果:\n"
     formatted_result += "##本地检索结果:\n"
@@ -681,6 +684,7 @@ async def chat_completions(request: ChatCompletionRequest):
     graphrag_logger.info(f"收到聊天完成请求: {request_data}")
     llm_model = request.model
     knowledge_base = request.knowledge_base
+    role_prompt = all_role_prompt[knowledge_base]
     status = await sync_setting(llm_model, knowledge_base)
     # 检查搜索引擎是否初始化
     if not local_search_engine or not global_search_engine:
@@ -690,22 +694,23 @@ async def chat_completions(request: ChatCompletionRequest):
     try:
         stream = request.stream
         messages = request.messages
-        prompt = messages.pop()['content']  # 获取最后一轮对话的用户问题
-        prompt += ', 不需要给出数据引用，尽可能简短地回答: '
+        query = messages.pop()['content']  # 获取最后一轮对话的用户问题
+        # query = '你的身份是黄志青博士，你能普及一些关于环保的知识。' + query
+        # query += ', 不需要给出数据引用，尽可能简短地回答: '
         history = ConversationHistory.from_list(messages)  # 历史记录
-        graphrag_logger.info(f"处理问题: prompt: {prompt} \n历史记录: history: {history.turns}")
+        graphrag_logger.info(f"处理问题: prompt: {query} \n历史记录: history: {history.turns}")
 
         # 非流式响应处理
         if not stream:
             # 根据模型选择使用不同的搜索方法
             if request.mode == "local":  # 默认使用本地搜索
-                search_result = await local_search_engine.asearch(prompt, history)
+                search_result = await local_search_engine.asearch(query, role_prompt, history)
                 full_response = format_response(search_result.response)
             elif request.mode == "global":
-                search_result = await global_search_engine.asearch(prompt, history)
+                search_result = await global_search_engine.asearch(query, role_prompt, history)
                 full_response = format_response(search_result.response)
             elif request.mode == "full":
-                search_result = await full_model_search(prompt, history)
+                search_result = await full_model_search(query, role_prompt, history)
                 full_response = format_response(search_result)
             else:
                 full_response = 'not support mode'
@@ -722,11 +727,11 @@ async def chat_completions(request: ChatCompletionRequest):
                 # 使用情况
                 usage=UsageInfo(
                     # 提示文本的tokens数量
-                    prompt_tokens=len(prompt.split()),
+                    prompt_tokens=len(query.split()),
                     # 完成文本的tokens数量
                     completion_tokens=len(full_response.split()),
                     # 总tokens数量
-                    total_tokens=len(prompt.split()) + len(full_response.split())
+                    total_tokens=len(query.split()) + len(full_response.split())
                 )
             )
             graphrag_logger.info(f"发送响应: \n{response}\n")
@@ -736,16 +741,16 @@ async def chat_completions(request: ChatCompletionRequest):
         elif stream:
             # 根据模型选择使用不同的搜索方法
             if request.mode == "local":  # 默认使用本地搜索
-                search_result = local_search_engine.astream_search(prompt, history)
+                search_result = local_search_engine.astream_search(query, role_prompt, history)
             elif request.mode == "global":
-                search_result = global_search_engine.astream_search(prompt, history)
+                search_result = global_search_engine.astream_search(query, role_prompt, history)
             elif request.mode == "full":
-                search_result = stream_full_model_search(prompt, history, llm_model)
+                search_result = stream_full_model_search(query, history, role_prompt, llm_model)
             else:
                 async def async_iter(item):
                     yield item  # 异步生成器返回错误信息
                 search_result = async_iter(item='not support request.mode')  # 将普通的字符串转为异步生成器
-            generator = predict(search_result, prompt, llm_model)
+            generator = predict(search_result, query, llm_model)
             # 返回StreamingResponse对象，流式传输数据，media_type设置为text/event-stream以符合SSE(Server-SentEvents) 格式
             return StreamingResponse(generator, media_type="text/event-stream")
     except Exception as e:
@@ -770,3 +775,5 @@ if __name__ == "__main__":
     # uvicorn是一个用于运行ASGI应用的轻量级、超快速的ASGI服务器实现
     # 用于部署基于FastAPI框架的异步PythonWeb应用程序
     uvicorn.run(graphrag_app, host="0.0.0.0", port=8013)
+
+

@@ -55,6 +55,7 @@ class LocalSearch(BaseSearch):
     async def asearch(
         self,
         query: str,
+        role_prompt: str | None = None,
         conversation_history: ConversationHistory | None = None,
         **kwargs,
     ) -> SearchResult:
@@ -79,7 +80,7 @@ class LocalSearch(BaseSearch):
         # log.info("search records: %s. context_records: %s", context_records)
         try:
             search_prompt = self.system_prompt.format(
-                context_data=context_text, response_type=self.response_type
+                role_prompt=role_prompt, context_data=context_text, response_type=self.response_type
             )
             search_messages = [
                 {"role": "system", "content": search_prompt},
@@ -120,6 +121,7 @@ class LocalSearch(BaseSearch):
     async def astream_search(
         self,
         query: str,
+        role_prompt: str | None = None,
         conversation_history: ConversationHistory | None = None,
     ) -> AsyncGenerator:
         """Build local search context that fits a single context window and generate answer for the user query."""
@@ -140,7 +142,7 @@ class LocalSearch(BaseSearch):
         # log.info("search records: %s. context_records: %s", context_records)
         # log.info("GENERATE ANSWER: %s. QUERY: %s", start_time, query)
         search_prompt = self.system_prompt.format(
-            context_data=context_text, response_type=self.response_type
+            role_prompt=role_prompt, context_data=context_text, response_type=self.response_type
         )
         search_messages = [
             {"role": "system", "content": search_prompt},
@@ -163,6 +165,7 @@ class LocalSearch(BaseSearch):
     def search(
         self,
         query: str,
+        role_prompt: str | None = None,
         conversation_history: ConversationHistory | None = None,
         **kwargs,
     ) -> SearchResult:
@@ -178,7 +181,7 @@ class LocalSearch(BaseSearch):
         log.info("GENERATE ANSWER: %d. QUERY: %s", start_time, query)
         try:
             search_prompt = self.system_prompt.format(
-                context_data=context_text, response_type=self.response_type
+                role_prompt=role_prompt, context_data=context_text, response_type=self.response_type
             )
             search_messages = [
                 {"role": "system", "content": search_prompt},

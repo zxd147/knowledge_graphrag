@@ -60,22 +60,22 @@ class GlobalSearch(BaseSearch):
     """Search orchestration for global search mode."""
 
     def __init__(
-        self,
-        llm: BaseLLM,
-        context_builder: GlobalContextBuilder,
-        token_encoder: tiktoken.Encoding | None = None,
-        map_system_prompt: str = MAP_SYSTEM_PROMPT,
-        reduce_system_prompt: str = REDUCE_SYSTEM_PROMPT,
-        response_type: str = "multiple paragraphs",
-        allow_general_knowledge: bool = False,
-        general_knowledge_inclusion_prompt: str = GENERAL_KNOWLEDGE_INSTRUCTION,
-        json_mode: bool = True,
-        callbacks: list[GlobalSearchLLMCallback] | None = None,
-        max_data_tokens: int = 8000,
-        map_llm_params: dict[str, Any] = DEFAULT_MAP_LLM_PARAMS,
-        reduce_llm_params: dict[str, Any] = DEFAULT_REDUCE_LLM_PARAMS,
-        context_builder_params: dict[str, Any] | None = None,
-        concurrent_coroutines: int = 32,
+            self,
+            llm: BaseLLM,
+            context_builder: GlobalContextBuilder,
+            token_encoder: tiktoken.Encoding | None = None,
+            map_system_prompt: str = MAP_SYSTEM_PROMPT,
+            reduce_system_prompt: str = REDUCE_SYSTEM_PROMPT,
+            response_type: str = "multiple paragraphs",
+            allow_general_knowledge: bool = False,
+            general_knowledge_inclusion_prompt: str = GENERAL_KNOWLEDGE_INSTRUCTION,
+            json_mode: bool = True,
+            callbacks: list[GlobalSearchLLMCallback] | None = None,
+            max_data_tokens: int = 8000,
+            map_llm_params: dict[str, Any] = DEFAULT_MAP_LLM_PARAMS,
+            reduce_llm_params: dict[str, Any] = DEFAULT_REDUCE_LLM_PARAMS,
+            context_builder_params: dict[str, Any] | None = None,
+            concurrent_coroutines: int = 32,
     ):
         super().__init__(
             llm=llm,
@@ -103,10 +103,11 @@ class GlobalSearch(BaseSearch):
         self.semaphore = asyncio.Semaphore(self.concurrent_coroutines)
 
     async def asearch(
-        self,
-        query: str,
-        conversation_history: ConversationHistory | None = None,
-        **kwargs: Any,
+            self,
+            query: str,
+            role_prompt: str | None = None,
+            conversation_history: ConversationHistory | None = None,
+            **kwargs: Any,
     ) -> GlobalSearchResult:
         """
         Perform a global search.
@@ -131,12 +132,12 @@ class GlobalSearch(BaseSearch):
         if self.callbacks:
             for callback in self.callbacks:
                 callback.on_map_response_start(context_chunks)  # type: ignore
-        map_responses = await asyncio.gather(*[
+        map_responses = list(await asyncio.gather(*[
             self._map_response_single_batch(
                 context_data=data, query=query, **self.map_llm_params
             )
             for data in context_chunks
-        ])
+        ]))
         # 记录 map 阶段的结束时间
         map_time = time.time()
         map_execution_time = map_time - build_time  # 计算 map 阶段的执行时间
@@ -172,9 +173,10 @@ class GlobalSearch(BaseSearch):
         )
 
     async def astream_search(
-        self,
-        query: str,
-        conversation_history: ConversationHistory | None = None,
+            self,
+            query: str,
+            role_prompt: str | None = None,
+            conversation_history: ConversationHistory | None = None,
     ) -> AsyncGenerator:
         start_time = time.time()
         """Stream the global search response."""
@@ -202,7 +204,7 @@ class GlobalSearch(BaseSearch):
         map_execution_time = map_time - build_time  # 计算 map 阶段的执行时间
         logger.info(f"Map 阶段执行时间: {map_execution_time:.6f} 秒")
         logger.debug(f"Map 阶段响应: {map_responses}")
-        
+
         if self.callbacks:
             for callback in self.callbacks:
                 callback.on_map_response_end(map_responses)  # type: ignore
@@ -210,32 +212,32 @@ class GlobalSearch(BaseSearch):
         # send context records first before sending the reduce response
         # yield context_records
         async for response in self._stream_reduce_response(
-            map_responses=map_responses,  # type: ignore
-            query=query,
-            **self.reduce_llm_params,
+                map_responses=map_responses,  # type: ignore
+                query=query,
+                **self.reduce_llm_params,
         ):
             yield response
         # 记录 reduce 阶段的结束时间
         reduce_time = time.time()
         reduce_execution_time = reduce_time - map_time  # 计算 reduce 阶段的执行时间
         logger.info(f"Reduce 阶段执行时间: {reduce_execution_time:.6f} 秒")
-        
 
     def search(
-        self,
-        query: str,
-        conversation_history: ConversationHistory | None = None,
-        **kwargs: Any,
+            self,
+            query: str,
+            role_prompt: str | None = None,
+            conversation_history: ConversationHistory | None = None,
+            **kwargs: Any,
     ) -> GlobalSearchResult:
         """Perform a global search synchronously."""
         return asyncio.run(self.asearch(query, conversation_history))
 
     #  调用 LLM 来处理每个数据块的响应，生成单个批次的结果。
     async def _map_response_single_batch(
-        self,
-        context_data: str,
-        query: str,
-        **llm_kwargs,
+            self,
+            context_data: str,
+            query: str,
+            **llm_kwargs,
     ) -> SearchResult:
         """Generate answer for a single chunk of community reports."""
         start_time = time.time()
@@ -317,10 +319,10 @@ class GlobalSearch(BaseSearch):
 
     # 调用 LLM 来生成一个最终合并的答案，这个调用使用了所有中间响应的结果。
     async def _reduce_response(
-        self,
-        map_responses: list[SearchResult],
-        query: str,
-        **llm_kwargs,
+            self,
+            map_responses: list[SearchResult],
+            query: str,
+            **llm_kwargs,
     ) -> SearchResult:
         """Combine all intermediate responses from single batches into a final answer to the user query."""
         text_data = ""
@@ -383,9 +385,9 @@ class GlobalSearch(BaseSearch):
                 formatted_response_data.append(point["answer"])  # type: ignore
                 formatted_response_text = "\n".join(formatted_response_data)
                 if (
-                    total_tokens
-                    + num_tokens(formatted_response_text, self.token_encoder)
-                    > self.max_data_tokens
+                        total_tokens
+                        + num_tokens(formatted_response_text, self.token_encoder)
+                        > self.max_data_tokens
                 ):
                     break
                 data.append(formatted_response_text)
@@ -428,10 +430,10 @@ class GlobalSearch(BaseSearch):
             )
 
     async def _stream_reduce_response(
-        self,
-        map_responses: list[SearchResult],
-        query: str,
-        **llm_kwargs,
+            self,
+            map_responses: list[SearchResult],
+            query: str,
+            **llm_kwargs,
     ) -> AsyncGenerator[str, None]:
         # collect all key points into a single list to prepare for sorting
         key_points = []
@@ -480,8 +482,8 @@ class GlobalSearch(BaseSearch):
             ]
             formatted_response_text = "\n".join(formatted_response_data)
             if (
-                total_tokens + num_tokens(formatted_response_text, self.token_encoder)
-                > self.max_data_tokens
+                    total_tokens + num_tokens(formatted_response_text, self.token_encoder)
+                    > self.max_data_tokens
             ):
                 break
             data.append(formatted_response_text)
@@ -499,8 +501,8 @@ class GlobalSearch(BaseSearch):
         ]
 
         async for resp in self.llm.astream_generate(  # type: ignore
-            search_messages,
-            callbacks=self.callbacks,  # type: ignore
-            **llm_kwargs,  # type: ignore
+                search_messages,
+                callbacks=self.callbacks,  # type: ignore
+                **llm_kwargs,  # type: ignore
         ):
             yield resp
