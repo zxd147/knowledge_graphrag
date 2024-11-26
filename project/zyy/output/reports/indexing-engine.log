@@ -4549,3 +4549,19 @@ RuntimeError: Failed to generate valid JSON output - Faulty JSON: {}
 10:43:08,231 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
 10:43:08,231 graphrag.llm.openai.utils INFO Error: JSONDecodeError
 10:43:08,231 graphrag.llm.openai.utils INFO Execption: not expected dict type. result: , result will be None, type=<class 'str'>:
+10:58:29,232 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+10:58:29,233 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+10:58:29,233 graphrag.llm.openai.utils INFO Error: JSONDecodeError
+10:58:29,233 graphrag.llm.openai.utils INFO Execption: not expected dict type. result: , result will be None, type=<class 'str'>:
+11:00:32,899 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+11:00:32,899 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+11:00:32,899 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+11:00:32,900 graphrag.llm.openai.utils INFO Error: JSONDecodeError
+11:00:32,900 graphrag.llm.openai.utils INFO Execption: not expected dict type. result: , result will be None, type=<class 'str'>:
+11:00:32,902 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+11:00:32,902 graphrag.llm.openai.utils INFO Error: JSONDecodeError
+11:00:32,902 graphrag.llm.openai.utils INFO Execption: not expected dict type. result: , result will be None, type=<class 'str'>:
+11:13:52,708 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+11:13:52,709 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+11:13:52,709 graphrag.llm.openai.utils INFO Error: JSONDecodeError
+11:13:52,709 graphrag.llm.openai.utils INFO Execption: not expected dict type. result: , result will be None, type=<class 'str'>:
