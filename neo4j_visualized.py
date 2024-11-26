@@ -2,7 +2,7 @@ import time
 import pandas as pd
 from neo4j import GraphDatabase
 
-GRAPHRAG_FOLDER = "/home/zxd/code/Chat/knowledge_graphrag/project/ecology/output/artifacts"
+GRAPHRAG_FOLDER = "/home/zxd/code/Chat/knowledge_graphrag/project/zyy/output/artifacts"
 # NEO4J_URI = "neo4j://192.168.0.246:7687"
 NEO4J_URI = "bolt://192.168.0.245"  # or neo4j+s://xxxx.databases.neo4j.io
 NEO4J_USERNAME = "neo4j"
@@ -26,7 +26,7 @@ def batched_import(statement, df, batch_size=1000):
         result = driver.execute_query(
             "UNWIND $rows AS value " + statement,
             rows=batch.to_dict("records"),
-            database_=NEO4J_DATABASE,
+            database=NEO4J_DATABASE,
         )
         print(result.summary.counters)
     print(f"{total} rows in {time.time() - start_s} s.")
