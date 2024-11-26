@@ -218,7 +218,7 @@ graphrag_logger = logger
 graphrag_app = FastAPI(lifespan=lifespan)
 secret_key = os.getenv('GRAPHRAG-SECRET-KEY', 'sk-graphrag')
 graphrag_app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'], )
-# graphrag_app.add_middleware(BasicAuthMiddleware, secret_key=secret_key)
+graphrag_app.add_middleware(BasicAuthMiddleware, secret_key=secret_key)
 
 
 def count_tokens(text: str, model: str = "gpt-4") -> int:
