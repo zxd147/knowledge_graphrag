@@ -24,7 +24,7 @@ llm:
 
 parallelization:
   stagger: 2
-#  num_threads: 2 # the number of threads to use for parallel processing
+  num_threads: 5 # the number of threads to use for parallel processing
 
 async_mode: asyncio # or asyncio
 
