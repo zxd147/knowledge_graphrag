@@ -131,7 +131,7 @@ def try_parse_json_object(input: str) -> tuple[str, dict]:
         result = json.loads(input)
         log.info(f"success load json in step 2{result}")
     except json.JSONDecodeError:
-        log.info(f"Error: JSONDecodeError{input}")
+        log.info(f"Warn: JSONDecodeError{input}")
 
         # Fixup potentially malformed json string using json_repair.
         input = str(repair_json(json_str=input, return_objects=False))
@@ -140,11 +140,11 @@ def try_parse_json_object(input: str) -> tuple[str, dict]:
         try:
             result = json.loads(input)
         except json.JSONDecodeError:
-            log.info(f"Execption: JSONDecodeError, error loading json, result=None, json={input}")
+            log.info(f"===XXX===Execution: JSONDecodeError, error loading json, result=None, json={input}")
             return input, {}
         else:
             if not isinstance(result, dict):
-                log.info(f"Execption: not expected dict type. result: {result}, result will be None, type=%s:", type(result))
+                log.info(f"===XXX===Execution: not expected dict type. result: {result}, result will be None, type=%s:", type(result))
                 return input, {}
             log.info(f"success load json in step 3{result}")
             return input, result
