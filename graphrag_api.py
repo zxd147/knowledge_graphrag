@@ -197,7 +197,7 @@ async def lifespan(graphrag_app: FastAPI):
         graphrag_logger.info("启动中...")
         # 初始化系统
         # llm_config, embedder_config = get_config(new_llm_model=None)
-        await initialize(new_llm_model=CURRENT_MODEL, new_knowledge_base=CURRENT_KNOWLEDGE_BASE)
+        await refresh_models(new_llm_model=CURRENT_MODEL, new_knowledge_base=CURRENT_KNOWLEDGE_BASE)
         # 让应用继续运行
         yield
     except Exception as e:
@@ -264,7 +264,7 @@ def get_config(new_llm_model=None):
 #             graphrag_logger.info(f"检测到LLM模型/知识库变化，正在重新初始化为：{new_llm_model, new_knowledge_base}")
 #             # 重新执行初始化操作
 #             # llm_config, embedder_config = get_config(new_llm_model=new_llm_model)
-#             await initialize(new_llm_model, new_knowledge_base)
+#             await refresh_models(new_llm_model, new_knowledge_base)
 #         return {"status": "model changed", "new_model": CURRENT_MODEL}
 #     except Exception as e:
 #         graphrag_logger.error(f"初始化过程中出错: {str(e)}")
@@ -275,7 +275,7 @@ def get_config(new_llm_model=None):
 #         graphrag_logger.info("正在关闭...")
 
 
-async def initialize(new_llm_model, new_knowledge_base):
+async def refresh_models(new_llm_model, new_knowledge_base):
     if new_llm_model != CURRENT_MODEL or new_knowledge_base != CURRENT_KNOWLEDGE_BASE or not CURRENT_MODEL:
         graphrag_logger.info(f"检测到LLM模型/知识库变化，正在重新初始化为：{new_llm_model, new_knowledge_base}")
         # 申明引用全局变量，在函数中被初始化，并在整个应用中使用
@@ -682,7 +682,7 @@ async def chat_completions(request: ChatCompletionRequest):
     llm_model = request.model
     knowledge_base = request.knowledge_base
     role_prompt = all_role_prompt[knowledge_base]
-    status = await initialize(llm_model, knowledge_base)
+    status = await refresh_models(llm_model, knowledge_base)
     # 检查搜索引擎是否初始化
     if not local_search_engine or not global_search_engine:
         graphrag_logger.error("搜索引擎未初始化")
