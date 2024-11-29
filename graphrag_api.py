@@ -50,7 +50,7 @@ RELATIONSHIP_TABLE = "create_final_relationships"
 COVARIATE_TABLE = "create_final_covariates"
 TEXT_UNIT_TABLE = "create_final_text_units"
 COMMUNITY_LEVEL = 2
-CURRENT_MODEL = 'Qwen2.5-7B-Instruct'
+CURRENT_MODEL = ''
 CURRENT_KNOWLEDGE_BASE = 'dentistry'
 PORT = 8013
 
