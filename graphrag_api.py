@@ -50,7 +50,7 @@ RELATIONSHIP_TABLE = "create_final_relationships"
 COVARIATE_TABLE = "create_final_covariates"
 TEXT_UNIT_TABLE = "create_final_text_units"
 COMMUNITY_LEVEL = 2
-CURRENT_MODEL = ''
+CURRENT_MODEL = 'Qwen2.5-7B-Instruct'
 CURRENT_KNOWLEDGE_BASE = 'dentistry'
 PORT = 8013
 
@@ -90,7 +90,7 @@ class ModelList(BaseModel):
 class ChatCompletionRequest(BaseModel):
     model: str = 'Qwen2.5-7B-Instruct'
     mode: str
-    knowledge_base: Literal['dentistry', 'ecology','test'] = 'dentistry'
+    knowledge_base: Literal['zyy', 'dentistry', 'ecology','test'] = 'dentistry'
     # messages: List[Message]
     messages: List[dict[str, str]]
     temperature: Optional[float] = 1.0
@@ -197,7 +197,7 @@ async def lifespan(graphrag_app: FastAPI):
         graphrag_logger.info("启动中...")
         # 初始化系统
         # llm_config, embedder_config = get_config(new_llm_model=None)
-        await initialize(new_llm_model=None, new_knowledge_base=CURRENT_KNOWLEDGE_BASE)
+        await initialize(new_llm_model=CURRENT_MODEL, new_knowledge_base=CURRENT_KNOWLEDGE_BASE)
         # 让应用继续运行
         yield
     except Exception as e:
@@ -257,50 +257,52 @@ def get_config(new_llm_model=None):
     return llm_config, embedder_config
 
 
-async def sync_setting(new_llm_model, new_knowledge_base):
-    global CURRENT_MODEL, CURRENT_KNOWLEDGE_BASE
-    try:
-        if new_llm_model != CURRENT_MODEL or new_knowledge_base != CURRENT_KNOWLEDGE_BASE:
-            graphrag_logger.info(f"检测到LLM模型/知识库变化，正在重新初始化为：{new_llm_model, new_knowledge_base}")
-            # 重新执行初始化操作
-            # llm_config, embedder_config = get_config(new_llm_model=new_llm_model)
-            await initialize(new_llm_model, new_knowledge_base)
-        return {"status": "model changed", "new_model": CURRENT_MODEL}
-    except Exception as e:
-        graphrag_logger.error(f"初始化过程中出错: {str(e)}")
-        # raise 关键字重新抛出异常，以确保程序不会在错误状态下继续运行
-        # yield 关键字将控制权交还给FastAPI框架，使应用开始运行
-        # 分隔了启动和关闭的逻辑。在yield 之前的代码在应用启动时运行，yield 之后的代码在应用关闭时运行
-        # 关闭时执行
-        graphrag_logger.info("正在关闭...")
+# async def sync_setting(new_llm_model, new_knowledge_base):
+#     global CURRENT_MODEL, CURRENT_KNOWLEDGE_BASE
+#     try:
+#         if new_llm_model != CURRENT_MODEL or new_knowledge_base != CURRENT_KNOWLEDGE_BASE:
+#             graphrag_logger.info(f"检测到LLM模型/知识库变化，正在重新初始化为：{new_llm_model, new_knowledge_base}")
+#             # 重新执行初始化操作
+#             # llm_config, embedder_config = get_config(new_llm_model=new_llm_model)
+#             await initialize(new_llm_model, new_knowledge_base)
+#         return {"status": "model changed", "new_model": CURRENT_MODEL}
+#     except Exception as e:
+#         graphrag_logger.error(f"初始化过程中出错: {str(e)}")
+#         # raise 关键字重新抛出异常，以确保程序不会在错误状态下继续运行
+#         # yield 关键字将控制权交还给FastAPI框架，使应用开始运行
+#         # 分隔了启动和关闭的逻辑。在yield 之前的代码在应用启动时运行，yield 之后的代码在应用关闭时运行
+#         # 关闭时执行
+#         graphrag_logger.info("正在关闭...")
 
 
 async def initialize(new_llm_model, new_knowledge_base):
-    # 启动时执行
-    # 申明引用全局变量，在函数中被初始化，并在整个应用中使用
-    global local_search_engine, global_search_engine, question_generator
-    """初始搜索引擎和问题生成器"""
-    graphrag_logger.info("正在初始化搜索引擎和问题生成器...")
-    # 调用setup_llm_and_embedder()函数以设置语言模型（LLM）、token编码器（TokenEncoder）和文本嵌入向量生成器（TextEmbedder）
-    # await 关键字表示此调用是异步的，函数将在这个操作完成后继续执行
-    llm, token_encoder, text_embedder = await setup_llm_and_embedder(new_llm_model)
-    # 调用load_context()函数加载实体、关系、报告、文本单元、描述嵌入存储和协变量等数据，这些数据将用于构建搜索引擎和问题生成器
-    entities, relationships, reports, text_units, description_embedding_store, covariates = await load_context(
-        new_knowledge_base)
-    # 调用setup_search_engines()函数设置本地和全局搜索引擎、上下文构建器（ContextBuilder）、以及相关参数
-    local_search_engine, global_search_engine, local_context_builder, local_llm_params, local_context_params = await setup_search_engines(
-        llm, token_encoder, text_embedder, entities, relationships, reports, text_units,
-        description_embedding_store, covariates
-    )
-    # 使用LocalQuestionGen类创建一个本地问题生成器question_generator，将前面初始化的各种组件传递给它
-    question_generator = LocalQuestionGen(
-        llm=llm,
-        context_builder=local_context_builder,
-        token_encoder=token_encoder,
-        llm_params=local_llm_params,
-        context_builder_params=local_context_params,
-    )
-    graphrag_logger.info("初始化完成")
+    if new_llm_model != CURRENT_MODEL or new_knowledge_base != CURRENT_KNOWLEDGE_BASE or not CURRENT_MODEL:
+        graphrag_logger.info(f"检测到LLM模型/知识库变化，正在重新初始化为：{new_llm_model, new_knowledge_base}")
+        # 申明引用全局变量，在函数中被初始化，并在整个应用中使用
+        global local_search_engine, global_search_engine, question_generator
+        """初始搜索引擎和问题生成器"""
+        graphrag_logger.info("正在初始化搜索引擎和问题生成器...")
+        # 调用setup_llm_and_embedder()函数以设置语言模型（LLM）、token编码器（TokenEncoder）和文本嵌入向量生成器（TextEmbedder）
+        # await 关键字表示此调用是异步的，函数将在这个操作完成后继续执行
+        llm, token_encoder, text_embedder = await setup_llm_and_embedder(new_llm_model)
+        # 调用load_context()函数加载实体、关系、报告、文本单元、描述嵌入存储和协变量等数据，这些数据将用于构建搜索引擎和问题生成器
+        entities, relationships, reports, text_units, description_embedding_store, covariates = await load_context(
+            new_knowledge_base)
+        # 调用setup_search_engines()函数设置本地和全局搜索引擎、上下文构建器（ContextBuilder）、以及相关参数
+        local_search_engine, global_search_engine, local_context_builder, local_llm_params, local_context_params = await setup_search_engines(
+            llm, token_encoder, text_embedder, entities, relationships, reports, text_units,
+            description_embedding_store, covariates
+        )
+        # 使用LocalQuestionGen类创建一个本地问题生成器question_generator，将前面初始化的各种组件传递给它
+        question_generator = LocalQuestionGen(
+            llm=llm,
+            context_builder=local_context_builder,
+            token_encoder=token_encoder,
+            llm_params=local_llm_params,
+            context_builder_params=local_context_params,
+        )
+        graphrag_logger.info("初始化完成")
+    return {"status": "success"}
 
 
 # 设置语言模型（LLM）、token编码器（TokenEncoder）和文本嵌入向量生成器（TextEmbedder）
@@ -311,12 +313,10 @@ async def setup_llm_and_embedder(new_llm_model):
     env.read_env()  # 自动读取 .env 文件
     llm_api_base = env("LLM_API_BASE", env("AZURE_OPENAI_API_BASE", None))
     llm_api_key = env("LLM_API_KEY", env("AZURE_OPENAI_API_KEY", None))
-    llm_model = env("LLM_MODEL", env("AZURE_OPENAI_MODEL", None))
+    llm_model = new_llm_model or env("LLM_MODEL", env("AZURE_OPENAI_MODEL", None))
     embedder_api_base = env("EMBEDDING_API_BASE", env("AZURE_OPENAI_API_BASE", None))
     embedder_api_key = env("EMBEDDING_API_KEY", env("AZURE_OPENAI_API_KEY", None))
     embedder_model = env("EMBEDDING_MODEL", env("AZURE_OPENAI_MODEL", None))
-    if new_llm_model:
-        llm_model = new_llm_model
     llm = ChatOpenAI(
         # 调用其他模型  通过oneAPI
         api_base=llm_api_base,  # 请求的API服务地址
@@ -682,7 +682,7 @@ async def chat_completions(request: ChatCompletionRequest):
     llm_model = request.model
     knowledge_base = request.knowledge_base
     role_prompt = all_role_prompt[knowledge_base]
-    status = await sync_setting(llm_model, knowledge_base)
+    status = await initialize(llm_model, knowledge_base)
     # 检查搜索引擎是否初始化
     if not local_search_engine or not global_search_engine:
         graphrag_logger.error("搜索引擎未初始化")
