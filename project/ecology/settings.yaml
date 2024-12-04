@@ -24,7 +24,7 @@ llm:
 
 parallelization:
   stagger: 2
-  num_threads: 10 # the number of threads to use for parallel processing
+  num_threads: 2 # the number of threads to use for parallel processing
 
 async_mode: asyncio # threaded or asyncio
 
@@ -89,11 +89,12 @@ entity_extraction:
   ## parallelization: override the global parallelization settings for this task
   ## async_mode: override the global async_mode settings for this task
   prompt: ${GRAPHRAG_ENTITY_EXTRACTION_PROMPT_FILE}
-  entity_types: ['医疗服务', '法律规范', '服务流程', '检查项目', '治疗方法', '药物名称', '服务类型', '症状', '操作流程', '动作', '注意事项',
-                 '健康状况', '治疗方案', '疾病名称', '康复措施', '生活方式', '年龄群体', '病理类型', '营养素', '法律权利', '消化系统问题',
-                 '资格证书', '医疗器械', '地理', '合规流程', '组织机构', '人物', '服务', '风险因素', '道德准则', '医疗机构',
-                 '事件', '时间', '预防措施', '技术设备', '教育资源', '组织机构', '教育活动', '关系', '专科领域',
-                 '技术领域', '口腔疾病', '适应症', '心理状态', '身体器官', '组织', '或其他对应的正确的实体类型']
+#  entity_types: ['医疗服务', '法律规范', '服务流程', '检查项目', '治疗方法', '药物名称', '服务类型', '症状', '操作流程', '动作', '注意事项',
+#                 '健康状况', '治疗方案', '疾病名称', '康复措施', '生活方式', '年龄群体', '病理类型', '营养素', '法律权利', '消化系统问题',
+#                 '资格证书', '医疗器械', '地理', '合规流程', '组织机构', '人物', '服务', '风险因素', '道德准则', '医疗机构',
+#                 '事件', '时间', '预防措施', '技术设备', '教育资源', '组织机构', '教育活动', '关系', '专科领域',
+#                 '技术领域', '口腔疾病', '适应症', '心理状态', '身体器官', '组织', '或其他对应的正确的实体类型']
+  entity_types: []
   max_gleanings: 1
 
 summarize_descriptions:
