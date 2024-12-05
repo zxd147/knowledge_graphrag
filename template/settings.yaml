@@ -2,8 +2,8 @@
 encoding_model: cl100k_base  # GPT-4 系列模型的分词器模型，将文本处理为适合语言模型输入的格式，保证文本能够在模型的最大 token 限制内被处理
 skip_workflows: []
 llm:
-  api_base: ${GRAPHRAG_API_BASE}
-  api_key: ${GRAPHRAG_API_KEY}
+  api_base: ${GRAPHRAG_CHAT_API_BASE}
+  api_key: ${GRAPHRAG_CHAT_API_KEY}
   type: openai_chat # or azure_openai_chat
   model: ${GRAPHRAG_CHAT_MODEL}
   model_supports_json: true # recommended if this is available for your model.

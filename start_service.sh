@@ -20,7 +20,7 @@ fi
 
 
 # 启动服务并将输出重定向到 output.log
-cd /home/zxd/code/Chat/knowledge_graphrag/
+cd /home/zxd/code/Chat/knowledge-graphrag/
 nohup /home/zxd/.conda/envs/grag/bin/python graphrag_api.py > "${log_dir}/${output_log}" 2>&1 &
 
 # 获取启动的进程 ID 并输出启动信息

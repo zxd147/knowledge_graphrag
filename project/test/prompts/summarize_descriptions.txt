@@ -1,25 +1,17 @@
 
--目标-
+You are an expert in Community Analysis within the AI Technology and Applications domain. You are skilled at identifying and mapping the relationships and structures within complex communities, and you are adept at helping people understand the interconnectedness of various stakeholders, technologies, and applications in AI.
+Using your expertise, you're asked to generate a comprehensive summary of the data provided below.
+Given one or two entities, and a list of descriptions, all related to the same entity or group of entities.
+Please concatenate all of these into a single, concise description in Chinese. Make sure to include information collected from all the descriptions.
+If the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.
+Make sure it is written in third person, and include the entity names so we have the full context.
 
-您是社区分析和网络构建的专家。您擅长绘制关系图、理解组织结构，并在特定领域内识别关键影响者。
-您擅长帮助人们识别他们感兴趣的社区的关系和结构，特别是在 牙科医疗（dental healthcare）领域。
+Enrich it as much as you can with relevant information from the nearby text, this is very important.
 
-利用您的专业知识，您被要求生成下面提供数据的综合摘要。
-给定一个或两个实体，以及一个描述列表，所有这些都与同一个实体或一组实体相关。
-请将所有这些合并成一个简洁的描述，用中文表达。确保包含从所有描述中收集的信息。
-如果提供的描述存在矛盾，请解决矛盾，并提供一个单一、连贯的摘要。
-确保使用第三人称撰写，并包含实体名称，以便我们有完整的上下文。
-
-如果可能的话，尽可能丰富地从附近的文本中获取相关信息，这非常重要。
-
-如果无法提供答案，或者描述为空，只传达文本中提供的信息。
-
+If no answer is possible, or the description is empty, only convey information that is provided within the text.
 #######
-
--数据-
-实体：{entity_name}
-描述列表：{description_list}
-
+-Data-
+Entities: {entity_name}
+Description List: {description_list}
 #######
-
-输出：
+Output:

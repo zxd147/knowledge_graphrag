@@ -1,9 +1,12 @@
+import asyncio
 import os
 import re
 import time
 # import jieba
+import torch
 import uuid
 from contextlib import asynccontextmanager
+from datetime import datetime
 from typing import List, Optional, Dict, Union, Literal, AsyncGenerator, Any
 
 import pandas as pd
@@ -12,7 +15,7 @@ import uvicorn
 from environs import Env
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import JSONResponse, HTMLResponse, StreamingResponse
 from pydantic import BaseModel, Field
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
@@ -207,6 +210,16 @@ async def lifespan(graphrag_app: FastAPI):
         graphrag_logger.info("关闭应用...")
 
 
+async def init_app():
+    if torch.cuda.is_available():
+        log = f'本次加载模型的设备为GPU: {torch.cuda.get_device_name(0)}'
+    else:
+        log = '本次加载模型的设备为CPU.'
+    graphrag_logger.info(log)
+    log = f"Service started!"
+    graphrag_logger.info(log)
+
+
 role_prompt_path = 'config/role_prompt.json'
 all_role_prompt = read_config_file(role_prompt_path)
 # 全局变量，用于存储搜索引擎和问题生成器，类型注解为 Optional 类型，表示这些变量可能是 None 或特定的类型对象
@@ -218,7 +231,7 @@ graphrag_logger = logger
 graphrag_app = FastAPI(lifespan=lifespan)
 secret_key = os.getenv('GRAPHRAG-SECRET-KEY', 'sk-graphrag')
 graphrag_app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'], )
-# graphrag_app.add_middleware(BasicAuthMiddleware, secret_key=secret_key)
+graphrag_app.add_middleware(BasicAuthMiddleware, secret_key=secret_key)
 
 
 def count_tokens(text: str, model: str = "gpt-4") -> int:
@@ -674,6 +687,25 @@ async def stream_full_model_search(prompt: str, role_prompt, history: Conversati
     yield "data: [DONE]\n\n"
 
 
+@graphrag_app.get("/")
+async def index():
+    service_name = """
+        <html> <head> <title>graphrag_service</title> </head>
+            <body style="display: flex; justify-content: center;"> <h1>graphrag_service</h1></body> </html>
+        """
+    return HTMLResponse(status_code=200, content=service_name)
+
+
+@graphrag_app.get("/http_check")
+@graphrag_app.get("/health")
+async def health():
+    """Health check."""
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    health_data = {"status": "healthy", "timestamp": timestamp}
+    # 返回JSON格式的响应
+    return JSONResponse(status_code=200, content=health_data)
+
+
 # POST请求接口，与大模型进行知识问答
 @graphrag_app.post("/v1/chat/completions")
 async def chat_completions(request: ChatCompletionRequest):
@@ -768,6 +800,7 @@ async def list_models():
 
 
 if __name__ == "__main__":
+    asyncio.run(init_app())
     graphrag_logger.info(f"在端口 {PORT} 上启动知识图谱Graphrag服务器")
     # uvicorn是一个用于运行ASGI应用的轻量级、超快速的ASGI服务器实现
     # 用于部署基于FastAPI框架的异步PythonWeb应用程序
