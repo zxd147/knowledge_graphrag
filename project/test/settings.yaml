@@ -8,7 +8,7 @@ llm:
   model: ${GRAPHRAG_CHAT_MODEL}
   model_supports_json: true # recommended if this is available for your model.
   request_timeout: 3000.0
-  max_tokens: 10000
+  max_tokens: 8192
   # api_version: 2024-02-15-preview
   # organization: <organization_id>
   # deployment_name: <azure_model_deployment_name>
@@ -24,7 +24,7 @@ llm:
 
 parallelization:
   stagger: 1
-#  num_threads: 2 # the number of threads to use for parallel processing
+  num_threads: 10 # the number of threads to use for parallel processing
 
 async_mode: asyncio # threaded or asyncio
 
@@ -116,8 +116,8 @@ community_reports:
   parallelization:
     stagger: 3
 #    num_threads: 2
-  max_length: 12000
-  max_input_length: 10000
+  max_length: 8192
+  max_input_length: 6000
 
 cluster_graph:
   max_cluster_size: 10

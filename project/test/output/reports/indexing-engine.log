@@ -1,0 +1,367 @@
+16:06:54,363 graphrag.index.cli INFO Logging enabled at output/reports/indexing-engine.log
+16:06:54,364 graphrag.index.cli INFO Starting pipeline run for: 20241205-160654, dryrun=False
+16:06:54,364 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "model": "Qwen/Qwen2.5-72B-Instruct",
+        "max_tokens": 8192,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 3000.0,
+        "api_base": "http://192.168.0.244:8016/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 1.0,
+        "num_threads": 10
+    },
+    "async_mode": "asyncio",
+    "root_dir": ".",
+    "reporting": {
+        "type": "file",
+        "base_dir": "output/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "output/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "model": "m3e-large",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.244:8016/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 1.0,
+            "num_threads": 10
+        },
+        "async_mode": "asyncio",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 500,
+        "overlap": 200,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen/Qwen2.5-72B-Instruct",
+            "max_tokens": 8192,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.244:8016/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 1.0,
+            "num_threads": 10
+        },
+        "async_mode": "asyncio",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen/Qwen2.5-72B-Instruct",
+            "max_tokens": 8192,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.244:8016/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 1.0,
+            "num_threads": 10
+        },
+        "async_mode": "asyncio",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen/Qwen2.5-72B-Instruct",
+            "max_tokens": 8192,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.244:8016/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 3.0,
+            "num_threads": 10
+        },
+        "async_mode": "asyncio",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 8192,
+        "max_input_length": 6000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen/Qwen2.5-72B-Instruct",
+            "max_tokens": 8192,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.244:8016/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 1.0,
+            "num_threads": 10
+        },
+        "async_mode": "asyncio",
+        "enabled": true,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+16:06:54,365 graphrag.index.create_pipeline_config INFO skipping workflows 
+16:06:54,365 graphrag.index.run INFO Running pipeline
+16:06:54,365 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at output/artifacts
+16:06:54,365 graphrag.index.input.load_input INFO loading input from root_dir=input
+16:06:54,365 graphrag.index.input.load_input INFO using file storage for input
+16:06:54,365 graphrag.index.storage.file_pipeline_storage INFO search input for files matching .*\.txt$
+16:06:54,366 graphrag.index.input.text INFO found text files from input, found [('zyy-1.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc._pdf-1.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc.-1.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc.-0904-3.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc.-5.txt', {}), ('zyy-2.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc.-0904-1.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc.-2.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc.-4.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc.-3.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc.-0904-2.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc.-6.txt', {}), ('Guangzhou Zhongyiyong Intelligent Technology Co., Inc._pdf-2.txt', {})]
+16:06:54,378 graphrag.index.input.text INFO Found 13 files, loading 13
+16:06:54,379 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_final_covariates', 'create_summarized_entities', 'join_text_units_to_covariate_ids', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+16:06:54,379 graphrag.index.run INFO Final # of rows loaded: 13
+16:06:54,475 graphrag.index.run INFO Running workflow: create_base_text_units...
+16:06:54,475 graphrag.index.run INFO dependencies for create_base_text_units: []
+16:06:54,478 datashaper.workflow.workflow INFO executing verb orderby
+16:06:54,479 datashaper.workflow.workflow INFO executing verb zip
+16:06:54,481 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:06:54,484 datashaper.workflow.workflow INFO executing verb chunk
+16:06:54,575 datashaper.workflow.workflow INFO executing verb select
+16:06:54,578 datashaper.workflow.workflow INFO executing verb unroll
+16:06:54,580 datashaper.workflow.workflow INFO executing verb rename
+16:06:54,582 datashaper.workflow.workflow INFO executing verb genid
+16:06:54,585 datashaper.workflow.workflow INFO executing verb unzip
+16:06:54,588 datashaper.workflow.workflow INFO executing verb copy
+16:06:54,590 datashaper.workflow.workflow INFO executing verb filter
+16:06:54,593 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+16:06:54,698 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+16:06:54,698 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+16:06:54,699 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+16:06:54,706 datashaper.workflow.workflow INFO executing verb entity_extract
+16:06:54,708 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.244:8016/v1
+16:06:54,730 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for Qwen/Qwen2.5-72B-Instruct: TPM=0, RPM=0
+16:06:54,730 graphrag.index.llm.load_llm INFO create concurrency limiter for Qwen/Qwen2.5-72B-Instruct: 25
+16:07:02,628 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:02,630 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 7.874902490992099. input_tokens=55, output_tokens=409
+16:07:13,264 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:13,265 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.512990252114832. input_tokens=55, output_tokens=799
+16:07:15,12 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:15,12 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 20.24881843291223. input_tokens=55, output_tokens=1035
+16:07:16,151 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:16,152 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 21.412839509081095. input_tokens=2424, output_tokens=1004
+16:07:19,687 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:19,687 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 6.416666889097542. input_tokens=55, output_tokens=312
+16:07:20,636 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:20,637 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 25.890689726918936. input_tokens=55, output_tokens=1221
+16:07:26,32 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:26,33 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 31.283501950092614. input_tokens=55, output_tokens=1531
+16:07:28,785 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:28,786 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 34.02821321878582. input_tokens=55, output_tokens=1538
+16:07:36,772 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:36,773 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 20.619701989926398. input_tokens=55, output_tokens=921
+16:07:37,835 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:37,836 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.193504354916513. input_tokens=55, output_tokens=599
+16:07:43,339 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:43,340 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 40.70372040197253. input_tokens=55, output_tokens=1288
+16:07:44,319 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:44,321 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 49.58316463883966. input_tokens=2655, output_tokens=2532
+16:07:45,188 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:45,189 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 50.427851578220725. input_tokens=55, output_tokens=1247
+16:07:52,274 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:52,275 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 57.54231954924762. input_tokens=2655, output_tokens=2985
+16:07:54,421 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:54,421 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 11.075321129057556. input_tokens=55, output_tokens=522
+16:07:55,838 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:55,839 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 10.64454056834802. input_tokens=55, output_tokens=444
+16:07:57,341 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:07:57,342 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 19.500052981078625. input_tokens=55, output_tokens=636
+16:08:02,124 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:02,125 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 25.343765725847334. input_tokens=55, output_tokens=1265
+16:08:03,749 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:03,750 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 37.710598011966795. input_tokens=2654, output_tokens=1795
+16:08:05,615 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:05,616 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.29419213719666. input_tokens=55, output_tokens=1215
+16:08:08,316 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:08,317 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 16.04014922492206. input_tokens=55, output_tokens=700
+16:08:16,760 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:16,762 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 61.74341907259077. input_tokens=2653, output_tokens=3650
+16:08:18,545 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:18,546 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 49.753435865044594. input_tokens=55, output_tokens=2550
