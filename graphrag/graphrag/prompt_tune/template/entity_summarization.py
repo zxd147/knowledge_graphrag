@@ -1,22 +1,22 @@
-# Copyright (c) 2024 Microsoft Corporation.
-# Licensed under the MIT License
+# 版权所有 (c) 2024 Microsoft Corporation.
+# 根据 MIT 许可证授权
 
-"""Fine-tuning prompts for entity summarization."""
+"""为实体摘要微调提示词。"""
 
 ENTITY_SUMMARIZATION_PROMPT = """
 {persona}
-Using your expertise, you're asked to generate a comprehensive summary of the data provided below.
-Given one or two entities, and a list of descriptions, all related to the same entity or group of entities.
-Please concatenate all of these into a single, concise description in {language}. Make sure to include information collected from all the descriptions.
-If the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.
-Make sure it is written in third person, and include the entity names so we have the full context.
+利用您的专业知识，您被要求根据下面提供的数据生成一份全面的摘要。
+给定一个或两个实体，以及一个与同一实体或一组实体相关的描述列表。
+请将所有这些合并成一个简洁的描述，用{language}语言编写。确保包含所有描述中的信息。
+如果提供的描述存在矛盾，请解决这些矛盾，并提供一个单一、连贯的摘要。
+确保使用第三人称编写，并包含实体名称，以便我们有完整的上下文。
 
-Enrich it as much as you can with relevant information from the nearby text, this is very important.
+从附近的文本中尽可能丰富地包含相关信息，这非常重要。
 
-If no answer is possible, or the description is empty, only convey information that is provided within the text.
+如果无法提供答案，或者描述为空，只传达文本中提供的信息。
 #######
--Data-
-Entities: {{entity_name}}
-Description List: {{description_list}}
+-数据-
+实体：{{entity_name}}
+描述列表：{{description_list}}
 #######
-Output:"""
+输出："""

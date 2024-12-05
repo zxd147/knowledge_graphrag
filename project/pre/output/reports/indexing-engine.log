@@ -1,0 +1,807 @@
+23:28:38,898 graphrag.index.cli INFO Logging enabled at output/reports/indexing-engine.log
+23:28:38,900 graphrag.index.cli INFO Starting pipeline run for: 20241205-232838, dryrun=False
+23:28:38,900 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "model": "Qwen/Qwen2.5-72B-Instruct",
+        "max_tokens": 8192,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 3000.0,
+        "api_base": "http://192.168.0.244:8016/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 1.0,
+        "num_threads": 10
+    },
+    "async_mode": "asyncio",
+    "root_dir": ".",
+    "reporting": {
+        "type": "file",
+        "base_dir": "output/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "output/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "model": "m3e-large",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://192.168.0.244:8016/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 1.0,
+            "num_threads": 10
+        },
+        "async_mode": "asyncio",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 500,
+        "overlap": 200,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen/Qwen2.5-72B-Instruct",
+            "max_tokens": 8192,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.244:8016/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 1.0,
+            "num_threads": 10
+        },
+        "async_mode": "asyncio",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen/Qwen2.5-72B-Instruct",
+            "max_tokens": 8192,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.244:8016/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 1.0,
+            "num_threads": 10
+        },
+        "async_mode": "asyncio",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen/Qwen2.5-72B-Instruct",
+            "max_tokens": 8192,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.244:8016/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 3.0,
+            "num_threads": 10
+        },
+        "async_mode": "asyncio",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 8192,
+        "max_input_length": 6000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "model": "Qwen/Qwen2.5-72B-Instruct",
+            "max_tokens": 8192,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 3000.0,
+            "api_base": "http://192.168.0.244:8016/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 1.0,
+            "num_threads": 10
+        },
+        "async_mode": "asyncio",
+        "enabled": true,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+23:28:38,901 graphrag.index.create_pipeline_config INFO skipping workflows 
+23:28:38,901 graphrag.index.run INFO Running pipeline
+23:28:38,901 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at output/artifacts
+23:28:38,901 graphrag.index.input.load_input INFO loading input from root_dir=input
+23:28:38,901 graphrag.index.input.load_input INFO using file storage for input
+23:28:38,901 graphrag.index.storage.file_pipeline_storage INFO search input for files matching .*\.txt$
+23:28:38,902 graphrag.index.input.text INFO found text files from input, found [('Spectral_Vision-2.txt', {})]
+23:28:38,902 graphrag.index.input.text INFO Found 1 files, loading 1
+23:28:38,903 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_final_covariates', 'create_summarized_entities', 'join_text_units_to_covariate_ids', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+23:28:38,903 graphrag.index.run INFO Final # of rows loaded: 1
+23:28:38,994 graphrag.index.run INFO Running workflow: create_base_text_units...
+23:28:38,995 graphrag.index.run INFO dependencies for create_base_text_units: []
+23:28:38,997 datashaper.workflow.workflow INFO executing verb orderby
+23:28:38,999 datashaper.workflow.workflow INFO executing verb zip
+23:28:39,0 datashaper.workflow.workflow INFO executing verb aggregate_override
+23:28:39,3 datashaper.workflow.workflow INFO executing verb chunk
+23:28:39,91 datashaper.workflow.workflow INFO executing verb select
+23:28:39,94 datashaper.workflow.workflow INFO executing verb unroll
+23:28:39,97 datashaper.workflow.workflow INFO executing verb rename
+23:28:39,99 datashaper.workflow.workflow INFO executing verb genid
+23:28:39,101 datashaper.workflow.workflow INFO executing verb unzip
+23:28:39,104 datashaper.workflow.workflow INFO executing verb copy
+23:28:39,107 datashaper.workflow.workflow INFO executing verb filter
+23:28:39,109 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+23:28:39,215 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+23:28:39,215 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+23:28:39,215 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+23:28:39,223 datashaper.workflow.workflow INFO executing verb entity_extract
+23:28:39,224 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.244:8016/v1
+23:28:39,235 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for Qwen/Qwen2.5-72B-Instruct: TPM=0, RPM=0
+23:28:39,235 graphrag.index.llm.load_llm INFO create concurrency limiter for Qwen/Qwen2.5-72B-Instruct: 25
+23:28:57,928 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:28:57,930 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 18.67151972372085. input_tokens=2670, output_tokens=972
+23:28:59,407 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:28:59,408 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 20.155712890904397. input_tokens=2993, output_tokens=1133
+23:28:59,705 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:28:59,706 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 20.455113794654608. input_tokens=2990, output_tokens=925
+23:29:06,94 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:06,95 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 26.84892561007291. input_tokens=2991, output_tokens=1375
+23:29:06,780 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:06,781 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.52607252309099. input_tokens=2991, output_tokens=1586
+23:29:09,486 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:09,487 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 9.780422450974584. input_tokens=55, output_tokens=453
+23:29:12,949 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:12,950 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 33.69289986276999. input_tokens=2970, output_tokens=1748
+23:29:13,278 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:13,279 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 34.03680773591623. input_tokens=2991, output_tokens=1792
+23:29:15,244 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:15,244 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 15.834945236332715. input_tokens=55, output_tokens=553
+23:29:15,615 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:15,616 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.68491886695847. input_tokens=55, output_tokens=795
+23:29:21,447 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:21,448 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 42.199347011744976. input_tokens=2991, output_tokens=1416
+23:29:26,323 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:26,324 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 19.542219755239785. input_tokens=55, output_tokens=1056
+23:29:28,12 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:28,21 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 48.782572692260146. input_tokens=2992, output_tokens=2678
+23:29:31,157 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:31,158 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 25.061912981793284. input_tokens=55, output_tokens=913
+23:29:34,479 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:34,480 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.529631631914526. input_tokens=55, output_tokens=1119
+23:29:38,626 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:38,627 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.17806402221322. input_tokens=55, output_tokens=799
+23:29:40,794 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:40,795 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 27.51465397607535. input_tokens=55, output_tokens=1147
+23:29:48,163 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:48,164 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 68.91953006386757. input_tokens=2992, output_tokens=3654
+23:29:49,918 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:29:49,919 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.89671687502414. input_tokens=55, output_tokens=1242
+23:30:14,594 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:14,595 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 26.429824966937304. input_tokens=55, output_tokens=1225
+23:30:14,603 datashaper.workflow.workflow INFO executing verb merge_graphs
+23:30:14,614 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+23:30:14,716 graphrag.index.run INFO Running workflow: create_final_covariates...
+23:30:14,716 graphrag.index.run INFO dependencies for create_final_covariates: ['create_base_text_units']
+23:30:14,717 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+23:30:14,724 datashaper.workflow.workflow INFO executing verb extract_covariates
+23:30:23,752 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:23,753 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 9.005801131948829. input_tokens=1638, output_tokens=474
+23:30:24,824 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:24,824 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 10.097548400983214. input_tokens=1960, output_tokens=527
+23:30:27,207 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:27,207 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 12.462387797888368. input_tokens=1938, output_tokens=629
+23:30:29,449 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:29,450 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 14.720592537894845. input_tokens=1959, output_tokens=795
+23:30:30,604 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:30,605 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 15.862285363022238. input_tokens=1959, output_tokens=851
+23:30:30,704 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:30,705 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 15.966513928025961. input_tokens=1958, output_tokens=708
+23:30:30,971 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:30,972 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 16.231592554133385. input_tokens=1961, output_tokens=694
+23:30:32,758 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:32,759 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 18.025210762862116. input_tokens=1959, output_tokens=723
+23:30:37,978 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:37,979 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 23.242904589977115. input_tokens=1959, output_tokens=1229
+23:30:40,695 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:40,696 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 25.964069079142064. input_tokens=1960, output_tokens=640
+23:30:45,138 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:45,139 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.385215354152024. input_tokens=32, output_tokens=987
+23:30:49,333 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:49,334 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 24.508312860969454. input_tokens=32, output_tokens=974
+23:30:50,880 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:50,881 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 20.274953704327345. input_tokens=32, output_tokens=968
+23:30:53,991 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:53,992 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.231831754092127. input_tokens=32, output_tokens=974
+23:30:58,497 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:58,498 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 27.525309927761555. input_tokens=32, output_tokens=1239
+23:30:58,774 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:30:58,775 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 31.56692075310275. input_tokens=32, output_tokens=1388
+23:31:06,804 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:31:06,805 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 37.35382448369637. input_tokens=32, output_tokens=1708
+23:31:07,10 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:31:07,11 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 36.30444714613259. input_tokens=32, output_tokens=1487
+23:31:15,828 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:31:15,829 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 37.8486326020211. input_tokens=32, output_tokens=1158
+23:32:34,525 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:34,527 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 113.8293547895737. input_tokens=32, output_tokens=4677
+23:32:34,534 datashaper.workflow.workflow INFO executing verb window
+23:32:34,537 datashaper.workflow.workflow INFO executing verb genid
+23:32:34,541 datashaper.workflow.workflow INFO executing verb convert
+23:32:34,544 datashaper.workflow.workflow INFO executing verb rename
+23:32:34,548 datashaper.workflow.workflow INFO executing verb select
+23:32:34,549 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_covariates.parquet
+23:32:34,662 graphrag.index.run INFO Running workflow: create_summarized_entities...
+23:32:34,662 graphrag.index.run INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+23:32:34,662 graphrag.index.run INFO read table from storage: create_base_extracted_entities.parquet
+23:32:34,671 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+23:32:36,271 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:36,272 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.5730838906019926. input_tokens=452, output_tokens=64
+23:32:36,472 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:36,473 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.78718791436404. input_tokens=457, output_tokens=81
+23:32:36,742 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:36,743 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0514399502426386. input_tokens=475, output_tokens=113
+23:32:36,937 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:36,938 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2572817499749362. input_tokens=469, output_tokens=121
+23:32:37,205 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:37,206 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.51239701686427. input_tokens=470, output_tokens=159
+23:32:37,619 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:37,620 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.922890253830701. input_tokens=464, output_tokens=161
+23:32:37,736 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:37,736 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0527147208340466. input_tokens=480, output_tokens=185
+23:32:38,698 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:38,699 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2201717039570212. input_tokens=472, output_tokens=139
+23:32:38,942 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:38,942 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.194363735150546. input_tokens=452, output_tokens=139
+23:32:39,190 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:39,190 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.4486357192508876. input_tokens=461, output_tokens=95
+23:32:39,347 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:39,348 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4030740251764655. input_tokens=465, output_tokens=94
+23:32:39,426 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:39,426 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.148670501075685. input_tokens=456, output_tokens=112
+23:32:39,465 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:39,465 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.77787914685905. input_tokens=436, output_tokens=180
+23:32:39,864 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:39,865 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.175214172806591. input_tokens=701, output_tokens=328
+23:32:40,216 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:40,217 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.521938979160041. input_tokens=458, output_tokens=211
+23:32:41,85 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:41,85 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1375840781256557. input_tokens=457, output_tokens=108
+23:32:41,159 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:41,159 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9637235100381076. input_tokens=453, output_tokens=118
+23:32:41,203 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:41,204 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.99313206365332. input_tokens=446, output_tokens=131
+23:32:41,233 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:41,234 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8068563230335712. input_tokens=434, output_tokens=102
+23:32:41,544 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:41,545 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.9187181000597775. input_tokens=495, output_tokens=168
+23:32:41,725 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:41,726 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.020699193701148. input_tokens=542, output_tokens=200
+23:32:42,50 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:42,51 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.580333375837654. input_tokens=446, output_tokens=138
+23:32:42,460 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:42,461 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2381403390318155. input_tokens=451, output_tokens=94
+23:32:42,552 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:42,553 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.3176815588958561. input_tokens=440, output_tokens=72
+23:32:42,870 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:42,871 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.6615645862184465. input_tokens=451, output_tokens=86
+23:32:43,182 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:43,183 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.8297724281437695. input_tokens=451, output_tokens=166
+23:32:43,476 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:43,476 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3849269347265363. input_tokens=416, output_tokens=101
+23:32:43,641 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:43,641 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4808253590017557. input_tokens=460, output_tokens=121
+23:32:43,857 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:43,858 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.3916932032443583. input_tokens=450, output_tokens=103
+23:32:44,137 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:44,137 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.266718350816518. input_tokens=529, output_tokens=190
+23:32:44,207 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:44,208 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.019067149143666. input_tokens=413, output_tokens=47
+23:32:44,831 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:44,832 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9555276040919125. input_tokens=466, output_tokens=131
+23:32:45,152 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:45,152 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0954755302518606. input_tokens=404, output_tokens=117
+23:32:45,199 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:45,200 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.467492378782481. input_tokens=520, output_tokens=252
+23:32:45,289 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:45,290 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8075877344235778. input_tokens=433, output_tokens=105
+23:32:45,383 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:45,383 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.832483563106507. input_tokens=455, output_tokens=132
+23:32:45,701 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:45,702 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.5583476070314646. input_tokens=480, output_tokens=87
+23:32:45,707 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:45,708 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0587149560451508. input_tokens=552, output_tokens=128
+23:32:45,772 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:45,773 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9099621139466763. input_tokens=516, output_tokens=102
+23:32:46,514 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:46,514 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.305405546911061. input_tokens=493, output_tokens=136
+23:32:47,236 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:47,237 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.399637999944389. input_tokens=486, output_tokens=165
+23:32:47,598 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:47,599 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3983078533783555. input_tokens=486, output_tokens=117
+23:32:47,636 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:47,637 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.252874954137951. input_tokens=499, output_tokens=135
+23:32:47,704 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:47,704 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.930243563838303. input_tokens=468, output_tokens=98
+23:32:47,850 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:47,850 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.5551133672706783. input_tokens=452, output_tokens=139
+23:32:48,260 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:48,260 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.548032322898507. input_tokens=483, output_tokens=89
+23:32:48,296 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:48,297 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.0543445250950754. input_tokens=449, output_tokens=61
+23:32:48,723 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:48,724 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5651594339869916. input_tokens=495, output_tokens=160
+23:32:48,861 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:48,862 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3422044976614416. input_tokens=501, output_tokens=146
+23:32:49,550 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:32:49,551 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.842534173745662. input_tokens=463, output_tokens=147
+23:33:00,214 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:00,215 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 17.661093087866902. input_tokens=439, output_tokens=91
+23:33:00,226 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+23:33:00,328 graphrag.index.run INFO Running workflow: join_text_units_to_covariate_ids...
+23:33:00,328 graphrag.index.run INFO dependencies for join_text_units_to_covariate_ids: ['create_final_covariates']
+23:33:00,329 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+23:33:00,339 datashaper.workflow.workflow INFO executing verb select
+23:33:00,344 datashaper.workflow.workflow INFO executing verb aggregate_override
+23:33:00,345 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_covariate_ids.parquet
+23:33:00,453 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+23:33:00,453 graphrag.index.run INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+23:33:00,453 graphrag.index.run INFO read table from storage: create_summarized_entities.parquet
+23:33:00,464 datashaper.workflow.workflow INFO executing verb cluster_graph
+23:33:00,504 datashaper.workflow.workflow INFO executing verb select
+23:33:00,505 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+23:33:00,615 graphrag.index.run INFO Running workflow: create_final_entities...
+23:33:00,615 graphrag.index.run INFO dependencies for create_final_entities: ['create_base_entity_graph']
+23:33:00,615 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+23:33:00,627 datashaper.workflow.workflow INFO executing verb unpack_graph
+23:33:00,642 datashaper.workflow.workflow INFO executing verb rename
+23:33:00,647 datashaper.workflow.workflow INFO executing verb select
+23:33:00,654 datashaper.workflow.workflow INFO executing verb dedupe
+23:33:00,659 datashaper.workflow.workflow INFO executing verb rename
+23:33:00,665 datashaper.workflow.workflow INFO executing verb filter
+23:33:00,672 datashaper.workflow.workflow INFO executing verb text_split
+23:33:00,679 datashaper.workflow.workflow INFO executing verb drop
+23:33:00,686 datashaper.workflow.workflow INFO executing verb merge
+23:33:00,703 datashaper.workflow.workflow INFO executing verb text_embed
+23:33:00,704 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.244:8016/v1
+23:33:00,715 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for m3e-large: TPM=0, RPM=0
+23:33:00,715 graphrag.index.llm.load_llm INFO create concurrency limiter for m3e-large: 25
+23:33:00,720 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 148 inputs via 148 snippets using 10 batches. max_batch_size=16, max_tokens=8191
+23:33:02,502 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+23:33:02,517 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.7896113125607371. input_tokens=184, output_tokens=0
+23:33:02,520 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+23:33:02,527 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+23:33:02,527 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+23:33:02,528 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+23:33:02,528 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+23:33:02,585 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.8636476402170956. input_tokens=995, output_tokens=0
+23:33:02,593 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+23:33:02,593 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+23:33:02,593 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+23:33:02,593 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+23:33:02,649 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.924881279002875. input_tokens=1061, output_tokens=0
+23:33:02,710 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.9846374737098813. input_tokens=1217, output_tokens=0
+23:33:02,773 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.0463122772052884. input_tokens=904, output_tokens=0
+23:33:02,835 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.1087498920969665. input_tokens=1334, output_tokens=0
+23:33:02,915 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.1932201110757887. input_tokens=834, output_tokens=0
+23:33:02,976 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.2528273132629693. input_tokens=1493, output_tokens=0
+23:33:03,37 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.3115226039662957. input_tokens=1387, output_tokens=0
+23:33:03,99 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.3749919990077615. input_tokens=639, output_tokens=0
+23:33:03,123 datashaper.workflow.workflow INFO executing verb drop
+23:33:03,129 datashaper.workflow.workflow INFO executing verb filter
+23:33:03,132 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_entities.parquet
+23:33:03,275 graphrag.index.run INFO Running workflow: create_final_nodes...
+23:33:03,275 graphrag.index.run INFO dependencies for create_final_nodes: ['create_base_entity_graph']
+23:33:03,275 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+23:33:03,291 datashaper.workflow.workflow INFO executing verb layout_graph
+23:33:03,331 datashaper.workflow.workflow INFO executing verb unpack_graph
+23:33:03,347 datashaper.workflow.workflow INFO executing verb unpack_graph
+23:33:03,365 datashaper.workflow.workflow INFO executing verb drop
+23:33:03,372 datashaper.workflow.workflow INFO executing verb filter
+23:33:03,383 datashaper.workflow.workflow INFO executing verb select
+23:33:03,391 datashaper.workflow.workflow INFO executing verb rename
+23:33:03,399 datashaper.workflow.workflow INFO executing verb join
+23:33:03,409 datashaper.workflow.workflow INFO executing verb convert
+23:33:03,418 datashaper.workflow.workflow INFO executing verb rename
+23:33:03,419 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_nodes.parquet
+23:33:03,534 graphrag.index.run INFO Running workflow: create_final_communities...
+23:33:03,535 graphrag.index.run INFO dependencies for create_final_communities: ['create_base_entity_graph']
+23:33:03,535 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+23:33:03,552 datashaper.workflow.workflow INFO executing verb unpack_graph
+23:33:03,570 datashaper.workflow.workflow INFO executing verb unpack_graph
+23:33:03,587 datashaper.workflow.workflow INFO executing verb aggregate_override
+23:33:03,597 datashaper.workflow.workflow INFO executing verb join
+23:33:03,608 datashaper.workflow.workflow INFO executing verb join
+23:33:03,620 datashaper.workflow.workflow INFO executing verb concat
+23:33:03,629 datashaper.workflow.workflow INFO executing verb filter
+23:33:03,649 datashaper.workflow.workflow INFO executing verb aggregate_override
+23:33:03,661 datashaper.workflow.workflow INFO executing verb join
+23:33:03,673 datashaper.workflow.workflow INFO executing verb filter
+23:33:03,684 datashaper.workflow.workflow INFO executing verb fill
+23:33:03,693 datashaper.workflow.workflow INFO executing verb merge
+23:33:03,706 datashaper.workflow.workflow INFO executing verb copy
+23:33:03,715 datashaper.workflow.workflow INFO executing verb select
+23:33:03,716 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_communities.parquet
+23:33:03,843 graphrag.index.run INFO Running workflow: join_text_units_to_entity_ids...
+23:33:03,843 graphrag.index.run INFO dependencies for join_text_units_to_entity_ids: ['create_final_entities']
+23:33:03,843 graphrag.index.run INFO read table from storage: create_final_entities.parquet
+23:33:03,879 datashaper.workflow.workflow INFO executing verb select
+23:33:03,889 datashaper.workflow.workflow INFO executing verb unroll
+23:33:03,900 datashaper.workflow.workflow INFO executing verb aggregate_override
+23:33:03,903 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_entity_ids.parquet
+23:33:04,22 graphrag.index.run INFO Running workflow: create_final_relationships...
+23:33:04,22 graphrag.index.run INFO dependencies for create_final_relationships: ['create_base_entity_graph', 'create_final_nodes']
+23:33:04,23 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+23:33:04,25 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+23:33:04,47 datashaper.workflow.workflow INFO executing verb unpack_graph
+23:33:04,68 datashaper.workflow.workflow INFO executing verb filter
+23:33:04,82 datashaper.workflow.workflow INFO executing verb rename
+23:33:04,92 datashaper.workflow.workflow INFO executing verb filter
+23:33:04,106 datashaper.workflow.workflow INFO executing verb drop
+23:33:04,117 datashaper.workflow.workflow INFO executing verb compute_edge_combined_degree
+23:33:04,133 datashaper.workflow.workflow INFO executing verb convert
+23:33:04,144 datashaper.workflow.workflow INFO executing verb convert
+23:33:04,145 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_relationships.parquet
+23:33:04,269 graphrag.index.run INFO Running workflow: join_text_units_to_relationship_ids...
+23:33:04,269 graphrag.index.run INFO dependencies for join_text_units_to_relationship_ids: ['create_final_relationships']
+23:33:04,269 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+23:33:04,294 datashaper.workflow.workflow INFO executing verb select
+23:33:04,305 datashaper.workflow.workflow INFO executing verb unroll
+23:33:04,318 datashaper.workflow.workflow INFO executing verb aggregate_override
+23:33:04,331 datashaper.workflow.workflow INFO executing verb select
+23:33:04,332 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_relationship_ids.parquet
+23:33:04,459 graphrag.index.run INFO Running workflow: create_final_community_reports...
+23:33:04,459 graphrag.index.run INFO dependencies for create_final_community_reports: ['create_final_relationships', 'create_final_covariates', 'create_final_nodes']
+23:33:04,459 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+23:33:04,462 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+23:33:04,464 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+23:33:04,489 datashaper.workflow.workflow INFO executing verb prepare_community_reports_nodes
+23:33:04,503 datashaper.workflow.workflow INFO executing verb prepare_community_reports_edges
+23:33:04,517 datashaper.workflow.workflow INFO executing verb prepare_community_reports_claims
+23:33:04,530 datashaper.workflow.workflow INFO executing verb restore_community_hierarchy
+23:33:04,545 datashaper.workflow.workflow INFO executing verb prepare_community_reports
+23:33:04,546 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=1 => 148
+23:33:04,590 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=0 => 148
+23:33:04,628 datashaper.workflow.workflow INFO executing verb create_community_reports
+23:33:26,239 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:26,239 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:26,239 graphrag.llm.openai.utils INFO success load json in step 2{'title': '全球咖啡豆市场及其增长趋势', 'summary': '该社区聚焦于全球咖啡豆市场，特别是其经济规模和年复合增长率。全球咖啡豆市场的巨大体量和持续增长趋势推动了对更高品质咖啡豆的需求，进而促进了高级检测技术如光谱成像技术的应用与发展。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '全球咖啡豆市场的经济规模', 'explanation': '全球咖啡豆市场在2023年的经济规模超过了300亿美元，这一数字反映了该行业巨大的市场价值和咖啡豆市场的庞大体量。市场的经济规模不仅展示了咖啡豆行业的繁荣，也为投资和技术创新提供了广阔的空间。[records: 实体 (68), 关系 (98)]'}, {'summary': '市场年复合增长率', 'explanation': '预计2023-2030年间全球咖啡豆市场的年复合增长率为6.5%，这表明市场有持续增长的趋势。市场的持续增长不仅反映了消费者对咖啡豆的稳定需求，也意味着行业需要不断提升产品质量和安全性来满足市场要求。[records: 实体 (78), 关系 (104)]'}, {'summary': '市场增长推动技术发展', 'explanation': '全球咖啡豆市场规模的增长推动了咖啡豆精选技术的发展，以满足更高的市场需求。随着市场不断扩大，传统的检测方法已难以满足高效、精准的品质要求，这促使行业转向更先进的检测技术，如光谱成像技术。[records: 关系 (98)]'}, {'summary': '市场发展潜力', 'explanation': '市场规模的增长预期反映了市场的发展潜力和投资价值。投资者和企业对市场的积极预期进一步加速了技术进步和创新，特别是在食品安全与品质检测领域。[records: 关系 (104)]'}, {'summary': '技术应用的重要性', 'explanation': '为了应对市场的高速增长，光谱成像技术等先进检测方法的引入变得尤为重要。这些技术不仅能够提高检测效率，还能确保食品的安全性和品质，从而增强消费者的信任和满意度。[records: 实体 (68), 实体 (78)]'}]}
+23:33:26,240 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 21.588936656247824. input_tokens=2839, output_tokens=973
+23:33:27,124 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:27,125 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:27,125 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱成像技术在猪肉品质检测中的应用', 'summary': '该社区围绕光谱成像技术在猪肉品质检测中的应用展开，涉及的关键实体包括猪肉、pH值、挥发性盐基氮（TVB-N）、脂肪检测及猪肉脂肪可视化结果。这些实体之间通过光谱成像技术建立了紧密的关系，共同构成了一个高效的猪肉品质检测系统。', 'rating': 9.5, 'rating_explanation': '报告详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱成像技术在猪肉检测中的作用', 'explanation': '光谱成像技术通过分析不同波段光的吸收特性，实现了对猪肉的非破坏性检测。这项技术不仅能够检测猪肉中的脂肪含量，还能测定蛋白质和水分等其他关键质量指标，提供详细的成分信息，有助于确保食品安全和提升产品质量。[records: 实体 (92, 114), 关系 (123, 124)]'}, {'summary': 'pH值在评估猪肉新鲜度中的重要性', 'explanation': 'pH值是评估猪肉新鲜度的重要化学指标之一，反映了肌肉组织的酸碱度。较低的pH值表明肌肉中的糖原分解过多，可能导致肉质下降。通过监测pH值，可以有效评估猪肉的新鲜程度和质量，从而保障消费者的健康。[records: 实体 (92, 94), 关系 (121)]'}, {'summary': '挥发性盐基氮（TVB-N）作为肉品腐败的关键指标', 'explanation': '挥发性盐基氮（TVB-N）是用于评估猪肉新鲜度的一个重要化学指标，其含量与肉质的腐败程度密切相关。通过检测TVB-N的含量，可以有效反映肉品在储存过程中的腐败情况，是衡量猪肉新鲜度的关键参数。[records: 实体 (92, 93), 关系 (120)]'}, {'summary': '脂肪检测在猪肉质量控制中的作用', 'explanation': '猪肉的脂肪含量是其质量的重要指标，通过脂肪检测可以确保肉类的质量和安全性。脂肪含量不仅影响猪肉的口感和营养价值，还是衡量肉品新鲜度和安全性的关键因素之一。[records: 实体 (92), 关系 (122)]'}, {'summary': '猪肉脂肪可视化结果的应用', 'explanation': '通过光谱成像技术，可以获取猪肉脂肪含量和分布的可视化结果。这些图像为质量控制提供了直观的依据，有助于更准确地评估猪肉的质量和安全性。可视化结果不仅提升了检测的准确性，还简化了检测流程，提高了生产效率。[records: 实体 (92, 114), 关系 (124)]'}]}
+23:33:27,125 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 22.484202345833182. input_tokens=3712, output_tokens=1162
+23:33:29,242 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:29,242 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:29,242 graphrag.llm.openai.utils INFO success load json in step 2{'title': '茶叶精选过程中的关键技术与设备', 'summary': '该社区围绕茶叶精选的过程展开，特别是喷阀抖筛技术，这是一种常用的物理方法，用于茶叶的剔杂。喷阀与抖筛的结合使用是该技术的核心，但不同杂质特性的差异限制了其效果。该社区涉及的关键实体包括喷阀抖筛、喷阀和抖筛，它们之间的关系紧密，共同构成了茶叶精选的重要环节。', 'rating': 9.5, 'rating_explanation': '该文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '喷阀抖筛在茶叶精选中的应用', 'explanation': '喷阀抖筛是一种常用的物理方法，用于茶叶剔杂。这种技术通过结合喷阀和抖筛的双重作用，能够有效地去除茶叶中的杂质。然而，由于不同杂质特性的差异，其效果有限，需要进一步的技术改进。[records: 实体 (16), 关系 (35)]'}, {'summary': '喷阀的作用与特性', 'explanation': '喷阀是茶叶精选中用于去除杂质的重要设备，其工作原理是通过喷射气流抖动茶叶，分离杂质。喷阀与抖筛结合使用，可以更有效地实现茶叶的纯净度提升。[records: 实体 (24), 关系 (45)]'}, {'summary': '抖筛的功能与重要性', 'explanation': '抖筛是茶叶精选中用于分离杂质的关键设备，通过振动筛网去除茶叶中的异物。抖筛是喷阀抖筛系统中的核心组件，与喷阀协同工作，提高剔杂效果。[records: 实体 (25), 关系 (46)]'}, {'summary': '喷阀与抖筛的结合', 'explanation': '喷阀与抖筛的结合使用是茶叶精选过程中的重要步骤。喷阀通过气流抖动茶叶，而抖筛则通过振动筛网去除杂质，两者共同作用，提高了茶叶的纯净度。这种组合技术虽然有效，但在处理不同特性杂质时仍存在一定局限。[records: 关系 (45, 46)]'}, {'summary': '喷阀抖筛技术的效果', 'explanation': '尽管喷阀抖筛技术在茶叶剔杂中表现出一定的效果，但由于不同杂质特性的差异，其剔杂效果并不一致。这种技术需要进一步优化，以适应更多类型的杂质。[records: 实体 (16), 关系 (35)]'}, {'summary': '传统方法的局限性', 'explanation': '传统的物理剔杂方法如喷阀抖筛，虽然在一定程度上能够去除茶叶中的杂质，但效果受制于杂质的特性。这种局限性使得开发新的检测技术变得必要，例如光谱成像技术，可以提供更准确、高效的检测手段。[records: 实体 (16), 关系 (35)]'}]}
+23:33:29,243 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 24.607168512884527. input_tokens=2910, output_tokens=1159
+23:33:29,296 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:29,297 graphrag.llm.openai.utils INFO success load json in step 1{'title': '茶叶精选与人工剔杂过程分析', 'summary': '该社区聚焦于茶叶精选过程中的重要环节——人工剔杂，以及由此引入的新杂质及食品安全风险。通过探讨这些问题，旨在寻找更先进的解决方案，以提高茶叶的质量和安全性。', 'rating': 9.5, 'rating_explanation': '该报告深入分析了茶叶精选中人工剔杂的局限性及其带来的食品安全风险，并指出了通过光谱成像技术等突破性技术手段解决问题的可能性，对食品安全与品质检测领域具有重要指导意义。', 'findings': [{'summary': '人工剔杂的传统作用', 'explanation': '人工剔杂是茶叶精选过程中的传统步骤，主要通过工人的手动操作来去除茶叶中的杂质。这种方法虽然能在一定程度上保证茶叶的质量，但同时也存在引入新的杂质和食品安全风险的隐患。例如，工人可能无意中将纤维、纸屑等非茶物质混入茶叶中，从而影响最终产品的安全性和品质。[records: 实体 (40), 关系 (41)]'}, {'summary': '新杂质及食品安全风险', 'explanation': '人工剔杂过程中可能引入的新杂质不仅仅是物理性的，如纤维、纸屑等，还可能包括微生物污染。这些新杂质和风险对消费者的健康构成了潜在威胁，也影响了茶叶企业的声誉和发展。茶叶企业在采用人工剔杂方法时，必须考虑如何最大限度地减少这些风险。[records: 实体 (41), 关系 (81)]'}, {'summary': '传统方法的局限性', 'explanation': '尽管人工剔杂在茶叶精选中占有重要位置，但它无法完全满足现代茶叶生产对高质量、高效率的要求。人工操作的不稳定性、效率低下以及难以避免的食品安全风险，使得传统的茶叶精选方法面临着巨大的挑战。因此，寻求更先进的替代方案成为茶叶企业关注的重点。[records: 关系 (41)]'}, {'summary': '突破性技术手段的应用', 'explanation': '光谱成像技术作为一种突破性技术手段，在茶叶精选中展现出了巨大的潜力。这种技术能够快速、准确地识别和剔除茶叶中的杂质，同时不会引入新的杂质或风险。通过光谱成像技术的应用，茶叶企业不仅能提高产品质量，还能显著降低食品安全风险，增强市场竞争力。[records: 关系 (82)]'}, {'summary': '技术的推广与标准化', 'explanation': '为了更广泛地利用光谱成像技术的优势，茶叶行业需要建立相应的技术标准和操作规范，确保不同企业之间的一致性和可比性。此外，还需要加强技术培训，提升茶叶企业员工的操作技能，确保新技术的有效实施。通过这些措施，光谱成像技术有望成为茶叶精选的标准工具，推动整个行业的进步。[records: NONE]'}]}
+23:33:29,297 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 24.66477854922414. input_tokens=2932, output_tokens=1206
+23:33:32,605 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:32,606 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:32,606 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱成像技术在咖啡豆品质检测中的应用', 'summary': '该社区围绕咖啡豆及其品质检测技术展开。光谱成像技术作为一种新兴的检测方法，与传统的杯测方法相比，具有快速、无损和高精度的优势。通过光谱数据咖啡豆精选设备的应用，可以有效提升咖啡豆品质检测的效率和准确性，推动全球咖啡豆市场的增长和发展。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱成像技术在咖啡豆品质检测中的高效性', 'explanation': '光谱成像技术在咖啡豆的品质检测中表现出色，能够进行非破坏性的检测，提供一种快速且准确的评估方法，有效提高了咖啡豆品质检测的效率和准确性。这种技术的应用不仅减少了传统方法的时间消耗，还避免了对样品的损坏，为咖啡行业的品质控制提供了新的解决方案。[records: 关系 (100)]'}, {'summary': '咖啡豆品质检测的重要性', 'explanation': '在品质监测过程中，咖啡豆是最重要的被检测对象之一。其质量不仅直接关系到最终产品的质量，而且确保咖啡豆的高品质对于生产出优质的咖啡产品至关重要。通过运用先进的光谱成像技术，可以实现对咖啡豆品质的快速无损检测，从而有效提升食品质量和安全性，构建科学合理的检测流程和标准。[records: 关系 (102)]'}, {'summary': '全球咖啡豆市场的需求推动技术发展', 'explanation': '全球咖啡豆市场规模的增长推动了咖啡豆精选技术的发展，以满足更高的市场需求。随着消费者对咖啡品质要求的提高，高品质咖啡豆的供应变得尤为重要。光谱成像技术的应用能够满足这一需求，通过快速无损的检测方法，确保每一批次咖啡豆的质量。[records: 关系 (98)]'}, {'summary': '传统杯测方法的局限性', 'explanation': '杯测是评估咖啡豆品质的传统方法，但过程复杂且成本较高。这种方法依赖于专业人员的感官评估，不仅耗时，而且具有一定的主观性。此外，杯测过程中会对咖啡豆造成一定程度的损坏，不适合大规模的工业化生产。光谱成像技术则克服了这些局限，提供了一种更为客观、快速且无损的检测手段。[records: 关系 (99)]'}, {'summary': '光谱数据咖啡豆精选设备的应用', 'explanation': '该光谱数据咖啡精选设备利用先进的光谱技术对咖啡豆进行品质筛选和选择分类，有效提高了检测的效率和准确性。通过这种技术的应用，不仅能够快速判断咖啡豆的品质，还能确保筛选过程的无损性和科学性，为提升最终产品质量提供了可靠保障。[records: 关系 (101)]'}, {'summary': '咖啡行业认证的品尝专家的角色', 'explanation': '专家通过直接品尝来评估咖啡豆的质量，这种方法虽然准确但耗时且成本高。尽管如此，专家的感官评估仍然是品质检测的重要参考，尤其是在高端咖啡市场上。光谱成像技术与专家评估相结合，可以在保证检测速度的同时，保留专家的感官经验，实现最佳的品质控制。[records: 关系 (103)]'}]}
+23:33:32,606 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 27.957785727921873. input_tokens=3590, output_tokens=1485
+23:33:33,593 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:33,593 graphrag.llm.openai.utils INFO success load json in step 1{'title': '光谱成像技术在食品品质检测中的应用', 'summary': '在食品安全与品质检测领域，光谱成像技术正逐渐替代传统的杯测等耗时且成本高的方法。该技术通过提供客观、快速且无损的检测手段，显著提高了食品检测的效率和准确性。认证的品尝专家虽然在传统方法中扮演着重要角色，但随着光谱成像技术的发展，这种方法的局限性日益明显。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '传统杯测方法的局限性', 'explanation': '传统上，咖啡行业中用来评估咖啡豆品质的方法是杯测，这是一种由认证的品尝专家进行的过程。虽然这种方法能够提供详细的品质评估，但它耗时、成本高，并且缺乏统一的客观标准，导致评价结果可能存在较大的主观差异。[records: 实体 (79, 83), 关系 (99, 114)]'}, {'summary': '认证的品尝专家的角色', 'explanation': '认证的品尝专家是进行杯测的主要执行者，他们的专业判断对咖啡豆的品质评估至关重要。然而，即使是最有经验的专家也难以避免个人偏好和偏见的影响，这使得传统杯测方法在客观性和一致性方面存在挑战。[records: 实体 (88), 关系 (109, 114)]'}, {'summary': '光谱成像技术的优势', 'explanation': '与传统杯测方法相比，光谱成像技术提供了一种快速、无损且客观的检测手段。这种技术能够准确地分析食品的化学成分和物理特性，从而提供可靠的品质评估。此外，光谱成像技术可以在生产线上实时应用，大大提高了检测效率和食品安全水平。[records: 实体 (79, 83), 关系 (99, 114)]'}, {'summary': '技术应用的广泛性', 'explanation': '光谱成像技术不仅适用于咖啡豆的品质检测，还可以应用于调味品、水果、肉类、白糖和茶叶等多种食品。这使得该技术成为提高整个食品行业质量和安全标准的有效工具。通过在不同食品中的应用，光谱成像技术能够为食品生产商提供一致和可靠的数据支持。[records: 实体 (79, 83), 关系 (99, 114)]'}, {'summary': '推动行业标准的建立', 'explanation': '随着光谱成像技术在食品安全与品质检测中的广泛应用，这一技术正在推动新的行业标准的建立。这些标准将有助于统一食品检测方法，减少主观因素的影响，提高检测结果的可比性和可靠性。此外，技术的应用也有助于加强食品监管机构的监督能力，保障消费者的健康。[records: 实体 (79, 83), 关系 (99, 114)]'}]}
+23:33:33,594 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 28.94042175868526. input_tokens=2908, output_tokens=1186
+23:33:34,350 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:34,351 graphrag.llm.openai.utils INFO success load json in step 1{'title': '光谱成像技术与鱼肉寄生虫检测', 'summary': '本报告探讨了一个以光谱成像技术为核心，围绕鱼肉及其寄生虫检测的社区。光谱成像技术作为高效、无损的检测手段，能够在食品加工过程中确保鱼肉的安全性和质量。鱼肉是这一检测过程的主要对象，而寄生虫的存在则是食品安全的主要威胁之一。通过光谱成像技术的应用，可以有效提高食品的安全性，减少食品安全事件的发生。', 'rating': 9.5, 'rating_explanation': '该报告详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱成像技术的重要性', 'explanation': '光谱成像技术作为一种非侵入性检测方法，在食品加工行业中，特别是在鱼肉寄生虫检测方面，展现出了巨大的潜力。传统的寄生虫检测方法往往耗时且不完全可靠，而光谱成像技术能够快速、无损地检测出鱼肉中的寄生虫，极大地提高了检测的准确性和效率。[records: 实体 (126), 关系 (140)]'}, {'summary': '鱼肉与寄生虫的关系', 'explanation': '鱼肉是食品加工中的重要组成部分，但在其加工过程中可能携带寄生虫，这些寄生虫对消费者的健康构成了直接威胁。确保鱼肉中不含寄生虫是维护食品安全的关键步骤。传统的物理和化学检测方法虽然有效，但存在一定的局限性，如检测速度慢、成本高、可能对样品造成损害等。[records: 实体 (126, 127), 关系 (171)]'}, {'summary': '寄生虫检测的必要性', 'explanation': '寄生虫检测是食品安全保障的重要环节。鱼肉作为寄生虫检测的主要对象，其检测结果直接影响到最终产品的安全性和市场的接受度。有效的寄生虫检测不仅可以保护消费者免受寄生虫感染的风险，还可以帮助企业遵守食品安全法规，避免因产品质量问题导致的经济损失和品牌信誉损害。[records: 关系 (149)]'}, {'summary': '光谱成像技术的优势', 'explanation': '与传统检测方法相比，光谱成像技术具有明显的优势。首先，它可以实现快速检测，大大缩短了检测周期，提高了生产效率。其次，该技术是非破坏性的，可以在不损坏样品的情况下完成检测，这对于保持食品的原始状态和营养价值尤为重要。此外，光谱成像技术的准确性高，误报率低，有助于提高检测结果的可靠性。[records: 实体 (126), 关系 (140)]'}, {'summary': '技术推广与应用前景', 'explanation': '随着光谱成像技术的不断成熟和发展，其在食品行业的应用前景十分广阔。通过与食品生产商的合作，将这项技术引入生产线，不仅可以提高产品的质量和安全性，还能降低生产成本，提升企业的市场竞争力。同时，光谱成像技术的普及也将促进整个食品行业技术标准的提升，推动食品安全管理水平的全面提升。[records: NONE]'}]}
+23:33:34,351 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 29.705022195819765. input_tokens=2943, output_tokens=1319
+23:33:34,839 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:34,840 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:34,840 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱成像技术在食品安全与品质检测中的应用', 'summary': '本报告探讨了光谱成像技术在食品安全与品质检测领域的应用，特别是其在酱油发酵、寄生虫检测、肉类脂肪检测等方面的作用。本报告分析了光谱成像技术如何与数据处理算法结合，提供了一种快速、无损的检测方法，显著提升了食品检测的效率和准确性。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案，因此评分为9.5。', 'findings': [{'summary': '光谱成像技术的广泛应用', 'explanation': '光谱成像技术在食品安全与品质检测领域有着广泛的应用，包括寄生虫检测、肉类脂肪检测、酱油发酵指标监测等。这种技术通过捕捉不同光谱波段的图像，能够实现对食品中各种成分的精确检测，为食品安全提供了强有力的支持。[records: 实体 (106), 关系 (136, 123, 140, 137, 138, 134, 135)]'}, {'summary': '光谱成像技术与数据处理算法的结合', 'explanation': '数据处理算法与光谱成像技术相结合，可以有效识别和检测食品中的寄生虫和其他质量问题。这种结合不仅提高了检测的准确性，还显著增强了检测效率，使得光谱成像技术在实际应用中更具优势。[records: 实体 (121), 关系 (141, 150)]'}, {'summary': '光谱成像技术在肉类脂肪检测中的应用', 'explanation': '光谱成像技术在肉类脂肪检测中表现出色，能够快速、高效地检测肉类中的脂肪含量和分布。这对于确保肉类产品的质量和安全性至关重要，尤其是在肉类加工行业中。[records: 实体 (105, 113), 关系 (134, 135, 122)]'}, {'summary': '光谱成像技术在酱油发酵中的应用', 'explanation': '光谱成像技术可以用于监控酱油发酵过程中的关键指标变化，确保产品质量。通过实时监测发酵过程中的各项指标，可以及时调整发酵条件，确保酱油的质量安全和品质稳定。[records: 实体 (120), 关系 (153, 137, 138)]'}, {'summary': '光谱成像技术在提升食品安全性中的作用', 'explanation': '光谱成像技术通过提高对食品中寄生虫等有害物质的检测能力，显著提升了整体的食品安全水平。这种技术不仅能够快速检测食品中的问题，还能减少传统检测方法带来的破坏性和时间成本。[records: 关系 (142)]'}, {'summary': '光谱成像技术在消费检测场景中的潜力', 'explanation': '光谱成像技术有潜力应用于消费检测场景，直接服务于消费者的食品安全需求。例如，消费者可以在购买前使用便携式光谱设备检测食品的质量，增强对食品安全的信心。[records: 关系 (143)]'}, {'summary': '光谱成像技术在生产管理中的应用', 'explanation': '光谱成像技术的应用可以优化生产管理，提高生产效率和产品质量。通过实时监测生产过程中的关键指标，企业可以及时发现和解决问题，从而提升整体生产水平。[records: 关系 (139)]'}]}
+23:33:34,840 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 30.196559764444828. input_tokens=4169, output_tokens=1377
+23:33:35,181 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:35,181 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:35,181 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱成像技术在食品安全检测中的应用社区', 'summary': '该社区关注光谱成像技术在食品安全检测中的应用，特别是寄生虫检测。社区内的主要实体包括光谱成像技术、寄生虫检测、消费检测场景、食品安全性及不同波段下鱼片的光谱图像等。这些实体之间存在紧密的关系，如光谱成像技术通过分析不同波段下的光谱图像来检测寄生虫，提高食品安全检测的效率和准确性，而消费检测场景则侧重于直接服务消费者的食品安全需求。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案，因此评分为9.5。', 'findings': [{'summary': '光谱成像技术在寄生虫检测中的应用', 'explanation': '光谱成像技术能够通过分析不同波段下的光谱图像，精确检测寄生虫的存在，显著提升了检测效率和准确性。这种技术尤其适用于鱼肉中的寄生虫检测，因为寄生虫和鱼肉在不同光谱波段下的成像差异较大。[records: 实体 (115, 119), 关系 (136, 148, 149)]'}, {'summary': '光谱成像技术在消费检测场景中的潜力', 'explanation': '光谱成像技术不仅可以在工业生产中应用，还可以用于消费检测场景，直接服务于消费者。消费者可以在购买或使用前对商品进行检测，以验证产品的安全性和质量，这将大大增强消费者对食品的信心，并促进市场透明度。[records: 实体 (123), 关系 (143, 152)]'}, {'summary': '光谱成像技术对食品安全性的贡献', 'explanation': '光谱成像技术提高了对食品中寄生虫的检测能力，有助于提升整体的食品安全水平。通过及时发现和去除寄生虫，可以有效预防因寄生虫引起的疾病，保障消费者的健康。此外，这项技术还可以减少因食品安全问题导致的召回和投诉，降低企业的风险。[records: 实体 (122), 关系 (142, 151)]'}, {'summary': '不同波段下鱼片的光谱图像的重要性', 'explanation': '不同波段下鱼片的光谱图像提供了检测寄生虫所需的详细信息，有助于提高检测的准确性和可靠性。通过对这些图像的分析，可以更有效地识别寄生虫的位置和种类，从而确保食品的安全性。[records: 实体 (119), 关系 (148)]'}, {'summary': '寄生虫检测与数据处理算法的结合', 'explanation': '数据处理算法在寄生虫检测中扮演着重要角色。通过分析光谱图像，数据处理算法可以辅助检测人员提高检测的精度和速度。这种结合方式不仅减少了人工检测的劳动强度，还能有效降低漏检率，提高检测的整体效率。[records: 关系 (150)]'}, {'summary': '寄生虫检测的挑战与传统方法的局限', 'explanation': '传统的寄生虫检测方法，如烛光法，虽然简单易行，但也存在明显的局限性，比如劳动强度大和漏检率高。随着科技的发展，寻找更为高效、准确的检测方法已成为当务之急。光谱成像技术作为一种新兴的检测手段，正逐渐成为替代传统方法的有效选择。[records: 实体 (117), 关系 (147)]'}, {'summary': '异尖线虫的威胁与检测', 'explanation': '异尖线虫是一种常见的海洋寄生虫，可感染海产鱼类，对人体健康构成严重威胁。寄生虫检测技术的提升，特别是光谱成像技术的应用，将有助于更有效地识别和去除异尖线虫，保障消费者的健康。[records: 实体 (116), 关系 (146)]'}]}
+23:33:35,182 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 30.543504555244. input_tokens=3733, output_tokens=1534
+23:33:42,826 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:42,827 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:42,827 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱成像技术在食品品质监测中的应用分析', 'summary': '本报告概述了光谱成像技术在食品品质监测中的应用，特别是咖啡豆的品质检测。报告分析了光谱视觉检测技术的优势，包括无损检测、快速和实时的特点，以及这些技术如何改善食品生产和消费的安全性和效率。报告强调了光谱相机在食品品质监测中的核心作用，并讨论了传统检测方法的局限性，提出了未来的发展方向。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱相机在食品品质检测中的核心作用', 'explanation': '光谱相机是实现快速、无损、实时食品质量监测的关键技术，尤其适用于咖啡豆的品质检测。它通过提供食品内外属性的详细信息，增强了品质监测的有效性和效率。[records: 实体 (80), 关系 (112, 100, 111)]'}, {'summary': '无损检测技术的重要性', 'explanation': '无损检测技术在食品行业中具有重要意义，因为它能够在不破坏样品的情况下完成高品质的检测任务。传统的取样破坏方法限制了其在某些领域的应用，而光谱相机作为一种先进的无损检测技术，克服了这些局限，提高了检测的精确度。[records: 实体 (84, 87), 关系 (110, 113)]'}, {'summary': '光谱相机在颗粒级品质分选中的应用', 'explanation': '光谱相机不仅实现了无损检测，还支持颗粒级品质分选，极大地提高了检测的精确度。这种技术特别适合于咖啡豆等细小颗粒的检测，确保了每颗咖啡豆的品质都能得到准确评估。[records: 实体 (85), 关系 (111)]'}, {'summary': '传统检测方法的局限性', 'explanation': '传统检测方法的一个主要缺点是需要破坏样品以进行分析，这限制了其在某些领域的应用。例如，在食品行业中，取样破坏限制了对成品的检测，从而影响了产品的质量和安全性。[records: 实体 (87), 关系 (113)]'}, {'summary': '光谱成像技术在咖啡豆品质检测中的表现', 'explanation': '光谱相机在咖啡豆的品质检测中表现出色，能够进行非破坏性的检测，提供一种快速且准确的评估方法，有效提高了咖啡豆品质检测的效率和准确性。咖啡豆的质量直接关系到最终产品的质量，因此，应用先进的光谱成像技术对于确保食品安全和提升产品质量至关重要。[records: 实体 (80), 关系 (100, 102)]'}, {'summary': '快速、无损、实时检测的特点', 'explanation': '新技术如光谱相机提供的检测特点包括快速、无损、实时检测，这些特点满足了现代食品工业的需求，提高了检测效率和质量。这些技术的应用有助于建立科学、高效的检测流程和标准，从而提升整个食品行业的水平。[records: 实体 (86), 关系 (115)]'}, {'summary': '光谱视觉检测技术的增强效果', 'explanation': '光谱视觉检测技术通过提供食品内外属性的信息，增强了品质监测的有效性和效率。这种技术不仅提高了检测的准确性，还减少了人为误差，使得食品品质检测更加可靠和一致。[records: 关系 (20)]'}, {'summary': '品质监测在食品安全中的重要性', 'explanation': '品质监测是指确保产品质量的过程，特别是在不损害产品的情况下进行的质量检测。这一过程通过采用先进的技术手段，如光谱成像技术，能够在不破坏产品完整性的前提下，高效准确地评估产品的质量和安全性能。这对于提高食品安全性和消费者信任至关重要。[records: 实体 (82)]'}]}
+23:33:42,828 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 38.17120872205123. input_tokens=3809, output_tokens=1619
+23:33:49,74 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:49,75 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:49,75 graphrag.llm.openai.utils INFO success load json in step 2{'title': '食品安全与品质检测技术社区', 'summary': '该社区主要关注食品安全与品质检测技术的发展，特别是在经济发展的背景下，消费者对食品质量和安全性的要求不断提高。在线品质监测技术，尤其是光谱视觉检测技术，成为确保食品安全和质量的重要手段。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '经济发展的推动作用', 'explanation': '社会经济的发展显著提升了消费者对食品质量和安全性的要求。这种变化不仅促进了更严格的质量控制措施的实施，也加速了先进食品检测技术的应用和发展。例如，随着经济的发展，食品精选过程中的质量控制变得更加严格，推动了更先进精选技术的应用。[records: 实体 (3), 关系 (2, 4)]'}, {'summary': '食品安全的重要性', 'explanation': '食品安全是食品生产和消费过程中的核心问题。严格的食品精选过程是保障食品安全的关键措施。同时，食品安全标准的提升也是应对经济发展和社会需求的重要举措。这表明，食品安全不仅关乎消费者的健康，也是食品行业可持续发展的基础。[records: 关系 (1, 2)]'}, {'summary': '在线品质监测的作用', 'explanation': '在线品质监测技术是确保食品安全和质量的重要手段。通过实时监控食品的质量和安全状况，可以及时发现和解决潜在的问题。这项技术的发展和应用，极大地提高了食品检测的效率和准确性。[records: 实体 (1), 关系 (0, 3)]'}, {'summary': '光谱视觉检测技术的应用', 'explanation': '光谱视觉检测技术是实现食品在线品质监测的关键技术之一。这种技术能够在不破坏食品的前提下完成质量检测，具有高效、无损和快速的特点。光谱视觉检测技术的应用，显著提升了食品检测的可靠性和精确度，有助于减少不合格产品的比例，提高生产效率。[records: 关系 (3)]'}, {'summary': '食品精选技术的创新', 'explanation': '随着经济的发展，食品精选技术也在不断创新。传统的食品检测方法存在许多局限，如耗时长、成本高和易造成食品损坏等。光谱视觉检测技术作为一种先进的检测手段，克服了这些局限，为食品行业的质量控制提供了新的解决方案。[records: 关系 (1, 4)]'}, {'summary': '食品安全与经济发展的相互促进', 'explanation': '食品安全和经济发展之间存在着密切的相互促进关系。经济的发展提高了消费者对食品安全的要求，而食品安全标准的提升又反过来促进了经济的健康发展。这种良性循环为食品行业带来了更多的机遇和挑战。[records: 实体 (3), 关系 (2)]'}]}
+23:33:49,75 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 21.933973065111786. input_tokens=2987, output_tokens=1261
+23:33:49,547 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:49,548 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:49,548 graphrag.llm.openai.utils INFO success load json in step 2{'title': '茶叶企业及其面临的食品安全与经济挑战', 'summary': '该社区围绕茶叶企业展开，这些企业在茶叶生产和销售过程中面临高昂的人力和管理成本以及食品安全挑战。茶叶企业通过采用觉精选机，可以有效控制食品安全质量，降低人力和管理成本。', 'rating': 9.5, 'rating_explanation': '文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '高昂的人力和管理成本是主要经济负担', 'explanation': '高昂的人力和管理成本是茶叶企业在茶叶精选过程中面临的主要经济负担。这不仅增加了企业的运营成本，还可能影响到企业的盈利能力。[records: 实体 (43), 关系 (58)]'}, {'summary': '茶叶企业面临的食品安全挑战', 'explanation': '茶叶企业不仅需要应对高昂的人力和管理成本，还面临着食品安全的挑战。食品安全问题是茶叶行业的核心问题之一，不仅关系到消费者的健康，也直接影响企业的声誉和市场竞争力。[records: 实体 (32)]'}, {'summary': '觉精选机的应用效果', 'explanation': '茶叶企业通过采用觉精选机，可以有效控制食品安全质量，降低人力和管理成本。觉精选机利用先进的光谱成像技术，实现对茶叶品质的快速、无损检测，提高了检测的准确性和效率。[records: 实体 (32), 关系 (49)]'}, {'summary': '觉精选机的经济效益', 'explanation': '觉精选机的引入不仅提升了茶叶企业的食品安全水平，还在经济上带来了显著效益。通过减少对人工的依赖，降低了人力成本，并提高了生产效率，从而增强了企业的市场竞争力。[records: 实体 (32), 关系 (49)]'}, {'summary': '觉精选机的技术优势', 'explanation': '觉精选机采用的光谱成像技术能够快速、无损地检测茶叶的品质，包括水分、颜色、形状和杂质等。这种技术不仅提高了检测的速度和准确性，还减少了人为误差，确保了每一批次茶叶的品质一致性。[records: 实体 (32), 关系 (49)]'}]}
+23:33:49,548 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 15.939820925705135. input_tokens=2772, output_tokens=955
+23:33:55,155 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:55,156 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:55,156 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱视觉技术在食品生产调控中的应用', 'summary': '该社区围绕光谱视觉技术展开，该技术在食品生产调控中扮演着核心角色。通过采集和分析食品的光谱数据，光谱视觉技术能够预测食品的理化指标，为生产调控提供科学依据。生产调控基于这些预测值和参考数据，优化生产流程，确保高质量和高效率的产品输出。', 'rating': 9.5, 'rating_explanation': '该文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱视觉技术的核心作用', 'explanation': '光谱视觉技术能够采集并分析食品的光谱数据，预测其理化指标，为质量控制提供技术支持。这项技术在食品生产调控中起着至关重要的作用，能够有效提高检测的准确性和效率。[records: 实体 (145), 关系 (75)]'}, {'summary': '光谱预测与生产调控的关系', 'explanation': '通过光谱预测获取的理化指标数据，为生产调控提供了精确的参考，有助于优化生产工艺。生产调控基于这些预测值，能够及时调整生产参数，确保产品的高质量和一致性。[records: 实体 (141, 145), 关系 (173, 172)]'}, {'summary': '参考数据的重要性', 'explanation': '参考数据是生产调控的重要依据，用于调整生产参数以达到最佳的产品质量和生产效率。这些数据通常来源于质量检测和技术预测，为生产过程提供了可靠的指导。[records: 实体 (141, 147), 关系 (174)]'}, {'summary': '酱油生产的案例', 'explanation': '在酱油生产过程中，基于检测数据进行生产调控，以确保产品质量和生产效率。光谱视觉技术通过预测酱油的理化指标，为生产调控提供了科学依据，从而实现了高效和高质量的生产。[records: 实体 (141), 关系 (170)]'}, {'summary': '光谱视觉技术的优势', 'explanation': '光谱视觉技术相比传统检测方法，具有无损、快速、准确等优势。它可以实时监测食品的质量变化，为生产调控提供即时反馈，极大地提高了食品生产的可控性和可靠性。[records: 实体 (145), 关系 (75)]'}, {'summary': '技术推广的意义', 'explanation': '光谱视觉技术的应用不仅提升了单个食品生产企业的质量控制水平，还推动了整个食品行业的技术进步。通过广泛采用这项技术，可以显著降低不合格产品的比例，提高生产效率，增强消费者的信任。[records: 实体 (141, 145)]'}]}
+23:33:55,156 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 20.79023779788986. input_tokens=3081, output_tokens=1092
+23:33:57,600 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:57,601 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:57,601 graphrag.llm.openai.utils INFO success load json in step 2{'title': '食品安全与品质检测社区评估', 'summary': '该社区聚焦于食品安全与品质检测领域，特别是光谱视觉检测技术的应用。社区的关键实体包括食品精选、光谱视觉检测、产品瑕疵、传统机器视觉手段、传统色选、内部腐烂、微小杂质、整体精选方案、杂质、肉眼识别、自动化剔除和表面缺陷。这些实体之间通过多种关系相互连接，如光谱视觉检测显著提高了食品精选的效率和精度，而传统方法在某些复杂情况下的识别效率不高。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱视觉检测技术的显著优势', 'explanation': '光谱视觉检测技术能够显著提高食品精选的精度和效率，是现代食品精选不可或缺的一部分。这一技术通过非侵入性的方式检测食品内部和表面的缺陷，极大地提高了检测的准确性和速度。例如，在检测内部腐烂和微小杂质方面，光谱视觉检测相比传统方法具有明显的优势。[records: 实体 (2, 20, 29), 关系 (7, 16, 15)]'}, {'summary': '传统检测方法的局限性', 'explanation': '传统检测方法如传统机器视觉手段和传统色选在复杂情况下的识别效率不高。这些方法主要依赖于颜色和外观特征，对于内部缺陷和微小杂质的检测能力有限。例如，肉眼识别在识别内部腐烂和微小杂质方面效果不佳，而传统色选在处理复杂的食品质量问题时也显得力不从心。[records: 实体 (12, 4, 11), 关系 (13, 5, 12)]'}, {'summary': '整体精选方案的综合应用', 'explanation': '整体精选方案通过整合多种先进技术，为食品精选提供了全面的解决方案。该方案结合了上下料、光谱视觉检测和自动化剔除技术，不仅提高了食品精选的效果和效率，还降低了人工成本。例如，自动化剔除技术的应用大大提高了食品生产的效率和质量，减少了人力需求。[records: 实体 (8, 7), 关系 (9, 8)]'}, {'summary': '食品瑕疵和杂质的影响', 'explanation': '食品瑕疵和杂质的存在对食品的商业价值和消费体验有显著影响。产品瑕疵不仅会影响食品的外观，还可能导致食品安全问题。杂质和内部腐烂是特别需要关注的问题，传统方法难以有效检测这些问题。因此，采用更先进的检测技术是提高食品质量和安全性的关键。[records: 实体 (10, 20, 9), 关系 (11, 16, 10)]'}, {'summary': '经济发展的推动作用', 'explanation': '经济的发展对食品精选提出了更高的要求，促进了更先进精选技术的应用。随着消费者对食品安全和品质需求的增加，食品生产企业必须采用更加高效和准确的检测方法。光谱视觉检测技术作为一种先进的解决方案，能够在不影响生产效率的前提下，大幅提高食品的质量和安全性。[records: 实体 (4), 关系 (4)]'}, {'summary': '表面缺陷对食品外观的影响', 'explanation': '表面缺陷是食品精选过程中需要重点关注的问题，直接影响食品的外观和消费体验。传统的检测方法在识别表面缺陷方面存在局限，而光谱视觉检测技术可以通过高分辨率成像和多波长分析，准确识别食品表面的各种缺陷。这不仅提高了食品的外观质量，还增强了消费者的信心。[records: 实体 (5), 关系 (6)]'}, {'summary': '食品安全与食品精选的关系', 'explanation': '食品精选过程中的严格质量控制是保障食品安全的关键措施。通过采用先进的光谱视觉检测技术，可以有效识别和剔除不合格产品，降低食品安全风险。这对于维护消费者健康和提升食品行业的国际竞争力具有重要意义。[records: 实体 (1), 关系 (1)]'}, {'summary': '光谱视觉检测技术的广泛应用', 'explanation': '光谱视觉检测技术不仅适用于食品精选，还在茶叶精选等具体场景中得到了成功应用。这些应用展示了该技术在不同食品类别中的广泛适用性和有效性。例如，在茶叶精选中，光谱视觉检测技术能够准确识别茶叶的颜色、形状和内部质量，提高了茶叶的整体品质。[records: 实体 (2), 关系 (14)]'}]}
+23:33:57,602 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 31.345955892000347. input_tokens=3942, output_tokens=1916
+23:33:57,917 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:33:57,917 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:33:57,917 graphrag.llm.openai.utils INFO success load json in step 2{'title': '食品安全与品质检测社区评估', 'summary': '该社区由食品安全与品质检测领域的关键实体组成，如光谱视觉技术、突破性技术手段、食品安全质量、口碑和出口贸易等。这些实体之间存在着密切的关系，形成了一个围绕食品安全与品质检测技术为核心的网络。通过分析这些实体及其关系，可以深入了解光谱成像技术在提升食品安全性和市场竞争力方面的应用。', 'rating': 9.5, 'rating_explanation': '此报告详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案，因此评分为9.5。', 'findings': [{'summary': '光谱视觉技术的重要性', 'explanation': '光谱视觉技术是食品安全与品质检测中的核心技术之一，它能提供高效、准确的杂质剔除方案，是构成突破性技术手段的关键部分。这一技术的应用显著提高了食品安全质量，帮助企业满足国内外市场的严格标准。[records: 实体 (42), 关系 (59, 66, 67)]'}, {'summary': '突破性技术手段的应用', 'explanation': '突破性技术手段，如光谱视觉技术，提供了彻底解决茶叶中恶性杂质问题的先进解决方案，显著提升了茶叶的安全性和市场竞争力。这些技术手段不仅提高了食品安全质量，还减少了人工剔杂引入的新杂质及风险。[records: 实体 (42), 关系 (77, 82)]'}, {'summary': '食品安全质量的提升', 'explanation': '食品安全质量是食品企业的基本要求，也是企业合法经营的基础。光谱视觉技术和觉精选机的应用显著提高了食品安全质量，确保食品在生产、加工、存储和运输过程中不受污染，符合安全标准。这对于茶叶企业尤其重要，因为它们需要满足国际市场的严格要求。[records: 实体 (36), 关系 (66, 53, 78)]'}, {'summary': '口碑的建立与维护', 'explanation': '良好的口碑对食品企业至关重要，有助于提升品牌形象和市场竞争力。光谱视觉技术的应用不仅提高了食品的质量，还增强了消费者的信任感，有助于企业建立和维护良好的市场口碑。通过积极维护消费者正面评价，企业可以有效地增强其市场地位和可持续发展能力。[records: 实体 (38), 关系 (67, 55, 80)]'}, {'summary': '出口贸易的机遇与挑战', 'explanation': '出口贸易是食品企业，尤其是茶叶企业的重要增长途径。这些企业在将产品销往国际市场时，不仅要提高收入和市场占有率，还必须严格遵守目的地国家的食品安全标准。光谱视觉技术和突破性技术手段的应用有助于茶叶企业在国际市场上获得更好的评价和销售业绩，确保在国际市场上获得成功。[records: 实体 (37), 关系 (54, 79, 78)]'}, {'summary': '技术创新的持续推动', 'explanation': '技术创新在食品安全与品质检测领域中起着至关重要的作用。人体工程剔杂仿生技术作为突破性技术手段的一部分，进一步增强了机器操作的精细度和效率。这些技术的不断进步和创新，为企业提供了更高效的食品安全解决方案，推动了整个行业的技术发展。[records: 实体 (42), 关系 (76, 82)]'}]}
+23:33:57,918 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 28.61850629420951. input_tokens=4138, output_tokens=1444
+23:34:02,71 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:34:02,71 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:34:02,71 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱视觉技术在食品安全与品质检测中的应用', 'summary': '本报告探讨了光谱视觉技术在食品安全与品质检测领域的应用，特别是在食品生产中的质量控制、生产管理和特定食品（如酱油、绵白糖、咖啡豆、水果）的检测。光谱视觉技术以其无损、快速、高效的特点，显著提升了食品检测的准确性和生产效率，促进了食品行业的整体发展。', 'rating': 9.5, 'rating_explanation': '此报告详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱视觉技术在食品检测中的广泛应用', 'explanation': '光谱视觉技术作为一种先进的检测技术，能够在不损害或破坏样品的情况下，快速、准确地检测食品的各项质量指标。这项技术特别适用于酱油、绵白糖、咖啡豆、水果等食品的质量检测，确保了检测的实时性和高效性。例如，光谱视觉技术在酱油生产中的应用能够提供快速准确的检测手段，支持在线生产过程中的质量控制。[records: 实体 (33), 关系 (72, 60, 61, 68)]'}, {'summary': '光谱视觉技术在质量控制中的重要性', 'explanation': '光谱视觉技术通过提供快速准确的检测手段，支持肉类加工行业的质量控制。同时，它还可以用于无损检测水果的甜度，提高检测的准确性和效率。这些应用不仅提升了食品生产的质量和效率，还有助于确保产品符合国际标准。[records: 关系 (70, 69, 133)]'}, {'summary': '光谱视觉技术在生产管理中的作用', 'explanation': '光谱视觉技术的应用提高了生产过程的透明度和可控性，有利于优化生产管理。例如，该技术可以用于酱油发酵过程的在线监测，提供即时的数据支持，帮助优化生产过程。此外，光谱视觉技术的应用还提高了食品生产的自动化水平，减少了人工成本，提高了生产效率。[records: 关系 (71, 74, 63, 144)]'}, {'summary': '光谱视觉技术在提高食品纯度和安全性方面的贡献', 'explanation': '光谱视觉技术能够精确识别食品中的微小异物，确保食品的纯度和安全，是现代食品生产中不可或缺的技术手段。例如，在绵白糖和咖啡豆的生产过程中，光谱视觉技术能够有效去除杂质，提高产品的纯度和质量，保障消费者的健康。[records: 关系 (62, 60, 33, 24)]'}, {'summary': '光谱视觉技术在提升产品市场竞争力中的作用', 'explanation': '光谱视觉技术的应用不仅提高了食品的质量，还增强了消费者的信任感，有助于企业建立良好的市场口碑。例如，通过光谱视觉技术的应用，我国水果不仅能够达到国际标准，还能提升其出口竞争力，增加出口价格，进一步拓展国际市场。此外，该技术还帮助企业满足国内外市场的严格标准，提升企业的市场竞争力。[records: 关系 (67, 68, 65)]'}, {'summary': '光谱视觉技术在预测值生成中的应用', 'explanation': '光谱视觉技术可以用来预测食品的质量指标，为生产调控提供依据。例如，该技术可以应用于酱油发酵过程的在线监测，通过采集光谱数据预测其理化指标，为生产调控提供技术支持。这种预测值的生成有助于企业在生产过程中及时调整，确保产品质量。[records: 关系 (73, 75, 172)]'}]}
+23:34:02,72 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 27.216560870409012. input_tokens=5325, output_tokens=1535
+23:34:03,382 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:34:03,382 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:34:03,382 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱视觉检测技术及其在食品安全与品质检测中的应用', 'summary': '该社区围绕光谱视觉检测技术展开，这是一种基于光谱信息的先进检测技术，能够同时确定食品的内在和外在属性，提供了一种新的无损检测方法。该技术广泛应用于食品的品质监测、精选和在线品质监测，显著提高了检测的精度和效率。社区中的关键实体包括光谱视觉检测技术、化学图谱、物质成分和空间分布特性，这些实体共同促进了食品安全与质量的提升。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱视觉检测技术的多维度特性', 'explanation': '光谱视觉检测技术能够通过获取的二维光谱信息，同时确定食品的内在属性和外在属性，提供了一种新的无损检测方法。这项技术不仅能够检测食品表面的特征，还能深入分析食品的内部成分，提供了更全面的检测结果。[records: Claims (16), Relationships (18, 19)]'}, {'summary': '光谱视觉检测技术在食品精选中的应用', 'explanation': '光谱视觉检测技术能够显著提高食品精选的精度和效率，是现代食品精选不可或缺的一部分。例如，光谱视觉精选机是专门为此设计的设备，能够在生产线上快速筛选出不合格产品，提高产品质量。[records: Relationships (7, 17)]'}, {'summary': '光谱视觉检测技术生成的化学图谱', 'explanation': '光谱视觉检测技术生成的化学图谱能够直观展示食品质量指标的分布情况，为食品质量的评估提供了科学依据。这种图谱不仅能够帮助检测人员快速定位问题区域，还能提供详细的成分信息，支持更深入的分析。[records: Entities (95), Relationships (22, 125)]'}, {'summary': '光谱视觉检测技术在品质监测中的作用', 'explanation': '光谱视觉检测技术通过提供食品内外属性的信息，增强了品质监测的有效性和效率。这项技术能够在不破坏食品的前提下完成质量检测，特别适用于需要保持食品完整性的场合，如高端农产品和加工食品的质量控制。[records: Relationships (20, 3)]'}, {'summary': '光谱视觉检测技术的广泛应用', 'explanation': '光谱视觉检测技术适用于各种食品的质量检测，能够提高检测的速度和精度。无论是咖啡豆、调味品、水果、肉类、白糖还是茶叶，光谱视觉检测都能提供可靠的检测结果，确保食品的安全性和品质。[records: Relationships (21)]'}, {'summary': '光谱视觉检测技术与食品领域研究的关系', 'explanation': '食品领域的研究不断推动着新技术的发展，如光谱视觉检测技术，以改进食品质量检测的方法。这些研究不仅提升了检测技术的性能，还促进了相关标准和规范的建立，为食品行业的健康发展提供了科学支持。[records: Relationships (23), Entities (97)]'}, {'summary': '食品损伤的检测', 'explanation': '食品在处理过程中可能会受到损伤，这会影响食品的质量和安全性。光谱视觉检测技术能够检测到食品的内部损伤，尤其是那些不易被肉眼察觉的损伤，从而确保食品的安全性和品质。[records: Relationships (126)]'}, {'summary': '光谱视觉检测技术与物质成分的关系', 'explanation': '光谱视觉检测技术通过分析食品的物质成分来评估食品质量，提供科学依据。物质成分是决定食品营养价值和安全性的关键因素，光谱视觉检测技术能够准确识别这些成分，为食品的质量检测提供有力支持。[records: Relationships (18), Entities (21)]'}, {'summary': '光谱视觉检测技术与空间分布特性的关系', 'explanation': '食品的空间分布特性是光谱视觉检测技术实现精确检测的基础。通过分析食品成分在空间上的分布特点，光谱视觉检测技术能够更准确地识别食品的质量问题，提高检测的可靠性和准确性。[records: Relationships (19), Entities (22)]'}]}
+23:34:03,383 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 34.12504159286618. input_tokens=3825, output_tokens=1799
+23:34:07,352 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:34:07,353 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:34:07,353 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱成像技术在食品安全与品质检测中的应用', 'summary': '本报告概述了光谱成像技术在食品安全与品质检测领域的应用，特别是茶叶和绵白糖的精选过程中。报告分析了现有的检测流程，识别了传统方法的不足，并推荐使用光谱成像技术进行优化。报告还详细描述了觉精选机的关键技术和优势，以及其在提高食品安全质量、出口贸易、市场口碑等方面的作用。', 'rating': 9.5, 'rating_explanation': '此报告详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '觉精选机的核心技术', 'explanation': '觉精选机采用了光谱视觉技术和人体工程剔杂仿生技术，这两种技术是其核心优势。光谱视觉技术实现了从物质成分的角度精准识别和去除杂质，而人体工程剔杂仿生技术使操作更接近人手剔杂，提高了剔杂的精细度和效率 [records: 实体 (30, 34), 关系 (50, 51, 76)]。'}, {'summary': '传统方法的局限性', 'explanation': '传统的茶叶精选方法如视觉检测加喷阀抖筛，存在识别效率低和难以完全去除杂质的问题。这导致了茶叶产品质量不稳定，食品安全风险增加 [records: 实体 (31), 关系 (48)]。'}, {'summary': '觉精选机在茶叶精选中的应用', 'explanation': '觉精选机是茶叶精选过程中的关键设备，显著提升了精选的效率和效果。它能有效识别并去除各种杂质，如昆虫、老鼠屎、木炭、金属、玻璃、塑料、石子、土块、谷物、瓜子壳、竹片、烟头、茶果、毛发、编织袋丝等，确保最终产品的纯净度和安全性 [records: 实体 (35), 关系 (52)]。'}, {'summary': '觉精选机对食品安全质量的贡献', 'explanation': '觉精选机的应用有助于茶叶企业更好地控制食品安全质量，提高产品的市场竞争力。通过去除各种杂质，它可以显著降低食品安全风险，提高消费者的信任度 [records: 关系 (53)]。'}, {'summary': '觉精选机对出口贸易的影响', 'explanation': '通过提高茶叶的纯净度和安全性，觉精选机有助于茶叶企业在国际市场上获得更好的评价和销售业绩。这对于依赖出口的茶叶企业尤为重要，能显著提升其国际竞争力 [records: 关系 (54)]。'}, {'summary': '觉精选机对市场口碑的提升', 'explanation': '觉精选机改善了茶叶的品质，有助于茶叶企业建立和维护良好的市场口碑。高质量的产品不仅能吸引更多的消费者，还能增强品牌的市场地位 [records: 关系 (55)]。'}, {'summary': '觉精选机的通用性', 'explanation': '觉精选机不仅适用于茶叶的精选过程，还可应用于绵白糖的精选过程。它能有效去除绵白糖在生产、运输过程中可能混入的各种杂质，确保最终产品的纯度和安全性 [records: 实体 (39), 关系 (56)]。'}, {'summary': '觉精选机的经济效益', 'explanation': '茶叶企业通过采用觉精选机，可以有效控制食品安全质量，降低人力和管理成本。这种高效的自动化设备不仅提高了生产效率，还减少了因质量问题导致的损失 [records: 关系 (49)]。'}, {'summary': 'AI技术的集成', 'explanation': '觉精选机结合了AI技术，进一步提高了识别和剔除杂质的能力和精度。AI技术的引入使得机器能够更智能地应对复杂多样的杂质类型，确保更高的检测准确率 [records: 关系 (47)]。'}, {'summary': '觉精选机的突破性技术手段', 'explanation': '觉精选机的核心优势在于其突破性技术手段，这些技术手段使其在茶叶精选领域发挥重要作用。无论是光谱视觉技术还是人体工程剔杂仿生技术，都为茶叶精选提供了新的解决方案 [records: 关系 (57)]。'}]}
+23:34:07,354 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 34.732152715325356. input_tokens=3909, output_tokens=1726
+23:34:07,588 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:34:07,589 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:34:07,589 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱视觉精选机及其在食品安全与品质检测中的应用', 'summary': '本报告主要探讨了光谱视觉精选机在食品安全与品质检测中的关键作用。该设备通过集成先进的光谱技术和视觉技术，能够高效、精确地识别并剔除食品中的微小异物，显著提升食品的纯度和安全性。报告分析了光谱视觉精选机在检测不同食品污染物（如纸屑、包材、头发、木屑、胶皮、线头和黄糖）中的应用效果，强调了其在提高食品质量和安全性方面的优势。', 'rating': 9.5, 'rating_explanation': '该报告详细介绍了光谱视觉精选机在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱视觉精选机的核心技术', 'explanation': '光谱视觉精选机的核心技术是光谱视觉技术，这使得设备能够高效、精确地识别并去除食品中的微量杂质。这种技术的应用显著提升了食品的纯度和安全性，特别是在食品加工过程中的检测效率方面表现出色。[records: 实体 (13), 关系 (25)]'}, {'summary': '光谱视觉精选机在绵白糖中的应用', 'explanation': '光谱视觉精选机在绵白糖的生产中发挥了重要作用，能够有效去除其中的各种杂质，如纸屑、包材、头发、木屑、胶皮、线头和黄糖。这不仅提高了绵白糖的纯度和质量，还保障了消费者的健康。[records: 实体 (66), 关系 (24, 26, 27, 28, 29, 30, 31, 32)]'}, {'summary': '光谱视觉精选机的广泛适用性', 'explanation': '光谱视觉精选机不仅适用于绵白糖的检测，还可以用于其他食品的精选和质量检测。例如，它可以有效识别并去除食品生产过程中的非食用物质，如纸屑、包材、头发、木屑、胶皮和线头，从而确保食品的卫生条件和纯度。[records: 实体 (60, 61, 62, 63, 64, 65), 关系 (26, 27, 28, 29, 30, 31, 32)]'}, {'summary': '提高食品加工过程的安全性', 'explanation': '通过集成光谱分析与视觉识别技术，光谱视觉精选机不仅提高了食品加工过程中的检测效率，还为食品安全提供了可靠的保障。这对于食品生产商来说，意味着可以更有效地控制生产过程中的质量风险，减少不合格产品的出现。[records: 实体 (13), 关系 (25, 33)]'}, {'summary': '推动食品安全技术的发展', 'explanation': '光谱视觉精选机的成功应用为食品安全技术的发展提供了新的方向。这种技术不仅在绵白糖的生产中取得了显著成效，还在其他食品的检测中展现出巨大的潜力。未来，光谱视觉技术有望成为食品行业标准检测工具，进一步提升食品行业的国际竞争力。[records: 实体 (13), 关系 (17, 24, 25, 33)]'}, {'summary': '教育和培训的重要性', 'explanation': '尽管光谱视觉精选机在技术上具有显著优势，但其成功应用还需要食品行业从业者的充分理解和正确操作。因此，教育和培训是推广这一技术的关键环节。通过提供系统的培训课程，可以帮助食品生产商更好地利用光谱视觉精选机，提高食品的质量和安全性。[records: NONE]'}, {'summary': '参与制定技术标准和指南', 'explanation': '为了进一步推动光谱视觉技术在食品安全与品质检测中的应用，需要制定相应的技术标准和指南。这将有助于规范检测流程，确保不同生产商之间的检测结果具有一致性和可靠性。此外，技术标准的制定还将促进业内技术交流与合作，共同提升整个行业的技术水平。[records: NONE]'}]}
+23:34:07,590 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 32.39250452304259. input_tokens=3877, output_tokens=1618
+23:34:12,834 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:34:12,835 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:34:12,835 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱视觉技术在食品安全与品质检测中的应用', 'summary': '该社区聚焦于光谱视觉技术及其在提高食品生产效率、食品质量和行业口碑中的应用。通过精选机等自动化设备的应用，显著提升了食品生产过程中的质量控制能力和生产效率。此外，光谱视觉技术的引入还减少了人工成本，增强了企业在市场上的竞争力。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱视觉技术提高生产效率', 'explanation': '光谱视觉技术在食品生产中的应用显著提高了生产效率。通过减少人工成本，提高自动化水平，企业能够更快、更准确地完成生产任务。例如，光谱视觉技术在检测过程中能够快速识别并剔除不合格的产品，避免了传统方法中的重复劳动和错误率高的问题。[records: 关系 (63)]'}, {'summary': '光谱视觉技术提升食品质量', 'explanation': '光谱视觉技术在食品生产中的应用显著提高了食品的质量控制能力。通过对食品进行无损检测，能够准确识别和剔除异物，确保产品的纯度和质量。例如，精选机在检测过程中能有效剔除纸屑、包材、头发、木屑、胶皮、塑料、线头、黄糖、昆虫等异物，从而提高最终产品的食品安全性和质量。[records: 关系 (64, 106, 108)]'}, {'summary': '光谱视觉技术改善行业口碑', 'explanation': '光谱视觉技术的应用不仅提高了食品质量，还显著提升了企业的行业口碑。高质量的产品能够赢得消费者的信任，增强品牌的市场竞争力。例如，通过精选机的应用，企业能够提供更纯净、更安全的食品，从而树立良好的品牌形象。[records: 关系 (65, 107)]'}, {'summary': '精选机在生产中的作用', 'explanation': '精选机作为一种自动化设备，在食品生产过程中发挥了重要作用。它能够有效检测并剔除食品中的异物，确保产品的纯度和质量。通过精选机的应用，不仅提高了生产效率，还直接提升了最终产品的食品安全性和质量。[records: 实体 (75), 关系 (105, 106, 107, 108)]'}, {'summary': '异物对食品质量的影响', 'explanation': '异物如纸屑、包材、头发、木屑、胶皮、塑料、线头、黄糖、昆虫等，可能混入食品中，严重影响食品的质量和安全性。精选机和光谱视觉技术的应用能够有效检测并剔除这些异物，确保最终产品的纯度和质量。[records: 实体 (77), 关系 (108)]'}, {'summary': '生产效率与食品质量的关系', 'explanation': '生产效率和食品质量之间存在密切关系。通过提高生产效率，企业能够在保证产品质量的同时，降低生产成本。例如，光谱视觉技术和精选机的应用不仅提高了生产过程中的效率，还确保了最终产品的安全性和质量。[records: 实体 (71, 72), 关系 (63, 105, 106)]'}, {'summary': '行业口碑的重要性', 'explanation': '行业口碑是指企业在行业内的声誉和形象，对企业的发展至关重要。良好的行业口碑不仅能够吸引更多的消费者，还能增强品牌的市场竞争力。通过应用光谱视觉技术和精选机，企业能够提供高质量的产品，从而在行业中树立良好的声誉。[records: 实体 (73), 关系 (65, 107)]'}]}
+23:34:12,836 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 29.99294107919559. input_tokens=3511, output_tokens=1486
+23:34:13,983 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:34:13,984 graphrag.llm.openai.utils INFO success load json in step 1{'title': '光谱检测技术在水果品质检测中的应用', 'summary': '本报告探讨了一个专注于利用光谱检测技术提升水果品质检测效率的社区。关键实体包括光谱检测技术、甜度检测、苹果和蟠桃等。这些实体通过光谱检测技术与甜度检测的结合，显著提升了水果品质的检测效率和准确性。', 'rating': 9.5, 'rating_explanation': '该报告详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案，因此评分为9.5。', 'findings': [{'summary': '光谱检测技术的重要性', 'explanation': '光谱检测技术作为一种快速无损的检测方法，能够显著提高检测效率，特别适用于水果和肉品的质量检测。这种技术的优势在于能够在不破坏产品的情况下完成高精度的质量评估。[records: 实体 (99), 关系 (69, 118, 127)]'}, {'summary': '甜度检测在水果品质评估中的作用', 'explanation': '甜度检测是评估水果品质的一个关键检测过程，尤其适用于苹果等水果。通过测定水果的甜度，可以有效地评估和保证水果的口感和品质，从而提升其市场竞争力。[records: 实体 (101), 关系 (131, 132)]'}, {'summary': '光谱视觉技术在甜度检测中的应用', 'explanation': '光谱视觉技术可以用于无损检测水果的甜度，提高检测的准确性和效率。这一技术的应用不仅限于单一类型的水果，如蟠桃和苹果，同样适用于其他需要精确甜度检测的水果。[records: 关系 (69, 132)]'}, {'summary': '苹果品质检测的强化', 'explanation': '苹果是甜度检测的重要对象之一，高甜度通常意味着更好的口感和更高的商业价值。光谱检测技术可以进一步提高苹果霉变检测的效率和精度，确保市场上销售的苹果达到高标准的品质要求。[records: 实体 (103), 关系 (131, 127)]'}, {'summary': '蟠桃品质的高质量保障', 'explanation': '蟠桃的甜度是其品质的重要标志，甜度检测有助于确保蟠桃的高品质。利用光谱视觉技术进行甜度检测，可以更快速、准确地筛选出符合市场标准的优质蟠桃。[records: 实体 (104), 关系 (132)]'}, {'summary': '猕猴桃的市场竞争力提升', 'explanation': '猕猴桃的甜度是其商业价值的关键指标，甜度检测有助于提高猕猴桃的市场竞争力。此外，光谱检测技术还可以用于猕猴桃的损伤判定，进一步确保产品在市场上的优质形象。[records: 关系 (119, 118)]'}, {'summary': '水果品质的整体提升', 'explanation': '水果的甜度是影响其市场价值的一个重要因素，甜度检测有助于提升果实品质和市场竞争力。通过引入光谱检测技术，可以实现对多种水果品质的高效检测，从而为消费者提供更高质量的产品。[records: 关系 (129)]'}]}
+23:34:13,984 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 24.894095161929727. input_tokens=3250, output_tokens=1281
+23:34:18,283 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:34:18,284 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:34:18,284 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱成像技术在中国水果出口中的应用', 'summary': '该社区围绕中国水果的生产和出口展开，特别是猕猴桃和蟠桃。光谱成像技术的应用为提升水果品质和市场竞争力提供了新的途径，帮助中国水果达到国际标准，增强其在国际市场的表现。社区的关键实体包括水果、国际标准和国际市场，它们之间通过技术应用和品质控制等关系紧密相连。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '水果的品质提升需求', 'explanation': '中国生产的猕猴桃和蟠桃虽然出口量大，但由于价格低和质量问题，市场竞争力不强。为了改善这一状况，有必要引入更先进的检测技术，如光谱成像技术，以实现快速无损的品质检测。这不仅能提升水果的质量和安全性，还能增强其市场竞争力。[records: 实体 (100), 关系 (68)]'}, {'summary': '光谱成像技术的应用', 'explanation': '光谱视觉技术为水果检测提供了新的途径，能够显著提升水果检测的技术水平。通过该技术的应用，不仅可以确保水果符合国际标准，还能提升其出口竞争力，增加出口价格，进一步拓展国际市场。[records: 关系 (68)]'}, {'summary': '国际标准的重要性', 'explanation': '国际标准是全球范围内广泛认可的产品质量和安全规范，对出口产品具有直接影响。水果在寻求提高其在国际市场上的竞争力时，必须满足国际标准所规定的品质要求。这些标准不仅用于衡量水果的质量和安全性，还直接关系到出口价格和市场竞争力。[records: 实体 (102), 关系 (128, 133)]'}, {'summary': '甜度检测的作用', 'explanation': '水果的甜度是影响其市场价值的一个重要因素。甜度检测有助于提升果实品质和市场竞争力，确保水果在国际市场上的吸引力。通过精确的甜度检测，可以更好地满足消费者的口味需求，提高市场占有率。[records: 关系 (129)]'}, {'summary': '国际市场需求的直接影响', 'explanation': '国际市场的标准和需求直接影响到中国水果的出口表现和价格定位。为了在竞争激烈的国际市场中脱颖而出，中国水果必须符合国际市场的高标准要求。这不仅需要提升产品质量，还需要进行有效的市场推广和品牌建设。[records: 关系 (130)]'}, {'summary': '质量控制的标准基准', 'explanation': '国际标准为质量控制设定了基准，肉类加工等行业必须遵循这些标准以满足国际市场需求。同样，水果行业也需严格遵守国际标准，确保从种植、采收到包装的每一个环节都符合最高标准，从而保障最终产品的质量和安全性。[records: 关系 (133)]'}]}
+23:34:18,285 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 23.113447150681168. input_tokens=3437, output_tokens=1245
+23:34:19,61 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:34:19,62 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:34:19,62 graphrag.llm.openai.utils INFO success load json in step 2{'title': '猕猴桃品质检测社区', 'summary': '此社区主要关注猕猴桃的品质检测，特别是通过光谱检测技术来评估其甜度及检测损伤情况，以防止由损伤引起的品质下降和微生物滋生，确保猕猴桃的安全性和市场竞争力。', 'rating': 9.5, 'rating_explanation': '该文本详细介绍了光谱成像技术在猕猴桃食品安全与品质检测中的多种应用，解决了传统检测方法的诸多限制，提供了一系列提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '猕猴桃的甜度检测对其商业价值的重要性', 'explanation': '猕猴桃的甜度是决定其商业价值的关键因素之一。通过光谱检测技术，可以高效、准确地评估猕猴桃的甜度，这对于提高猕猴桃的市场竞争力至关重要。[records: 实体 (90), 关系 (119)]'}, {'summary': '猕猴桃在采收和运输过程中的易损性', 'explanation': '猕猴桃在采收和运输过程中容易受到物理损伤，这些损伤不仅影响其外观，还会促进腐败微生物的生长，进而影响猕猴桃的品质和安全性。因此，采取有效的检测方法和技术对于保持猕猴桃的品质至关重要。[records: 实体 (96, 91), 关系 (117)]'}, {'summary': '光谱检测技术在猕猴桃损伤检测中的应用', 'explanation': '光谱检测技术可以用于猕猴桃的损伤判定，这种方法不仅提高了检测的效率和准确性，还可以及时发现不易被肉眼察觉的内部损伤，从而更好地保护猕猴桃的质量和安全性。[records: 关系 (118)]'}, {'summary': '损伤对食品质量和安全的影响', 'explanation': '食品在处理过程中可能会受到损伤，这些损伤不仅影响食品的质量，还可能增加腐败微生物的生长风险，尤其是在猕猴桃这类容易受到微生物侵袭的水果上。因此，检测和预防食品损伤对于保证食品的安全性非常重要。[records: 关系 (126)]'}, {'summary': '猕猴桃贮藏过程中微生物的风险', 'explanation': '猕猴桃在贮藏过程中容易滋生致病腐败微生物，尤其是当猕猴桃受到损伤时，这种风险会进一步增加。微生物的生长不仅加速了猕猴桃的腐败过程，还提高了健康果实被感染的风险。因此，在贮藏和运输过程中应特别注意保护猕猴桃免受伤害。[records: 关系 (116)]'}]}
+23:34:19,62 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 29.499202295206487. input_tokens=3564, output_tokens=1100
+23:34:22,647 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:34:22,647 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:34:22,647 graphrag.llm.openai.utils INFO success load json in step 2{'title': '茶叶精选技术与成本分析', 'summary': '该社区围绕茶叶精选过程中的关键技术、成本因素及传统与现代方法的比较展开。茶叶精选作为食品精选的一个具体案例，面临着如何提高效率、降低成本和保证质量的挑战。社区内的关键实体包括茶叶精选、觉精选机、AI技术、人力成本、人力投入和管理成本等，它们之间存在着密切的关系，共同影响着茶叶精选的效果和经济性。', 'rating': 9.5, 'rating_explanation': '该文本详细介绍了茶叶精选过程中光谱成像技术（通过觉精选机体现）和其他先进技术的应用，以及这些技术如何解决传统方法的局限，同时指出了相关的经济因素，对食品安全和品质检测具有重要的参考价值。', 'findings': [{'summary': '茶叶精选的关键技术', 'explanation': '茶叶精选过程依赖于一些关键技术和设备，如觉精选机，它结合了AI技术，大幅提高了茶叶剔杂的效率和准确性。觉精选机不仅能够减少人工干预，还能提高茶叶的纯净度和品质，是现代茶叶精选的重要工具。[records: 实体 (14, 17, 28), 关系 (40, 47)]'}, {'summary': '传统方法的局限性', 'explanation': '尽管传统视觉检测和人工剔杂在茶叶精选中仍有应用，但它们存在明显的局限性。传统视觉检测受限于技术本身，识别杂质的能力有限，而人工剔杂则需要大量的人力投入，容易出现人为误差，且成本高昂。这些局限性使得传统方法难以满足现代茶叶生产的高要求。[records: 实体 (14, 18, 19), 关系 (34, 41, 37)]'}, {'summary': 'AI技术的应用与挑战', 'explanation': 'AI技术在茶叶精选中的应用显著提高了剔杂的准确性和效率，尤其是在结合觉精选机时。然而，AI技术也面临着一些挑战，如识别精度的进一步提升和成本控制。尽管AI技术在这些领域中发挥了重要作用，但其应用仍需与其他技术和方法相结合，以确保最佳效果。[records: 实体 (17), 关系 (36, 47)]'}, {'summary': '经济因素的影响', 'explanation': '茶叶精选过程中的人力成本、人力投入和管理成本是企业面临的主要经济压力。大量的人力投入不仅增加了成本，还可能导致操作中的误差。管理成本的增加也是企业在精选过程中不可忽视的负担。这些经济因素直接影响了企业的运营效率和市场竞争力。[records: 实体 (18, 19, 28), 关系 (39, 37, 38)]'}, {'summary': '综合应用的重要性', 'explanation': '为了提高茶叶精选的效率和质量，企业需要综合应用各种技术和方法。觉精选机结合AI技术，可以有效提高剔杂的精度和效率；同时，合理管理人力投入和成本，减少人为误差，确保茶叶生产的可持续发展。这种综合应用模式有助于企业在竞争激烈的市场中脱颖而出。[records: 实体 (14, 17, 18, 19, 28), 关系 (34, 35, 36, 40, 47)]'}]}
+23:34:22,648 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 25.030750744976103. input_tokens=3575, output_tokens=1273
+23:34:33,151 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:34:33,151 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:34:33,151 graphrag.llm.openai.utils INFO success load json in step 2{'title': '传统视觉检测与现代光谱成像技术在食品安全与品质检测中的应用对比', 'summary': '该社区围绕传统视觉检测和现代光谱成像技术展开，主要探讨了这两种技术在食品品质检测中的应用及其优缺点。特别是传统视觉检测在茶叶精选中的应用，虽然有一定的效果，但其识别效率和准确率受到技术本身局限的影响，无法满足现代食品精选的高要求。相比之下，光谱成像技术提供了更高的识别效率和准确率，能更有效地评估食品质量。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '传统视觉检测在茶叶精选中的应用', 'explanation': '传统视觉检测技术在茶叶精选中有应用，主要是通过图像处理来评估茶叶的质量。然而，这种技术存在一定的局限性，特别是在识别精度上，导致部分杂质或缺陷未能有效剔除，影响了最终产品的质量。[records: 实体 (15), 关系 (34)]'}, {'summary': '视觉成像技术的基础', 'explanation': '视觉成像技术利用光学原理获取食品图像，常用于食品的外观检测。尽管它是传统视觉检测技术的基础，但在实际应用中，其识别精度仍存在局限，无法完全满足现代食品精选的需求。[records: 实体 (23), 关系 (42)]'}, {'summary': '识别效率的重要性', 'explanation': '识别效率是衡量检测技术识别食品缺陷和杂质的速度和准确性的重要指标。传统视觉检测的识别效率受到技术限制，无法满足现代食品精选的高要求。这表明需要寻找更高效率的检测技术。[records: 实体 (26), 关系 (43)]'}, {'summary': '准确率的关键作用', 'explanation': '准确率是评价检测技术性能的关键指标，指检测技术正确识别食品缺陷和杂质的能力。传统视觉检测的准确率相对较低，导致部分杂质或缺陷未能有效剔除，影响了食品安全和质量。[records: 实体 (27), 关系 (44)]'}, {'summary': '光谱成像技术的优势', 'explanation': '相比于传统的视觉检测技术，光谱成像技术在识别效率和准确率上都有显著提升。它可以无损地评估食品质量，减少不合格产品的比例，提高生产效率，是未来食品安全与品质检测的重要发展方向。[records: NONE]'}, {'summary': '现代食品行业的需求', 'explanation': '随着食品行业的发展，对食品质量和安全的要求越来越高。传统检测方法的局限性逐渐显现，现代食品行业需要更加高效、准确的检测技术来保证产品质量和安全。光谱成像技术作为一种先进的无损检测方法，正好满足了这一需求。[records: NONE]'}, {'summary': '技术推广的重要性', 'explanation': '为了提高食品行业的整体质量和安全标准，需要大力推广光谱成像技术。这不仅包括技术的开发和验证，还需要与食品生产商合作，提供技术支持和培训，确保新技术的有效应用。[records: NONE]'}, {'summary': '行业标准和指南的制定', 'explanation': '为了促进光谱成像技术在食品行业中的广泛应用，需要参与制定相关的技术标准和指南。这些标准和指南将有助于规范技术的使用，提高检测的一致性和可靠性，促进行业内的技术交流与合作。[records: NONE]'}, {'summary': '国际合作的重要性', 'explanation': '光谱成像技术的发展和应用需要国际间的合作与交流。通过与不同国家和地区的食品安全监管部门合作，可以分享最佳实践，共同建立更加科学和系统的食品检测体系，提升全球食品安全水平。[records: NONE]'}, {'summary': '未来的研究方向', 'explanation': '未来的研究应继续探索光谱成像技术在食品安全与品质检测中的新应用，如在不同类型食品中的适用性和优化方法。此外，还需要关注技术的成本效益分析，以确保其在工业生产中的可行性和可持续性。[records: NONE]'}]}
+23:34:33,152 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 35.21880073426291. input_tokens=2993, output_tokens=1733
+23:35:01,293 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:35:01,294 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:35:01,294 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱视觉技术在水果品质检测中的应用', 'summary': '本报告概述了光谱视觉技术在水果品质检测中的应用，特别是在甜度检测、损伤判定和提高市场竞争力等方面的作用。报告分析了光谱视觉技术的优势，以及其在提高水果品质和安全性方面的潜力。同时，报告还讨论了国际标准对水果品质和市场竞争力的影响。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案，因此评分为9.5。', 'findings': [{'summary': '光谱视觉技术在甜度检测中的应用', 'explanation': '光谱视觉技术可以用于无损检测水果的甜度，提高检测的准确性和效率。这种技术特别适用于苹果、猕猴桃和蟠桃等水果，可以帮助生产商更好地评估和保证水果的品质。例如，甜度检测是评估苹果和猕猴桃品质的关键环节，高甜度通常意味着更好的口感和更高的商业价值。[records: 实体 (101, 103, 104), 关系 (69, 119, 131, 132)]'}, {'summary': '光谱视觉技术在水果检测中的全面应用', 'explanation': '光谱视觉技术为水果检测提供了新的途径，能够显著提升水果检测的技术水平，帮助提高水果的整体品质和市场价值。通过该技术的应用，我国水果不仅能够达到国际标准，还能提升其出口竞争力，增加出口价格，进一步拓展国际市场。[records: 实体 (100, 103), 关系 (68, 128)]'}, {'summary': '光谱检测技术在损伤判定中的作用', 'explanation': '光谱检测技术可用于水果的损伤判定，提高检测效率和准确性。猕猴桃在采收和运输过程中容易受伤，这些损伤不仅影响其外观，还会促进腐败微生物的生长。通过光谱检测技术，可以及时发现这些损伤，减少食品质量下降和腐败风险。[records: 实体 (96, 100, 91), 关系 (118, 116, 126)]'}, {'summary': '国际标准对水果品质和市场竞争力的影响', 'explanation': '国际标准为水果品质和市场竞争力设定了具体的要求。这些标准不仅用于衡量水果的质量和安全性，而且直接关系到出口价格和市场竞争力。通过遵循这些国际标准，可以确保产品的高品质和安全性，从而在全球市场上获得更好的评价和更高的价值。[records: 实体 (102, 109), 关系 (128, 130, 133)]'}, {'summary': '猕猴桃在贮藏和运输中的挑战', 'explanation': '猕猴桃在贮藏和运输过程中容易滋生致病腐败微生物，尤其是当猕猴桃受到损伤时，这种风险会进一步增加，加速腐败过程，并提高了健康果实被感染的风险。因此，在贮藏和运输过程中应特别注意保护猕猴桃免受伤害，以减少微生物感染的机会，保障食品安全与品质。[records: 实体 (90, 91), 关系 (117, 116)]'}, {'summary': '光谱检测技术在苹果霉变检测中的应用', 'explanation': '光谱检测技术可以用于苹果的霉变检测，提高检测的速度和精度。霉变是苹果在贮藏和运输过程中常见的问题，传统的检测方法往往费时费力，而光谱检测技术能够快速、准确地检测出霉变，有助于及时采取措施，减少损失。[records: 实体 (103, 96), 关系 (127)]'}]}
+23:35:01,294 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 28.10266083991155. input_tokens=4882, output_tokens=1502
+23:35:04,342 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:35:04,343 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:35:04,343 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱成像技术在食品安全与品质检测中的应用', 'summary': '该社区围绕光谱成像技术在食品安全与品质检测中的应用展开，特别是针对咖啡豆等农产品的品质检测。社区中的关键实体包括光谱相机、品质监测、全球咖啡豆市场规模、杯测方法等。这些实体通过光谱成像技术的引入，显著提升了食品检测的效率和准确性，同时减少了传统检测方法的局限性。', 'rating': 9.5, 'rating_explanation': '该社区详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱成像技术提高咖啡豆检测效率', 'explanation': '光谱相机在咖啡豆的品质检测中表现出色，能够进行非破坏性的检测，提供一种快速且准确的评估方法，有效提高了咖啡豆品质检测的效率和准确性。这项技术的应用不仅减少了取样破坏的需要，还大大缩短了检测时间。[records: 关系 (100), 实体 (80, 67, 81)]'}, {'summary': '光谱成像技术在食品行业的广泛适用性', 'explanation': '光谱成像技术不仅适用于咖啡豆，还可以广泛应用于其他食品的品质检测，如调味品、水果、肉类、白糖和茶叶等。这种技术能够提供食品内外属性的详细信息，增强了品质监测的有效性和效率。[records: 关系 (20), 实体 (82, 84, 85)]'}, {'summary': '传统杯测方法的局限性', 'explanation': '传统的杯测方法虽然准确，但过程复杂且成本较高，对样品有一定的破坏性。这限制了其在大规模生产和快速检测中的应用。通过引入光谱成像技术，可以克服这些局限，实现更高效、更科学的品质检测。[records: 关系 (99, 113), 实体 (79, 89, 87)]'}, {'summary': '光谱成像技术在市场中的需求增长', 'explanation': '随着全球咖啡豆市场规模的持续增长，市场对高品质咖啡豆的需求也在增加。这推动了光谱成像技术在咖啡豆精选领域的应用和发展，以满足更高的市场需求。[records: 关系 (98), 实体 (68, 78)]'}, {'summary': '光谱相机支持颗粒级品质分选', 'explanation': '光谱相机不仅实现了无损检测，还支持颗粒级品质分选，极大地提高了检测的精确度。这种技术的应用使得每颗咖啡豆的品质都能得到准确评估，从而确保最终产品的高质量。[records: 关系 (111), 实体 (80, 85)]'}, {'summary': '光谱成像技术的科学性和客观性', 'explanation': '光谱成像技术提供了一种科学且客观的评估方法，弥补了传统杯测方法缺乏统一客观标准的不足。通过光谱成像技术，可以确保检测结果的准确性和可重复性，为食品行业建立更加科学和系统的检测体系提供了有力支持。[records: 关系 (114), 实体 (83, 86)]'}, {'summary': '光谱成像技术的应用前景', 'explanation': '光谱成像技术在食品安全与品质检测中的应用前景广阔。随着技术的不断进步和成本的降低，预计这一技术将在更多的食品检测场景中得到推广和应用，进一步提升食品行业的整体质量和安全水平。[records: 实体 (82, 86), 关系 (115)]'}]}
+23:35:04,344 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 31.167729759588838. input_tokens=4976, output_tokens=1433
+23:35:04,892 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:35:04,893 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:35:04,893 graphrag.llm.openai.utils INFO success load json in step 2{'title': '觉精选机与食品安全质量提升', 'summary': '该社区围绕觉精选机及其在食品安全质量提升中的应用展开。觉精选机利用光谱视觉技术和人体工程剔杂仿生技术，能够高效、准确地去除茶叶和其他食品中的杂质，提升食品安全质量。与传统方法相比，觉精选机显著提高了生产效率和产品质量，对于茶叶企业的出口贸易和市场口碑具有重要影响。', 'rating': 9.5, 'rating_explanation': '该文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '觉精选机的核心技术', 'explanation': '觉精选机采用了光谱视觉技术和人体工程剔杂仿生技术，这两种技术是其核心优势。光谱视觉技术从物质成分角度精准识别和去除杂质，而人体工程剔杂仿生技术则模拟人手操作，提高了剔杂的精细度和效率。这两种技术的结合使得觉精选机在茶叶精选中表现出色。[records: 实体 (30, 34), 关系 (50, 51)]'}, {'summary': '提升食品安全质量', 'explanation': '觉精选机的应用显著提升了食品安全质量。通过高效、准确地去除茶叶中的各种杂质，如昆虫、老鼠屎、木炭、金属等，确保了最终产品的纯净度和安全性。这不仅符合国内食品安全标准，也满足了国际市场的严格要求，有助于茶叶企业在国际市场上获得成功。[records: 实体 (35, 36, 37), 关系 (53, 66, 76, 78)]'}, {'summary': '改善市场口碑', 'explanation': '觉精选机的使用不仅提高了食品的质量，还增强了消费者的信任感，有助于企业建立良好的市场口碑。优质的食品可以促进长期的客户关系建立和市场信任，从而提升企业的市场竞争力。[records: 实体 (38), 关系 (55, 67, 80)]'}, {'summary': '促进出口贸易', 'explanation': '觉精选机通过提高茶叶的纯净度和安全性，有助于茶叶企业在国际市场上获得更好的评价和销售业绩。出口贸易对于茶叶企业来说是一个重要的增长途径，面对更加严格的国际食品安全标准，企业需要加强自身的产品质量和安全控制。觉精选机的应用为企业提供了有力的支持。[records: 实体 (37), 关系 (54, 79)]'}, {'summary': '与传统方法的对比', 'explanation': '与传统的视觉检测和喷阀抖筛方法相比，觉精选机在去除茶叶杂质方面更加高效和彻底。传统方法存在识别效率低和难以完全去除杂质的问题，而觉精选机则能够从物质成分角度精准识别和去除杂质，显著提高了生产效率和产品质量。[records: 实体 (31), 关系 (48, 52)]'}, {'summary': '降低人力和管理成本', 'explanation': '茶叶企业在茶叶精选过程中面临高昂的人力和管理成本。通过采用觉精选机，企业可以有效控制食品安全质量，同时降低人力和管理成本。这种技术解决方案不仅提高了生产效率，还减少了人力资源的投入，为企业带来了经济效益。[records: 实体 (42, 32), 关系 (49, 58)]'}, {'summary': '解决新杂质及风险', 'explanation': '觉精选机采用的突破性技术手段不仅解决了传统剔杂方法中的不足，还有效解决了人工剔杂引入的新杂质及风险问题。这些技术的应用确保了茶叶的安全性，提高了产品的市场竞争力。[records: 关系 (82)]'}, {'summary': '应用范围广泛', 'explanation': '觉精选机不仅适用于茶叶的精选过程，还可以应用于其他食品的品质检测，如绵白糖的精选。通过确保最终产品的纯度和安全性，觉精选机在食品行业中具有广泛的应用前景。[records: 实体 (39), 关系 (56)]'}]}
+23:35:04,893 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 31.707875355146825. input_tokens=5241, output_tokens=1645
+23:35:12,974 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:35:12,975 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:35:12,975 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱成像技术在酱油生产及质量检测中的应用', 'summary': '该社区聚焦于光谱成像技术在酱油生产及质量检测中的应用。社区中的关键实体包括光谱视觉技术、酱油、酱油发酵、全氮、总酸、氨基酸态氮等，这些实体通过光谱成像技术在酱油生产过程中的应用形成了紧密的联系。利用光谱成像技术，可以实现酱油发酵过程的在线监测，提高生产效率和产品质量，同时确保食品安全。', 'rating': 9.5, 'rating_explanation': '本报告详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，解决了传统检测方法的诸多限制，并提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱成像技术在酱油质量检测中的应用', 'explanation': '光谱视觉技术能够有效应用于酱油的质量检测，提供了一种快速、准确且高效的检测手段，特别适合于在线生产过程中的质量控制，有助于显著提升酱油生产的整体质量和效率。例如，通过光谱成像技术，可以实时监测酱油中的全氮、总酸和氨基酸态氮等关键指标，确保产品质量。[records: 关系 (72, 157, 158, 159)]'}, {'summary': '光谱成像技术在酱油发酵过程监测中的应用', 'explanation': '光谱成像技术可以应用于酱油发酵过程的在线监测，提供即时的数据支持，帮助优化生产过程。通过对发酵过程中各项指标的实时监测，可以及时调整生产参数，确保发酵条件的最佳化，从而提高酱油的风味和品质。这一技术的应用极大地提高了生产效率和产品质量。[records: 关系 (74, 153, 168, 138)]'}, {'summary': '全氮作为酱油质量的重要指标', 'explanation': '全氮是衡量酱油质量的重要指标之一，它不仅反映了酱油的营养价值，还用于评估酱油的蛋白质含量，对酱油的整体品质有着直接的影响。通过光谱成像技术，可以高效、准确地测量全氮含量，确保酱油的高品质。[records: 实体 (130), 关系 (157)]'}, {'summary': '总酸对酱油风味的重要性', 'explanation': '总酸是酱油的一个重要质量指标，它不仅影响酱油的味道和风味，也是酱油质量检测中的关键评估因素之一。总酸的测量对于评价酱油的风味至关重要，能够准确反映酱油的酸度水平。通过光谱成像技术，可以实现总酸的精准测量，确保酱油的风味特性。[records: 实体 (131), 关系 (158)]'}, {'summary': '氨基酸态氮对酱油新鲜度和风味的影响', 'explanation': '氨基酸态氮是评价酱油新鲜度和风味的重要指标，反映了酱油中蛋白质的分解程度。这一指标对于确保酱油的质量和口感具有关键作用。通过监测氨基酸态氮的含量，可以有效评估酱油的新鲜度及其风味特性，从而为消费者提供更高品质的酱油产品。[records: 实体 (132), 关系 (159)]'}, {'summary': '酱油的健康益处', 'explanation': '酱油不仅是一种调味品，还具有多种健康益处。它含有助消化、增进食欲、抗氧化等成分，这些成分对身体健康有益。光谱成像技术可以帮助检测这些有益成分的含量，确保酱油的营养价值。[records: 实体 (138, 137, 139), 关系 (166, 165, 167)]'}, {'summary': '酱油生产过程中的微生物作用', 'explanation': '酱油的生产依赖于微生物的发酵作用，微生物是酱油生产的必要条件。通过光谱成像技术，可以实时监测发酵过程中微生物的活性和数量，确保发酵过程的顺利进行，从而提高酱油的品质。[records: 实体 (128), 关系 (155)]'}, {'summary': '盐溶液在酱油生产中的作用', 'explanation': '酱油的生产过程中，微生物在盐溶液中发酵，盐溶液为发酵提供了必要的环境。通过光谱成像技术，可以监测盐溶液的浓度和稳定性，确保发酵过程的顺利进行。[records: 实体 (129), 关系 (156)]'}, {'summary': '酱油的质量指标', 'explanation': '酱油的质量通过全氮、总酸和氨基酸态氮等质量指标进行评估，这些指标是评价酱油品质的基础。光谱成像技术可以实现这些指标的快速、准确检测，确保酱油的高品质。[records: 实体 (144), 关系 (169)]'}, {'summary': '酱油的调味和调色功能', 'explanation': '酱油的主要功能之一是调味和调色，能够增加食物的风味，使其外观更具吸引力。通过光谱成像技术，可以监测酱油的色泽和风味特性，确保其在烹饪中的表现符合预期。[records: 实体 (135, 136), 关系 (163, 164)]'}]}
+23:35:12,975 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 39.793145345989615. input_tokens=5348, output_tokens=2083
+23:35:14,409 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:35:14,409 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:35:14,409 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱视觉检测技术在食品精选与安全中的应用', 'summary': '该社区围绕光谱视觉检测技术在食品精选与安全中的应用展开，涵盖了技术的基本原理、应用案例及与传统检测方法的对比。社区中的关键实体包括光谱视觉检测、食品精选、传统色选、经济、产品瑕疵等，这些实体之间通过技术进步、质量控制和市场需求等关系紧密相连。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案，因此评分为9.5。', 'findings': [{'summary': '光谱视觉检测技术的广泛应用', 'explanation': '光谱视觉检测技术因其无损检测的特点，在食品精选和安全检测中得到了广泛应用。该技术能够通过获取食品的二维光谱信息，同时确定食品的内在和外在属性，提供了一种新的无损检测方法。例如，对于内部腐烂问题，传统方法难以有效检测，而光谱视觉检测技术则能准确识别这些问题。[records: 实体 (6, 20, 21, 22), 关系 (7, 16, 20, 21, 22)]'}, {'summary': '光谱视觉检测技术提升食品精选的精度和效率', 'explanation': '光谱视觉检测技术显著提高了食品精选的精度和效率，成为现代食品精选不可或缺的一部分。传统的色选和肉眼识别方法在面对复杂的食品质量问题时显得力不从心，而光谱视觉检测技术能够通过生成化学图谱，直观显示食品质量指标的分布情况，从而实现对食品质量的全面评估。[records: 实体 (2, 4, 11, 95), 关系 (7, 13, 12, 22)]'}, {'summary': '光谱视觉检测技术在食品安全中的作用', 'explanation': '光谱视觉检测技术在食品安全中的作用不可忽视。通过提供食品内外属性的信息，该技术增强了品质监测的有效性和效率。在线品质监测是确保食品安全的重要手段，而光谱视觉检测技术是实现这一目标的关键技术之一，能够在不破坏食品的前提下完成质量检测。[records: 实体 (1, 3, 98), 关系 (1, 3, 20, 0)]'}, {'summary': '经济发展的推动作用', 'explanation': '经济的发展对食品精选提出了更高的要求，促进了更先进精选技术的应用。随着消费者对食品质量和安全性的要求不断提高，食品行业必须采用更先进的技术来满足市场需求。光谱视觉检测技术作为其中的重要一环，不仅提高了食品的质量和安全性，还提升了生产效率。[records: 实体 (3, 97), 关系 (4, 23)]'}, {'summary': '传统方法的局限性', 'explanation': '传统检测方法在识别特定类型的食品瑕疵方面存在局限。例如，传统色选和肉眼识别方法在面对内部腐烂和微小杂质等问题时效果有限。这些问题不仅影响食品的商业价值，还可能对消费者的健康构成威胁。光谱视觉检测技术能够弥补这些不足，提供更全面、准确的检测结果。[records: 实体 (10, 20, 29), 关系 (13, 16, 15)]'}, {'summary': '整体精选方案的整合', 'explanation': '整体精选方案通过整合多种先进技术，为食品精选提供了全面的解决方案。这些技术包括光谱视觉检测、自动化剔除等，能够在生产线上实现高效、精准的食品检测和筛选。这种集成方案不仅提高了生产效率，还确保了食品的高质量和安全性。[records: 实体 (8, 7, 95), 关系 (9, 8)]'}, {'summary': '食品领域研究的推动', 'explanation': '食品领域的研究不断推动着新技术的发展，如光谱视觉检测技术。这些研究旨在提升食品安全、质量和生产效率，为食品行业提供了科学依据和技术支持。通过不断的创新和改进，光谱视觉检测技术在实际应用中表现出越来越强大的潜力。[records: 实体 (97), 关系 (23, 18, 19)]'}]}
+23:35:14,410 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 41.23059189179912. input_tokens=5323, output_tokens=1715
+23:35:26,178 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:35:26,179 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:35:26,179 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱视觉技术在食品安全与品质检测中的应用', 'summary': '本报告探讨了光谱视觉技术在食品安全与品质检测中的关键应用，特别是其在酱油、水果、绵白糖和咖啡豆等食品中的检测效果。通过分析现有的检测流程，识别传统方法的不足，推荐使用光谱成像技术优化检测流程，进而提高食品的质量和安全性。', 'rating': 9.5, 'rating_explanation': '该报告详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱视觉技术的优势', 'explanation': '光谱视觉技术具有无需制样、无损检测、高效等特性，适用于食品生产的在线检测。通过采集光谱来预测理化指标的值，为生产调节提供依据，极大地提高了检测的准确性和效率。[records: 实体 (33), 关系 (72, 69, 68, 66)]'}, {'summary': '光谱视觉技术在酱油生产中的应用', 'explanation': '光谱视觉技术能够有效应用于酱油的质量检测，提供了一种快速、准确且高效的检测手段，特别适合于在线生产过程中的质量控制。通过预测酱油的理化指标，为生产调控提供数据支持，显著提升了酱油生产的整体质量和效率。[records: 实体 (33), 关系 (72, 170, 73, 74, 75)]'}, {'summary': '光谱视觉技术在水果检测中的应用', 'explanation': '光谱视觉技术为水果检测提供了新的途径，能够显著提升水果检测的技术水平，帮助提高水果的整体品质和市场价值。通过该技术的应用，不仅能够达到国际标准，还能提升其出口竞争力，增加出口价格，进一步拓展国际市场。[records: 实体 (33), 关系 (68, 66)]'}, {'summary': '光谱视觉技术在绵白糖生产中的应用', 'explanation': '光谱视觉技术能够精确识别绵白糖中的杂质，并通过自动化手段进行高效剔除，显著提高绵白糖的品质和纯度。特别是在去除纸屑、包材、头发、木屑、胶皮、线头等微小异物方面表现突出，确保了产品的纯净和安全。[records: 实物 (33, 60, 61, 62, 63, 64, 65, 66), 关系 (60, 105, 106, 107, 108)]'}, {'summary': '光谱视觉技术在咖啡豆精选中的应用', 'explanation': '光谱视觉技术在咖啡豆精选中应用广泛，能够有效剔除咖啡豆中的杂质，提高咖啡豆的质量和市场竞争力。通过精确识别和去除微小异物，确保了咖啡豆的纯度和安全性。[records: 实体 (33, 70), 关系 (61, 17)]'}, {'summary': '光谱视觉技术对生产管理的影响', 'explanation': '光谱视觉技术的应用提高了生产过程的透明度和可控性，有利于优化生产管理。通过实时监控和数据分析，生产管理者可以及时调整生产参数，确保最终产品的高质量和一致性。[records: 实体 (141, 110, 108), 关系 (11, 144, 133)]'}, {'summary': '光谱视觉技术对行业口碑的提升', 'explanation': '光谱视觉技术的应用不仅提高了食品的质量，还增强了消费者的信任感，有助于企业建立良好的市场口碑。通过提升食品的安全性和质量，企业可以在市场竞争中占据优势，增强其品牌形象。[records: 实体 (73), 关系 (67, 106, 107)]'}, {'summary': '光谱视觉精选机的作用', 'explanation': '光谱视觉精选机是结合了光谱技术和视觉技术的自动化设备，专为食品的高效精选和质量检测设计。该设备能够高效、精确地识别并去除食品中的微小异物，从而显著提升食品的纯度和安全性。[records: 实体 (13, 75), 关系 (50, 25, 17, 105, 106, 107, 108, 139)]'}, {'summary': '光谱预测在生产调控中的作用', 'explanation': '光谱预测通过采集并分析食品的光谱数据，预测其理化指标，为质量控制提供技术支持。基于预测值，生产过程中可以及时调整，以确保产品质量，优化生产工艺。[records: 实体 (140, 145), 关系 (73, 74, 75, 172, 173, 174)]'}, {'summary': '光谱视觉技术对食品质量的提升', 'explanation': '光谱视觉技术在食品生产中的应用，显著提高了食品的质量控制能力，确保了食品的安全和品质。通过精确检测和高效剔除杂质，食品生产企业能够更好地满足国内外市场的严格标准，提升市场竞争力。[records: 实体 (72, 141), 关系 (62, 63, 64, 65, 106)]'}]}
+23:35:26,179 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 52.99077083123848. input_tokens=7470, output_tokens=1984
+23:35:43,348 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:35:43,348 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:35:43,348 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱成像技术在食品安全与品质检测中的应用', 'summary': '该社区围绕光谱成像技术在食品安全与品质检测中的应用展开，涉及酱油发酵指标监测、猪肉质量检测、鱼肉寄生虫检测等多个方面。光谱成像技术不仅能够提供高效的检测手段，还能确保食品的无损检测，提高食品安全性和品质。社区中的各个实体如光谱成像技术、寄生虫检测、猪肉、鱼肉等相互关联，形成了一个完整的检测生态系统。', 'rating': 9.5, 'rating_explanation': '此文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '光谱成像技术的应用范围广泛', 'explanation': '光谱成像技术不仅在鱼肉寄生虫检测中表现出色，还在猪肉的脂肪检测、酱油发酵指标监测等多个领域中有着广泛的应用。例如，通过分析鱼肉与寄生虫在不同光谱波段下的成像差异，可以精确检测寄生虫的存在，提高检测效率 [records: 关系 (136, 140, 137, 138, 134, 135)]。'}, {'summary': '光谱成像技术在猪肉检测中的应用', 'explanation': '光谱成像技术能够通过对不同波段光的吸收特性进行分析，实现对猪肉的非破坏性检测。这项技术不仅可以检测猪肉中的脂肪含量，还可以测定蛋白质和水分等其他关键质量指标，提供详尽的成分信息，有助于确保食品安全和提升产品质量 [records: 关系 (123, 134, 135, 122, 121, 120, 124)]。'}, {'summary': '寄生虫检测的重要性', 'explanation': '寄生虫检测是确保食品安全的重要措施，特别是对于鱼肉等容易受到寄生虫污染的食品。通过光谱成像技术和数据处理算法的结合，可以有效识别和检测鱼片中的寄生虫，提高食品安全性 [records: 关系 (149, 150, 151, 152, 146, 147)]。'}, {'summary': '酱油发酵指标监测', 'explanation': '酱油发酵指标监测是确保酱油质量的关键环节。光谱成像技术可以用于监控酱油发酵过程中的关键指标变化，确保产品质量。通过实时监测发酵条件，可以优化生产工艺，提高酱油的品质和安全性 [records: 关系 (153, 137, 138)]。'}, {'summary': '消费检测场景的应用潜力', 'explanation': '光谱成像技术有潜力应用于消费检测场景，直接服务于消费者的食品安全需求。消费者可以在购买或使用前对商品进行检测，验证产品的安全性和质量，增强消费者对所购食品的信心，同时促进食品市场的透明度和信任度 [records: 关系 (143, 152)]。'}, {'summary': '数据处理算法的重要性', 'explanation': '数据处理算法与光谱成像技术相结合，可以有效识别和检测鱼片中的寄生虫，提高检测的准确性和效率。这些算法专门用于分析光谱图像数据，不仅提高了检测的准确性，还增强了检测效率，为食品安全提供了有力支持 [records: 关系 (141, 150)]。'}, {'summary': '传统检测方法的局限', 'explanation': '传统的寄生虫检测方法如烛光法虽然常用，但存在劳动强度大和漏检率高的问题。光谱成像技术作为一种非破坏性的检测手段，可以有效克服这些局限，提供更高效、准确的检测结果 [records: 关系 (147)]。'}, {'summary': '猪肉质量的多维度检测', 'explanation': '猪肉的质量检测涉及多个维度，包括pH值、挥发性盐基氮（TVB-N）含量、脂肪含量等。通过这些指标的综合检测，可以全面评估猪肉的新鲜度和安全性，确保消费者健康 [records: 关系 (121, 120, 122)]。'}, {'summary': '光谱成像技术在生产管理中的优化作用', 'explanation': '光谱成像技术的应用不仅限于食品检测，还可以优化生产管理，提高生产效率和产品质量。通过实时监控生产过程中的关键指标，可以及时调整工艺参数，确保生产的连续性和稳定性 [records: 关系 (139)]。'}, {'summary': '不同波段下鱼片的光谱图像', 'explanation': '不同波段的光谱图像提供了检测寄生虫所需的详细信息，有助于提高检测的准确性和可靠性。这些图像能够显示鱼肉与寄生虫在不同光谱波段下的成像差异，为寄生虫的检测提供了科学依据 [records: 关系 (148, 119)]。'}]}
+23:35:43,349 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 70.17615346703678. input_tokens=6183, output_tokens=1907
+23:35:46,622 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+23:35:46,622 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+23:35:46,623 graphrag.llm.openai.utils INFO success load json in step 2{'title': '茶叶精选与光谱成像技术', 'summary': '该社区围绕茶叶精选过程展开，涵盖了从传统方法到现代技术的各种实践。社区内关键实体包括茶叶精选、AI、视觉成像、传统视觉检测、喷阀抖筛和人工剔杂等。主要关注点在于如何利用AI和光谱成像技术提高茶叶精选的效率和质量，同时减少人力成本和食品安全风险。', 'rating': 9.5, 'rating_explanation': '该文本详细介绍了光谱成像技术在食品安全与品质检测中的多种应用，不仅解决了传统检测方法的诸多限制，还提供了提升食品质量和安全性的先进解决方案。', 'findings': [{'summary': '茶叶精选的重要性', 'explanation': '茶叶精选是茶叶生产过程中的一个关键环节，主要目的是通过分类和剔除杂质来保证茶叶的纯净度和品质。这一过程对于维持和提升茶叶的整体质量至关重要。传统的精选方法存在效率低、成本高和易引入新杂质等问题，因此寻找更有效的精选方法成为研究的焦点。[records: 实体 (14), 关系 (14, 40)]'}, {'summary': 'AI技术的引入', 'explanation': 'AI技术在增强视觉检测效果方面展现出显著的优势，特别是在辅助茶叶精选过程中，通过基于AI的算法提高了选择的准确性和效率。AI技术的应用使得茶叶精选更加智能化，但其应用仍存在改进的空间，且在单独使用时存在一定的局限性。因此，在实际应用中，通常需要结合其他技术和方法，以进一步提升检测和选择的精准度与可靠性。[records: 实体 (17), 关系 (47, 36)]'}, {'summary': '传统视觉检测的局限性', 'explanation': '传统视觉检测在茶叶精选中有应用，但受限于技术本身的局限，效果有限。传统视觉检测的识别精度和效率较低，难以满足现代食品精选的高要求。此外，传统视觉检测的准确率也相对较低，导致部分杂质或缺陷未能有效剔除。这些局限性促使研究人员寻求更先进的技术手段。[records: 实体 (15), 关系 (34, 42, 43, 44)]'}, {'summary': '喷阀抖筛的效果', 'explanation': '喷阀抖筛是一种常用的茶叶剔杂手段，通过喷射气流抖动茶叶，分离杂质。然而，由于不同杂质特性差异较大，喷阀抖筛的效果有限，尤其是在处理复杂杂质时。尽管如此，喷阀抖筛仍然是茶叶精选中不可或缺的一部分。[records: 实体 (16), 关系 (35, 45, 46)]'}, {'summary': '人工剔杂的风险', 'explanation': '人工剔杂是传统茶叶精选方法的一部分，但在实际操作中存在诸多问题。人工剔杂过程中可能会引入新的杂质，如纤维、纸屑等，这些新杂质不仅影响茶叶的品质，还可能带来食品安全风险。此外，人工剔杂需要大量的人力投入和管理成本，导致茶叶企业面临较大的经济压力。[records: 实体 (40, 41), 关系 (41, 39, 37, 38, 81)]'}, {'summary': '光谱成像技术的应用', 'explanation': '光谱成像技术作为一种新兴的检测手段，在茶叶精选中显示出巨大的潜力。通过利用光学原理获取食品图像，光谱成像技术能够高精度地识别茶叶中的杂质和缺陷，显著提高检测的准确率和效率。该技术的应用不仅减少了人工剔杂带来的风险，还大幅降低了人力成本，提高了茶叶的品质和安全性。[records: 实体 (23, 26, 27), 关系 (82)]'}, {'summary': '经济压力与管理成本', 'explanation': '在茶叶精选过程中，高的人力成本和管理成本是茶叶企业面临的主要经济压力之一。大量的人力投入不仅增加了成本，还可能导致人工操作中的误差。因此，采用先进的技术手段，如AI和光谱成像技术，不仅可以提高精选效率和质量，还能有效降低企业的运营成本。[records: 实体 (19, 28, 18), 关系 (39, 37, 38)]'}, {'summary': '综合技术的必要性', 'explanation': '尽管光谱成像技术和AI在茶叶精选中表现出色，但单一技术的应用往往存在局限性。因此，结合多种技术手段，如光谱成像、AI和物理剔杂方法，可以形成更为完善的检测和处理方案。这种综合技术的应用不仅提高了茶叶精选的综合性能，还确保了茶叶生产的高效与安全。[records: 关系 (47, 36, 35, 34)]'}]}
+23:35:46,623 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 73.4537116792053. input_tokens=4467, output_tokens=1868
+23:35:46,649 datashaper.workflow.workflow INFO executing verb window
+23:35:46,651 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_community_reports.parquet
+23:35:46,791 graphrag.index.run INFO Running workflow: create_final_text_units...
+23:35:46,791 graphrag.index.run INFO dependencies for create_final_text_units: ['join_text_units_to_relationship_ids', 'join_text_units_to_entity_ids', 'create_base_text_units', 'join_text_units_to_covariate_ids']
+23:35:46,791 graphrag.index.run INFO read table from storage: join_text_units_to_relationship_ids.parquet
+23:35:46,793 graphrag.index.run INFO read table from storage: join_text_units_to_entity_ids.parquet
+23:35:46,795 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+23:35:46,796 graphrag.index.run INFO read table from storage: join_text_units_to_covariate_ids.parquet
+23:35:46,823 datashaper.workflow.workflow INFO executing verb select
+23:35:46,836 datashaper.workflow.workflow INFO executing verb rename
+23:35:46,849 datashaper.workflow.workflow INFO executing verb join
+23:35:46,866 datashaper.workflow.workflow INFO executing verb join
+23:35:46,882 datashaper.workflow.workflow INFO executing verb join
+23:35:46,899 datashaper.workflow.workflow INFO executing verb aggregate_override
+23:35:46,914 datashaper.workflow.workflow INFO executing verb select
+23:35:46,915 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_text_units.parquet
+23:35:47,54 graphrag.index.run INFO Running workflow: create_base_documents...
+23:35:47,63 graphrag.index.run INFO dependencies for create_base_documents: ['create_final_text_units']
+23:35:47,63 graphrag.index.run INFO read table from storage: create_final_text_units.parquet
+23:35:47,93 datashaper.workflow.workflow INFO executing verb unroll
+23:35:47,108 datashaper.workflow.workflow INFO executing verb select
+23:35:47,122 datashaper.workflow.workflow INFO executing verb rename
+23:35:47,137 datashaper.workflow.workflow INFO executing verb join
+23:35:47,154 datashaper.workflow.workflow INFO executing verb aggregate_override
+23:35:47,170 datashaper.workflow.workflow INFO executing verb join
+23:35:47,187 datashaper.workflow.workflow INFO executing verb rename
+23:35:47,202 datashaper.workflow.workflow INFO executing verb convert
+23:35:47,204 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_documents.parquet
+23:35:47,336 graphrag.index.run INFO Running workflow: create_final_documents...
+23:35:47,336 graphrag.index.run INFO dependencies for create_final_documents: ['create_base_documents']
+23:35:47,337 graphrag.index.run INFO read table from storage: create_base_documents.parquet
+23:35:47,368 datashaper.workflow.workflow INFO executing verb rename
+23:35:47,369 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_documents.parquet
+23:35:47,420 graphrag.index.cli INFO All workflows completed successfully.

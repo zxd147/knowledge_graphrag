@@ -1,95 +1,85 @@
-# Copyright (c) 2024 Microsoft Corporation.
-# Licensed under the MIT License
+# 版权所有 (c) 2024 Microsoft Corporation.
+# 根据 MIT 许可证授权
 
-"""Fine-tuning prompts for community report summarization."""
+"""为社区报告摘要微调提示词。"""
 
 COMMUNITY_REPORT_SUMMARIZATION_PROMPT = """
 {persona}
 
-# Goal
-Write a comprehensive assessment report of a community taking on the role of a {role}. The content of this report includes an overview of the community's key entities and relationships.
+# 目标
+以{role}的身份撰写一份全面的社区评估报告。报告内容包括社区的关键实体和关系概览。
 
-# Report Structure
-The report should include the following sections:
-- TITLE: community's name that represents its key entities - title should be short but specific. When possible, include representative named entities in the title.
-- SUMMARY: An executive summary of the community's overall structure, how its entities are related to each other, and significant points associated with its entities.
-- REPORT RATING: {report_rating_description}
-- RATING EXPLANATION: Give a single sentence explanation of the rating.
-- DETAILED FINDINGS: A list of 5-10 key insights about the community. Each insight should have a short summary followed by multiple paragraphs of explanatory text grounded according to the grounding rules below. Be comprehensive.
+# 报告结构
+报告应包括以下部分：
+- 标题：代表社区关键实体的社区名称 - 标题应简短但具体。如果可能，标题中包括代表性的命名实体。
+- 摘要：社区整体结构的执行摘要，其实体如何相互关联，以及与其实体相关的重大点。
+- 报告评级：{report_rating_description}
+- 评级解释：给出评级的单句解释。
+- 详细发现：关于社区的5-10个关键见解的列表。每个见解应有一个简短的摘要，然后是多段解释性文本，根据下面的依据规则进行。要全面。
 
-Return output as a well-formed JSON-formatted string with the following format. Don't use any unnecessary escape sequences. The output should be a single JSON object that can be parsed by json.loads.
+将输出作为格式良好的 JSON 格式字符串返回。不要使用任何不必要的转义序列。输出应为一个可以被 json.loads 解析的单个 JSON 对象。
     {{
-        "title": "<report_title>",
-        "summary": "<executive_summary>",
-        "rating": <threat_severity_rating>,
-        "rating_explanation": "<rating_explanation>"
-        "findings": "[{{"summary":"<insight_1_summary>", "explanation": "<insight_1_explanation"}}, {{"summary":"<insight_2_summary>", "explanation": "<insight_2_explanation"}}]"
+        "title": "<报告标题>",
+        "summary": "<执行摘要>",
+        "rating": <威胁严重性评级>,
+        "rating_explanation": "<评级解释>"
+        "findings": "[{{"summary":"<见解1摘要>", "explanation": "<见解1解释"}}, {{"summary":"<见解2摘要>", "explanation": "<见解2解释"}}]"
     }}
 
-# Grounding Rules
-After each paragraph, add data record reference if the content of the paragraph was derived from one or more data records. Reference is in the format of [records: <record_source> (<record_id_list>, ...<record_source> (<record_id_list>)]. If there are more than 10 data records, show the top 10 most relevant records.
-Each paragraph should contain multiple sentences of explanation and concrete examples with specific named entities. All paragraphs must have these references at the start and end. Use "NONE" if there are no related roles or records. Everything should be in {language}.
+# 依据规则
+每个段落后都应添加数据记录引用，如果段落的内容源自一个或多个数据记录。引用格式为：[records: <记录来源> (<记录ID列表>, ...<记录来源> (<记录ID列表>)]。如果有超过10个数据记录，显示最相关的前10个记录。
+每个段落应包含多个解释性句子和具体的例子以及特定的命名实体。所有段落都必须在开始和结束时有这些引用。如果没有相关的角色或记录，使用"NONE"。一切内容应使用{language}语言。
 
-Example paragraph with references added:
-This is a paragraph of the output text [records: Entities (1, 2, 3), Claims (2, 5), Relationships (10, 12)]
+示例段落，包含引用添加：
+这是输出文本的一个段落 [records: 实体 (1, 2, 3), 声明 (2, 5), 关系 (10, 12)]
 
-# Example Input
+# 示例输入
 -----------
-Text:
+文本：
 
-Entities
+实体
 
-id,entity,description
-5,ABILA CITY PARK,Abila City Park is the location of the POK rally
+id, 实体, 描述
+5, ABILA CITY PARK, Abila City Park 是 POK 集会的地点
 
-Relationships
+关系
 
-id,source,target,description
-37,ABILA CITY PARK,POK RALLY,Abila City Park is the location of the POK rally
-38,ABILA CITY PARK,POK,POK is holding a rally in Abila City Park
-39,ABILA CITY PARK,POKRALLY,The POKRally is taking place at Abila City Park
-40,ABILA CITY PARK,CENTRAL BULLETIN,Central Bulletin is reporting on the POK rally taking place in Abila City Park
+id, 来源, 目标, 描述
+37, ABILA CITY PARK, POK RALLY, Abila City Park 是 POK 集会的地点
+38, ABILA CITY PARK, POK, POK 正在 Abila City Park 举行集会
+39, ABILA CITY PARK, POKRALLY, POK 集会正在 Abila City Park 举行
+40, ABILA CITY PARK, CENTRAL BULLETIN, Central Bulletin 正在报道在 Abila City Park 举行的 POK 集会
 
-Output:
+输出：
 {{
-    "title": "Abila City Park and POK Rally",
-    "summary": "The community revolves around the Abila City Park, which is the location of the POK rally. The park has relationships with POK, POKRALLY, and Central Bulletin, all
-of which are associated with the rally event.",
+    "title": "Abila City Park 和 POK 集会",
+    "summary": "该社区围绕 Abila City Park 展开，这里是 POK 集会的地点。公园与 POK、POKRALLY 和 Central Bulletin 有关联，所有这些都与集会事件有关。",
     "rating": 5.0,
-    "rating_explanation": "The impact rating is moderate due to the potential for unrest or conflict during the POK rally.",
+    "rating_explanation": "由于 POK 集会期间可能出现的不安或冲突，影响评级为中等。",
     "findings": [
         {{
-            "summary": "Abila City Park as the central location",
-            "explanation": "Abila City Park is the central entity in this community, serving as the location for the POK rally. This park is the common link between all other
-entities, suggesting its significance in the community. The park's association with the rally could potentially lead to issues such as public disorder or conflict, depending on the
-nature of the rally and the reactions it provokes. [records: Entities (5), Relationships (37, 38, 39, 40)]"
+            "summary": "Abila City Park 作为中心地点",
+            "explanation": "Abila City Park 是这个社区的中心实体，是 POK 集会的地点。这个公园是所有其他实体的共同联系点，表明其在社区中的重要性。公园与集会的关联可能会导致诸如公共秩序混乱或冲突等问题，这取决于集会的性质和它所引发的反应。[records: 实体 (5), 关系 (37, 38, 39, 40)]"
         }},
         {{
-            "summary": "POK's role in the community",
-            "explanation": "POK is another key entity in this community, being the organizer of the rally at Abila City Park. The nature of POK and its rally could be a potential
-source of threat, depending on their objectives and the reactions they provoke. The relationship between POK and the park is crucial in understanding the dynamics of this community.
-[records: Relationships (38)]"
+            "summary": "POK 在社区中的角色",
+            "explanation": "POK 是这个社区的另一个关键实体，是 Abila City Park 集会的组织者。POK 及其集会的性质可能是潜在的威胁源，这取决于他们的目标和所引发反应。POK 与公园之间的关系对于理解这个社区的动态至关重要。[records: 关系 (38)]"
         }},
         {{
-            "summary": "POKRALLY as a significant event",
-            "explanation": "The POKRALLY is a significant event taking place at Abila City Park. This event is a key factor in the community's dynamics and could be a potential
-source of threat, depending on the nature of the rally and the reactions it provokes. The relationship between the rally and the park is crucial in understanding the dynamics of this
-community. [records: Relationships (39)]"
+            "summary": "POKRALLY 作为重大事件",
+            "explanation": "POKRALLY 是在 Abila City Park 举行的重大事件。这个事件是社区动态的关键因素，可能是潜在的威胁源，这取决于集会的性质和它所引发的反应。集会与公园之间的关系对于理解这个社区的动态至关重要。[records: 关系 (39)]"
         }},
         {{
-            "summary": "Role of Central Bulletin",
-            "explanation": "Central Bulletin is reporting on the POK rally taking place in Abila City Park. This suggests that the event has attracted media attention, which could
-amplify its impact on the community. The role of Central Bulletin could be significant in shaping public perception of the event and the entities involved. [records: Relationships
-(40)]"
+            "summary": "Central Bulletin 的角色",
+            "explanation": "Central Bulletin 正在报道在 Abila City Park 举行的 POK 集会。这表明该事件已经吸引了媒体的注意，这可能会放大其对社区的影响。Central Bulletin 在塑造公众对事件和涉及实体的看法方面可能具有重要作用。[records: 关系 (40)]"
         }}
     ]
-
 }}
 
-# Real Data
+# 实际数据
 
-Use the following text for your answer. Do not make anything up in your answer.
+使用以下文本作为您回答的依据。不要在回答中编造任何内容。
 
-Text:
+文本：
 {{input_text}}
-Output:"""
+输出："""
