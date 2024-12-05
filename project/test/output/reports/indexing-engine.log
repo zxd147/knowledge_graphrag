@@ -365,3 +365,1190 @@
 16:08:16,762 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 61.74341907259077. input_tokens=2653, output_tokens=3650
 16:08:18,545 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
 16:08:18,546 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 49.753435865044594. input_tokens=55, output_tokens=2550
+16:08:23,492 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:23,494 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 63.800205318722874. input_tokens=55, output_tokens=1910
+16:08:29,265 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:29,265 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 5.762073923833668. input_tokens=55, output_tokens=184
+16:08:34,76 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:34,76 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.313472411129624. input_tokens=55, output_tokens=808
+16:08:39,64 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:39,65 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 35.31403236789629. input_tokens=55, output_tokens=1736
+16:08:56,858 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:08:56,859 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 17.78780960571021. input_tokens=2654, output_tokens=855
+16:09:07,663 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:07,664 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 71.81986673502252. input_tokens=2654, output_tokens=3279
+16:09:10,235 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:10,236 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 61.91334590408951. input_tokens=2654, output_tokens=3415
+16:09:13,99 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:13,100 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 39.0159583799541. input_tokens=2654, output_tokens=1720
+16:09:13,632 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:13,633 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 16.77257639123127. input_tokens=55, output_tokens=771
+16:09:21,899 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:21,900 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 63.345815358217806. input_tokens=2525, output_tokens=2888
+16:09:22,166 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:22,166 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 9.065989335998893. input_tokens=55, output_tokens=458
+16:09:24,556 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:24,557 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 90.12993891444057. input_tokens=2654, output_tokens=4509
+16:09:26,40 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:26,41 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 80.41866018762812. input_tokens=2654, output_tokens=3648
+16:09:26,554 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:26,555 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.889422222040594. input_tokens=55, output_tokens=562
+16:09:29,30 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:29,32 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 86.8995461538434. input_tokens=2654, output_tokens=4411
+16:09:34,755 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:34,756 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 12.854937378782779. input_tokens=55, output_tokens=549
+16:09:40,929 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:40,929 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 14.887279541231692. input_tokens=55, output_tokens=535
+16:09:41,792 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:41,793 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 72.52158014290035. input_tokens=2654, output_tokens=3738
+16:09:42,24 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:42,25 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 7.263208169024438. input_tokens=55, output_tokens=344
+16:09:54,216 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:09:54,217 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 29.658319909125566. input_tokens=55, output_tokens=1536
+16:09:57,440 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+16:09:57,441 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\n-Goal-\nGiven a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.\nNext, report all relationships among the identified entities.\n\n-Steps-\n1. Identify all entities. For each identified entity, extract the following information:\n- entity_name: Name of the entity, capitalized\n- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.\n- entity_description: Comprehensive description of the entity\'s attributes and activities\nFormat each entity as ("entity"<|><entity_name><|><entity_type><|><entity_description>)\n\n2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.\nFor each pair of related entities, extract the following information:\n- source_entity: name of the source entity, as identified in step 1\n- target_entity: name of the target entity, as identified in step 1\n- relationship_description: explanation as to why you think the source entity and the target entity are related to each other\n- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity\nFormat each relationship as ("relationship"<|><source_entity><|><target_entity><|><relationship_description><|><relationship_strength>)\n\n3. Return output in Chinese as a single list of all the entities and relationships identified in steps 1 and 2. Use **##** as the list delimiter.\n\n4. If you have to translate into Chinese, just translate the descriptions, nothing else!\n\n5. When finished, output <|COMPLETE|>.\n\n-Examples-\n######################\n\nExample 1:\n\ntext:\n对话交互\n短视频输出\n产品与服务 | 真人数字人分身\n“科学家数字人传播”项目首开先河\nAI赋能，数字人分身帮助科学家有效地将科研成果进行传播。 为千行百业打造“企业数字员工”\n高仿真数字人、卡通动漫风格化、二次元虚拟角色等不同类型。为企业提供各种精度的虚拟人\n形象定制服务，并配以算法动作驱动功能，设计制作出多维度虚拟内容资产，打造能说、会动、可\n交互的智能数字人，促成虚拟IP深\n------------------------\noutput:\n("entity"<|>对话交互<|>SERVICE<|>对话交互是一种人机交互方式，用于实现自然语言交流)\n##\n("entity"<|>短视频输出<|>SERVICE<|>短视频输出是一种通过视频形式快速传达信息的服务)\n##\n("entity"<|>产品与服务<|>SERVICE<|>产品与服务涵盖了多种AI技术应用，包括数字人分身等)\n##\n("entity"<|>科学家数字人传播<|>PROJECT<|>科学家数字人传播项目利用AI技术帮助科学家传播科研成果)\n##\n("entity"<|>企业数字员工<|>SERVICE<|>企业数字员工是通过AI技术打造的虚拟员工，为企业提供服务)\n##\n("entity"<|>高仿真数字人<|>SERVICE<|>高仿真数字人是一种高度逼真的虚拟人形象，用于各种应用场景)\n##\n("entity"<|>卡通动漫风格化<|>SERVICE<|>卡通动漫风格化是一种将数字人形象设计成卡通或动漫风格的服务)\n##\n("entity"<|>二次元虚拟角色<|>SERVICE<|>二次元虚拟角色是一种具有动漫风格的虚拟人形象)\n##\n("entity"<|>虚拟人形象定制服务<|>SERVICE<|>虚拟人形象定制服务是根据客户需求设计和制作虚拟人形象的服务)\n##\n("entity"<|>算法动作驱动功能<|>SERVICE<|>算法动作驱动功能是通过算法实现虚拟人动作的自动化服务)\n##\n("entity"<|>多维度虚拟内容资产<|>SERVICE<|>多维度虚拟内容资产是指通过AI技术制作的各种虚拟内容)\n##\n("entity"<|>智能数字人<|>SERVICE<|>智能数字人是具有交互能力的虚拟人，能够进行对话和动作)\n##\n("entity"<|>虚拟IP深建设<|>SERVICE<|>虚拟IP深建设是指通过AI技术打造深入用户内心的虚拟IP)\n##\n("relationship"<|>科学家数字人传播<|>AI赋能<|>科学家数字人传播项目利用AI技术帮助科学家传播科研成果<|>5)\n##\n("relationship"<|>企业数字员工<|>AI赋能<|>企业数字员工是通过AI技术打造的虚拟员工<|>5)\n##\n("relationship"<|>高仿真数字人<|>虚拟人形象定制服务<|>高仿真数字人是通过虚拟人形象定制服务设计和制作的<|>5)\n##\n("relationship"<|>卡通动漫风格化<|>虚拟人形象定制服务<|>卡通动漫风格化是通过虚拟人形象定制服务设计和制作的<|>5)\n##\n("relationship"<|>二次元虚拟角色<|>虚拟人形象定制服务<|>二次元虚拟角色是通过虚拟人形象定制服务设计和制作的<|>5)\n##\n("relationship"<|>算法动作驱动功能<|>智能数字人<|>智能数字人通过算法动作驱动功能实现动作自动化<|>5)\n##\n("relationship"<|>多维度虚拟内容资产<|>智能数字人<|>多维度虚拟内容资产是智能数字人制作的内容<|>5)\n##\n("relationship"<|>智能数字人<|>虚拟IP深建设<|>智能数字人是虚拟IP深建设的一部分<|>5)\n<|COMPLETE|>\n#############################\n\n\nExample 2:\n\ntext:\n来更加简洁、高效的使用环境，帮助他们更好地驾驭 AI 技术，拓展创意思维，实现工作上的突破与提升。\n\n\n广州众易用智能科技有限公司的联系电话：020-83707081。广州众易用智能科技有限公司的联系地址：广州市海珠区新港西路135号大院西区705号楼中大科技园B座自编号909A室。\n\n\n\n问：广州众易用智能科技有限公司有什么荣誉和资质？答：广州众易用智能科技有限公司是国家高新技术企业、科技\n------------------------\noutput:\n("entity"<|>广州众易用智能科技有限公司<|>ORGANIZATION<|>广州众易用智能科技有限公司是一家提供AI技术应用的公司，位于广州市海珠区新港西路135号大院西区705号楼中大科技园B座自编号909A室，联系电话为020-83707081)\n##\n("entity"<|>国家高新技术企业<|>ACCRUAL<|>国家高新技术企业是中国政府授予的荣誉，表明企业在科技创新方面达到较高水平)\n##\n("relationship"<|>广州众易用智能科技有限公司<|>国家高新技术企业<|>广州众易用智能科技有限公司被认定为国家高新技术企业，表明其在AI技术领域具有较高的研发能力<|>5)\n<|COMPLETE|>\n#############################\n\n\n\n-Real Data-\n######################\ntext: 、广告设计、动漫游戏开发、文艺创作、互联网销售等服务。\n\n众易用AI在知识产权方面表现突出，拥有包括“基于动态层次化掩码的神经网络有损传输优化方法及系统”、“基于生成网络的前背景图像混合生成方法及系统”、“一种区块链数据共享方法、系统、装置及介质”、“一种基于接口技术实现三维空间精准定位的方法和系统”等多项专利。公司还拥有30多项作品著作权、50多项软件著作权，并在持续增加中。\n\n众易用AI的成功案例包括数字人直播、原创虚拟IP、数字人客服系统、数字人制作等，涉及高仿真数字人、卡通动漫风格化、二次元虚拟角色等类型。公司还提供实体展馆数字化、虚拟数字展厅、文博藏品数字化、文创品牌数字衍生设计、建筑数字化仿真、大环境数字化、AR增强现实、VR虚拟现实、充电桩AR系统、数字栾生、三维定位系统等服务。\n\n公司的联系电话为020-83707081，联系地址为广州市海珠区新港西路135号大院西区705号楼中大科技园B座自编号909A室。广州众易用智能科技有限公司是一家拥有增值电信业务经营许可证、广播电视节目制作经营许可证、质量管理体系认证等多项资质的国家高新技术企业。\n\n广州众易用智能科技有限\n######################\noutput:\n'}
+16:10:04,544 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:04,545 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 54.307178411167115. input_tokens=55, output_tokens=2615
+16:10:11,841 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:11,842 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 45.28098594304174. input_tokens=2471, output_tokens=1091
+16:10:13,708 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:13,709 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 31.91464074794203. input_tokens=55, output_tokens=1878
+16:10:15,983 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:15,984 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 53.81131041329354. input_tokens=2654, output_tokens=2937
+16:10:18,665 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:18,666 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 49.63349230727181. input_tokens=55, output_tokens=970
+16:10:18,776 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:18,778 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 65.13845146307722. input_tokens=2655, output_tokens=2242
+16:10:37,930 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:37,931 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 24.215309194289148. input_tokens=2315, output_tokens=1337
+16:10:42,267 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:42,268 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 23.48916780203581. input_tokens=55, output_tokens=1144
+16:10:42,695 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:42,696 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 48.47227945225313. input_tokens=2656, output_tokens=2612
+16:10:45,368 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:45,370 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 63.33900906285271. input_tokens=2653, output_tokens=2824
+16:10:52,19 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:52,20 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 36.03462131600827. input_tokens=55, output_tokens=1756
+16:10:54,276 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:54,277 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 8.906467356719077. input_tokens=55, output_tokens=478
+16:10:54,940 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:54,941 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.009235219098628. input_tokens=55, output_tokens=361
+16:11:02,126 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:02,127 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 57.57533633289859. input_tokens=2617, output_tokens=2901
+16:11:14,464 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:14,465 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 55.79212065972388. input_tokens=2655, output_tokens=2126
+16:11:16,53 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:16,54 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 1 retries took 77.57132044807076. input_tokens=2654, output_tokens=3448
+16:11:24,2 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:24,3 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 72.15976547216997. input_tokens=55, output_tokens=1984
+16:11:32,403 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:32,404 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 40.377387719228864. input_tokens=2653, output_tokens=2416
+16:11:32,636 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:32,637 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.170358769595623. input_tokens=55, output_tokens=866
+16:11:33,783 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:33,785 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 51.08722418034449. input_tokens=55, output_tokens=2486
+16:11:34,604 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:34,605 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 32.47667016368359. input_tokens=55, output_tokens=1719
+16:11:37,893 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:37,894 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 43.61114608915523. input_tokens=2656, output_tokens=2168
+16:11:38,904 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:38,905 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 43.95736130606383. input_tokens=2630, output_tokens=2620
+16:11:40,445 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:40,446 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 119.51011179760098. input_tokens=2655, output_tokens=2806
+16:11:49,297 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:49,298 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 16.89295815024525. input_tokens=55, output_tokens=909
+16:11:58,682 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:58,683 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.23540063481778. input_tokens=55, output_tokens=1006
+16:11:59,120 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:59,121 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 43.06530387233943. input_tokens=55, output_tokens=481
+16:12:04,450 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:04,451 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 26.555338663049042. input_tokens=55, output_tokens=520
+16:12:08,222 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:08,223 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 29.31686532078311. input_tokens=55, output_tokens=800
+16:12:21,686 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:21,687 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 32.38355140807107. input_tokens=2655, output_tokens=1722
+16:12:21,905 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:21,906 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 99.63175035687163. input_tokens=2654, output_tokens=3260
+16:12:25,510 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:25,511 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 50.89976032683626. input_tokens=2655, output_tokens=1570
+16:12:26,412 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:26,413 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.285650669131428. input_tokens=2525, output_tokens=1256
+16:12:26,675 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:26,676 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 62.66683917073533. input_tokens=2331, output_tokens=1518
+16:12:42,266 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:42,267 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 16.75479572918266. input_tokens=55, output_tokens=492
+16:12:42,576 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:42,577 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 20.888402866665274. input_tokens=55, output_tokens=738
+16:12:43,900 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:43,901 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 39.44417368900031. input_tokens=2225, output_tokens=1012
+16:12:46,868 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:46,868 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 24.96117675397545. input_tokens=55, output_tokens=577
+16:12:47,89 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:47,90 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 48.40083751315251. input_tokens=2653, output_tokens=2573
+16:12:52,514 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:52,515 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 8.613120162859559. input_tokens=55, output_tokens=383
+16:12:55,905 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:55,906 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 29.49216299969703. input_tokens=55, output_tokens=1506
+16:13:03,790 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:03,792 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 89.99934169696644. input_tokens=2655, output_tokens=2690
+16:13:08,512 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:08,513 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.42181471409276. input_tokens=55, output_tokens=1137
+16:13:10,489 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:10,490 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 43.81283067772165. input_tokens=55, output_tokens=932
+16:13:11,174 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:11,175 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 62.94554990902543. input_tokens=2655, output_tokens=2647
+16:13:15,273 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:15,274 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 6.7533338139764965. input_tokens=2176, output_tokens=176
+16:13:20,554 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:20,555 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 5.280065006110817. input_tokens=55, output_tokens=201
+16:13:20,756 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:20,757 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 24.841584102250636. input_tokens=2478, output_tokens=845
+16:13:21,475 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:21,476 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.683208984322846. input_tokens=55, output_tokens=948
+16:13:32,733 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+16:13:32,734 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\n-Goal-\nGiven a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.\nNext, report all relationships among the identified entities.\n\n-Steps-\n1. Identify all entities. For each identified entity, extract the following information:\n- entity_name: Name of the entity, capitalized\n- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.\n- entity_description: Comprehensive description of the entity\'s attributes and activities\nFormat each entity as ("entity"<|><entity_name><|><entity_type><|><entity_description>)\n\n2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.\nFor each pair of related entities, extract the following information:\n- source_entity: name of the source entity, as identified in step 1\n- target_entity: name of the target entity, as identified in step 1\n- relationship_description: explanation as to why you think the source entity and the target entity are related to each other\n- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity\nFormat each relationship as ("relationship"<|><source_entity><|><target_entity><|><relationship_description><|><relationship_strength>)\n\n3. Return output in Chinese as a single list of all the entities and relationships identified in steps 1 and 2. Use **##** as the list delimiter.\n\n4. If you have to translate into Chinese, just translate the descriptions, nothing else!\n\n5. When finished, output <|COMPLETE|>.\n\n-Examples-\n######################\n\nExample 1:\n\ntext:\n对话交互\n短视频输出\n产品与服务 | 真人数字人分身\n“科学家数字人传播”项目首开先河\nAI赋能，数字人分身帮助科学家有效地将科研成果进行传播。 为千行百业打造“企业数字员工”\n高仿真数字人、卡通动漫风格化、二次元虚拟角色等不同类型。为企业提供各种精度的虚拟人\n形象定制服务，并配以算法动作驱动功能，设计制作出多维度虚拟内容资产，打造能说、会动、可\n交互的智能数字人，促成虚拟IP深\n------------------------\noutput:\n("entity"<|>对话交互<|>SERVICE<|>对话交互是一种人机交互方式，用于实现自然语言交流)\n##\n("entity"<|>短视频输出<|>SERVICE<|>短视频输出是一种通过视频形式快速传达信息的服务)\n##\n("entity"<|>产品与服务<|>SERVICE<|>产品与服务涵盖了多种AI技术应用，包括数字人分身等)\n##\n("entity"<|>科学家数字人传播<|>PROJECT<|>科学家数字人传播项目利用AI技术帮助科学家传播科研成果)\n##\n("entity"<|>企业数字员工<|>SERVICE<|>企业数字员工是通过AI技术打造的虚拟员工，为企业提供服务)\n##\n("entity"<|>高仿真数字人<|>SERVICE<|>高仿真数字人是一种高度逼真的虚拟人形象，用于各种应用场景)\n##\n("entity"<|>卡通动漫风格化<|>SERVICE<|>卡通动漫风格化是一种将数字人形象设计成卡通或动漫风格的服务)\n##\n("entity"<|>二次元虚拟角色<|>SERVICE<|>二次元虚拟角色是一种具有动漫风格的虚拟人形象)\n##\n("entity"<|>虚拟人形象定制服务<|>SERVICE<|>虚拟人形象定制服务是根据客户需求设计和制作虚拟人形象的服务)\n##\n("entity"<|>算法动作驱动功能<|>SERVICE<|>算法动作驱动功能是通过算法实现虚拟人动作的自动化服务)\n##\n("entity"<|>多维度虚拟内容资产<|>SERVICE<|>多维度虚拟内容资产是指通过AI技术制作的各种虚拟内容)\n##\n("entity"<|>智能数字人<|>SERVICE<|>智能数字人是具有交互能力的虚拟人，能够进行对话和动作)\n##\n("entity"<|>虚拟IP深建设<|>SERVICE<|>虚拟IP深建设是指通过AI技术打造深入用户内心的虚拟IP)\n##\n("relationship"<|>科学家数字人传播<|>AI赋能<|>科学家数字人传播项目利用AI技术帮助科学家传播科研成果<|>5)\n##\n("relationship"<|>企业数字员工<|>AI赋能<|>企业数字员工是通过AI技术打造的虚拟员工<|>5)\n##\n("relationship"<|>高仿真数字人<|>虚拟人形象定制服务<|>高仿真数字人是通过虚拟人形象定制服务设计和制作的<|>5)\n##\n("relationship"<|>卡通动漫风格化<|>虚拟人形象定制服务<|>卡通动漫风格化是通过虚拟人形象定制服务设计和制作的<|>5)\n##\n("relationship"<|>二次元虚拟角色<|>虚拟人形象定制服务<|>二次元虚拟角色是通过虚拟人形象定制服务设计和制作的<|>5)\n##\n("relationship"<|>算法动作驱动功能<|>智能数字人<|>智能数字人通过算法动作驱动功能实现动作自动化<|>5)\n##\n("relationship"<|>多维度虚拟内容资产<|>智能数字人<|>多维度虚拟内容资产是智能数字人制作的内容<|>5)\n##\n("relationship"<|>智能数字人<|>虚拟IP深建设<|>智能数字人是虚拟IP深建设的一部分<|>5)\n<|COMPLETE|>\n#############################\n\n\nExample 2:\n\ntext:\n来更加简洁、高效的使用环境，帮助他们更好地驾驭 AI 技术，拓展创意思维，实现工作上的突破与提升。\n\n\n广州众易用智能科技有限公司的联系电话：020-83707081。广州众易用智能科技有限公司的联系地址：广州市海珠区新港西路135号大院西区705号楼中大科技园B座自编号909A室。\n\n\n\n问：广州众易用智能科技有限公司有什么荣誉和资质？答：广州众易用智能科技有限公司是国家高新技术企业、科技\n------------------------\noutput:\n("entity"<|>广州众易用智能科技有限公司<|>ORGANIZATION<|>广州众易用智能科技有限公司是一家提供AI技术应用的公司，位于广州市海珠区新港西路135号大院西区705号楼中大科技园B座自编号909A室，联系电话为020-83707081)\n##\n("entity"<|>国家高新技术企业<|>ACCRUAL<|>国家高新技术企业是中国政府授予的荣誉，表明企业在科技创新方面达到较高水平)\n##\n("relationship"<|>广州众易用智能科技有限公司<|>国家高新技术企业<|>广州众易用智能科技有限公司被认定为国家高新技术企业，表明其在AI技术领域具有较高的研发能力<|>5)\n<|COMPLETE|>\n#############################\n\n\n\n-Real Data-\n######################\ntext: 实时对话交互\n短视频输出\n产品与服务 | 真人数字人分身\n“科学家数字人传播”项目首开先河\nAI赋能，数字人分身帮助科学家有效地将科研成果进行传播。 为千行百业打造“企业数字员工”\n高仿真数字人、卡通动漫风格化、二次元虚拟角色等不同类型。为企业提供各种精度的虚拟人\n形象定制服务，并配以算法动作驱动功能，设计制作出多维度虚拟内容资产，打造能说、会动、可\n交互的智能数字人，促成虚拟IP深度商业挖掘，助力企业走进元宇宙时代。 虚拟数字人制作\n典型案例：晨鹿儿、小灵珑、劲童\n产品与服务 | 虚拟数字人\n产品与服务 |\nAIGC数字内容生产\n让更多的人能驾驭 AI 人工智能\nAIGC教学培训基地\n广东广州-中山大学国家大学科技园\n江西南昌-中山大学南昌研究院\nhttp://www.ai-seed.cn\nAI-Seed资源平台\n模型资源库、AI工具\n线上课程\n直播课、视频课\n产品与服务 | AIGC教育培训\n认知课：企业老板、高管、机关干部\n技能课：职场人士、自媒体人士、设计师\n入门课：青少年版块\n让更多的人驾驭 AI 人工智能\n产品与服务 | AIGC教育培\n######################\noutput:\n'}
+16:13:34,285 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:34,286 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 41.76473724190146. input_tokens=2654, output_tokens=1284
+16:13:35,534 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:35,535 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 52.951998319942504. input_tokens=2655, output_tokens=2384
+16:13:38,190 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:38,191 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 55.91798428399488. input_tokens=2655, output_tokens=2724
+16:13:51,335 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:51,336 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 40.15962601825595. input_tokens=55, output_tokens=1862
+16:13:54,63 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:54,64 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 19.776622429024428. input_tokens=55, output_tokens=974
+16:13:56,901 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:13:56,902 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 46.404798575211316. input_tokens=2655, output_tokens=2455
+16:14:02,319 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:02,320 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 41.561053551733494. input_tokens=55, output_tokens=1568
+16:14:05,315 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:05,316 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 11.246151029132307. input_tokens=2238, output_tokens=611
+16:14:06,811 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:06,812 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 46.25014232331887. input_tokens=2654, output_tokens=2634
+16:14:12,757 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:12,758 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 15.85471101058647. input_tokens=55, output_tokens=827
+16:14:13,733 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:13,739 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 52.25469225505367. input_tokens=2654, output_tokens=2998
+16:14:16,361 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:16,361 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 11.044400047976524. input_tokens=55, output_tokens=612
+16:14:20,230 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:20,231 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 44.69524777820334. input_tokens=55, output_tokens=1067
+16:14:30,341 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:30,343 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 23.52961012488231. input_tokens=55, output_tokens=1383
+16:14:32,19 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:32,20 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.279730414040387. input_tokens=55, output_tokens=994
+16:14:42,307 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:42,308 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 64.1152588413097. input_tokens=55, output_tokens=1965
+16:14:44,434 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:44,435 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 12.408654446247965. input_tokens=2179, output_tokens=327
+16:14:46,593 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:46,594 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 55.25111653236672. input_tokens=2537, output_tokens=2148
+16:14:46,960 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+16:14:46,961 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\n-Goal-\nGiven a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.\nNext, report all relationships among the identified entities.\n\n-Steps-\n1. Identify all entities. For each identified entity, extract the following information:\n- entity_name: Name of the entity, capitalized\n- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.\n- entity_description: Comprehensive description of the entity\'s attributes and activities\nFormat each entity as ("entity"<|><entity_name><|><entity_type><|><entity_description>)\n\n2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.\nFor each pair of related entities, extract the following information:\n- source_entity: name of the source entity, as identified in step 1\n- target_entity: name of the target entity, as identified in step 1\n- relationship_description: explanation as to why you think the source entity and the target entity are related to each other\n- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity\nFormat each relationship as ("relationship"<|><source_entity><|><target_entity><|><relationship_description><|><relationship_strength>)\n\n3. Return output in Chinese as a single list of all the entities and relationships identified in steps 1 and 2. Use **##** as the list delimiter.\n\n4. If you have to translate into Chinese, just translate the descriptions, nothing else!\n\n5. When finished, output <|COMPLETE|>.\n\n-Examples-\n######################\n\nExample 1:\n\ntext:\n对话交互\n短视频输出\n产品与服务 | 真人数字人分身\n“科学家数字人传播”项目首开先河\nAI赋能，数字人分身帮助科学家有效地将科研成果进行传播。 为千行百业打造“企业数字员工”\n高仿真数字人、卡通动漫风格化、二次元虚拟角色等不同类型。为企业提供各种精度的虚拟人\n形象定制服务，并配以算法动作驱动功能，设计制作出多维度虚拟内容资产，打造能说、会动、可\n交互的智能数字人，促成虚拟IP深\n------------------------\noutput:\n("entity"<|>对话交互<|>SERVICE<|>对话交互是一种人机交互方式，用于实现自然语言交流)\n##\n("entity"<|>短视频输出<|>SERVICE<|>短视频输出是一种通过视频形式快速传达信息的服务)\n##\n("entity"<|>产品与服务<|>SERVICE<|>产品与服务涵盖了多种AI技术应用，包括数字人分身等)\n##\n("entity"<|>科学家数字人传播<|>PROJECT<|>科学家数字人传播项目利用AI技术帮助科学家传播科研成果)\n##\n("entity"<|>企业数字员工<|>SERVICE<|>企业数字员工是通过AI技术打造的虚拟员工，为企业提供服务)\n##\n("entity"<|>高仿真数字人<|>SERVICE<|>高仿真数字人是一种高度逼真的虚拟人形象，用于各种应用场景)\n##\n("entity"<|>卡通动漫风格化<|>SERVICE<|>卡通动漫风格化是一种将数字人形象设计成卡通或动漫风格的服务)\n##\n("entity"<|>二次元虚拟角色<|>SERVICE<|>二次元虚拟角色是一种具有动漫风格的虚拟人形象)\n##\n("entity"<|>虚拟人形象定制服务<|>SERVICE<|>虚拟人形象定制服务是根据客户需求设计和制作虚拟人形象的服务)\n##\n("entity"<|>算法动作驱动功能<|>SERVICE<|>算法动作驱动功能是通过算法实现虚拟人动作的自动化服务)\n##\n("entity"<|>多维度虚拟内容资产<|>SERVICE<|>多维度虚拟内容资产是指通过AI技术制作的各种虚拟内容)\n##\n("entity"<|>智能数字人<|>SERVICE<|>智能数字人是具有交互能力的虚拟人，能够进行对话和动作)\n##\n("entity"<|>虚拟IP深建设<|>SERVICE<|>虚拟IP深建设是指通过AI技术打造深入用户内心的虚拟IP)\n##\n("relationship"<|>科学家数字人传播<|>AI赋能<|>科学家数字人传播项目利用AI技术帮助科学家传播科研成果<|>5)\n##\n("relationship"<|>企业数字员工<|>AI赋能<|>企业数字员工是通过AI技术打造的虚拟员工<|>5)\n##\n("relationship"<|>高仿真数字人<|>虚拟人形象定制服务<|>高仿真数字人是通过虚拟人形象定制服务设计和制作的<|>5)\n##\n("relationship"<|>卡通动漫风格化<|>虚拟人形象定制服务<|>卡通动漫风格化是通过虚拟人形象定制服务设计和制作的<|>5)\n##\n("relationship"<|>二次元虚拟角色<|>虚拟人形象定制服务<|>二次元虚拟角色是通过虚拟人形象定制服务设计和制作的<|>5)\n##\n("relationship"<|>算法动作驱动功能<|>智能数字人<|>智能数字人通过算法动作驱动功能实现动作自动化<|>5)\n##\n("relationship"<|>多维度虚拟内容资产<|>智能数字人<|>多维度虚拟内容资产是智能数字人制作的内容<|>5)\n##\n("relationship"<|>智能数字人<|>虚拟IP深建设<|>智能数字人是虚拟IP深建设的一部分<|>5)\n<|COMPLETE|>\n#############################\n\n\nExample 2:\n\ntext:\n来更加简洁、高效的使用环境，帮助他们更好地驾驭 AI 技术，拓展创意思维，实现工作上的突破与提升。\n\n\n广州众易用智能科技有限公司的联系电话：020-83707081。广州众易用智能科技有限公司的联系地址：广州市海珠区新港西路135号大院西区705号楼中大科技园B座自编号909A室。\n\n\n\n问：广州众易用智能科技有限公司有什么荣誉和资质？答：广州众易用智能科技有限公司是国家高新技术企业、科技\n------------------------\noutput:\n("entity"<|>广州众易用智能科技有限公司<|>ORGANIZATION<|>广州众易用智能科技有限公司是一家提供AI技术应用的公司，位于广州市海珠区新港西路135号大院西区705号楼中大科技园B座自编号909A室，联系电话为020-83707081)\n##\n("entity"<|>国家高新技术企业<|>ACCRUAL<|>国家高新技术企业是中国政府授予的荣誉，表明企业在科技创新方面达到较高水平)\n##\n("relationship"<|>广州众易用智能科技有限公司<|>国家高新技术企业<|>广州众易用智能科技有限公司被认定为国家高新技术企业，表明其在AI技术领域具有较高的研发能力<|>5)\n<|COMPLETE|>\n#############################\n\n\n\n-Real Data-\n######################\ntext: 文物高精度三维建模、文物AR动画活化、互动式数字多宝阁、虚拟展厅、移动端藏品交互等多种形式。合作单位包括广东省工艺美术珍品馆、广东民间工艺博物馆（陈家祠）、广东海上丝绸之路博物馆（南海一号）、顺德博物馆、广东崇正拍卖行等。虚拟数字人制作典型案例：晨鹿儿、小灵珑、劲童产品与服务 | 虚拟数字人产品与服务 |AIGC数字内容生产让更多的人能驾驭 AI 人工智能AIGC教学培训基地广东广州-中山大学国家大学科技园江西南昌-中山大学南昌研究院http://www.ai-seed.cnAI-Seed资源平台模型资源库、AI工具线上课程直播课、视频课产品与服务 | AIGC教育培训认知课：企业老板、高管、机关干部技能课：职场人士、自媒体人士、设计师入门课：青少年版块让更多的人驾驭 AI 人工智能产品与服务 | AIGC教育培训众易用AI 系统 三维定位系统AI-Seed平台 VR全景平台空间交互设计系统自研系统众易用智能科技自主研发的众易用AI，是一款多领域 AI 工具平台，旨在将传统工作流转变为全新的 AI 工作流，从而实现降本增效。众\n######################\noutput:\n'}
+16:14:48,815 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:48,816 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 46.4898823662661. input_tokens=2655, output_tokens=2622
+16:14:52,211 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:52,212 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 7.7762054381892085. input_tokens=55, output_tokens=341
+16:14:57,120 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:57,122 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 1 retries took 82.88660220475867. input_tokens=2653, output_tokens=3538
+16:14:58,277 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:14:58,278 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 9.461265155114233. input_tokens=55, output_tokens=511
+16:15:00,967 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:15:00,968 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 30.618854735977948. input_tokens=2481, output_tokens=1036
+16:15:04,316 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:15:04,317 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.722184877377003. input_tokens=55, output_tokens=824
+16:15:06,29 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:15:06,31 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 45.79283832432702. input_tokens=2655, output_tokens=2336
+16:15:07,37 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:15:07,38 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 54.27440623007715. input_tokens=2655, output_tokens=3057
+16:15:19,932 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:15:19,933 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 12.893498193938285. input_tokens=55, output_tokens=674
+16:15:33,272 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:15:33,273 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 1 retries took 44.925915841944516. input_tokens=2654, output_tokens=2498
+16:15:35,601 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:15:35,602 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 29.57039872277528. input_tokens=55, output_tokens=1392
+16:15:36,220 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:15:36,221 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 79.85344479233027. input_tokens=2655, output_tokens=3529
+16:15:39,589 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:15:39,590 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 38.6206675497815. input_tokens=55, output_tokens=2376
+16:15:59,51 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:15:59,52 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 25.77829752024263. input_tokens=55, output_tokens=1418
+16:16:29,563 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:29,565 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 92.44141684193164. input_tokens=55, output_tokens=1647
+16:16:33,526 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:33,527 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 57.30469695804641. input_tokens=55, output_tokens=1762
+16:16:33,535 datashaper.workflow.workflow INFO executing verb merge_graphs
+16:16:33,602 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+16:16:33,711 graphrag.index.run INFO Running workflow: create_final_covariates...
+16:16:33,711 graphrag.index.run INFO dependencies for create_final_covariates: ['create_base_text_units']
+16:16:33,711 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+16:16:33,719 datashaper.workflow.workflow INFO executing verb extract_covariates
+16:16:33,772 datashaper.workflow.workflow INFO executing verb window
+16:16:33,776 datashaper.workflow.workflow INFO executing verb genid
+16:16:33,780 datashaper.workflow.workflow INFO executing verb convert
+16:16:33,783 datashaper.workflow.workflow INFO executing verb rename
+16:16:33,787 datashaper.workflow.workflow INFO executing verb select
+16:16:33,788 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_covariates.parquet
+16:16:33,902 graphrag.index.run INFO Running workflow: create_summarized_entities...
+16:16:33,903 graphrag.index.run INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+16:16:33,903 graphrag.index.run INFO read table from storage: create_base_extracted_entities.parquet
+16:16:33,914 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+16:16:36,166 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:36,167 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2183378851041198. input_tokens=391, output_tokens=122
+16:16:36,284 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:36,285 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3231163979507983. input_tokens=376, output_tokens=116
+16:16:37,273 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:37,274 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.319714790210128. input_tokens=454, output_tokens=154
+16:16:37,498 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:37,498 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5461442349478602. input_tokens=530, output_tokens=208
+16:16:37,731 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:37,732 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.7680551391094923. input_tokens=551, output_tokens=189
+16:16:38,67 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:38,67 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.107446738984436. input_tokens=360, output_tokens=153
+16:16:38,194 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:38,195 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.244518844876438. input_tokens=487, output_tokens=155
+16:16:38,208 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:38,209 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.253170679323375. input_tokens=524, output_tokens=200
+16:16:39,62 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:39,63 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7721386877819896. input_tokens=591, output_tokens=186
+16:16:40,419 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:40,420 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.682522041723132. input_tokens=604, output_tokens=178
+16:16:41,488 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:41,489 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.316301758866757. input_tokens=907, output_tokens=235
+16:16:41,625 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:41,625 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.1214369288645685. input_tokens=576, output_tokens=189
+16:16:41,688 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:41,689 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6160086118616164. input_tokens=780, output_tokens=222
+16:16:42,357 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:42,357 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.156849548686296. input_tokens=1093, output_tokens=294
+16:16:43,89 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:43,89 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.3991446439176798. input_tokens=302, output_tokens=47
+16:16:43,753 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:43,754 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.543503758031875. input_tokens=693, output_tokens=210
+16:16:44,29 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:44,29 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6036236281506717. input_tokens=794, output_tokens=244
+16:16:44,232 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:44,232 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8698005396872759. input_tokens=340, output_tokens=112
+16:16:44,923 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:44,924 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.855596147943288. input_tokens=730, output_tokens=211
+16:16:45,664 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:45,665 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 11.718359327875078. input_tokens=2068, output_tokens=633
+16:16:45,690 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:45,691 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.196638239081949. input_tokens=772, output_tokens=240
+16:16:46,28 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:46,29 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 8.745688765309751. input_tokens=678, output_tokens=402
+16:16:46,392 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:46,392 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.761402107775211. input_tokens=772, output_tokens=249
+16:16:47,466 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:47,467 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7748989001847804. input_tokens=387, output_tokens=95
+16:16:47,580 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:47,581 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.485752518288791. input_tokens=565, output_tokens=233
+16:16:47,822 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:47,823 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5853554839268327. input_tokens=377, output_tokens=176
+16:16:48,278 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:48,279 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.519515936728567. input_tokens=619, output_tokens=210
+16:16:49,275 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:49,276 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6054577389732003. input_tokens=823, output_tokens=179
+16:16:49,776 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:49,777 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3046404547058046. input_tokens=371, output_tokens=97
+16:16:50,440 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:50,441 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 16.482942648231983. input_tokens=714, output_tokens=341
+16:16:50,886 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:50,887 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2997749061323702. input_tokens=708, output_tokens=174
+16:16:51,427 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:51,428 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.14369003335014. input_tokens=714, output_tokens=180
+16:16:51,561 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:51,561 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.526486271061003. input_tokens=459, output_tokens=212
+16:16:51,875 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:51,875 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.840098911896348. input_tokens=754, output_tokens=310
+16:16:52,360 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:52,361 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.079135261941701. input_tokens=868, output_tokens=196
+16:16:53,151 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:53,152 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3697722828947008. input_tokens=734, output_tokens=190
+16:16:53,609 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:53,610 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.211074834689498. input_tokens=1092, output_tokens=348
+16:16:53,626 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:53,627 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.059561205096543. input_tokens=318, output_tokens=96
+16:16:54,15 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:54,16 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1238906271755695. input_tokens=344, output_tokens=103
+16:16:54,845 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:54,846 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.41268955077976. input_tokens=386, output_tokens=154
+16:16:54,851 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:54,852 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4858310958370566. input_tokens=354, output_tokens=125
+16:16:55,65 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:55,66 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.18488664412871. input_tokens=333, output_tokens=125
+16:16:55,301 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:55,302 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 10.371325016021729. input_tokens=1973, output_tokens=680
+16:16:55,748 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:55,749 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.302695666439831. input_tokens=832, output_tokens=211
+16:16:55,966 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:55,967 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3512677839025855. input_tokens=394, output_tokens=104
+16:16:56,837 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:56,838 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6801683879457414. input_tokens=688, output_tokens=228
+16:16:57,615 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:57,616 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.594221156090498. input_tokens=367, output_tokens=101
+16:16:57,853 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:57,854 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0012341691181064. input_tokens=379, output_tokens=158
+16:16:58,150 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:58,151 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.523173757828772. input_tokens=363, output_tokens=180
+16:16:58,250 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:58,251 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.278394876047969. input_tokens=380, output_tokens=126
+16:16:58,664 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:58,664 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.9097395353019238. input_tokens=421, output_tokens=117
+16:16:58,728 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:58,728 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8850134750828147. input_tokens=320, output_tokens=92
+16:16:58,923 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:58,924 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.8526106579229236. input_tokens=642, output_tokens=208
+16:16:59,800 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:59,801 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.945183482021093. input_tokens=609, output_tokens=287
+16:16:59,828 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:16:59,828 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.520601842086762. input_tokens=715, output_tokens=200
+16:17:00,70 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:00,71 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 12.241804284974933. input_tokens=758, output_tokens=147
+16:17:00,456 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:00,457 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8357074982486665. input_tokens=358, output_tokens=161
+16:17:00,663 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:00,664 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4120632796548307. input_tokens=294, output_tokens=87
+16:17:00,701 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:00,701 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7711241571232677. input_tokens=301, output_tokens=111
+16:17:00,821 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:00,821 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6645391043275595. input_tokens=563, output_tokens=160
+16:17:01,610 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:01,611 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8040366820059717. input_tokens=310, output_tokens=110
+16:17:02,173 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:02,174 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.31453383108601. input_tokens=411, output_tokens=180
+16:17:02,521 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:02,522 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.851649469230324. input_tokens=462, output_tokens=239
+16:17:02,982 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:02,983 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1537647861987352. input_tokens=512, output_tokens=158
+16:17:03,175 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:03,175 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.503609311301261. input_tokens=318, output_tokens=107
+16:17:03,315 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:03,315 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.5857608169317245. input_tokens=329, output_tokens=154
+16:17:03,556 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:03,557 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.729102613404393. input_tokens=301, output_tokens=122
+16:17:03,975 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:03,976 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3595513640902936. input_tokens=360, output_tokens=112
+16:17:04,62 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:04,63 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.60031147999689. input_tokens=575, output_tokens=200
+16:17:04,409 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:04,410 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.7068388778716326. input_tokens=515, output_tokens=159
+16:17:05,310 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:05,310 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.321794672869146. input_tokens=496, output_tokens=157
+16:17:05,429 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:05,429 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.3529139226302505. input_tokens=296, output_tokens=138
+16:17:05,723 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:05,724 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1957519203424454. input_tokens=344, output_tokens=96
+16:17:05,894 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:05,895 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9136093729175627. input_tokens=423, output_tokens=119
+16:17:05,927 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:05,927 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3652842859737575. input_tokens=376, output_tokens=98
+16:17:05,995 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:05,995 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.814559604972601. input_tokens=509, output_tokens=152
+16:17:06,377 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:06,378 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.057156716939062. input_tokens=346, output_tokens=176
+16:17:06,408 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:06,409 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.229590329807252. input_tokens=501, output_tokens=178
+16:17:06,960 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:06,961 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.896966149099171. input_tokens=356, output_tokens=145
+16:17:07,969 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:07,970 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.554884514771402. input_tokens=469, output_tokens=183
+16:17:08,119 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:08,120 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6849274639971554. input_tokens=386, output_tokens=167
+16:17:08,229 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:08,230 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.913865717127919. input_tokens=469, output_tokens=143
+16:17:08,324 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:08,325 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9150205999612808. input_tokens=297, output_tokens=82
+16:17:08,514 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:08,516 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1320568192750216. input_tokens=321, output_tokens=107
+16:17:10,341 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:10,342 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.366168823558837. input_tokens=399, output_tokens=158
+16:17:10,552 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:10,553 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.823304350953549. input_tokens=472, output_tokens=197
+16:17:10,593 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:10,593 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.625905077904463. input_tokens=641, output_tokens=204
+16:17:10,705 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:10,706 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4702425240539014. input_tokens=585, output_tokens=170
+16:17:10,973 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:10,974 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.045310142915696. input_tokens=851, output_tokens=251
+16:17:11,93 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:11,93 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.190009829122573. input_tokens=472, output_tokens=174
+16:17:11,273 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:11,273 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.271794812753797. input_tokens=1006, output_tokens=271
+16:17:11,307 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:11,307 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.9809441468678415. input_tokens=557, output_tokens=180
+16:17:11,521 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:11,522 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.396319570019841. input_tokens=430, output_tokens=154
+16:17:12,974 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:12,975 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.628033183980733. input_tokens=408, output_tokens=147
+16:17:13,638 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:13,639 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.116749564185739. input_tokens=374, output_tokens=128
+16:17:14,981 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:14,982 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.673185994848609. input_tokens=551, output_tokens=190
+16:17:15,32 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:15,32 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5051308288238943. input_tokens=508, output_tokens=165
+16:17:15,730 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:15,731 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7493100431747735. input_tokens=429, output_tokens=172
+16:17:15,822 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:15,823 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.8430117149837315. input_tokens=662, output_tokens=252
+16:17:15,898 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:15,898 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.187094027176499. input_tokens=557, output_tokens=230
+16:17:16,178 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:16,179 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.079452334903181. input_tokens=767, output_tokens=223
+16:17:16,564 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:16,564 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.006255438085645. input_tokens=455, output_tokens=233
+16:17:16,742 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:16,743 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.46363674197346. input_tokens=667, output_tokens=212
+16:17:17,970 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:17,971 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.9369702572003007. input_tokens=343, output_tokens=164
+16:17:18,272 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:18,273 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.67816095193848. input_tokens=597, output_tokens=270
+16:17:18,356 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:18,356 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.368600389920175. input_tokens=728, output_tokens=193
+16:17:19,466 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:19,466 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.282233049161732. input_tokens=607, output_tokens=154
+16:17:19,814 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:19,815 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2447342318482697. input_tokens=652, output_tokens=195
+16:17:19,858 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:19,859 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.122309767175466. input_tokens=663, output_tokens=207
+16:17:19,875 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:19,875 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.9713411279954016. input_tokens=508, output_tokens=171
+16:17:19,896 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:19,897 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.252394913695753. input_tokens=654, output_tokens=225
+16:17:20,867 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:20,867 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.04327310109511. input_tokens=467, output_tokens=198
+16:17:21,48 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:21,49 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.299894428811967. input_tokens=629, output_tokens=255
+16:17:21,211 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:21,211 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.234969161916524. input_tokens=342, output_tokens=151
+16:17:21,289 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:21,289 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.9318513539619744. input_tokens=346, output_tokens=153
+16:17:22,156 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:22,157 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2800582707859576. input_tokens=431, output_tokens=162
+16:17:22,424 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:22,424 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.604074257891625. input_tokens=362, output_tokens=104
+16:17:22,477 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:22,477 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6175916683860123. input_tokens=493, output_tokens=147
+16:17:22,702 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:22,702 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.804467771667987. input_tokens=563, output_tokens=223
+16:17:23,376 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:23,376 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.5030225520022213. input_tokens=671, output_tokens=175
+16:17:23,893 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:23,893 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8376262597739697. input_tokens=368, output_tokens=165
+16:17:24,31 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:24,32 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.814623496029526. input_tokens=444, output_tokens=171
+16:17:24,294 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:24,295 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1328506781719625. input_tokens=270, output_tokens=102
+16:17:24,841 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:24,842 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.134162203874439. input_tokens=324, output_tokens=134
+16:17:24,897 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:24,898 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6075799078680575. input_tokens=360, output_tokens=122
+16:17:25,254 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:25,255 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8726936192251742. input_tokens=309, output_tokens=64
+16:17:25,822 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:25,823 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9235473591834307. input_tokens=266, output_tokens=100
+16:17:26,311 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:26,311 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.8810281110927463. input_tokens=494, output_tokens=188
+16:17:27,85 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:27,86 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8259714590385556. input_tokens=357, output_tokens=87
+16:17:27,348 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:27,349 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.5001129950396717. input_tokens=504, output_tokens=138
+16:17:27,377 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:27,377 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.5489682350307703. input_tokens=274, output_tokens=82
+16:17:28,154 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:28,155 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2555170939303935. input_tokens=497, output_tokens=198
+16:17:28,422 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:28,423 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.385284414049238. input_tokens=1009, output_tokens=272
+16:17:28,618 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:28,619 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3024226892739534. input_tokens=317, output_tokens=127
+16:17:28,736 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:28,737 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 9.264744312968105. input_tokens=745, output_tokens=332
+16:17:29,288 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:29,289 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.987685234285891. input_tokens=1035, output_tokens=213
+16:17:29,776 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:29,776 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.2968022772111. input_tokens=1409, output_tokens=273
+16:17:30,354 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:30,354 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.26297221519053. input_tokens=326, output_tokens=125
+16:17:30,510 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:30,511 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7679466912522912. input_tokens=364, output_tokens=100
+16:17:30,734 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:30,735 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3805878940038383. input_tokens=319, output_tokens=142
+16:17:30,905 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:30,906 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5274995141662657. input_tokens=294, output_tokens=106
+16:17:31,61 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:31,61 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.9008055101148784. input_tokens=326, output_tokens=87
+16:17:31,121 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:31,121 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.82720508845523. input_tokens=344, output_tokens=135
+16:17:31,277 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:31,278 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8491755882278085. input_tokens=322, output_tokens=126
+16:17:31,494 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:31,495 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8700057668611407. input_tokens=389, output_tokens=177
+16:17:32,177 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:32,177 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.1105926451273263. input_tokens=322, output_tokens=51
+16:17:32,683 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:32,684 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3236835980787873. input_tokens=542, output_tokens=126
+16:17:32,856 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:32,856 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1157424761913717. input_tokens=343, output_tokens=104
+16:17:33,615 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:33,616 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3309455080889165. input_tokens=351, output_tokens=131
+16:17:33,749 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:33,749 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8382686390541494. input_tokens=388, output_tokens=122
+16:17:34,148 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:34,148 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9652838511392474. input_tokens=334, output_tokens=95
+16:17:34,651 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:34,652 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.529416457749903. input_tokens=462, output_tokens=176
+16:17:34,672 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:34,673 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8109597023576498. input_tokens=365, output_tokens=84
+16:17:34,757 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:34,758 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.241215450223535. input_tokens=513, output_tokens=174
+16:17:35,303 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:35,303 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.521455554757267. input_tokens=508, output_tokens=174
+16:17:35,955 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:35,955 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2000649301335216. input_tokens=337, output_tokens=82
+16:17:36,127 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:36,128 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.506421161815524. input_tokens=355, output_tokens=131
+16:17:36,275 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:36,275 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5861940067261457. input_tokens=373, output_tokens=143
+16:17:37,281 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:37,281 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 19.002783322241157. input_tokens=352, output_tokens=163
+16:17:37,376 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:37,377 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6134483041241765. input_tokens=450, output_tokens=131
+16:17:37,499 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:37,500 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.826127056032419. input_tokens=429, output_tokens=136
+16:17:38,344 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:38,345 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.686990763992071. input_tokens=297, output_tokens=162
+16:17:38,384 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:38,385 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.230832246597856. input_tokens=358, output_tokens=73
+16:17:38,518 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:38,519 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2097580428235233. input_tokens=523, output_tokens=173
+16:17:38,572 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:38,572 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.439073981717229. input_tokens=380, output_tokens=126
+16:17:39,449 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:39,450 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.163139460142702. input_tokens=318, output_tokens=121
+16:17:39,859 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:39,860 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.899069800041616. input_tokens=428, output_tokens=149
+16:17:40,38 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:40,39 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.7578341951593757. input_tokens=361, output_tokens=160
+16:17:40,93 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:40,93 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.715335736051202. input_tokens=311, output_tokens=151
+16:17:40,599 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:40,599 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0933476239442825. input_tokens=327, output_tokens=167
+16:17:40,706 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:40,706 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3563254517503083. input_tokens=308, output_tokens=165
+16:17:41,610 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:41,611 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0369242038577795. input_tokens=492, output_tokens=201
+16:17:41,815 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:41,815 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2911759046837687. input_tokens=304, output_tokens=170
+16:17:41,821 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:41,822 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9563512429594994. input_tokens=315, output_tokens=105
+16:17:41,877 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:41,878 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.83317242981866. input_tokens=364, output_tokens=114
+16:17:42,461 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:42,462 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7481445232406259. input_tokens=306, output_tokens=93
+16:17:42,567 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:42,567 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1119515588507056. input_tokens=348, output_tokens=123
+16:17:42,605 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:42,605 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0004704031161964. input_tokens=323, output_tokens=103
+16:17:43,234 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:43,235 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.140273469965905. input_tokens=410, output_tokens=179
+16:17:44,529 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:44,529 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.65027670096606. input_tokens=398, output_tokens=123
+16:17:44,544 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:44,545 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9383256351575255. input_tokens=405, output_tokens=113
+16:17:44,715 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:44,716 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8908343901857734. input_tokens=389, output_tokens=128
+16:17:45,95 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:45,96 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.4802783261984587. input_tokens=341, output_tokens=120
+16:17:45,342 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:45,343 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5204592482186854. input_tokens=394, output_tokens=159
+16:17:45,424 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:45,424 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.85119473002851. input_tokens=317, output_tokens=107
+16:17:45,853 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:45,854 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.386106595862657. input_tokens=296, output_tokens=149
+16:17:46,582 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:46,583 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0375520940870047. input_tokens=343, output_tokens=102
+16:17:46,927 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:46,928 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3930574348196387. input_tokens=384, output_tokens=156
+16:17:48,663 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:48,663 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.9417094849050045. input_tokens=602, output_tokens=180
+16:17:49,169 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:49,170 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.8215098907239735. input_tokens=600, output_tokens=203
+16:17:50,104 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:50,104 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.244500777218491. input_tokens=515, output_tokens=210
+16:17:50,244 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:50,245 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.819300610106438. input_tokens=511, output_tokens=195
+16:17:50,476 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:50,476 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5426315902732313. input_tokens=647, output_tokens=211
+16:17:51,189 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:51,190 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.949136299081147. input_tokens=376, output_tokens=118
+16:17:51,494 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:51,495 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.9064383138902485. input_tokens=656, output_tokens=238
+16:17:52,674 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:52,674 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.005633633118123. input_tokens=511, output_tokens=204
+16:17:52,948 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:52,949 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.846967078745365. input_tokens=617, output_tokens=204
+16:17:53,470 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:53,470 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3604066288098693. input_tokens=472, output_tokens=183
+16:17:53,564 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:53,565 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0830839150585234. input_tokens=526, output_tokens=182
+16:17:53,733 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:53,734 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.4833831870928407. input_tokens=544, output_tokens=217
+16:17:54,699 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:54,700 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.020223086234182. input_tokens=335, output_tokens=109
+16:17:54,820 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:54,821 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3203706708736718. input_tokens=309, output_tokens=139
+16:17:54,976 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:54,977 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.801632004790008. input_tokens=502, output_tokens=147
+16:17:55,172 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:55,172 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.977031181100756. input_tokens=584, output_tokens=244
+16:17:55,722 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:55,722 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1564586269669235. input_tokens=315, output_tokens=83
+16:17:55,790 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:55,791 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8367521008476615. input_tokens=286, output_tokens=113
+16:17:55,965 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:55,966 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.48977740528062. input_tokens=349, output_tokens=135
+16:17:56,940 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:56,941 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2012547897174954. input_tokens=432, output_tokens=155
+16:17:57,574 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:57,575 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7458920567296445. input_tokens=469, output_tokens=168
+16:17:57,762 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:57,763 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9710532040335238. input_tokens=400, output_tokens=141
+16:17:57,797 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:57,797 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.091478406917304. input_tokens=477, output_tokens=175
+16:17:57,874 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:57,875 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9035943038761616. input_tokens=286, output_tokens=99
+16:17:58,413 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:58,414 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2357165389694273. input_tokens=493, output_tokens=137
+16:17:58,630 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:58,631 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.902926590293646. input_tokens=722, output_tokens=175
+16:17:58,958 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:58,959 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 27.455895978026092. input_tokens=340, output_tokens=135
+16:17:59,23 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:59,24 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.041347349993885. input_tokens=537, output_tokens=145
+16:17:59,337 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:17:59,338 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 20.95236271759495. input_tokens=333, output_tokens=175
+16:18:00,39 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:00,39 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.270854946691543. input_tokens=437, output_tokens=134
+16:18:00,640 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:00,641 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2211297350004315. input_tokens=430, output_tokens=125
+16:18:01,29 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:01,30 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.065894505009055. input_tokens=402, output_tokens=110
+16:18:01,670 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:01,671 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.090123407077044. input_tokens=563, output_tokens=226
+16:18:01,696 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:01,697 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.671733107883483. input_tokens=359, output_tokens=151
+16:18:01,818 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:01,819 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1820029579102993. input_tokens=429, output_tokens=167
+16:18:02,120 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:02,121 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.174336000811309. input_tokens=479, output_tokens=178
+16:18:02,668 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:02,669 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3246818562038243. input_tokens=539, output_tokens=125
+16:18:03,224 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:03,225 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.4004794708453119. input_tokens=308, output_tokens=70
+16:18:03,237 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:03,238 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.561818400863558. input_tokens=331, output_tokens=60
+16:18:04,288 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:04,288 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.408481705933809. input_tokens=435, output_tokens=129
+16:18:04,339 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:04,339 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6926777549088. input_tokens=470, output_tokens=211
+16:18:04,476 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:04,477 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.778949194122106. input_tokens=347, output_tokens=121
+16:18:04,495 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:04,496 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.369834953919053. input_tokens=325, output_tokens=118
+16:18:04,639 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:04,640 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6045618508942425. input_tokens=474, output_tokens=134
+16:18:04,663 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:04,664 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.619161122944206. input_tokens=373, output_tokens=102
+16:18:05,558 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:05,558 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8841550517827272. input_tokens=341, output_tokens=138
+16:18:05,663 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:05,664 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.433600284624845. input_tokens=304, output_tokens=114
+16:18:05,958 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:05,959 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.719838221091777. input_tokens=312, output_tokens=134
+16:18:06,567 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:06,568 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0854078051634133. input_tokens=460, output_tokens=125
+16:18:06,924 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:06,925 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.427625834941864. input_tokens=403, output_tokens=127
+16:18:06,930 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:06,930 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2647940781898797. input_tokens=462, output_tokens=149
+16:18:07,706 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:07,706 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.4122313358820975. input_tokens=568, output_tokens=156
+16:18:07,762 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:07,763 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7980834851041436. input_tokens=392, output_tokens=101
+16:18:07,770 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:07,770 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.430077771656215. input_tokens=439, output_tokens=179
+16:18:07,914 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:07,914 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2448586230166256. input_tokens=370, output_tokens=115
+16:18:08,27 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:08,27 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.379228337202221. input_tokens=430, output_tokens=169
+16:18:08,520 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:08,520 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.946819266770035. input_tokens=347, output_tokens=126
+16:18:10,281 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:10,282 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3483361140824854. input_tokens=478, output_tokens=129
+16:18:10,349 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:10,349 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.41839698003605. input_tokens=400, output_tokens=150
+16:18:10,416 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:10,417 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.700872980058193. input_tokens=445, output_tokens=151
+16:18:10,689 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:10,690 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.918136634863913. input_tokens=311, output_tokens=117
+16:18:10,712 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:10,713 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1868935148231685. input_tokens=408, output_tokens=136
+16:18:10,931 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:10,931 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.011271382216364. input_tokens=360, output_tokens=115
+16:18:11,277 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:11,278 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.514047327917069. input_tokens=482, output_tokens=177
+16:18:11,842 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:11,843 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.5553712118417025. input_tokens=400, output_tokens=98
+16:18:12,16 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:12,16 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.9828717461787164. input_tokens=317, output_tokens=154
+16:18:12,295 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:12,296 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8733534310013056. input_tokens=283, output_tokens=106
+16:18:12,676 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:12,677 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3265754529275. input_tokens=412, output_tokens=130
+16:18:13,133 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:13,134 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8498527957126498. input_tokens=341, output_tokens=110
+16:18:13,195 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:13,195 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.481496090069413. input_tokens=336, output_tokens=125
+16:18:13,235 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:13,236 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2987760193645954. input_tokens=338, output_tokens=158
+16:18:13,611 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:13,612 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7635166039690375. input_tokens=334, output_tokens=74
+16:18:13,959 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:13,960 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2651165048591793. input_tokens=326, output_tokens=124
+16:18:14,963 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:14,964 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 9.400095062796026. input_tokens=361, output_tokens=130
+16:18:15,261 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:15,261 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.959878234192729. input_tokens=421, output_tokens=164
+16:18:15,318 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:15,319 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0778455953113735. input_tokens=276, output_tokens=111
+16:18:15,685 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:15,686 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.068545919843018. input_tokens=422, output_tokens=126
+16:18:16,101 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:16,102 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.080028384923935. input_tokens=372, output_tokens=115
+16:18:17,24 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:17,25 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.8860498019494116. input_tokens=352, output_tokens=161
+16:18:17,68 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:17,69 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1018913062289357. input_tokens=374, output_tokens=204
+16:18:17,110 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:17,111 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.428302786778659. input_tokens=324, output_tokens=114
+16:18:17,758 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:17,759 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7891780952923. input_tokens=347, output_tokens=142
+16:18:18,89 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:18,90 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.8936607940122485. input_tokens=268, output_tokens=120
+16:18:18,442 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:18,443 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.122623783070594. input_tokens=401, output_tokens=154
+16:18:18,975 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:18,976 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.863551092799753. input_tokens=303, output_tokens=81
+16:18:19,651 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:19,652 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6178024178370833. input_tokens=288, output_tokens=72
+16:18:20,40 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:20,41 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.971054832916707. input_tokens=377, output_tokens=181
+16:18:20,447 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:20,448 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.756211706902832. input_tokens=436, output_tokens=210
+16:18:20,957 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:20,958 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.509419835638255. input_tokens=323, output_tokens=143
+16:18:21,344 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:21,344 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5800935812294483. input_tokens=465, output_tokens=135
+16:18:21,375 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:21,376 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2801348622888327. input_tokens=328, output_tokens=172
+16:18:21,912 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:21,913 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8666478148661554. input_tokens=283, output_tokens=87
+16:18:22,401 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:22,402 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.135315407067537. input_tokens=369, output_tokens=213
+16:18:22,599 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:22,600 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6183296446688473. input_tokens=405, output_tokens=141
+16:18:22,615 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:22,616 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.162264360114932. input_tokens=294, output_tokens=113
+16:18:22,655 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:22,655 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.6921044839546084. input_tokens=274, output_tokens=76
+16:18:22,708 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:22,709 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0518539627082646. input_tokens=265, output_tokens=95
+16:18:23,294 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:23,294 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.183909351937473. input_tokens=461, output_tokens=218
+16:18:23,557 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:23,558 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2077428810298443. input_tokens=352, output_tokens=124
+16:18:23,563 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:23,564 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1861599697731435. input_tokens=323, output_tokens=123
+16:18:24,432 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:24,433 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8156156218610704. input_tokens=335, output_tokens=111
+16:18:24,446 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:24,446 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7317585037089884. input_tokens=355, output_tokens=99
+16:18:24,587 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:24,588 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1801337781362236. input_tokens=314, output_tokens=114
+16:18:24,950 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:24,950 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3443150161765516. input_tokens=301, output_tokens=71
+16:18:25,555 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:25,555 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2555882460437715. input_tokens=384, output_tokens=139
+16:18:25,749 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:25,749 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0930374120362103. input_tokens=307, output_tokens=140
+16:18:26,489 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:26,489 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0419086487963796. input_tokens=372, output_tokens=136
+16:18:27,63 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:27,63 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.5024797501973808. input_tokens=262, output_tokens=67
+16:18:27,89 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:27,90 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1318250452168286. input_tokens=306, output_tokens=111
+16:18:27,118 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:27,118 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5544059057720006. input_tokens=327, output_tokens=100
+16:18:27,227 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:27,228 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.634153308812529. input_tokens=342, output_tokens=99
+16:18:27,237 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:27,238 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 29.439476976171136. input_tokens=339, output_tokens=142
+16:18:27,396 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:27,396 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.95762254903093. input_tokens=428, output_tokens=123
+16:18:27,496 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:27,496 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.578003445174545. input_tokens=333, output_tokens=135
+16:18:27,719 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:27,720 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.153118986170739. input_tokens=263, output_tokens=192
+16:18:28,537 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:28,537 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7823511767201126. input_tokens=314, output_tokens=145
+16:18:28,787 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:28,787 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.6965812179259956. input_tokens=320, output_tokens=89
+16:18:28,923 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:28,924 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8539547007530928. input_tokens=279, output_tokens=105
+16:18:28,998 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:28,999 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7655328661203384. input_tokens=347, output_tokens=123
+16:18:29,106 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:29,107 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9871188621036708. input_tokens=349, output_tokens=121
+16:18:29,542 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:29,543 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0482947919517756. input_tokens=384, output_tokens=163
+16:18:30,388 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:30,389 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.150212947279215. input_tokens=328, output_tokens=148
+16:18:30,421 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:30,422 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0178296389058232. input_tokens=405, output_tokens=108
+16:18:31,5 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:31,6 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.280316699296236. input_tokens=539, output_tokens=174
+16:18:31,263 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:31,263 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.151183965150267. input_tokens=396, output_tokens=88
+16:18:31,505 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:31,505 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.007876263000071. input_tokens=549, output_tokens=191
+16:18:31,865 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:31,866 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.317832463886589. input_tokens=401, output_tokens=70
+16:18:32,80 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:32,81 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5383218890056014. input_tokens=474, output_tokens=156
+16:18:32,317 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:32,317 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3174158688634634. input_tokens=390, output_tokens=109
+16:18:32,772 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:32,773 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.843858361709863. input_tokens=538, output_tokens=222
+16:18:33,373 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:33,374 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.104571949224919. input_tokens=535, output_tokens=117
+16:18:33,683 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:33,684 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.288918158970773. input_tokens=565, output_tokens=179
+16:18:34,559 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:34,560 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.236989897210151. input_tokens=522, output_tokens=109
+16:18:34,640 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:34,640 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.5533694201149046. input_tokens=549, output_tokens=198
+16:18:34,704 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:34,705 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1943228198215365. input_tokens=552, output_tokens=134
+16:18:34,773 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:34,774 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.980984755326062. input_tokens=540, output_tokens=201
+16:18:35,265 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:35,265 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4867376410402358. input_tokens=532, output_tokens=142
+16:18:35,364 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:35,365 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.352947244886309. input_tokens=538, output_tokens=185
+16:18:35,895 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:35,896 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.024070669896901. input_tokens=527, output_tokens=160
+16:18:35,901 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:35,902 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.478722427971661. input_tokens=564, output_tokens=204
+16:18:36,228 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:36,229 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.5874234228394926. input_tokens=370, output_tokens=75
+16:18:36,440 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:36,441 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.6654532901011407. input_tokens=346, output_tokens=56
+16:18:37,701 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:37,702 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.431006311904639. input_tokens=484, output_tokens=170
+16:18:37,807 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:37,807 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.096710551995784. input_tokens=364, output_tokens=184
+16:18:37,892 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:37,892 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3267203900031745. input_tokens=577, output_tokens=217
+16:18:38,127 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:38,127 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.747925598174334. input_tokens=527, output_tokens=226
+16:18:39,3 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:39,3 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.314011997077614. input_tokens=541, output_tokens=220
+16:18:39,52 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:39,52 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8181868009269238. input_tokens=658, output_tokens=163
+16:18:39,225 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:39,226 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.323587030172348. input_tokens=500, output_tokens=190
+16:18:39,433 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:39,433 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7256881357170641. input_tokens=433, output_tokens=95
+16:18:39,614 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:39,615 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.709891511593014. input_tokens=434, output_tokens=164
+16:18:39,989 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:39,990 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8571618502028286. input_tokens=388, output_tokens=82
+16:18:40,365 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:40,365 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.552483337931335. input_tokens=501, output_tokens=121
+16:18:40,869 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:40,870 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.503106351941824. input_tokens=484, output_tokens=139
+16:18:41,92 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:41,92 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.645761715248227. input_tokens=616, output_tokens=139
+16:18:41,268 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:41,268 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.214646803215146. input_tokens=380, output_tokens=92
+16:18:41,288 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:41,289 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.057084242347628. input_tokens=361, output_tokens=109
+16:18:41,617 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:41,618 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6092555169016123. input_tokens=377, output_tokens=140
+16:18:42,65 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:42,65 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.444915857166052. input_tokens=418, output_tokens=87
+16:18:42,279 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:42,280 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.386810834985226. input_tokens=356, output_tokens=96
+16:18:42,657 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:42,657 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2861530841328204. input_tokens=443, output_tokens=119
+16:18:42,768 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:42,769 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8937353882938623. input_tokens=467, output_tokens=92
+16:18:42,938 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:42,939 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.6652246653102338. input_tokens=400, output_tokens=80
+16:18:43,71 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:43,72 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7820844296365976. input_tokens=437, output_tokens=71
+16:18:43,85 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:43,86 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0896721752360463. input_tokens=399, output_tokens=137
+16:18:43,541 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:43,541 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.916174793150276. input_tokens=389, output_tokens=66
+16:18:43,973 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:43,974 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.534691580105573. input_tokens=392, output_tokens=83
+16:18:44,94 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:44,94 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0238335519097745. input_tokens=458, output_tokens=125
+16:18:44,244 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:44,244 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.146580270025879. input_tokens=427, output_tokens=109
+16:18:44,713 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:44,714 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7692669848911464. input_tokens=385, output_tokens=63
+16:18:44,758 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:44,759 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4725115499459207. input_tokens=356, output_tokens=145
+16:18:44,882 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:44,883 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.804978345055133. input_tokens=370, output_tokens=106
+16:18:44,950 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:18:44,951 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are an expert in Community Analysis within the AI Technology and Applications domain. You are skilled at identifying and mapping the relationships and structures within complex communities, and you are adept at helping people understand the interconnectedness of various stakeholders, technologies, and applications in AI.\nUsing your expertise, you\'re asked to generate a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, concise description in Chinese. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\nEnrich it as much as you can with relevant information from the nearby text, this is very important.\n\nIf no answer is possible, or the description is empty, only convey information that is provided within the text.\n#######\n-Data-\nEntities: ["AIGC\\u6559\\u80b2\\u57f9\\u8bad", "\\u6280\\u80fd\\u8bfe"]\nDescription List: ["AIGC教育培训中的技能课为专业人士提供技能培训", "AIGC教育培训提供了技能课，帮助职场人士掌握实际的AI技术和工具使用方法", "技能课属于AIGC教育培训的内容，侧重于教授实际工作中的AI技术应用技巧", "技能课是AIGC教育培训的一部分，针对职场人士等提供实用的AI技术技能培训"]\n#######\nOutput:'}
+16:18:44,951 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/10 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:18:46,184 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:46,184 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9344518003053963. input_tokens=398, output_tokens=94
+16:18:46,266 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:46,267 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2877310030162334. input_tokens=359, output_tokens=113
+16:18:46,361 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:46,362 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5873000752180815. input_tokens=442, output_tokens=83
+16:18:46,612 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:46,613 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8930341619998217. input_tokens=368, output_tokens=115
+16:18:46,788 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:46,789 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.241967196110636. input_tokens=349, output_tokens=125
+16:18:46,829 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:46,830 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.16673346189782. input_tokens=566, output_tokens=184
+16:18:46,924 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:46,925 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8253329787403345. input_tokens=364, output_tokens=88
+16:18:47,31 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:47,31 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.943243524990976. input_tokens=372, output_tokens=100
+16:18:47,754 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:47,755 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.994669555220753. input_tokens=419, output_tokens=175
+16:18:48,466 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:48,467 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2765982607379556. input_tokens=420, output_tokens=105
+16:18:48,544 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:48,544 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.17749279178679. input_tokens=377, output_tokens=103
+16:18:48,620 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:48,621 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9990272391587496. input_tokens=346, output_tokens=136
+16:18:48,703 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:48,704 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8726216377690434. input_tokens=339, output_tokens=120
+16:18:48,977 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:48,977 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1826467611826956. input_tokens=356, output_tokens=120
+16:18:48,997 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:48,998 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7297042929567397. input_tokens=339, output_tokens=160
+16:18:49,825 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:49,825 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 1 retries took 2.9090540600009263. input_tokens=421, output_tokens=170
+16:18:49,960 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:49,961 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0296714012511075. input_tokens=353, output_tokens=124
+16:18:50,282 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:50,283 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2458646302111447. input_tokens=331, output_tokens=118
+16:18:50,352 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:50,352 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8067409018985927. input_tokens=440, output_tokens=125
+16:18:50,800 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:50,801 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3284129411913455. input_tokens=430, output_tokens=168
+16:18:51,258 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:51,259 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.5537357558496296. input_tokens=360, output_tokens=89
+16:18:51,397 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:51,398 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3988300492055714. input_tokens=373, output_tokens=93
+16:18:51,426 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:51,427 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6641090461052954. input_tokens=411, output_tokens=124
+16:18:51,686 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:51,687 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.700973265338689. input_tokens=404, output_tokens=136
+16:18:52,181 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:52,181 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.3747769286856055. input_tokens=349, output_tokens=81
+16:18:52,187 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:52,187 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3563073868863285. input_tokens=399, output_tokens=140
+16:18:52,435 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:52,435 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.808256089221686. input_tokens=394, output_tokens=142
+16:18:52,838 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:52,839 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8722467869520187. input_tokens=333, output_tokens=151
+16:18:53,430 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:53,431 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1425420036539435. input_tokens=350, output_tokens=143
+16:18:53,573 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:53,574 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.881108244881034. input_tokens=345, output_tokens=89
+16:18:53,595 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:53,595 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1672159270383418. input_tokens=344, output_tokens=135
+16:18:53,754 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:53,754 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.5641250009648502. input_tokens=330, output_tokens=95
+16:18:53,798 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:53,799 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3955358448438346. input_tokens=370, output_tokens=85
+16:18:54,630 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:54,631 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.442991761956364. input_tokens=370, output_tokens=102
+16:18:54,907 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:54,908 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4668691381812096. input_tokens=402, output_tokens=136
+16:18:55,37 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:55,37 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.4575463742949069. input_tokens=316, output_tokens=87
+16:18:55,335 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:55,336 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4888741401955485. input_tokens=385, output_tokens=132
+16:18:55,368 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:55,368 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9318118272349238. input_tokens=496, output_tokens=114
+16:18:55,702 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:55,703 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9425145778805017. input_tokens=396, output_tokens=127
+16:18:55,914 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:55,915 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1150071579031646. input_tokens=424, output_tokens=127
+16:18:56,63 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:56,64 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.79955987399444. input_tokens=417, output_tokens=180
+16:18:56,295 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:56,296 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.6600230792537332. input_tokens=460, output_tokens=110
+16:18:56,368 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:56,369 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7724256669171154. input_tokens=326, output_tokens=121
+16:18:57,193 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:57,194 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1509055122733116. input_tokens=397, output_tokens=115
+16:18:57,205 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:57,207 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.837015223223716. input_tokens=416, output_tokens=106
+16:18:58,248 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:58,249 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8788872440345585. input_tokens=363, output_tokens=56
+16:18:58,292 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:58,292 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3717136750929058. input_tokens=409, output_tokens=132
+16:18:58,410 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:58,410 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.340503667946905. input_tokens=349, output_tokens=111
+16:18:58,513 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:58,514 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8046179600059986. input_tokens=393, output_tokens=129
+16:18:58,561 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:58,562 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.648035422898829. input_tokens=416, output_tokens=157
+16:18:58,663 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:58,664 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.4648593212477863. input_tokens=345, output_tokens=76
+16:18:59,192 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:59,193 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.851125960238278. input_tokens=470, output_tokens=148
+16:18:59,490 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:18:59,491 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.18901405017823. input_tokens=360, output_tokens=129
+16:19:00,347 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:00,348 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.054027337115258. input_tokens=364, output_tokens=100
+16:19:00,522 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:00,523 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2679405962117016. input_tokens=372, output_tokens=129
+16:19:00,945 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:00,946 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7474278509616852. input_tokens=322, output_tokens=84
+16:19:01,22 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:01,23 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6073517338372767. input_tokens=402, output_tokens=141
+16:19:01,242 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:01,243 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.72366832382977. input_tokens=408, output_tokens=167
+16:19:01,354 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:01,354 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.146162908989936. input_tokens=394, output_tokens=150
+16:19:01,426 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:01,426 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.863415356259793. input_tokens=399, output_tokens=109
+16:19:01,645 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:01,645 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.9750716080889106. input_tokens=359, output_tokens=173
+16:19:02,473 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:02,473 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.9757639071904123. input_tokens=403, output_tokens=164
+16:19:02,940 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:02,941 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9890604326501489. input_tokens=410, output_tokens=108
+16:19:03,179 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:03,180 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 12.826032903976738. input_tokens=408, output_tokens=117
+16:19:03,388 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:03,389 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.035535714123398. input_tokens=383, output_tokens=109
+16:19:03,536 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:03,537 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8854932440444827. input_tokens=356, output_tokens=90
+16:19:03,648 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:03,649 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6249795611947775. input_tokens=356, output_tokens=140
+16:19:04,28 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:04,29 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7802417427301407. input_tokens=366, output_tokens=150
+16:19:04,266 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:04,267 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.738944507203996. input_tokens=393, output_tokens=160
+16:19:05,109 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:05,110 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.6820903327316046. input_tokens=353, output_tokens=138
+16:19:05,306 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:05,307 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.360630391165614. input_tokens=380, output_tokens=122
+16:19:05,392 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:05,392 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8488912461325526. input_tokens=311, output_tokens=69
+16:19:05,469 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:05,470 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.110187787096947. input_tokens=366, output_tokens=164
+16:19:05,520 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:05,521 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8653739872388542. input_tokens=312, output_tokens=72
+16:19:05,712 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:05,713 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.233990061096847. input_tokens=373, output_tokens=157
+16:19:06,164 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:06,165 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8921747100539505. input_tokens=321, output_tokens=103
+16:19:06,211 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:06,212 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8167846808210015. input_tokens=387, output_tokens=159
+16:19:06,640 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:06,641 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6066117039881647. input_tokens=314, output_tokens=121
+16:19:07,161 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:07,161 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.849098184145987. input_tokens=319, output_tokens=103
+16:19:07,334 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:07,334 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8582087941467762. input_tokens=373, output_tokens=100
+16:19:07,383 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:07,383 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9899057862348855. input_tokens=347, output_tokens=112
+16:19:07,759 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:07,760 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.644511439371854. input_tokens=298, output_tokens=147
+16:19:07,809 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:07,809 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2874321481212974. input_tokens=330, output_tokens=143
+16:19:08,415 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:08,416 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.2307792589999735. input_tokens=405, output_tokens=150
+16:19:08,658 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:08,659 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0119198351167142. input_tokens=333, output_tokens=108
+16:19:08,793 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:08,793 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0751165905967355. input_tokens=355, output_tokens=137
+16:19:08,932 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:08,933 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7202005591243505. input_tokens=325, output_tokens=159
+16:19:09,219 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:09,219 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.87963823415339. input_tokens=308, output_tokens=100
+16:19:09,679 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:09,680 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2950714672915637. input_tokens=314, output_tokens=99
+16:19:09,781 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:09,781 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6144137396477163. input_tokens=352, output_tokens=107
+16:19:09,844 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:19:09,845 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are an expert in Community Analysis within the AI Technology and Applications domain. You are skilled at identifying and mapping the relationships and structures within complex communities, and you are adept at helping people understand the interconnectedness of various stakeholders, technologies, and applications in AI.\nUsing your expertise, you\'re asked to generate a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, concise description in Chinese. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\nEnrich it as much as you can with relevant information from the nearby text, this is very important.\n\nIf no answer is possible, or the description is empty, only convey information that is provided within the text.\n#######\n-Data-\nEntities: ["\\u9ec4\\u5fd7\\u9752\\u535a\\u58eb", "\\u66a8\\u5357\\u5927\\u5b66\\u65b0\\u95fb\\u4f20\\u64ad\\u5b66\\u9662"]\nDescription List: ["黄志青博士在暨南大学新闻传播学院担任重要角色，推动新闻传播领域的创新发展。", "黄志青博士在暨南大学新闻传播学院获得了传播学博士学位", "黄志青博士在暨南大学新闻传播学院获得了传播学博士学位，显示了其在新闻传播领域的学术背景", "黄志青博士在暨南大学新闻传播学院获得了新闻传播学博士学位，具备专业的新闻传播知识", "黄志青博士在暨南大学新闻传播学院获得了新闻传播学博士学位，具备新闻传播领域的专业知识", "黄志青博士拥有新闻传播学博士学位，表明其在新闻传播领域的深厚造诣", "黄志青博士拥有新闻传播学博士学位，该学位由暨南大学新闻传播学院授予", "黄志青博士是暨南大学新闻传播学院的新闻传播学博士，具备深厚的学术背景", "黄志青博士毕业于暨南大学新闻传播学院，获得了新闻传播学博士学位"]\n#######\nOutput:'}
+16:19:09,845 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/10 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:19:09,901 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:09,901 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.090615702327341. input_tokens=348, output_tokens=64
+16:19:09,968 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:19:09,969 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': '\nYou are an expert in Community Analysis within the AI Technology and Applications domain. You are skilled at identifying and mapping the relationships and structures within complex communities, and you are adept at helping people understand the interconnectedness of various stakeholders, technologies, and applications in AI.\nUsing your expertise, you\'re asked to generate a comprehensive summary of the data provided below.\nGiven one or two entities, and a list of descriptions, all related to the same entity or group of entities.\nPlease concatenate all of these into a single, concise description in Chinese. Make sure to include information collected from all the descriptions.\nIf the provided descriptions are contradictory, please resolve the contradictions and provide a single, coherent summary.\nMake sure it is written in third person, and include the entity names so we have the full context.\n\nEnrich it as much as you can with relevant information from the nearby text, this is very important.\n\nIf no answer is possible, or the description is empty, only convey information that is provided within the text.\n#######\n-Data-\nEntities: ["\\u9ec4\\u5fd7\\u9752\\u535a\\u58eb", "\\u7f8e\\u56fd\\u7ebd\\u7ea6\\u7406\\u5de5\\u5b66\\u9662"]\nDescription List: ["黄志青博士在美国纽约理工学院获得了传媒艺术硕士学位", "黄志青博士在美国纽约理工学院获得了传媒艺术硕士学位，体现了其国际化的教育背景", "黄志青博士在美国纽约理工学院获得了传媒艺术硕士学位，扩展了其在媒体和艺术领域的视野", "黄志青博士在美国纽约理工学院获得了传媒艺术硕士学位，进一步丰富了他的专业背景", "黄志青博士在美国纽约理工学院获得传媒艺术硕士学位", "黄志青博士在美国纽约理工学院获得传媒艺术硕士学位，扩展了国际视野", "黄志青博士在美国纽约理工学院（NYIT）获得了传媒艺术硕士学位，增强了其在媒体和艺术领域的专业知识", "黄志青博士获得了美国纽约理工学院的传媒艺术硕士学位"]\n#######\nOutput:'}
+16:19:09,969 graphrag.llm.base.rate_limiting_llm WARNING summarize failed to invoke LLM 1/10 attempts. Cause: rate limit exceeded, will retry. Recommended sleep for 0 seconds. Follow recommendation? True
+16:19:10,251 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:10,252 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.0815538400784135. input_tokens=316, output_tokens=150
+16:19:10,262 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:10,263 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8412878150120378. input_tokens=315, output_tokens=94
+16:19:10,412 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:10,413 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6471935948356986. input_tokens=317, output_tokens=127
+16:19:10,742 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:10,742 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.077781436033547. input_tokens=351, output_tokens=116
+16:19:11,165 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:11,165 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3663028217852116. input_tokens=376, output_tokens=130
+16:19:11,685 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:11,685 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.460461331065744. input_tokens=609, output_tokens=185
+16:19:11,743 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:11,744 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.325589024927467. input_tokens=377, output_tokens=90
+16:19:11,953 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:11,954 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.015020099002868. input_tokens=565, output_tokens=153
+16:19:12,872 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:12,872 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1870525856502354. input_tokens=689, output_tokens=178
+16:19:13,213 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:13,213 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.0412845592945814. input_tokens=380, output_tokens=114
+16:19:13,268 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:13,268 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0046186330728233. input_tokens=373, output_tokens=109
+16:19:13,819 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:13,819 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5616661878302693. input_tokens=582, output_tokens=150
+16:19:13,853 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:13,854 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 1 retries took 2.4738735337741673. input_tokens=716, output_tokens=163
+16:19:13,915 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:13,916 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 1 retries took 2.6976635842584074. input_tokens=674, output_tokens=170
+16:19:14,125 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:14,126 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.378254502080381. input_tokens=385, output_tokens=123
+16:19:14,254 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:14,255 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.5638580727390945. input_tokens=322, output_tokens=84
+16:19:15,285 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:15,285 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.065543446224183. input_tokens=417, output_tokens=120
+16:19:15,628 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:15,629 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3587113521061838. input_tokens=362, output_tokens=123
+16:19:15,719 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:15,720 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8018553680740297. input_tokens=323, output_tokens=115
+16:19:15,730 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:15,731 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.9056287128478289. input_tokens=327, output_tokens=114
+16:19:16,48 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:16,49 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.169891282916069. input_tokens=371, output_tokens=94
+16:19:16,483 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:16,484 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.738911425229162. input_tokens=314, output_tokens=108
+16:19:16,525 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:16,526 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.5651818020269275. input_tokens=339, output_tokens=116
+16:19:16,535 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:19:16,536 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.404269231017679. input_tokens=333, output_tokens=142
