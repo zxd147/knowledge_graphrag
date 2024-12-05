@@ -4,7 +4,7 @@ import traceback
 import pandas as pd
 from neo4j import GraphDatabase
 
-GRAPHRAG_FOLDER = "/home/zxd/code/Chat/knowledge_graphrag/project/test/output/artifacts"
+GRAPHRAG_FOLDER = "/home/zxd/code/Chat/knowledge-graphrag/project/pre/output/artifacts"
 # NEO4J_URI = "neo4j://192.168.0.246:7687"
 NEO4J_URI = "bolt://192.168.0.245"  # or neo4j+s://xxxx.databases.neo4j.io
 NEO4J_USERNAME = "neo4j"
