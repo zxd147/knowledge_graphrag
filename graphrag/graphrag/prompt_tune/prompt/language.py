@@ -1,12 +1,12 @@
-# Copyright (c) 2024 Microsoft Corporation.
-# Licensed under the MIT License
+# 版权所有 (c) 2024 Microsoft Corporation.
+# 根据MIT许可授权
 
-"""Fine-tuning prompts for language detection."""
+"""为语言检测微调提示词。"""
 
 DETECT_LANGUAGE_PROMPT = """
-You are an intelligent assistant that helps a human to analyze the information in a text document.
-Given a sample text, help the user by determining what's the primary language of the provided texts.
-Examples are: "English", "Spanish", "Japanese", "Portuguese" among others.
+你是一个智能助手，帮助人类分析文本文件中的信息。
+给定一个样本文本，请通过确定所提供文本的主要语言来帮助用户。
+示例包括：“英语”、“西班牙语”、“日语”、“葡萄牙语”等。
 
-Text: {input_text}
-Language:"""
+文本：{input_text}
+语言："""

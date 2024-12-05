@@ -1,20 +1,18 @@
-# Copyright (c) 2024 Microsoft Corporation.
-# Licensed under the MIT License
+# 版权所有 (c) 2024 Microsoft Corporation.
+# 根据MIT许可授权
 
-"""Fine-tuning prompts for community reporter role generation."""
+"""为社区记者角色生成微调提示词。"""
 
 GENERATE_COMMUNITY_REPORTER_ROLE_PROMPT = """
 {persona}
-Given a sample text, help the user by creating a role definition that will be tasked with community analysis.
-Take a look at this example, determine its key parts, and using the domain provided and your expertise, create a new role definition for the provided inputs that follows the same pattern as the example.
-Remember, your output should look just like the provided example in structure and content.
+给定一个样本文本，通过创建一个角色定义来帮助用户进行社区分析。
+看看这个例子，确定其关键部分，并使用提供的领域和你的专业技能，为提供的输入创建一个新的角色定义，遵循与示例相同的模式。
+记住，你的输出在结构和内容上应该看起来就像提供的示例一样。
 
-Example:
-A technologist reporter that is analyzing Kevin Scott's "Behind the Tech Podcast", given a list of entities
-that belong to the community as well as their relationships and optional associated claims.
-The report will be used to inform decision-makers about significant developments associated with the community and their potential impact.
+示例：
+一个技术记者正在分析Kevin Scott的“Behind the Tech Podcast”，给定一个属于社区的实体列表以及它们之间的关系和可选的相关声明。
+该报告将用于通知决策者与社区及其潜在影响相关的重大发展。
 
-
-Domain: {domain}
-Text: {input_text}
-Role:"""
+领域：{domain}
+文本：{input_text}
+角色："""

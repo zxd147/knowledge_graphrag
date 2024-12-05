@@ -1,230 +1,230 @@
-# Copyright (c) 2024 Microsoft Corporation.
-# Licensed under the MIT License
+# 版权所有 (c) 2024 Microsoft Corporation.
+# 根据MIT许可授权
 
-"""Fine-tuning prompts for entity relationship generation."""
+"""为实体关系生成微调提示词。"""
 
 ENTITY_RELATIONSHIPS_GENERATION_PROMPT = """
--Goal-
-Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
+-目标-
+给定一个与此活动可能相关的文本文件和一个实体类型列表，识别文本中所有这些类型的实体，并识别所有已识别实体之间的关系。
 
--Steps-
-1. Identify all entities. For each identified entity, extract the following information:
-- entity_name: Name of the entity, capitalized
-- entity_type: One of the following types: [{entity_types}]
-- entity_description: Comprehensive description of the entity's attributes and activities
-Format each entity as ("entity"{{tuple_delimiter}}<entity_name>{{tuple_delimiter}}<entity_type>{{tuple_delimiter}}<entity_description>)
+-步骤-
+1. 识别所有实体。对于每个已识别的实体，提取以下信息：
+- entity_name: 实体的名称，大写
+- entity_type: 以下类型之一：[{entity_types}]
+- entity_description: 实体属性和活动的全面描述
+将每个实体格式化为 ("entity"{{tuple_delimiter}}<entity_name>{{tuple_delimiter}}<entity_type>{{tuple_delimiter}}<entity_description>)
 
-2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
-For each pair of related entities, extract the following information:
-- source_entity: name of the source entity, as identified in step 1
-- target_entity: name of the target entity, as identified in step 1
-- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
-- relationship_strength: an integer score between 1 to 10, indicating strength of the relationship between the source entity and target entity
-Format each relationship as ("relationship"{{tuple_delimiter}}<source_entity>{{tuple_delimiter}}<target_entity>{{tuple_delimiter}}<relationship_description>{{tuple_delimiter}}<relationship_strength>)
+2. 从步骤1中识别的实体中，识别所有（source_entity, target_entity）对，这些对彼此*明显相关*。
+对于每对相关实体，提取以下信息：
+- source_entity: 源实体的名称，如步骤1中识别的
+- target_entity: 目标实体的名称，如步骤1中识别的
+- relationship_description: 解释为什么你认为源实体和目标实体彼此相关
+- relationship_strength: 一个介于1到10之间的整数分数，表示源实体和目标实体之间的关系强度
+将每个关系格式化为 ("relationship"{{tuple_delimiter}}<source_entity>{{tuple_delimiter}}<target_entity>{{tuple_delimiter}}<relationship_description>{{tuple_delimiter}}<relationship_strength>)
 
-3. Return output in {language} as a single list of all the entities and relationships identified in steps 1 and 2. Use {{record_delimiter}} as the list delimiter.
+3. 返回输出为{language}，作为步骤1和2中识别的所有实体和关系的单个列表。使用{{record_delimiter}}作为列表分隔符。
 
-4. If you have to translate into {language}, just translate the descriptions, nothing else!
+4. 如果你需要翻译成{language}，只翻译描述，其他什么都不要翻译！
 
-5. When finished, output {{completion_delimiter}}.
+5. 完成后，输出{{completion_delimiter}}。
 
 ######################
--Examples-
+-示例-
 ######################
-Example 1:
-Entity_types: ORGANIZATION,PERSON
-Text:
-The Verdantis's Central Institution is scheduled to meet on Monday and Thursday, with the institution planning to release its latest policy decision on Thursday at 1:30 p.m. PDT, followed by a press conference where Central Institution Chair Martin Smith will take questions. Investors expect the Market Strategy Committee to hold its benchmark interest rate steady in a range of 3.5%-3.75%.
+示例 1:
+实体类型：ORGANIZATION,PERSON
+文本：
+Verdantis的中央机构计划在周一和周四开会，该机构计划在周四下午1:30 PDT发布其最新的政策决定，随后举行新闻发布会，中央机构主席马丁·史密斯将回答问题。投资者预计市场战略委员会将保持其基准利率在3.5%-3.75%的范围内稳定。
 ######################
-Output:
-("entity"{{tuple_delimiter}}CENTRAL INSTITUTION{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}The Central Institution is the Federal Reserve of Verdantis, which is setting interest rates on Monday and Thursday)
+输出：
+("entity"{{tuple_delimiter}}CENTRAL INSTITUTION{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}中央机构是Verdantis的联邦储备系统，它在周一和周四设定利率)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}MARTIN SMITH{{tuple_delimiter}}PERSON{{tuple_delimiter}}Martin Smith is the chair of the Central Institution)
+("entity"{{tuple_delimiter}}MARTIN SMITH{{tuple_delimiter}}PERSON{{tuple_delimiter}}马丁·史密斯是中央机构的主席)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}MARKET STRATEGY COMMITTEE{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}The Central Institution committee makes key decisions about interest rates and the growth of Verdantis's money supply)
+("entity"{{tuple_delimiter}}MARKET STRATEGY COMMITTEE{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}中央机构委员会对利率和Verdantis货币供应量的增长做出关键决定)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}MARTIN SMITH{{tuple_delimiter}}CENTRAL INSTITUTION{{tuple_delimiter}}Martin Smith is the Chair of the Central Institution and will answer questions at a press conference{{tuple_delimiter}}9)
+("relationship"{{tuple_delimiter}}MARTIN SMITH{{tuple_delimiter}}CENTRAL INSTITUTION{{tuple_delimiter}}马丁·史密斯是中央机构的主席，将在新闻发布会上回答问题{{tuple_delimiter}}9)
 {{completion_delimiter}}
 
 ######################
-Example 2:
-Entity_types: ORGANIZATION
-Text:
-TechGlobal's (TG) stock skyrocketed in its opening day on the Global Exchange Thursday. But IPO experts warn that the semiconductor corporation's debut on the public markets isn't indicative of how other newly listed companies may perform.
+示例 2:
+实体类型：ORGANIZATION
+文本：
+TechGlobal（TG）的股票在周四全球交易所的首日上市时飙升。但IPO专家警告说，这家半导体公司的公开市场首次亮相并不能说明其他新上市公司可能的表现。
 
-TechGlobal, a formerly public company, was taken private by Vision Holdings in 2014. The well-established chip designer says it powers 85% of premium smartphones.
+TechGlobal，一家以前是上市公司，于2014年被Vision Holdings私有化。这家成熟的芯片设计公司表示，它为85%的高端智能手机提供动力。
 ######################
-Output:
-("entity"{{tuple_delimiter}}TECHGLOBAL{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}TechGlobal is a stock now listed on the Global Exchange which powers 85% of premium smartphones)
+输出：
+("entity"{{tuple_delimiter}}TECHGLOBAL{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}TechGlobal是现在在全球交易所上市的股票，它为85%的高端智能手机提供动力)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}VISION HOLDINGS{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}Vision Holdings is a firm that previously owned TechGlobal)
+("entity"{{tuple_delimiter}}VISION HOLDINGS{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}Vision Holdings是一家以前拥有TechGlobal的公司)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}TECHGLOBAL{{tuple_delimiter}}VISION HOLDINGS{{tuple_delimiter}}Vision Holdings formerly owned TechGlobal from 2014 until present{{tuple_delimiter}}5)
+("relationship"{{tuple_delimiter}}TECHGLOBAL{{tuple_delimiter}}VISION HOLDINGS{{tuple_delimiter}}Vision Holdings从2014年至今曾经拥有TechGlobal{{tuple_delimiter}}5)
 {{completion_delimiter}}
 
 ######################
-Example 3:
-Entity_types: ORGANIZATION,GEO,PERSON
-Text:
-Five Aurelians jailed for 8 years in Firuzabad and widely regarded as hostages are on their way home to Aurelia.
+示例 3:
+实体类型：ORGANIZATION,GEO,PERSON
+文本：
+五名被监禁在Firuzabad的Aurelians，被广泛视为人质，正在返回Aurelia的途中。
 
-The swap orchestrated by Quintara was finalized when $8bn of Firuzi funds were transferred to financial institutions in Krohaara, the capital of Quintara.
+由Quintara策划的交换在80亿美元的Firuzi资金转移到Quintara首都Krohaara的金融机构时完成。
 
-The exchange initiated in Firuzabad's capital, Tiruzia, led to the four men and one woman, who are also Firuzi nationals, boarding a chartered flight to Krohaara.
+在Firuzabad首都Tiruzia发起的交换导致四名男性和一名也是Firuzi国民的女性登上了飞往Krohaara的包机。
 
-They were welcomed by senior Aurelian officials and are now on their way to Aurelia's capital, Cashion.
+他们受到Aurelian高级官员的欢迎，现在正在前往Aurelia首都Cashion的途中。
 
-The Aurelians include 39-year-old businessman Samuel Namara, who has been held in Tiruzia's Alhamia Prison, as well as journalist Durke Bataglani, 59, and environmentalist Meggie Tazbah, 53, who also holds Bratinas nationality.
+Aurelians包括39岁的商人塞缪尔·纳马拉，他一直被关押在Tiruzia的Alhamia监狱，以及59岁的记者Durke Bataglani和53岁的环保主义者Meggie Tazbah，她也持有Bratinas国籍。
 ######################
-Output:
-("entity"{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}GEO{{tuple_delimiter}}Firuzabad held Aurelians as hostages)
+输出：
+("entity"{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}GEO{{tuple_delimiter}}Firuzabad扣押了Aurelians作为人质)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}AURELIA{{tuple_delimiter}}GEO{{tuple_delimiter}}Country seeking to release hostages)
+("entity"{{tuple_delimiter}}AURELIA{{tuple_delimiter}}GEO{{tuple_delimiter}}寻求释放人质的国家)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}GEO{{tuple_delimiter}}Country that negotiated a swap of money in exchange for hostages)
+("entity"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}GEO{{tuple_delimiter}}谈判交换资金以换取人质的国家)
 {{record_delimiter}}
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}TIRUZIA{{tuple_delimiter}}GEO{{tuple_delimiter}}Capital of Firuzabad where the Aurelians were being held)
+("entity"{{tuple_delimiter}}TIRUZIA{{tuple_delimiter}}GEO{{tuple_delimiter}}Aurelians被关押的Firuzabad首都)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}KROHAARA{{tuple_delimiter}}GEO{{tuple_delimiter}}Capital city in Quintara)
+("entity"{{tuple_delimiter}}KROHAARA{{tuple_delimiter}}GEO{{tuple_delimiter}}Quintara的首都城市)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}CASHION{{tuple_delimiter}}GEO{{tuple_delimiter}}Capital city in Aurelia)
+("entity"{{tuple_delimiter}}CASHION{{tuple_delimiter}}GEO{{tuple_delimiter}}Aurelia的首都城市)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}PERSON{{tuple_delimiter}}Aurelian who spent time in Tiruzia's Alhamia Prison)
+("entity"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}PERSON{{tuple_delimiter}}在Tiruzia的Alhamia监狱度过时间的Aurelian)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}ALHAMIA PRISON{{tuple_delimiter}}GEO{{tuple_delimiter}}Prison in Tiruzia)
+("entity"{{tuple_delimiter}}ALHAMIA PRISON{{tuple_delimiter}}GEO{{tuple_delimiter}}Tiruzia的监狱)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}PERSON{{tuple_delimiter}}Aurelian journalist who was held hostage)
+("entity"{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}PERSON{{tuple_delimiter}}被扣为人质的Aurelian记者)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}PERSON{{tuple_delimiter}}Bratinas national and environmentalist who was held hostage)
+("entity"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}PERSON{{tuple_delimiter}}持有Bratinas国籍的环保主义者，被扣为人质)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}AURELIA{{tuple_delimiter}}Firuzabad negotiated a hostage exchange with Aurelia{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}AURELIA{{tuple_delimiter}}Firuzabad与Aurelia就人质交换进行谈判{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}AURELIA{{tuple_delimiter}}Quintara brokered the hostage exchange between Firuzabad and Aurelia{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}AURELIA{{tuple_delimiter}}Quintara促成了Firuzabad和Aurelia之间的人质交换{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Quintara brokered the hostage exchange between Firuzabad and Aurelia{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Quintara促成了Firuzabad和Aurelia之间的人质交换{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}ALHAMIA PRISON{{tuple_delimiter}}Samuel Namara was a prisoner at Alhamia prison{{tuple_delimiter}}8)
+("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}ALHAMIA PRISON{{tuple_delimiter}}Samuel Namara是Alhamia监狱的囚犯{{tuple_delimiter}}8)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}Samuel Namara and Meggie Tazbah were exchanged in the same hostage release{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}Samuel Namara和Meggie Tazbah在同一人质释放中被交换{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}Samuel Namara and Durke Bataglani were exchanged in the same hostage release{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}Samuel Namara和Durke Bataglani在同一人质释放中被交换{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}Meggie Tazbah and Durke Bataglani were exchanged in the same hostage release{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}Meggie Tazbah和Durke Bataglani在同一人质释放中被交换{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Samuel Namara was a hostage in Firuzabad{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Samuel Namara是Firuzabad的人质{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Meggie Tazbah was a hostage in Firuzabad{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Meggie Tazbah是Firuzabad的人质{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Durke Bataglani was a hostage in Firuzabad{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Durke Bataglani是Firuzabad的人质{{tuple_delimiter}}2)
 {{completion_delimiter}}
 
--Real Data-
+-真实数据-
 ######################
-entity_types: {entity_types}
-text: {input_text}
+实体类型：{entity_types}
+文本：{input_text}
 ######################
-output:
+输出：
 """
 
 ENTITY_RELATIONSHIPS_GENERATION_JSON_PROMPT = """
--Goal-
-Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
+-目标-
+给定一个可能与此活动相关的文本文件和实体类型列表，识别文本中所有这些类型的实体以及识别出的实体之间的关系。
 
--Steps-
-1. Identify all entities. For each identified entity, extract the following information:
-- entity_name: Name of the entity, capitalized
-- entity_type: One of the following types: [{entity_types}]
-- entity_description: Comprehensive description of the entity's attributes and activities
+-步骤-
+1. 识别所有实体。对于每个已识别的实体，提取以下信息：
+- entity_name: 实体的名称，大写
+- entity_type: 以下类型之一：[{entity_types}]
+- entity_description: 实体属性和活动的全面描述
 
-Format each entity output as a JSON entry with the following format:
+将每个实体输出格式化为以下格式的JSON条目：
 
-{{"name": <entity name>, "type": <type>, "description": <entity description>}}
+{{"name": "<entity name>", "type": "<type>", "description": "<entity description>"}}
 
-2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
-For each pair of related entities, extract the following information:
-- source_entity: name of the source entity, as identified in step 1
-- target_entity: name of the target entity, as identified in step 1
-- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
-- relationship_strength: an integer score between 1 to 10, indicating strength of the relationship between the source entity and target entity
+2. 从步骤1中识别的实体中，识别所有（source_entity, target_entity）对，这些对彼此*明显相关*。
+对于每对相关实体，提取以下信息：
+- source_entity: 源实体的名称，如步骤1中识别的
+- target_entity: 目标实体的名称，如步骤1中识别的
+- relationship_description: 解释为什么你认为源实体和目标实体彼此相关
+- relationship_strength: 一个介于1到10之间的整数分数，表示源实体和目标实体之间的关系强度
 
-Format each relationship as a JSON entry with the following format:
+将每个关系格式化为以下格式的JSON条目：
 
-{{"source": <source_entity>, "target": <target_entity>, "relationship": <relationship_description>, "relationship_strength": <relationship_strength>}}
+{{"source": "<source_entity>", "target": "<target_entity>", "relationship": "<relationship_description>", "relationship_strength": <relationship_strength>}}
 
-3. Return output in {language} as a single list of all JSON entities and relationships identified in steps 1 and 2.
+3. 返回输出为{language}，作为步骤1和2中识别的所有JSON实体和关系的单个列表。
 
-4. If you have to translate into {language}, just translate the descriptions, nothing else!
+4. 如果你需要翻译成{language}，只翻译描述，其他什么都不要翻译！
 
 ######################
--Examples-
+-示例-
 ######################
-Example 1:
-Text:
-The Verdantis's Central Institution is scheduled to meet on Monday and Thursday, with the institution planning to release its latest policy decision on Thursday at 1:30 p.m. PDT, followed by a press conference where Central Institution Chair Martin Smith will take questions. Investors expect the Market Strategy Committee to hold its benchmark interest rate steady in a range of 3.5%-3.75%.
+示例 1:
+文本：
+Verdantis的中央机构计划在周一和周四开会，该机构计划在周四下午1:30 PDT发布其最新的政策决定，随后举行新闻发布会，中央机构主席马丁·史密斯将回答问题。投资者预计市场战略委员会将保持其基准利率在3.5%-3.75%的范围内稳定。
 ######################
-Output:
+输出：
 [
-  {{"name": "CENTRAL INSTITUTION", "type": "ORGANIZATION", "description": "The Central Institution is the Federal Reserve of Verdantis, which is setting interest rates on Monday and Thursday"}},
-  {{"name": "MARTIN SMITH", "type": "PERSON", "description": "Martin Smith is the chair of the Central Institution"}},
-  {{"name": "MARKET STRATEGY COMMITTEE", "type": "ORGANIZATION", "description": "The Central Institution committee makes key decisions about interest rates and the growth of Verdantis's money supply"}},
-  {{"source": "MARTIN SMITH", "target": "CENTRAL INSTITUTION", "relationship": "Martin Smith is the Chair of the Central Institution and will answer questions at a press conference", "relationship_strength": 9}}
+  {{"name": "CENTRAL INSTITUTION", "type": "ORGANIZATION", "description": "中央机构是Verdantis的联邦储备系统，它在周一和周四设定利率"}},
+  {{"name": "MARTIN SMITH", "type": "PERSON", "description": "马丁·史密斯是中央机构的主席"}},
+  {{"name": "MARKET STRATEGY COMMITTEE", "type": "ORGANIZATION", "description": "中央机构委员会对利率和Verdantis货币供应量的增长做出关键决定"}},
+  {{"source": "MARTIN SMITH", "target": "CENTRAL INSTITUTION", "relationship": "马丁·史密斯是中央机构的主席，将在新闻发布会上回答问题", "relationship_strength": 9}}
 ]
 
 ######################
-Example 2:
-Text:
-TechGlobal's (TG) stock skyrocketed in its opening day on the Global Exchange Thursday. But IPO experts warn that the semiconductor corporation's debut on the public markets isn't indicative of how other newly listed companies may perform.
+示例 2:
+文本：
+TechGlobal（TG）的股票在周四全球交易所的首日上市时飙升。但IPO专家警告说，这家半导体公司的公开市场首次亮相并不能说明其他新上市公司可能的表现。
 
-TechGlobal, a formerly public company, was taken private by Vision Holdings in 2014. The well-established chip designer says it powers 85% of premium smartphones.
+TechGlobal，一家以前是上市公司，于2014年被Vision Holdings私有化。这家成熟的芯片设计公司表示，它为85%的高端智能手机提供动力。
 ######################
-Output:
+输出：
 [
-  {{"name": "TECHGLOBAL", "type": "ORGANIZATION", "description": "TechGlobal is a stock now listed on the Global Exchange which powers 85% of premium smartphones"}},
-  {{"name": "VISION HOLDINGS", "type": "ORGANIZATION", "description": "Vision Holdings is a firm that previously owned TechGlobal"}},
-  {{"source": "TECHGLOBAL", "target": "VISION HOLDINGS", "relationship": "Vision Holdings formerly owned TechGlobal from 2014 until present", "relationship_strength": 5}}
+  {{"name": "TECHGLOBAL", "type": "ORGANIZATION", "description": "TechGlobal是现在在全球交易所上市的股票，它为85%的高端智能手机提供动力"}},
+  {{"name": "VISION HOLDINGS", "type": "ORGANIZATION", "description": "Vision Holdings是一家以前拥有TechGlobal的公司"}},
+  {{"source": "TECHGLOBAL", "target": "VISION HOLDINGS", "relationship": "Vision Holdings从2014年至今曾经拥有TechGlobal", "relationship_strength": 5}}
 ]
 
 ######################
-Example 3:
-Text:
-Five Aurelians jailed for 8 years in Firuzabad and widely regarded as hostages are on their way home to Aurelia.
+示例 3:
+文本：
+五名被监禁在Firuzabad的Aurelians，被广泛视为人质，正在返回Aurelia的途中。
 
-The swap orchestrated by Quintara was finalized when $8bn of Firuzi funds were transferred to financial institutions in Krohaara, the capital of Quintara.
+由Quintara策划的交换在80亿美元的Firuzi资金转移到Quintara首都Krohaara的金融机构时完成。
 
-The exchange initiated in Firuzabad's capital, Tiruzia, led to the four men and one woman, who are also Firuzi nationals, boarding a chartered flight to Krohaara.
+在Firuzabad首都Tiruzia发起的交换导致四名男性和一名也是Firuzi国民的女性登上了飞往Krohaara的包机。
 
-They were welcomed by senior Aurelian officials and are now on their way to Aurelia's capital, Cashion.
+他们受到Aurelian高级官员的欢迎，现在正在前往Aurelia首都Cashion的途中。
 
-The Aurelians include 39-year-old businessman Samuel Namara, who has been held in Tiruzia's Alhamia Prison, as well as journalist Durke Bataglani, 59, and environmentalist Meggie Tazbah, 53, who also holds Bratinas nationality.
+Aurelians包括39岁的商人塞缪尔·纳马拉，他一直被关押在Tiruzia的Alhamia监狱，以及59岁的记者Durke Bataglani和53岁的环保主义者Meggie Tazbah，她也持有Bratinas国籍。
 ######################
-Output:
+输出：
 [
-  {{"name": "FIRUZABAD", "type": "GEO", "description": "Firuzabad held Aurelians as hostages"}},
-  {{"name": "AURELIA", "type": "GEO", "description": "Country seeking to release hostages"}},
-  {{"name": "QUINTARA", "type": "GEO", "description": "Country that negotiated a swap of money in exchange for hostages"}},
-  {{"name": "TIRUZIA", "type": "GEO", "description": "Capital of Firuzabad where the Aurelians were being held"}},
-  {{"name": "KROHAARA", "type": "GEO", "description": "Capital city in Quintara"}},
-  {{"name": "CASHION", "type": "GEO", "description": "Capital city in Aurelia"}},
-  {{"name": "SAMUEL NAMARA", "type": "PERSON", "description": "Aurelian who spent time in Tiruzia's Alhamia Prison"}},
-  {{"name": "ALHAMIA PRISON", "type": "GEO", "description": "Prison in Tiruzia"}},
-  {{"name": "DURKE BATAGLANI", "type": "PERSON", "description": "Aurelian journalist who was held hostage"}},
-  {{"name": "MEGGIE TAZBAH", "type": "PERSON", "description": "Bratinas national and environmentalist who was held hostage"}},
-  {{"source": "FIRUZABAD", "target": "AURELIA", "relationship": "Firuzabad negotiated a hostage exchange with Aurelia", "relationship_strength": 2}},
-  {{"source": "QUINTARA", "target": "AURELIA", "relationship": "Quintara brokered the hostage exchange between Firuzabad and Aurelia", "relationship_strength": 2}},
-  {{"source": "QUINTARA", "target": "FIRUZABAD", "relationship": "Quintara brokered the hostage exchange between Firuzabad and Aurelia", "relationship_strength": 2}},
-  {{"source": "SAMUEL NAMARA", "target": "ALHAMIA PRISON", "relationship": "Samuel Namara was a prisoner at Alhamia prison", "relationship_strength": 8}},
-  {{"source": "SAMUEL NAMARA", "target": "MEGGIE TAZBAH", "relationship": "Samuel Namara and Meggie Tazbah were exchanged in the same hostage release", "relationship_strength": 2}},
-  {{"source": "SAMUEL NAMARA", "target": "DURKE BATAGLANI", "relationship": "Samuel Namara and Durke Bataglani were exchanged in the same hostage release", "relationship_strength": 2}},
-  {{"source": "MEGGIE TAZBAH", "target": "DURKE BATAGLANI", "relationship": "Meggie Tazbah and Durke Bataglani were exchanged in the same hostage release", "relationship_strength": 2}},
-  {{"source": "SAMUEL NAMARA", "target": "FIRUZABAD", "relationship": "Samuel Namara was a hostage in Firuzabad", "relationship_strength": 2}},
-  {{"source": "MEGGIE TAZBAH", "target": "FIRUZABAD", "relationship": "Meggie Tazbah was a hostage in Firuzabad", "relationship_strength": 2}},
-  {{"source": "DURKE BATAGLANI", "target": "FIRUZABAD", "relationship": "Durke Bataglani was a hostage in Firuzabad", "relationship_strength": 2}}
+  {{"name": "FIRUZABAD", "type": "GEO", "description": "Firuzabad扣押了Aurelians作为人质"}},
+  {{"name": "AURELIA", "type": "GEO", "description": "寻求释放人质的国家"}},
+  {{"name": "QUINTARA", "type": "GEO", "description": "谈判交换资金以换取人质的国家"}},
+  {{"name": "TIRUZIA", "type": "GEO", "description": "Aurelians被关押的Firuzabad首都"}},
+  {{"name": "KROHAARA", "type": "GEO", "description": "Quintara的首都城市"}},
+  {{"name": "CASHION", "type": "GEO", "description": "Aurelia的首都城市"}},
+  {{"name": "SAMUEL NAMARA", "type": "PERSON", "description": "在Tiruzia的Alhamia监狱度过时间的Aurelian"}},
+  {{"name": "ALHAMIA PRISON", "type": "GEO", "description": "Tiruzia的监狱"}},
+  {{"name": "DURKE BATAGLANI", "type": "PERSON", "description": "被扣为人质的Aurelian记者"}},
+  {{"name": "MEGGIE TAZBAH", "type": "PERSON", "description": "持有Bratinas国籍的环保主义者，被扣为人质"}},
+  {{"source": "FIRUZABAD", "target": "AURELIA", "relationship": "Firuzabad与Aurelia就人质交换进行谈判", "relationship_strength": 2}},
+  {{"source": "QUINTARA", "target": "AURELIA", "relationship": "Quintara促成了Firuzabad和Aurelia之间的人质交换", "relationship_strength": 2}},
+  {{"source": "QUINTARA", "target": "FIRUZABAD", "relationship": "Quintara促成了Firuzabad和Aurelia之间的人质交换", "relationship_strength": 2}},
+  {{"source": "SAMUEL NAMARA", "target": "ALHAMIA PRISON", "relationship": "Samuel Namara是Alhamia监狱的囚犯", "relationship_strength": 8}},
+  {{"source": "SAMUEL NAMARA", "target": "MEGGIE TAZBAH", "relationship": "Samuel Namara和Meggie Tazbah在同一人质释放中被交换", "relationship_strength": 2}},
+  {{"source": "SAMUEL NAMARA", "target": "DURKE BATAGLANI", "relationship": "Samuel Namara和Durke Bataglani在同一人质释放中被交换", "relationship_strength": 2}},
+  {{"source": "MEGGIE TAZBAH", "target": "DURKE BATAGLANI", "relationship": "Meggie Tazbah和Durke Bataglani在同一人质释放中被交换", "relationship_strength": 2}},
+  {{"source": "SAMUEL NAMARA", "target": "FIRUZABAD", "relationship": "Samuel Namara是Firuzabad的人质", "relationship_strength": 2}},
+  {{"source": "MEGGIE TAZBAH", "target": "FIRUZABAD", "relationship": "Meggie Tazbah是Firuzabad的人质", "relationship_strength": 2}},
+  {{"source": "DURKE BATAGLANI", "target": "FIRUZABAD", "relationship": "Durke Bataglani是Firuzabad的人质", "relationship_strength": 2}}
 ]
 
 
 
--Real Data-
+-真实数据-
 ######################
 entity_types: {entity_types}
 text: {input_text}
@@ -233,123 +233,123 @@ output:
 """
 
 UNTYPED_ENTITY_RELATIONSHIPS_GENERATION_PROMPT = """
--Goal-
-Given a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.
-Next, report all relationships among the identified entities.
+-目标-
+给定一个可能与此活动相关的文本文件，首先识别文本中所有需要的实体，以便捕捉文本中的信息和想法。
+接下来，报告识别出的实体之间的所有关系。
 
--Steps-
-1. Identify all entities. For each identified entity, extract the following information:
-- entity_name: Name of the entity, capitalized
-- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.
-- entity_description: Comprehensive description of the entity's attributes and activities
-Format each entity as ("entity"{{tuple_delimiter}}<entity_name>{{tuple_delimiter}}<entity_type>{{tuple_delimiter}}<entity_description>)
+-步骤-
+1. 识别所有实体。对于每个已识别的实体，提取以下信息：
+- entity_name: 实体的名称，大写
+- entity_type: 为实体提出几个标签或类别。这些类别不应太具体，但应尽可能通用。
+- entity_description: 实体属性和活动的全面描述
+将每个实体格式化为("entity"{{tuple_delimiter}}<entity_name>{{tuple_delimiter}}<entity_type>{{tuple_delimiter}}<entity_description>)
 
-2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
-For each pair of related entities, extract the following information:
-- source_entity: name of the source entity, as identified in step 1
-- target_entity: name of the target entity, as identified in step 1
-- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
-- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
-Format each relationship as ("relationship"{{tuple_delimiter}}<source_entity>{{tuple_delimiter}}<target_entity>{{tuple_delimiter}}<relationship_description>{{tuple_delimiter}}<relationship_strength>)
+2. 从步骤1中识别的实体中，识别所有（source_entity, target_entity）对，这些对彼此*明显相关*。
+对于每对相关实体，提取以下信息：
+- source_entity: 源实体的名称，如步骤1中识别的
+- target_entity: 目标实体的名称，如步骤1中识别的
+- relationship_description: 解释为什么你认为源实体和目标实体彼此相关
+- relationship_strength: 表示源实体和目标实体之间关系强度的数值分数
+将每个关系格式化为("relationship"{{tuple_delimiter}}<source_entity>{{tuple_delimiter}}<target_entity>{{tuple_delimiter}}<relationship_description>{{tuple_delimiter}}<relationship_strength>)
 
-3. Return output in {language} as a single list of all the entities and relationships identified in steps 1 and 2. Use **{{record_delimiter}}** as the list delimiter.
+3. 返回输出为{language}，作为步骤1和2中识别的所有实体和关系的单个列表。使用**{{record_delimiter}}**作为列表分隔符。
 
-4. If you have to translate into {language}, just translate the descriptions, nothing else!
+4. 如果你需要翻译成{language}，只翻译描述，其他什么都不要翻译！
 
-5. When finished, output {{completion_delimiter}}.
+5. 完成后，输出{{completion_delimiter}}。
 
 ######################
--Examples-
+-示例-
 ######################
-Example 1:
-Text:
-The Verdantis's Central Institution is scheduled to meet on Monday and Thursday, with the institution planning to release its latest policy decision on Thursday at 1:30 p.m. PDT, followed by a press conference where Central Institution Chair Martin Smith will take questions. Investors expect the Market Strategy Committee to hold its benchmark interest rate steady in a range of 3.5%-3.75%.
+示例 1:
+文本：
+Verdantis的中央机构计划在周一和周四开会，该机构计划在周四下午1:30 PDT发布其最新的政策决定，随后举行新闻发布会，中央机构主席马丁·史密斯将回答问题。投资者预计市场战略委员会将保持其基准利率在3.5%-3.75%的范围内稳定。
 ######################
-Output:
-("entity"{{tuple_delimiter}}CENTRAL INSTITUTION{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}The Central Institution is the Federal Reserve of Verdantis, which is setting interest rates on Monday and Thursday)
+输出：
+("entity"{{tuple_delimiter}}CENTRAL INSTITUTION{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}中央机构是Verdantis的联邦储备系统，它在周一和周四设定利率)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}MARTIN SMITH{{tuple_delimiter}}PERSON{{tuple_delimiter}}Martin Smith is the chair of the Central Institution)
+("entity"{{tuple_delimiter}}MARTIN SMITH{{tuple_delimiter}}PERSON{{tuple_delimiter}}马丁·史密斯是中央机构的主席)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}MARKET STRATEGY COMMITTEE{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}The Central Institution committee makes key decisions about interest rates and the growth of Verdantis's money supply)
+("entity"{{tuple_delimiter}}MARKET STRATEGY COMMITTEE{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}中央机构委员会对利率和Verdantis货币供应量的增长做出关键决定)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}MARTIN SMITH{{tuple_delimiter}}CENTRAL INSTITUTION{{tuple_delimiter}}Martin Smith is the Chair of the Central Institution and will answer questions at a press conference{{tuple_delimiter}}9)
+("relationship"{{tuple_delimiter}}MARTIN SMITH{{tuple_delimiter}}CENTRAL INSTITUTION{{tuple_delimiter}}马丁·史密斯是中央机构的主席，将在新闻发布会上回答问题{{tuple_delimiter}}9)
 {{completion_delimiter}}
 
 ######################
-Example 2:
-Text:
-TechGlobal's (TG) stock skyrocketed in its opening day on the Global Exchange Thursday. But IPO experts warn that the semiconductor corporation's debut on the public markets isn't indicative of how other newly listed companies may perform.
+示例 2:
+文本：
+TechGlobal（TG）的股票在周四全球交易所的首日上市时飙升。但IPO专家警告说，这家半导体公司的公开市场首次亮相并不能说明其他新上市公司可能的表现。
 
-TechGlobal, a formerly public company, was taken private by Vision Holdings in 2014. The well-established chip designer says it powers 85% of premium smartphones.
+TechGlobal，一家以前是上市公司，于2014年被Vision Holdings私有化。这家成熟的芯片设计公司表示，它为85%的高端智能手机提供动力。
 ######################
-Output:
-("entity"{{tuple_delimiter}}TECHGLOBAL{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}TechGlobal is a stock now listed on the Global Exchange which powers 85% of premium smartphones)
+输出：
+("entity"{{tuple_delimiter}}TECHGLOBAL{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}TechGlobal是现在在全球交易所上市的股票，它为85%的高端智能手机提供动力)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}VISION HOLDINGS{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}Vision Holdings is a firm that previously owned TechGlobal)
+("entity"{{tuple_delimiter}}VISION HOLDINGS{{tuple_delimiter}}ORGANIZATION{{tuple_delimiter}}Vision Holdings是一家以前拥有TechGlobal的公司)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}TECHGLOBAL{{tuple_delimiter}}VISION HOLDINGS{{tuple_delimiter}}Vision Holdings formerly owned TechGlobal from 2014 until present{{tuple_delimiter}}5)
+("relationship"{{tuple_delimiter}}TECHGLOBAL{{tuple_delimiter}}VISION HOLDINGS{{tuple_delimiter}}Vision Holdings从2014年至今曾经拥有TechGlobal{{tuple_delimiter}}5)
 {{completion_delimiter}}
 
 ######################
-Example 3:
-Text:
-Five Aurelians jailed for 8 years in Firuzabad and widely regarded as hostages are on their way home to Aurelia.
+示例 3:
+文本：
+五名被监禁在Firuzabad的Aurelians，被广泛视为人质，正在返回Aurelia的途中。
 
-The swap orchestrated by Quintara was finalized when $8bn of Firuzi funds were transferred to financial institutions in Krohaara, the capital of Quintara.
+由Quintara策划的交换在80亿美元的Firuzi资金转移到Quintara首都Krohaara的金融机构时完成。
 
-The exchange initiated in Firuzabad's capital, Tiruzia, led to the four men and one woman, who are also Firuzi nationals, boarding a chartered flight to Krohaara.
+在Firuzabad首都Tiruzia发起的交换导致四名男性和一名也是Firuzi国民的女性登上了飞往Krohaara的包机。
 
-They were welcomed by senior Aurelian officials and are now on their way to Aurelia's capital, Cashion.
+他们受到Aurelian高级官员的欢迎，现在正在前往Aurelia首都Cashion的途中。
 
-The Aurelians include 39-year-old businessman Samuel Namara, who has been held in Tiruzia's Alhamia Prison, as well as journalist Durke Bataglani, 59, and environmentalist Meggie Tazbah, 53, who also holds Bratinas nationality.
+Aurelians包括39岁的商人塞缪尔·纳马拉，他一直被关押在Tiruzia的Alhamia监狱，以及59岁的记者Durke Bataglani和53岁的环保主义者Meggie Tazbah，她也持有Bratinas国籍。
 ######################
-Output:
-("entity"{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}GEO{{tuple_delimiter}}Firuzabad held Aurelians as hostages)
+输出：
+("entity"{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}GEO{{tuple_delimiter}}Firuzabad扣押了Aurelians作为人质)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}AURELIA{{tuple_delimiter}}GEO{{tuple_delimiter}}Country seeking to release hostages)
+("entity"{{tuple_delimiter}}AURELIA{{tuple_delimiter}}GEO{{tuple_delimiter}}寻求释放人质的国家)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}GEO{{tuple_delimiter}}Country that negotiated a swap of money in exchange for hostages)
+("entity"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}GEO{{tuple_delimiter}}谈判交换资金以换取人质的国家)
 {{record_delimiter}}
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}TIRUZIA{{tuple_delimiter}}GEO{{tuple_delimiter}}Capital of Firuzabad where the Aurelians were being held)
+("entity"{{tuple_delimiter}}TIRUZIA{{tuple_delimiter}}GEO{{tuple_delimiter}}Aurelians被关押的Firuzabad首都)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}KROHAARA{{tuple_delimiter}}GEO{{tuple_delimiter}}Capital city in Quintara)
+("entity"{{tuple_delimiter}}KROHAARA{{tuple_delimiter}}GEO{{tuple_delimiter}}Quintara的首都城市)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}CASHION{{tuple_delimiter}}GEO{{tuple_delimiter}}Capital city in Aurelia)
+("entity"{{tuple_delimiter}}CASHION{{tuple_delimiter}}GEO{{tuple_delimiter}}Aurelia的首都城市)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}PERSON{{tuple_delimiter}}Aurelian who spent time in Tiruzia's Alhamia Prison)
+("entity"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}PERSON{{tuple_delimiter}}在Tiruzia的Alhamia监狱度过时间的Aurelian)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}ALHAMIA PRISON{{tuple_delimiter}}GEO{{tuple_delimiter}}Prison in Tiruzia)
+("entity"{{tuple_delimiter}}ALHAMIA PRISON{{tuple_delimiter}}GEO{{tuple_delimiter}}Tiruzia的监狱)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}PERSON{{tuple_delimiter}}Aurelian journalist who was held hostage)
+("entity"{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}PERSON{{tuple_delimiter}}被扣为人质的Aurelian记者)
 {{record_delimiter}}
-("entity"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}PERSON{{tuple_delimiter}}Bratinas national and environmentalist who was held hostage)
+("entity"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}PERSON{{tuple_delimiter}}持有Bratinas国籍的环保主义者，被扣为人质)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}AURELIA{{tuple_delimiter}}Firuzabad negotiated a hostage exchange with Aurelia{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}AURELIA{{tuple_delimiter}}Firuzabad与Aurelia就人质交换进行谈判{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}AURELIA{{tuple_delimiter}}Quintara brokered the hostage exchange between Firuzabad and Aurelia{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}AURELIA{{tuple_delimiter}}Quintara促成了Firuzabad和Aurelia之间的人质交换{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Quintara brokered the hostage exchange between Firuzabad and Aurelia{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}QUINTARA{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Quintara促成了Firuzabad和Aurelia之间的人质交换{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}ALHAMIA PRISON{{tuple_delimiter}}Samuel Namara was a prisoner at Alhamia prison{{tuple_delimiter}}8)
+("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}ALHAMIA PRISON{{tuple_delimiter}}Samuel Namara是Alhamia监狱的囚犯{{tuple_delimiter}}8)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}Samuel Namara and Meggie Tazbah were exchanged in the same hostage release{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}Samuel Namara和Meggie Tazbah在同一人质释放中被交换{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}Samuel Namara and Durke Bataglani were exchanged in the same hostage release{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}Samuel Namara和Durke Bataglani在同一人质释放中被交换{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}Meggie Tazbah and Durke Bataglani were exchanged in the same hostage release{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}Meggie Tazbah和Durke Bataglani在同一人质释放中被交换{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Samuel Namara was a hostage in Firuzabad{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}SAMUEL NAMARA{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Samuel Namara是Firuzabad的人质{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Meggie Tazbah was a hostage in Firuzabad{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}MEGGIE TAZBAH{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Meggie Tazbah是Firuzabad的人质{{tuple_delimiter}}2)
 {{record_delimiter}}
-("relationship"{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Durke Bataglani was a hostage in Firuzabad{{tuple_delimiter}}2)
+("relationship"{{tuple_delimiter}}DURKE BATAGLANI{{tuple_delimiter}}FIRUZABAD{{tuple_delimiter}}Durke Bataglani是Firuzabad的人质{{tuple_delimiter}}2)
 {{completion_delimiter}}
 
 ######################
--Real Data-
+-真实数据-
 ######################
-Text: {input_text}
+文本：{input_text}
 ######################
-Output:
+输出：
 """

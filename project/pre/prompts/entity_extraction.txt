@@ -1,0 +1,120 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: One of the following types: [technology, food_product, quality_control, impurity, inspection_method, advantage, application]
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: an integer score between 1 to 10, indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in 中文 as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into 中文, just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+
+entity_types: [technology, food_product, quality_control, impurity, inspection_method, advantage, application]
+text:
+食品中的微量杂质等问题。集成上下料、光谱视觉检测、自动化剔除的整体精选方案，能够依据产品及杂质的成分及空间分布特性，实时检测出产品品质及其他杂质，实现自动化精选。
+
+光谱视觉精选机
+
+茶叶精选
+茶叶传统自动化剔杂手段为使用传统视觉检测+喷阀抖筛进行精选，以视觉成像+AI为基础，无法从物质成分角度识别剔除杂质，识别效率准确率局限�
+------------------------
+output:
+("entity"{tuple_delimiter}光谱视觉检测{tuple_delimiter}technology{tuple_delimiter}光谱视觉检测是一种先进的技术和方法，通过分析产品的光谱信息来检测食品中的质量和其他杂质})
+{record_delimiter}
+("entity"{tuple_delimiter}食品{tuple_delimiter}food_product{tuple_delimiter}食品是指供人类食用或饮用的加工过的农产品，包括但不限于谷物、果蔬、肉类和乳制品等})
+{record_delimiter}
+("entity"{tuple_delimiter}杂质{tuple_delimiter}impurity{tuple_delimiter}杂质指食品中非有意添加的外来物质，可能对食品安全和质量造成影响})
+{record_delimiter}
+("entity"{tuple_delimiter}自动化剔除{tuple_delimiter}quality_control{tuple_delimiter}自动化剔除是食品加工过程中自动化去除不合格品或杂质的过程，提高生产效率和产品质量})
+{record_delimiter}
+("entity"{tuple_delimiter}整体精选方案{tuple_delimiter}application{tuple_delimiter}整体精选方案是一种综合了上下料、光谱视觉检测和自动化剔除的食品加工解决方案，旨在提高食品的质量控制水平})
+{record_delimiter}
+("entity"{tuple_delimiter}光谱视觉精选机{tuple_delimiter}inspection_method{tuple_delimiter}光谱视觉精选机是一种利用光谱和视觉技术进行食品检测和分选的设备，可有效检测并去除食品中的杂质})
+{record_delimiter}
+("entity"{tuple_delimiter}茶叶{tuple_delimiter}food_product{tuple_delimiter}茶叶是一种常见的饮品原料，由茶树的叶子经过加工制成，广泛用于泡茶饮用})
+{record_delimiter}
+("entity"{tuple_delimiter}传统视觉检测+喷阀抖筛{tuple_delimiter}inspection_method{tuple_delimiter}传统视觉检测结合喷阀抖筛是一种传统的食品杂质剔除方法，主要依赖于视觉成像和物理筛选技术})
+{record_delimiter}
+("relationship"{tuple_delimiter}光谱视觉检测{tuple_delimiter}杂质{tuple_delimiter}光谱视觉检测技术能有效识别食品中的杂质，确保食品的安全和质量{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}自动化剔除{tuple_delimiter}杂质{tuple_delimiter}自动化剔除过程通过高效的机械设备去除食品中的杂质，提高生产效率{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}整体精选方案{tuple_delimiter}自动化剔除{tuple_delimiter}整体精选方案集成了自动化剔除技术，实现了食品加工的高效和精准{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}光谱视觉精选机{tuple_delimiter}光谱视觉检测{tuple_delimiter}光谱视觉精选机采用了光谱视觉检测技术，使其在食品检测方面具有高精度和可靠性{tuple_delimiter}10)
+{record_delimiter}
+("relationship"{tuple_delimiter}茶叶{tuple_delimiter}传统视觉检测+喷阀抖筛{tuple_delimiter}茶叶的传统加工中，使用传统视觉检测加喷阀抖筛的方法进行杂质剔除{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}光谱视觉精选机{tuple_delimiter}茶叶{tuple_delimiter}光谱视觉精选机可以应用于茶叶的精选，提高茶叶的质量和安全性{tuple_delimiter}8)
+{completion_delimiter}
+#############################
+
+
+Example 2:
+
+entity_types: [technology, food_product, quality_control, impurity, inspection_method, advantage, application]
+text:
+调味品，以蛋白质及淀粉等为原料，经微生物（霉菌、乳酸菌和酵母）在盐溶液中发酵而成，富含多种营养成分、集调色、调味于一体，能增进食欲、助消化 ，还具有抗氧化作用。全氮、总酸和氨基酸态氮是酱油三个最重要的必检质量指标酱油常规检测的质量指标。光谱视觉技术具有无需制样，无损检测，效率高，适合在线检测，无
+------------------------
+output:
+("entity"{tuple_delimiter}调味品{tuple_delimiter}food_product{tuple_delimiter}调味品是以蛋白质和淀粉等为原料，经过微生物（如霉菌、乳酸菌和酵母）在盐溶液中发酵制成的产品，富含多种营养成分，具有调色、调味功能，能够增进食欲、帮助消化，并具有抗氧化作用。)
+{record_delimiter}
+("entity"{tuple_delimiter}微生物{tuple_delimiter}impurity{tuple_delimiter}在此上下文中，微生物（如霉菌、乳酸菌和酵母）是指参与调味品发酵过程的生物体。)
+{record_delimiter}
+("entity"{tuple_delimiter}全氮{tuple_delimiter}quality_control{tuple_delimiter}全氮是酱油质量检测中的一个重要指标。)
+{record_delimiter}
+("entity"{tuple_delimiter}总酸{tuple_delimiter}quality_control{tuple_delimiter}总酸是酱油质量检测中的另一个重要指标。)
+{record_delimiter}
+("entity"{tuple_delimiter}氨基酸态氮{tuple_delimiter}quality_control{tuple_delimiter}氨基酸态氮是酱油质量检测中的第三个重要指标。)
+{record_delimiter}
+("entity"{tuple_delimiter}光谱视觉技术{tuple_delimiter}inspection_method{tuple_delimiter}光谱视觉技术是一种先进的检测方法，具备无需制样、无损检测、高效且适用于在线检测的优点。)
+{record_delimiter}
+("entity"{tuple_delimiter}无损检测{tuple_delimiter}advantage{tuple_delimiter}无损检测是指在检测过程中不损坏被检测物品的一种检测方式。)
+{record_delimiter}
+("entity"{tuple_delimiter}高效{tuple_delimiter}advantage{tuple_delimiter}高效意味着该检测方法能够在短时间内完成大量样本的检测。)
+{record_delimiter}
+("entity"{tuple_delimiter}适合在线检测{tuple_delimiter}advantage{tuple_delimiter}适合在线检测意味着该技术可以在生产线上直接应用，实现实时监控。)
+{record_delimiter}
+("relationship"{tuple_delimiter}调味品{tuple_delimiter}微生物{tuple_delimiter}调味品的制作过程需要通过特定微生物的发酵来完成，这些微生物对调味品的风味和营养价值有重要影响。{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}调味品{tuple_delimiter}全氮{tuple_delimiter}调味品的质量控制包括对全氮的检测，这是评估其品质的重要指标之一。{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}调味品{tuple_delimiter}总酸{tuple_delimiter}调味品的质量控制还包括对总酸的检测，这也是评估其品质的关键指标。{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}调味品{tuple_delimiter}氨基酸态氮{tuple_delimiter}调味品的质量控制中，氨基酸态氮是一个重要的检测指标，反映了调味品的营养价值。{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}光谱视觉技术{tuple_delimiter}无损检测{tuple_delimiter}光谱视觉技术的一个显著优势是它可以进行无损检测，这意味着在检测过程中不会损坏样品。{tuple_delimiter}10)
+{record_delimiter}
+("relationship"{tuple_delimiter}光谱视觉技术{tuple_delimiter}高效{tuple_delimiter}光谱视觉技术的另一个优点是它的检测效率非常高，可以快速处理大量样品。{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}光谱视觉技术{tuple_delimiter}适合在线检测{tuple_delimiter}光谱视觉技术特别适合用于生产线上的在线检测，可以实时监控产品质量。{tuple_delimiter}9)
+{completion_delimiter}
+#############################
+
+
+
+-Real Data-
+######################
+entity_types: [technology, food_product, quality_control, impurity, inspection_method, advantage, application]
+text: {input_text}
+######################
+output:

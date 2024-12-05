@@ -1,12 +1,12 @@
-# Copyright (c) 2024 Microsoft Corporation.
-# Licensed under the MIT License
+# 版权所有 (c) 2024 Microsoft Corporation.
+# 根据MIT许可授权
 
-"""Fine-tuning prompts for domain generation."""
+"""为领域生成微调提示词。"""
 
 GENERATE_DOMAIN_PROMPT = """
-You are an intelligent assistant that helps a human to analyze the information in a text document.
-Given a sample text, help the user by assigning a descriptive domain that summarizes what the text is about.
-Example domains are: "Social studies", "Algorithmic analysis", "Medical science", among others.
+你是一个智能助手，帮助人类分析文本文件中的信息。
+给定一个样本文本，通过为文本分配一个描述性的领域来帮助用户，总结文本是关于什么的。
+示例领域包括：“社会科学”、“算法分析”、“医学科学”等。
 
-Text: {input_text}
-Domain:"""
+文本：{input_text}
+领域："""
