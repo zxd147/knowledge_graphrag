@@ -1,42 +1,42 @@
 {
-    "total_runtime": 15819.61856508255,
-    "num_documents": 13,
+    "total_runtime": 3222.0139265060425,
+    "num_documents": 18,
     "input_load_time": 0,
     "workflows": {
         "create_final_community_reports": {
-            "overall": 15818.24602651596,
-            "0_prepare_community_reports_nodes": 0.037368059158325195,
-            "1_prepare_community_reports_edges": 0.016641616821289062,
-            "2_prepare_community_reports_claims": 0.006178617477416992,
-            "3_restore_community_hierarchy": 0.017765522003173828,
-            "4_prepare_community_reports": 0.7120583057403564,
-            "5_create_community_reports": 15817.451312065125,
-            "6_window": 0.002800464630126953
+            "overall": 3220.2843174934387,
+            "0_prepare_community_reports_nodes": 0.056122541427612305,
+            "1_prepare_community_reports_edges": 0.023283720016479492,
+            "2_prepare_community_reports_claims": 0.0074005126953125,
+            "3_restore_community_hierarchy": 0.042211294174194336,
+            "4_prepare_community_reports": 1.2735087871551514,
+            "5_create_community_reports": 3218.87624669075,
+            "6_window": 0.00330352783203125
         },
         "create_final_text_units": {
-            "overall": 0.028554439544677734,
-            "0_select": 0.0021436214447021484,
-            "1_rename": 0.002216815948486328,
-            "2_join": 0.004800319671630859,
-            "3_join": 0.005578756332397461,
-            "4_join": 0.005058765411376953,
-            "5_aggregate_override": 0.0038666725158691406,
-            "6_select": 0.002850770950317383
+            "overall": 0.04789900779724121,
+            "0_select": 0.0022552013397216797,
+            "1_rename": 0.002333402633666992,
+            "2_join": 0.00519871711730957,
+            "3_join": 0.00508880615234375,
+            "4_join": 0.005171537399291992,
+            "5_aggregate_override": 0.022319555282592773,
+            "6_select": 0.0033311843872070312
         },
         "create_base_documents": {
-            "overall": 0.03887629508972168,
-            "0_unroll": 0.003873109817504883,
-            "1_select": 0.003322124481201172,
-            "2_rename": 0.003725290298461914,
-            "3_join": 0.0057332515716552734,
-            "4_aggregate_override": 0.004562854766845703,
-            "5_join": 0.0057811737060546875,
-            "6_rename": 0.00407719612121582,
-            "7_convert": 0.0046918392181396484
+            "overall": 0.03949785232543945,
+            "0_unroll": 0.003997802734375,
+            "1_select": 0.003395557403564453,
+            "2_rename": 0.0036509037017822266,
+            "3_join": 0.005892038345336914,
+            "4_aggregate_override": 0.004819154739379883,
+            "5_join": 0.0059528350830078125,
+            "6_rename": 0.0040171146392822266,
+            "7_convert": 0.004536867141723633
         },
         "create_final_documents": {
-            "overall": 0.00847315788269043,
-            "0_rename": 0.004294633865356445
+            "overall": 0.008593082427978516,
+            "0_rename": 0.004365444183349609
         }
     }
 }

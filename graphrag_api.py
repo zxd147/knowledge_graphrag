@@ -93,7 +93,7 @@ class ModelList(BaseModel):
 class ChatCompletionRequest(BaseModel):
     model: str = 'Qwen2.5-7B-Instruct'
     mode: str
-    knowledge_base: Literal['zyy', 'dentistry', 'ecology', 'spectra', 'test'] = 'dentistry'
+    knowledge: Literal['zyy', 'dentistry', 'ecology', 'spectra', 'test'] = 'dentistry'
     # messages: List[Message]
     messages: List[dict[str, str]]
     temperature: Optional[float] = 1.0
@@ -200,7 +200,7 @@ async def lifespan(graphrag_app: FastAPI):
         graphrag_logger.info("启动中...")
         # 初始化系统
         # llm_config, embedder_config = get_config(new_llm_model=None)
-        await refresh_models(new_llm_model=CURRENT_MODEL, new_knowledge_base=CURRENT_KNOWLEDGE_BASE)
+        await refresh_models(new_llm_model=CURRENT_MODEL, new_knowledge=CURRENT_KNOWLEDGE_BASE)
         # 让应用继续运行
         yield
     except Exception as e:
@@ -230,8 +230,8 @@ graphrag_logger = logger
 # lifespan 参数用于在应用程序生命周期的开始和结束时执行一些初始化或清理工作
 graphrag_app = FastAPI(lifespan=lifespan)
 secret_key = os.getenv('GRAPHRAG-SECRET-KEY', 'sk-graphrag')
-graphrag_app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'], )
 graphrag_app.add_middleware(BasicAuthMiddleware, secret_key=secret_key)
+graphrag_app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'], )
 
 
 def count_tokens(text: str, model: str = "gpt-4") -> int:
@@ -270,14 +270,14 @@ def get_config(new_llm_model=None):
     return llm_config, embedder_config
 
 
-# async def sync_setting(new_llm_model, new_knowledge_base):
+# async def sync_setting(new_llm_model, new_knowledge):
 #     global CURRENT_MODEL, CURRENT_KNOWLEDGE_BASE
 #     try:
-#         if new_llm_model != CURRENT_MODEL or new_knowledge_base != CURRENT_KNOWLEDGE_BASE:
-#             graphrag_logger.info(f"检测到LLM模型/知识库变化，正在重新初始化为：{new_llm_model, new_knowledge_base}")
+#         if new_llm_model != CURRENT_MODEL or new_knowledge != CURRENT_KNOWLEDGE_BASE:
+#             graphrag_logger.info(f"检测到LLM模型/知识库变化，正在重新初始化为：{new_llm_model, new_knowledge}")
 #             # 重新执行初始化操作
 #             # llm_config, embedder_config = get_config(new_llm_model=new_llm_model)
-#             await refresh_models(new_llm_model, new_knowledge_base)
+#             await refresh_models(new_llm_model, new_knowledge)
 #         return {"status": "model changed", "new_model": CURRENT_MODEL}
 #     except Exception as e:
 #         graphrag_logger.error(f"初始化过程中出错: {str(e)}")
@@ -288,9 +288,9 @@ def get_config(new_llm_model=None):
 #         graphrag_logger.info("正在关闭...")
 
 
-async def refresh_models(new_llm_model, new_knowledge_base):
-    if new_llm_model != CURRENT_MODEL or new_knowledge_base != CURRENT_KNOWLEDGE_BASE or not CURRENT_MODEL:
-        graphrag_logger.info(f"检测到LLM模型/知识库变化，正在重新初始化为：{new_llm_model, new_knowledge_base}")
+async def refresh_models(new_llm_model, new_knowledge):
+    if new_llm_model != CURRENT_MODEL or new_knowledge != CURRENT_KNOWLEDGE_BASE or not CURRENT_MODEL:
+        graphrag_logger.info(f"检测到LLM模型/知识库变化，正在重新初始化为：{new_llm_model, new_knowledge}")
         # 申明引用全局变量，在函数中被初始化，并在整个应用中使用
         global local_search_engine, global_search_engine, question_generator
         """初始搜索引擎和问题生成器"""
@@ -300,7 +300,7 @@ async def refresh_models(new_llm_model, new_knowledge_base):
         llm, token_encoder, text_embedder = await setup_llm_and_embedder(new_llm_model)
         # 调用load_context()函数加载实体、关系、报告、文本单元、描述嵌入存储和协变量等数据，这些数据将用于构建搜索引擎和问题生成器
         entities, relationships, reports, text_units, description_embedding_store, covariates = await load_context(
-            new_knowledge_base)
+            new_knowledge)
         # 调用setup_search_engines()函数设置本地和全局搜索引擎、上下文构建器（ContextBuilder）、以及相关参数
         local_search_engine, global_search_engine, local_context_builder, local_llm_params, local_context_params = await setup_search_engines(
             llm, token_encoder, text_embedder, entities, relationships, reports, text_units,
@@ -389,15 +389,15 @@ async def setup_llm_and_embedder(new_llm_model):
 
 
 # 加载上下文数据，包括实体、关系、报告、文本单元和协变量
-async def load_context(new_knowledge_base):
+async def load_context(new_knowledge):
     graphrag_logger.info("正在加载上下文数据")
-    knowledge_base_dir = f"./project/{new_knowledge_base}/output/artifacts"
-    lancedb_uri = f"{knowledge_base_dir}/lancedb"
+    knowledge_dir = f"./project/{new_knowledge}/output/artifacts"
+    lancedb_uri = f"{knowledge_dir}/lancedb"
     try:
         # 使用pandas库从指定的路径读取实体数据表ENTITY_TABLE，文件格式为Parquet，并将其加载为DataFrame，存储在变量entity_df中
-        entity_df = pd.read_parquet(f"{knowledge_base_dir}/{ENTITY_TABLE}.parquet")
+        entity_df = pd.read_parquet(f"{knowledge_dir}/{ENTITY_TABLE}.parquet")
         # 读取实体嵌入向量数据表ENTITY_EMBEDDING_TABLE，并将其加载为DataFrame，存储在变量entity_embedding_df中
-        entity_embedding_df = pd.read_parquet(f"{knowledge_base_dir}/{ENTITY_EMBEDDING_TABLE}.parquet")
+        entity_embedding_df = pd.read_parquet(f"{knowledge_dir}/{ENTITY_EMBEDDING_TABLE}.parquet")
         # 将entity_df和entity_embedding_df传入，并基于COMMUNITY_LEVEL（社区级别）处理这些数据，返回处理后的实体数据entities
         entities = read_indexer_entities(entity_df, entity_embedding_df, COMMUNITY_LEVEL)
         # 创建一个LanceDBVectorStore的实例description_embedding_store，用于存储实体的描述嵌入向量
@@ -407,18 +407,18 @@ async def load_context(new_knowledge_base):
         description_embedding_store.connect(db_uri=lancedb_uri)
         # 将已处理的实体数据entities存储到description_embedding_store中，用于语义搜索或其他用途
         store_entity_semantic_embeddings(entities=entities, vectorstore=description_embedding_store)
-        relationship_df = pd.read_parquet(f"{knowledge_base_dir}/{RELATIONSHIP_TABLE}.parquet")
+        relationship_df = pd.read_parquet(f"{knowledge_dir}/{RELATIONSHIP_TABLE}.parquet")
         relationships = read_indexer_relationships(relationship_df)
-        report_df = pd.read_parquet(f"{knowledge_base_dir}/{COMMUNITY_REPORT_TABLE}.parquet")
+        report_df = pd.read_parquet(f"{knowledge_dir}/{COMMUNITY_REPORT_TABLE}.parquet")
         reports = read_indexer_reports(report_df, entity_df, COMMUNITY_LEVEL)
-        text_unit_df = pd.read_parquet(f"{knowledge_base_dir}/{TEXT_UNIT_TABLE}.parquet")
+        text_unit_df = pd.read_parquet(f"{knowledge_dir}/{TEXT_UNIT_TABLE}.parquet")
         text_units = read_indexer_text_units(text_unit_df)
-        covariate_df = pd.read_parquet(f"{knowledge_base_dir}/{COVARIATE_TABLE}.parquet")
+        covariate_df = pd.read_parquet(f"{knowledge_dir}/{COVARIATE_TABLE}.parquet")
         claims = read_indexer_covariates(covariate_df)
         graphrag_logger.info(f"声明记录数: {len(claims)}")
         covariates = {"claims": claims}
         global CURRENT_KNOWLEDGE_BASE
-        CURRENT_KNOWLEDGE_BASE = new_knowledge_base
+        CURRENT_KNOWLEDGE_BASE = new_knowledge
         graphrag_logger.info(f"上下文数据加载完成, 当前知识库为: {CURRENT_KNOWLEDGE_BASE}")
         return entities, relationships, reports, text_units, description_embedding_store, covariates
     except Exception as e:
@@ -712,9 +712,9 @@ async def chat_completions(request: ChatCompletionRequest):
     request_data = request.model_dump()
     graphrag_logger.info(f"收到聊天完成请求: {request_data}")
     llm_model = request.model
-    knowledge_base = request.knowledge_base
-    role_prompt = all_role_prompt[knowledge_base]
-    status = await refresh_models(llm_model, knowledge_base)
+    knowledge = request.knowledge
+    role_prompt = all_role_prompt[knowledge]
+    status = await refresh_models(llm_model, knowledge)
     # 检查搜索引擎是否初始化
     if not local_search_engine or not global_search_engine:
         graphrag_logger.error("搜索引擎未初始化")
