@@ -936,3 +936,275 @@
 16:10:34,444 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.068568952381611. input_tokens=409, output_tokens=78
 16:10:34,720 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
 16:10:34,721 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.24957465659827. input_tokens=414, output_tokens=58
+16:10:35,275 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:35,275 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.02200426440686. input_tokens=444, output_tokens=135
+16:10:35,742 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:35,743 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7680385578423738. input_tokens=450, output_tokens=146
+16:10:36,563 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:36,564 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.116199783049524. input_tokens=456, output_tokens=73
+16:10:36,666 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:36,667 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.832790789194405. input_tokens=439, output_tokens=101
+16:10:37,800 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:37,801 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0763268833979964. input_tokens=435, output_tokens=120
+16:10:38,171 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:38,171 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.891900895163417. input_tokens=418, output_tokens=142
+16:10:38,329 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:38,329 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.761389099061489. input_tokens=475, output_tokens=120
+16:10:38,710 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:38,711 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.03987536393106. input_tokens=626, output_tokens=170
+16:10:40,652 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:40,653 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.906003188341856. input_tokens=481, output_tokens=194
+16:10:40,671 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:40,672 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8665374033153057. input_tokens=457, output_tokens=89
+16:10:40,887 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:40,887 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1723139388486743. input_tokens=534, output_tokens=156
+16:10:42,139 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:42,140 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.466607409529388. input_tokens=481, output_tokens=146
+16:10:42,970 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:42,971 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.637596762739122. input_tokens=476, output_tokens=125
+16:10:42,994 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:42,995 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.819430792704225. input_tokens=507, output_tokens=116
+16:10:43,335 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:43,336 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6786881890147924. input_tokens=481, output_tokens=129
+16:10:44,271 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:44,271 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.379543388262391. input_tokens=474, output_tokens=153
+16:10:45,854 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:45,854 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.8788847643882036. input_tokens=472, output_tokens=156
+16:10:46,523 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:46,523 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2480298709124327. input_tokens=489, output_tokens=118
+16:10:46,535 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:46,536 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1959070581942797. input_tokens=468, output_tokens=120
+16:10:46,560 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:46,560 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5641006929799914. input_tokens=498, output_tokens=186
+16:10:47,961 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:47,961 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.817070804536343. input_tokens=479, output_tokens=211
+16:10:48,160 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:48,161 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.6333445636555552. input_tokens=462, output_tokens=118
+16:10:49,0 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:49,1 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.439048674888909. input_tokens=463, output_tokens=118
+16:10:49,119 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:49,119 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.582850743085146. input_tokens=470, output_tokens=88
+16:10:49,921 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:49,921 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.062716938555241. input_tokens=472, output_tokens=117
+16:10:50,217 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:50,218 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.052993622608483. input_tokens=485, output_tokens=133
+16:10:50,787 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:50,788 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7829494401812553. input_tokens=491, output_tokens=169
+16:10:51,476 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:51,477 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.511297171935439. input_tokens=487, output_tokens=170
+16:10:51,703 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:51,704 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.4824173729866743. input_tokens=454, output_tokens=93
+16:10:51,924 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:51,925 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.801616142503917. input_tokens=555, output_tokens=148
+16:10:52,616 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:52,616 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.8234621081501245. input_tokens=484, output_tokens=131
+16:10:53,12 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:53,12 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.530989688821137. input_tokens=489, output_tokens=106
+16:10:53,91 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:53,92 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1660001892596483. input_tokens=499, output_tokens=83
+16:10:54,387 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:54,387 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.2944668363779783. input_tokens=495, output_tokens=105
+16:10:54,407 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:54,408 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.3915421469137073. input_tokens=515, output_tokens=108
+16:10:54,422 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:54,422 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7138044219464064. input_tokens=564, output_tokens=127
+16:10:55,877 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:55,878 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.257272547110915. input_tokens=493, output_tokens=131
+16:10:55,972 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:55,973 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.5495783388614655. input_tokens=470, output_tokens=118
+16:10:56,308 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:56,309 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.379240814596415. input_tokens=611, output_tokens=246
+16:10:56,799 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:56,799 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.3902988424524665. input_tokens=487, output_tokens=118
+16:10:57,539 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:57,539 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.657012633047998. input_tokens=474, output_tokens=110
+16:10:57,710 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:57,711 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7374042812734842. input_tokens=489, output_tokens=104
+16:10:58,967 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:58,968 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6549405017867684. input_tokens=478, output_tokens=170
+16:10:59,12 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:10:59,13 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.621594148688018. input_tokens=552, output_tokens=217
+16:11:00,834 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:00,834 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.029455767013133. input_tokens=490, output_tokens=129
+16:11:00,846 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+16:11:00,954 graphrag.index.run INFO Running workflow: join_text_units_to_covariate_ids...
+16:11:00,954 graphrag.index.run INFO dependencies for join_text_units_to_covariate_ids: ['create_final_covariates']
+16:11:00,954 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+16:11:00,962 datashaper.workflow.workflow INFO executing verb select
+16:11:00,965 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:11:00,967 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_covariate_ids.parquet
+16:11:01,75 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+16:11:01,76 graphrag.index.run INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+16:11:01,76 graphrag.index.run INFO read table from storage: create_summarized_entities.parquet
+16:11:01,84 datashaper.workflow.workflow INFO executing verb cluster_graph
+16:11:01,659 datashaper.workflow.workflow INFO executing verb select
+16:11:01,660 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+16:11:01,775 graphrag.index.run INFO Running workflow: create_final_entities...
+16:11:01,775 graphrag.index.run INFO dependencies for create_final_entities: ['create_base_entity_graph']
+16:11:01,775 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:11:01,786 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:11:01,809 datashaper.workflow.workflow INFO executing verb rename
+16:11:01,813 datashaper.workflow.workflow INFO executing verb select
+16:11:01,817 datashaper.workflow.workflow INFO executing verb dedupe
+16:11:01,821 datashaper.workflow.workflow INFO executing verb rename
+16:11:01,825 datashaper.workflow.workflow INFO executing verb filter
+16:11:01,830 datashaper.workflow.workflow INFO executing verb text_split
+16:11:01,837 datashaper.workflow.workflow INFO executing verb drop
+16:11:01,842 datashaper.workflow.workflow INFO executing verb merge
+16:11:01,864 datashaper.workflow.workflow INFO executing verb text_embed
+16:11:02,53 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://192.168.0.244:8016/v1
+16:11:02,64 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for m3e-large: TPM=0, RPM=0
+16:11:02,64 graphrag.index.llm.load_llm INFO create concurrency limiter for m3e-large: 25
+16:11:02,71 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 225 inputs via 225 snippets using 15 batches. max_batch_size=16, max_tokens=8191
+16:11:03,113 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:03,113 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:03,117 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:03,176 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.1020747506991029. input_tokens=1415, output_tokens=0
+16:11:03,184 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:03,184 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:03,243 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.1681226389482617. input_tokens=1002, output_tokens=0
+16:11:03,306 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.2306023249402642. input_tokens=1230, output_tokens=0
+16:11:03,376 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.3035943917930126. input_tokens=1611, output_tokens=0
+16:11:03,439 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.3656708598136902. input_tokens=1321, output_tokens=0
+16:11:03,651 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:03,710 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.2581657264381647. input_tokens=956, output_tokens=0
+16:11:03,850 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:03,910 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.4564202567562461. input_tokens=1236, output_tokens=0
+16:11:04,781 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:04,845 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.1220344081521034. input_tokens=940, output_tokens=0
+16:11:04,852 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:04,853 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:04,853 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:04,853 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:04,915 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.4569294396787882. input_tokens=737, output_tokens=0
+16:11:04,976 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.5186402816325426. input_tokens=1015, output_tokens=0
+16:11:05,38 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.5811242973431945. input_tokens=915, output_tokens=0
+16:11:05,99 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 1.1765840845182538. input_tokens=1088, output_tokens=0
+16:11:05,299 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:05,358 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.2511922987177968. input_tokens=675, output_tokens=0
+16:11:05,487 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:05,546 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.42927586287260056. input_tokens=933, output_tokens=0
+16:11:05,554 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/embeddings "HTTP/1.1 200 OK"
+16:11:05,557 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.4392850073054433. input_tokens=6, output_tokens=0
+16:11:05,568 datashaper.workflow.workflow INFO executing verb drop
+16:11:05,573 datashaper.workflow.workflow INFO executing verb filter
+16:11:05,576 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_entities.parquet
+16:11:05,715 graphrag.index.run INFO Running workflow: create_final_nodes...
+16:11:05,715 graphrag.index.run INFO dependencies for create_final_nodes: ['create_base_entity_graph']
+16:11:05,715 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:11:05,729 datashaper.workflow.workflow INFO executing verb layout_graph
+16:11:05,819 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:11:05,845 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:11:05,872 datashaper.workflow.workflow INFO executing verb drop
+16:11:05,877 datashaper.workflow.workflow INFO executing verb filter
+16:11:05,887 datashaper.workflow.workflow INFO executing verb select
+16:11:05,893 datashaper.workflow.workflow INFO executing verb rename
+16:11:05,899 datashaper.workflow.workflow INFO executing verb convert
+16:11:05,906 datashaper.workflow.workflow INFO executing verb join
+16:11:05,916 datashaper.workflow.workflow INFO executing verb rename
+16:11:05,917 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_nodes.parquet
+16:11:06,31 graphrag.index.run INFO Running workflow: create_final_communities...
+16:11:06,31 graphrag.index.run INFO dependencies for create_final_communities: ['create_base_entity_graph']
+16:11:06,31 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:11:06,47 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:11:06,73 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:11:06,99 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:11:06,107 datashaper.workflow.workflow INFO executing verb join
+16:11:06,118 datashaper.workflow.workflow INFO executing verb join
+16:11:06,129 datashaper.workflow.workflow INFO executing verb concat
+16:11:06,136 datashaper.workflow.workflow INFO executing verb filter
+16:11:06,189 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:11:06,199 datashaper.workflow.workflow INFO executing verb join
+16:11:06,208 datashaper.workflow.workflow INFO executing verb filter
+16:11:06,218 datashaper.workflow.workflow INFO executing verb fill
+16:11:06,226 datashaper.workflow.workflow INFO executing verb merge
+16:11:06,237 datashaper.workflow.workflow INFO executing verb copy
+16:11:06,245 datashaper.workflow.workflow INFO executing verb select
+16:11:06,247 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_communities.parquet
+16:11:06,371 graphrag.index.run INFO Running workflow: join_text_units_to_entity_ids...
+16:11:06,371 graphrag.index.run INFO dependencies for join_text_units_to_entity_ids: ['create_final_entities']
+16:11:06,371 graphrag.index.run INFO read table from storage: create_final_entities.parquet
+16:11:06,397 datashaper.workflow.workflow INFO executing verb select
+16:11:06,406 datashaper.workflow.workflow INFO executing verb unroll
+16:11:06,415 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:11:06,417 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_entity_ids.parquet
+16:11:06,536 graphrag.index.run INFO Running workflow: create_final_relationships...
+16:11:06,536 graphrag.index.run INFO dependencies for create_final_relationships: ['create_base_entity_graph', 'create_final_nodes']
+16:11:06,536 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+16:11:06,540 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+16:11:06,561 datashaper.workflow.workflow INFO executing verb unpack_graph
+16:11:06,592 datashaper.workflow.workflow INFO executing verb filter
+16:11:06,605 datashaper.workflow.workflow INFO executing verb rename
+16:11:06,615 datashaper.workflow.workflow INFO executing verb filter
+16:11:06,630 datashaper.workflow.workflow INFO executing verb drop
+16:11:06,639 datashaper.workflow.workflow INFO executing verb compute_edge_combined_degree
+16:11:06,651 datashaper.workflow.workflow INFO executing verb convert
+16:11:06,661 datashaper.workflow.workflow INFO executing verb convert
+16:11:06,662 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_relationships.parquet
+16:11:06,786 graphrag.index.run INFO Running workflow: join_text_units_to_relationship_ids...
+16:11:06,786 graphrag.index.run INFO dependencies for join_text_units_to_relationship_ids: ['create_final_relationships']
+16:11:06,786 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+16:11:06,808 datashaper.workflow.workflow INFO executing verb select
+16:11:06,831 datashaper.workflow.workflow INFO executing verb unroll
+16:11:06,842 datashaper.workflow.workflow INFO executing verb aggregate_override
+16:11:06,854 datashaper.workflow.workflow INFO executing verb select
+16:11:06,855 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_relationship_ids.parquet
+16:11:06,974 graphrag.index.run INFO Running workflow: create_final_community_reports...
+16:11:06,975 graphrag.index.run INFO dependencies for create_final_community_reports: ['create_final_covariates', 'create_final_relationships', 'create_final_nodes']
+16:11:06,975 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+16:11:06,978 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+16:11:06,979 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+16:11:07,2 datashaper.workflow.workflow INFO executing verb prepare_community_reports_nodes
+16:11:07,16 datashaper.workflow.workflow INFO executing verb prepare_community_reports_edges
+16:11:07,30 datashaper.workflow.workflow INFO executing verb prepare_community_reports_claims
+16:11:07,42 datashaper.workflow.workflow INFO executing verb restore_community_hierarchy
+16:11:07,56 datashaper.workflow.workflow INFO executing verb prepare_community_reports
+16:11:07,56 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=2 => 225
+16:11:07,84 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=1 => 225
+16:11:07,128 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=0 => 225
+16:11:07,190 datashaper.workflow.workflow INFO executing verb create_community_reports
+16:11:25,129 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:25,129 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:11:25,129 graphrag.llm.openai.utils INFO success load json in step 2{'title': '乳制品行业的全光谱溯源技术应用', 'summary': '本报告探讨了乳制品行业中全光谱溯源技术的应用。这一技术不仅提升了乳制品的质量和安全性，还增强了消费者信任。通过全光谱分析，乳制品生产商能够实现生产链各环节的精准监控，确保产品的高质量和真实性。', 'rating': 8.5, 'rating_explanation': '该文本在技术深度、应用广度、行业影响、创新水平和实际操作性方面均表现优异，尤其是在确保食品安全和提升消费者信任方面具有重要意义。', 'findings': [{'summary': '全光谱溯源技术在乳制品行业的广泛应用', 'explanation': '全光谱溯源技术在乳制品行业中得到了广泛应用，主要目的是确保产品从生产到销售各个环节的质量和安全。这项技术通过对乳制品进行全光谱分析，可以精确检测出产品中的成分，确保每一批次的产品都符合高标准的要求。[records: 实体 (177), 关系 (190, 243)]'}, {'summary': '全光谱技术提升乳制品的质量和安全性', 'explanation': '通过全光谱分析，乳制品生产商可以实现对生产过程的精准监控，确保产品的质量和安全性。这一技术的应用不仅提高了产品的质量，还有效地防止了假冒伪劣产品流入市场，保护了消费者的权益。[records: 实体 (177), 关系 (190)]'}, {'summary': '增强消费者信任', 'explanation': '全光谱溯源技术的应用显著增强了消费者对乳制品的信任。消费者可以通过全光谱分析结果了解到产品的具体成分和生产过程，增加了产品的透明度。这种透明度不仅提高了消费者的购买意愿，也有助于建立品牌形象。[records: 实物 (177), 关系 (190, 243)]'}, {'summary': '技术的实际操作性', 'explanation': '全光谱溯源技术在乳制品行业的应用不仅技术先进，而且操作简便。生产商可以通过现有的设备和技术平台轻松集成这一技术，无需大量的额外投资。这使得全光谱溯源技术具有很高的实用性和可推广性。[records: 实体 (177), 关系 (190)]'}, {'summary': '数据的准确性和可靠性', 'explanation': '全光谱分析技术能够提供高精度的检测结果，确保数据的准确性和可靠性。这对于食品安全尤为重要，因为任何微小的偏差都可能导致严重的后果。通过全光谱溯源技术，乳制品生产商可以确保每一批次的产品都符合严格的标准。[records: 实体 (177), 关系 (190)]'}, {'summary': '乳制品行业的潜在影响', 'explanation': '全光谱溯源技术的应用对乳制品行业有潜在的重大影响。通过提高产品质量和安全性，生产商可以降低召回风险，减少经济损失。此外，增强的消费者信任有助于市场扩展，进一步提升企业的竞争力。[records: 实体 (177), 关系 (190, 243)]'}]}
+16:11:25,130 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 17.70163421239704. input_tokens=5391, output_tokens=1173
+16:11:27,905 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:27,905 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:11:27,905 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱技术在中药材鉴定中的应用', 'summary': '本报告探讨了光谱技术，特别是光谱视觉技术和光谱成像技术，在中药材鉴定中的应用。这些技术通过分析中药材的光谱特征，来确定其存储年份和陈化方式，从而提高鉴定的准确性和效率。', 'rating': 8.5, 'rating_explanation': '报告涵盖了光谱技术的深度应用，特别是在中药材鉴定这一特定领域的应用，具有较高的技术深度和实际操作性。', 'findings': [{'summary': '光谱视觉技术的应用', 'explanation': '光谱视觉技术是一种强大的工具，通过分析光谱特征来鉴定中药材的特性和品质。这项技术可以识别出中药材中的化学成分，从而判断其品质和药效。例如，通过光谱视觉技术，可以区分不同产地和不同处理方式的中药材。[records: 关系 (46)]'}, {'summary': '光谱成像技术的重要性', 'explanation': '光谱成像技术通过光谱特征分析来鉴定中药材的特性。这项技术不仅能够提供详细的化学成分信息，还能通过图像形式直观地展示中药材的内部结构。这对于中药的质量控制和标准化生产具有重要意义。[records: 关系 (147)]'}, {'summary': '光谱特征分析的核心作用', 'explanation': '光谱特征分析是中药材鉴定的重要手段，用于确定药材的品质特性。通过分析中药材的光谱特征，可以准确判断其存储年份和陈化方式，这对保证中药材的质量和药效至关重要。[records: 实体 (80, 83), 关系 (151)]'}, {'summary': '提高鉴定准确性和效率', 'explanation': '使用光谱技术可以显著提高中药材鉴定的准确性和效率。传统的鉴定方法往往依赖于经验丰富的专家，而光谱技术可以通过自动化分析减少人为误差，提高检测速度。这对于大规模生产和质量控制具有重要的实际意义。[records: 实体 (80, 83)]'}, {'summary': '数据的准确性和可靠性', 'explanation': '光谱技术在中药材鉴定中的应用强调了数据的准确性和可靠性。通过高精度的光谱仪获取的数据，可以进行重复性和可验证的分析，确保鉴定结果的一致性和可靠性。这对于药品监管和消费者信任尤为重要。[records: 实体 (80, 83)]'}, {'summary': '潜在的行业影响', 'explanation': '光谱技术在中药材鉴定中的应用对中药行业有潜在的重大影响。它可以降低鉴定成本，提高检测效率，促进中药产业的现代化和国际化。此外，光谱技术还可以帮助监管部门更好地监控市场，保障消费者权益。[records: 实体 (80, 83)]'}, {'summary': '技术的创新水平', 'explanation': '光谱视觉技术和光谱成像技术代表了中药鉴定技术的创新方向。这些技术不仅提高了鉴定的科学性和可靠性，还为中药的研究和开发提供了新的工具和方法。未来，随着技术的不断进步，光谱技术在中药领域的应用将更加广泛。[records: 关系 (46, 147)]'}, {'summary': '实际操作性的提升', 'explanation': '光谱技术在中药材鉴定中的应用不仅技术上先进，而且具有较高的实际操作性。现代光谱仪通常配备了用户友好的软件界面，使得非专业的实验室技术人员也能够进行准确的分析。这大大降低了技术门槛，促进了光谱技术的普及。[records: 实体 (80, 83)]'}]}
+16:11:27,906 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 20.47084335796535. input_tokens=5188, output_tokens=1464
+16:11:39,126 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:39,127 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:11:39,127 graphrag.llm.openai.utils INFO success load json in step 2{'title': '全光谱溯源技术及其在多个行业的应用', 'summary': '本报告围绕全光谱溯源技术展开，探讨其在食品安全、药品检测、环境监测等多个领域的应用。全光谱溯源技术通过分析物质的光谱信息，提供高精度和高安全性的产品追溯功能，显著提升信息的透明度和可靠性，有效防止仿制和假冒产品，保护消费者权益，提升品牌价值和市场信任度。', 'rating': 8.5, 'rating_explanation': '全光谱溯源技术在多个领域的应用广泛，提供了高精度和安全性的产品追溯功能，显著提升了信息透明度和可靠性，对相关行业有重大影响。', 'findings': [{'summary': '全光谱溯源技术的核心特点', 'explanation': '全光谱溯源技术利用物质的光谱信息进行高精度分析，实现‘一物一谱一码’，确保每个物品都有独特的标识。这项技术不依赖中心化存储，通过独特的光谱指纹特征确保产品的真实性，有效防止仿制，提升品牌价值和市场信任度。[records: 实体 (97, 105, 107), 关系 (166, 168, 196)]'}, {'summary': '全光谱溯源技术在食品安全领域的应用', 'explanation': '全光谱溯源技术广泛应用于食品安全领域，如肉类、海产品、水果、蔬菜和粮食等行业。通过追溯产品的生产和加工过程，确保产品质量和安全，防止假冒伪劣产品流入市场。这项技术在提升食品安全和消费者信任方面发挥了重要作用。[records: 实体 (193, 196, 197, 198, 199), 关系 (191, 192, 193, 194, 195)]'}, {'summary': '全光谱溯源技术在药品行业中的应用', 'explanation': '全光谱溯源技术在药品行业中被广泛应用，主要用于高精度分析和追溯药品的成分及来源。这项技术不仅能确保药品的安全性和真实性，还能提高整个行业的标准，保障产品质量和消费者安全。通过全光谱溯源技术，药品行业可以实现更加透明和可靠的供应链管理。[records: 实体 (110), 关系 (171, 174, 176, 179, 180)]'}, {'summary': '全光谱溯源技术对市场和品牌的影响', 'explanation': '全光谱溯源技术通过确保产品的质量和真实性，显著提升了消费者的信任度，增强了品牌的价值和市场竞争力。特别是对于茶品品牌，这项技术能够有效防止仿制，保护品牌声誉，提高消费者的购买意愿。[records: 实体 (121, 122, 123, 125), 关系 (170, 173, 176, 178, 180)]'}, {'summary': '全光谱溯源技术的经济性和可操作性', 'explanation': '尽管全光谱溯源技术较为先进，但通过规模化应用和技术优化，可以有效控制成本增加。这项技术的实际操作性较强，适合大规模推广应用。企业可以通过降低对专业技能的要求，提高检测效率和准确性，从而优化运营成本。[records: 实体 (127, 181), 关系 (181, 182, 183, 184, 185)]'}, {'summary': '全光谱溯源技术在市场监管中的作用', 'explanation': '全光谱溯源技术为市场监管部门提供了精准的产品溯源信息，有助于打击假冒伪劣产品，维护市场秩序和消费者权益。监管部门可以利用这项技术获取详细且可靠的数据，确保商品的真实性和质量，保护消费者免受不合格产品的危害。[records: 实体 (132, 133, 134), 关系 (134, 185, 186, 187, 188)]'}, {'summary': '全光谱溯源技术与多维信息融合技术的结合', 'explanation': '全光谱溯源技术与多维信息融合技术相结合，能够显著提升数据的透明度、准确性和可信度。通过将物品的各种特征信息综合起来，实现精准溯源。这种结合不仅增强了数据的透明度，还提高了整体检测的准确性，确保了产品和服务的质量与安全性。[records: 实体 (105, 107), 关系 (172, 177, 178, 179, 180)]'}, {'summary': '全光谱溯源技术在高精度和高安全性需求行业中的优势', 'explanation': '全光谱溯源技术特别适用于对高精度和高安全性有严格要求的行业，如药品和食品行业。这些行业需要确保产品的安全性和真实性，全光谱溯源技术通过提供详细的溯源信息和高精度分析，满足了这些行业的需求，保障了产品和服务的质量与安全。[records: 实体 (133, 142, 143), 关系 (183, 186, 187, 190, 191)]'}, {'summary': '全光谱溯源技术与二维码溯源技术的比较', 'explanation': '全光谱溯源技术与二维码溯源技术是两种不同的溯源技术，各自适用于不同复杂程度的溯源需求。二维码溯源技术依赖中心化的数据存储，适合常规的溯源需求；而全光谱溯源技术则是通过光谱信息进行分析，非常适合于需要高精度分析的场合。全光谱溯源技术在信息透明度上更具优势，特别是在对高精度和高安全性有严格要求的场景下更为适用。[records: 关系 (161, 188, 189, 190, 191)]'}]}
+16:11:39,128 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 31.688247315585613. input_tokens=11140, output_tokens=2078
+16:11:44,131 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:44,131 graphrag.llm.openai.utils INFO success load json in step 1{'title': '光谱成像技术及其在食品安全、药品检测和材料科学中的应用', 'summary': '本社区以光谱成像技术为核心，探讨其在食品安全（如鱼片虫害检测）、药品检测（如中药材的陈化方式鉴定）和材料科学（如天然橡胶与合成橡胶的区分）等多个领域的应用。这些应用不仅提高了检测的效率和准确性，还对确保产品的质量和安全产生了深远影响。', 'rating': 8.5, 'rating_explanation': '本报告提供了详尽的技术细节和广泛应用实例，展示了光谱成像技术在提高检测效率、降低成本和增强数据可靠性方面的显著效果，具有较高的行业影响力和实际应用价值。', 'findings': [{'summary': '光谱成像技术的多领域应用', 'explanation': '光谱成像技术作为一种高级分析工具，其应用范围涵盖了食品安全、药品检测和材料科学等多个领域。例如，在食品安全领域，它可以用于检测鱼片中的害虫；在药品检测中，用于鉴定中药材的陈化方式；在材料科学中，可以区分天然橡胶与合成橡胶。这些应用不仅展示了技术的多功能性，也证明了其在不同行业中的巨大潜力。[records: 实体 (65, 69, 75), 关系 (119, 143, 125)]'}, {'summary': '提高检测效率和准确性', 'explanation': '光谱成像技术结合特定算法，极大地提高了检测的效率和准确性。这在鱼片虫害检测中尤为明显，通过光谱成像技术，可以在短时间内准确检测出鱼片中的害虫，从而确保食品的质量和安全。这种技术的应用不仅节省了时间，还减少了人为错误的可能性。[records: 实体 (75), 关系 (43, 119, 143)]'}, {'summary': '确保产品质量与安全', 'explanation': '通过光谱成像技术，可以精确检测出中药材的储存年份和陈化方式，这对保证中药材的质量至关重要。同样，在咖啡行业中，该技术可以检测咖啡豆的水分、糖分和生物碱含量，从而确保产品的高品质。这些应用不仅提高了产品的市场竞争力，也为消费者提供了更高标准的产品。[records: 实体 (69, 67, 68), 关系 (141, 138, 139, 140)]'}, {'summary': '在材料科学中的应用', 'explanation': '光谱成像技术在材料科学中也具有重要应用，特别是在区分天然橡胶和合成橡胶方面。这项技术为材料鉴定提供了无损检测方法，不仅简化了检测流程，还提高了检测的准确性和可靠性。这对于工业应用和材料科学研究具有重要意义。[records: 实体 (65), 关系 (125, 127, 131)]'}, {'summary': '数据的准确性和可靠性', 'explanation': '在所有的应用案例中，光谱成像技术都强调了数据的准确性和可靠性。无论是检测中药材的陈化方式，还是评估咖啡豆的关键指标，准确的数据都是确保产品品质和安全的基础。这项技术的应用为行业提供了更加科学和可靠的检测手段。[records: 实体 (66), 关系 (138, 144, 145)]'}, {'summary': '行业标准和技术进步的推动', 'explanation': '随着光谱成像技术的不断发展和应用，它不仅提升了各个行业的检测效率和质量，也在推动行业标准的制定和技术的进步。例如，通过光谱成像技术检测有害物质，对保障食品安全具有重要意义，同时也促进了行业对食品安全标准的进一步完善。[records: 实体 (76, 77), 关系 (144, 145)]'}]}
+16:11:44,132 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 36.69981884770095. input_tokens=6767, output_tokens=1452
+16:11:59,355 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:11:59,356 graphrag.llm.openai.utils INFO success load json in step 1{'title': '全光谱溯源技术与防止产品仿制', 'summary': '该社区围绕全光谱溯源技术展开，特别是其在防止产品仿制中的应用。技术与产品仿制之间存在直接的关系，通过提供独特的光谱指纹有效防止了产品的被仿制。', 'rating': 8.5, 'rating_explanation': '文本提供了对光谱技术工作原理的深入理解，并详细说明了其在防止产品仿制中的应用，具有较高的行业影响和创新性。', 'findings': [{'summary': '全光谱溯源技术的基本原理', 'explanation': '全光谱溯源技术是一种高级的防伪手段，它基于每个产品都有其独特的光谱指纹这一原理。这种技术能够为每一个产品生成独特的光谱标识，有效地防止了产品被仿制的可能性。[records: 实体 (175), 关系 (188)]'}, {'summary': '全光谱技术与产品仿制的关系', 'explanation': '全光谱溯源技术与防止产品仿制之间存在密切的联系。通过为产品提供唯一的光谱指纹，这项技术能显著降低产品被仿制的风险，保护正品的品牌价值和市场地位。[records: 关系 (188, 241)]'}, {'summary': '产品仿制的问题', 'explanation': '产品仿制是指生产者制造外观与正品相似但质量不达标的产品，这类行为严重损害了正品的市场形象和消费者利益。全光谱溯源技术正是针对这一问题开发的解决方案之一。[records: 实体 (183), 关系 (241)]'}, {'summary': '全光谱溯源技术的行业影响', 'explanation': '全光谱溯源技术不仅在防伪领域表现出色，还可能对多个行业产生积极影响。例如，在食品安全、药品检测等领域，该项技术能够提升产品的可追溯性和安全性，减少市场上的假货流通。[records: 实体 (175), 关系 (188)]'}, {'summary': '技术创新的体现', 'explanation': '全光谱溯源技术代表了当前光谱分析技术的一大进步。它的独特之处在于能够为每个产品提供不可复制的光谱指纹，这一特点使得该技术成为市场上最先进的防伪手段之一。[records: 实体 (175), 关系 (188)]'}, {'summary': '实际应用的可行性', 'explanation': '全光谱溯源技术的实际应用相对简单，不需要复杂的设备支持，且操作简便。这使得即使是在资源有限的情况下，企业也能轻松采用这项技术，提高产品的防伪能力。[records: 实体 (175)]'}, {'summary': '数据的准确性和可靠性', 'explanation': '光谱指纹的唯一性保证了全光谱溯源技术在数据准确性和可靠性方面的高水准。这项技术能够有效避免传统防伪方法中存在的识别误差问题，提高了防伪措施的有效性。[records: 实体 (175), 关系 (188)]'}]}
+16:11:59,357 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 15.006058983504772. input_tokens=5270, output_tokens=1123
+16:12:02,334 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:02,335 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:12:02,335 graphrag.llm.openai.utils INFO success load json in step 2{'title': '全光谱溯源技术在品牌价值和消费者信任度提升中的应用', 'summary': '本报告探讨了一个围绕全光谱溯源技术构建的社区，主要关注于该技术如何通过确保产品的真实性和质量来提升企业品牌价值和消费者信任度。报告分析了全光谱溯源技术在茶品和其他产品中的应用，以及如何通过这些应用增强品牌形象和消费者忠诚度。', 'rating': 8.5, 'rating_explanation': '报告深入探讨了全光谱溯源技术的工作原理及其在提高品牌价值和消费者信任度方面的广泛应用，具有较高的技术深度和行业影响。', 'findings': [{'summary': '全光谱溯源技术的核心作用', 'explanation': '全光谱溯源技术通过其独特的性能，能够确保产品的真伪和质量，这一过程不仅增强了消费者对产品的信任度，同时也显著提升了企业品牌的市场价值。全光谱技术能够有效地防止产品仿冒，确保每一件到达消费者手中的产品都是原厂制造，这为企业赢得了更高的市场声誉和消费者信赖。[records: 实体 (176), 关系 (189)]'}, {'summary': '消费者信任度的重要性', 'explanation': '消费者的信任度是品牌价值的重要组成部分，而全光谱溯源技术的应用能够显著提升这一信任度，从而增强品牌的整体价值。通过透明地展示产品从生产到销售的每一个环节，品牌不仅能够确保其产品的质量和安全性，还能向消费者展示其透明度和责任感，进一步巩固消费者对品牌的忠诚度。[records: 实体 (184), 关系 (197)]'}, {'summary': '茶品溯源的具体应用', 'explanation': '在茶叶行业中，全光谱溯源技术的应用尤为突出。通过谱码保证原厂茶饼的真实性，杜绝仿制，提高了品牌价值，保护了合法经销商和消费者的权益。这种技术的应用不仅增强了品牌的信誉度，也为消费者提供了更安全、更可靠的产品选择。[records: 实体 (108), 关系 (170)]'}, {'summary': '品牌价值的提升途径', 'explanation': '品牌价值是指企业在消费者心中的形象和地位，它受到产品质量、服务等多种因素的影响。为了提高品牌价值，一些企业采用全光谱溯源技术来确保其产品的真实性，特别是对于茶叶品牌而言，这种技术通过防止仿制，有效保障了原厂茶品的真实性和品牌的可信度，从而进一步提升了品牌的价值。[records: 实体 (109), 关系 (216)]'}, {'summary': '消费者信任度对品牌价值的直接贡献', 'explanation': '消费者信任度的提升直接有助于企业品牌价值的增加。当消费者对某个品牌的产品质量和服务感到满意时，他们更愿意推荐该品牌给他人，形成良好的口碑效应，这对品牌在市场中的长期发展极为有利。全光谱溯源技术的应用正是通过增强消费者的信任感，间接促进了品牌价值的提升。[records: 关系 (242)]'}, {'summary': '技术与品牌价值的正向循环', 'explanation': '全光谱溯源技术的应用不仅直接提升了产品的真实性和质量，还通过增强消费者信任和品牌忠诚度，形成了一个积极的反馈循环。随着品牌价值的不断提升，企业能够吸引更多的忠实顾客，进一步扩大市场份额，实现可持续增长。[records: 实体 (176, 184, 108, 109), 关系 (189, 197, 170, 216, 242)]'}]}
+16:12:02,335 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 17.971916298381984. input_tokens=5902, output_tokens=1390
+16:12:06,256 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:06,256 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:12:06,256 graphrag.llm.openai.utils INFO success load json in step 2{'title': '全光谱溯源技术在产品质量和饮料行业的应用', 'summary': '本报告探讨了全光谱溯源技术在确保产品质量和饮料行业生产过程中的应用。这些技术不仅确保了产品从生产到市场的整个环节的安全性和质量，还在提升行业检测效率和降低操作复杂度方面发挥了重要作用。', 'rating': 8.5, 'rating_explanation': '该文本提供了对全光谱溯源技术的深入理解，并展示了其在产品质量控制和饮料行业的广泛应用，对相关行业的技术创新和发展具有重要影响。', 'findings': [{'summary': '全光谱溯源技术的重要性', 'explanation': '全光谱溯源技术是确保产品质量和安全性的关键技术之一，其应用贯穿于产品从生产到市场流通的各个环节，确保了产品的质量和一致性。这项技术的使用对于提升消费者信任和品牌价值至关重要。[records: 实体 (192), 关系 (198)]'}, {'summary': '全光谱溯源技术在饮料行业的应用', 'explanation': '在饮料行业中，全光谱溯源技术被广泛应用于生产过程的监控，确保产品的安全和品质。这不仅有助于提高生产效率，还能及时发现和解决问题，避免不合格产品流入市场。[records: 实体 (201), 关系 (206)]'}, {'summary': '技术对行业的潜在影响', 'explanation': '全光谱溯源技术的应用对饮料等行业具有潜在的重大影响，包括提高检测效率、降低成本、增强数据的可信度等。这些优势使得企业在市场竞争中占据有利地位，同时也促进了行业的健康发展。[records: 关系 (244, 245)]'}, {'summary': '技术的实际操作性', 'explanation': '全光谱溯源技术不仅提供了先进的检测手段，还简化了操作流程，降低了对专业技能的要求，使得更多的企业能够采用这项技术来提升自身的产品质量控制能力。[records: 实体 (206)]'}, {'summary': '数据的准确性和可靠性', 'explanation': '全光谱溯源技术强调了数据的准确性和可靠性，这对于确保产品安全性和质量至关重要。通过精确的数据分析，企业可以更好地监控生产过程，确保每一批次的产品都符合最高的安全和质量标准。[records: 实体 (192)]'}]}
+16:12:06,257 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 21.896536505781114. input_tokens=5319, output_tokens=919
+16:12:20,865 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:20,866 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:12:20,866 graphrag.llm.openai.utils INFO success load json in step 2{'title': '光谱技术在市场监管中的应用', 'summary': '该社区主要围绕光谱技术在市场监管中的应用展开，特别是光谱视觉技术和全光谱溯源技术在打击假冒伪劣产品方面的贡献。这些技术不仅提高了市场监管的效率，还增强了市场的整体质量和安全水平，直接保护了消费者的权益。', 'rating': 8.3, 'rating_explanation': '本报告提供了光谱技术在市场监管中的深入应用，特别是在打击假冒伪劣产品方面，对行业发展有显著影响，同时强调了数据的准确性和可靠性。', 'findings': [{'summary': '市场监管的重要性', 'explanation': '市场监管是指政府或相关机构对市场的管理和监督，旨在确保市场公平竞争和消费者权益不受侵害。市场监管部门利用先进的技术手段，如光谱视觉技术和全光谱溯源技术，来打击假冒伪劣产品，保障市场的健康运行。[records: 实体 (57)]'}, {'summary': '光谱视觉技术的作用', 'explanation': '光谱视觉技术是一种先进的检测技术，通过分析物体反射或发射的光谱信息，可以快速、准确地识别物质的成分和特性。这种技术在市场监管中发挥着重要作用，有助于确保市场上的产品质量。通过光谱视觉技术，监管部门可以迅速识别出不合格产品，提高监管效率。[records: 关系 (34)]'}, {'summary': '全光谱溯源技术的应用', 'explanation': '全光谱溯源技术能够提供精准的产品溯源信息，帮助市场监管部门更有效地打击假冒伪劣产品。通过这项技术，监管部门可以获得详细且可靠的数据，确保商品的真实性和质量，从而保护消费者权益。全光谱溯源技术的应用显著提升了市场监管的准确性和效率。[records: 关系 (134, 185)]'}, {'summary': '假冒伪劣产品的危害', 'explanation': '假冒伪劣产品不符合质量标准，属于非法制造的产品，可能对消费者的健康和安全构成威胁。这类产品的存在扰乱了市场秩序，损害了合法企业的利益。因此，市场监管部门致力于打击假冒伪劣产品，维护市场秩序和消费者安全。[records: 实体 (131), 关系 (135)]'}, {'summary': '技术整合的重要性', 'explanation': '将光谱视觉技术和全光谱溯源技术结合使用，可以提供更加全面和准确的检测结果。这两种技术的互补性使得监管部门能够在不同的场景下灵活应对，提高检测的准确性和效率。例如，在食品安全检测中，可以通过光谱视觉技术快速筛查食品成分，再通过全光谱溯源技术验证食品的来源和真伪。[records: 关系 (34, 134, 185)]'}, {'summary': '行业影响', 'explanation': '光谱技术的应用对市场监管行业产生了深远的影响。这些技术不仅提高了检测的准确性和效率，还降低了监管成本，增强了数据的可靠性和透明度。通过这些技术，市场监管部门能够更好地履行其职责，确保市场的公平竞争和消费者权益的保护。[records: 关系 (34, 134, 185)]'}, {'summary': '未来展望', 'explanation': '随着光谱技术的不断发展，其在市场监管中的应用将更加广泛。未来的市场监管可能会更多地依赖于这些先进的技术手段，进一步提高监管的智能化和自动化水平。此外，通过与其他技术（如人工智能）的结合，光谱技术将在更多的领域发挥重要作用。[records: NONE]'}]}
+16:12:20,867 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 36.51256415527314. input_tokens=5445, output_tokens=1437
+16:12:21,488 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:21,488 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:12:21,488 graphrag.llm.openai.utils INFO success load json in step 2{'title': '全光谱溯源技术及其应用', 'summary': '该社区聚焦于全光谱溯源技术，重点探讨其在信息透明度和药品食品行业中的应用。技术与信息透明度、药品和食品行业之间建立了紧密的关系，体现了全光谱溯源技术在提高检测准确性和产品安全性方面的显著优势。', 'rating': 8.5, 'rating_explanation': '该文本在光谱分析与应用领域提供了深入的技术细节和广泛的行业应用，特别是在提高检测效率、确保产品安全性和增强信息透明度方面展示了显著的行业影响。', 'findings': [{'summary': '全光谱溯源技术提高信息透明度', 'explanation': '全光谱溯源技术通过提供全面的信息和不依赖于中心化的数据存储方式，显著提高了信息的透明度和可信度。这种技术的应用可以有效地防止信息篡改，确保数据的安全性。[records: 实体 (98), 关系 (169, 208)]'}, {'summary': '全光谱溯源技术在药品和食品行业的应用', 'explanation': '全光谱溯源技术特别适用于药品和食品行业，能够提高检测的准确性和效率，确保产品的安全性和真实性。这些行业的特点对追溯信息的准确性和安全性有较高要求，全光谱溯源技术通过高精度分析满足了这些需求。[records: 实体 (100), 关系 (167, 209)]'}, {'summary': '多维信息融合技术的应用', 'explanation': '全光谱溯源技术利用多维信息融合技术实现了‘一物一谱一码’，即每个物品都有独特的谱和码。这种方法不仅提高了数据的准确性和可靠性，还使得每个产品的身份验证变得更为简单和高效。[records: 关系 (210)]'}, {'summary': '技术的实际操作性', 'explanation': '尽管全光谱溯源技术具有较高的技术含量，但其设计考虑了实际应用的需求，如操作简便性和成本效益。这使得该技术不仅在实验室环境中可行，也适合在工业生产和质量控制中广泛应用。[records: 实体 (100), 关系 (167)]'}, {'summary': '行业影响和未来前景', 'explanation': '全光谱溯源技术的推广和应用对药品和食品行业产生了深远影响，不仅提升了行业标准，还促进了供应链的透明度和可靠性。随着技术的进一步成熟，预计将在更多领域得到应用，如环境监测和材料科学。[records: 实体 (100), 关系 (167, 209)]'}, {'summary': '数据的准确性和可靠性', 'explanation': '全光谱溯源技术强调数据的准确性和可靠性，这对于确保产品质量和消费者安全至关重要。通过高精度分析和多维信息融合，该技术能够在复杂的检测环境中保持数据的一致性和可信度。[records: 实体 (98, 100), 关系 (167, 169, 208, 209)]'}]}
+16:12:21,489 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 19.13748336303979. input_tokens=5549, output_tokens=1139
+16:12:27,402 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:27,402 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:12:27,402 graphrag.llm.openai.utils INFO success load json in step 2{'title': '多维信息融合技术与全光谱溯源技术的应用', 'summary': '该社区聚焦于多维信息融合技术及其与全光谱溯源技术的结合应用。这些技术通过整合光谱、品种、规格和图像指纹等多种信息源，显著提升了数据的透明度、准确性和可信度，特别是对于食品安全、药品检测和环境监测等领域有着深远的应用价值。', 'rating': 9.0, 'rating_explanation': '该文本深入探讨了光谱技术与其他信息融合技术的结合应用，展示了其在多个领域的重要性和创新性，对提高检测效率和数据准确性具有重大意义。', 'findings': [{'summary': '多维信息融合技术的核心作用', 'explanation': '多维信息融合技术是社区的关键技术，它通过整合不同维度的信息，如品种、规格、光谱及图像指纹特征等，来提高数据的准确性和可靠性。这种技术不仅增强了数据的透明度，还在多个领域提供了精准的数据分析和决策支持。[records: 实体 (101), 关系 (211, 212, 213, 214)]'}, {'summary': '全光谱溯源技术的创新应用', 'explanation': '全光谱溯源技术与多维信息融合技术相结合，实现了‘一物一谱一码’的概念，即每个物品都有独特的光谱和编码。这一技术的应用大大提升了数据的透明度、准确性和可信度，确保了产品的质量与安全性。全光谱溯源技术通过多维信息融合技术，将各种特征信息综合起来，实现了精准溯源。[records: 关系 (172, 210)]'}, {'summary': '光谱信息的重要性', 'explanation': '光谱信息是多维信息融合技术中的一个重要维度，用于物品的身份验证。通过分析物品的光谱特征，可以有效地识别和区分不同的物品，从而增强溯源的准确性和可靠性。光谱技术在食品安全和药品检测等领域具有重要的应用价值。[records: 实体 (113), 关系 (213)]'}, {'summary': '品种信息的增强作用', 'explanation': '品种信息是多维信息融合技术中的另一个重要维度，它通过提供物品的种类或类型信息，增强了溯源的准确性和全面性。例如，在食品安全领域，可以通过品种信息区分不同类型的农产品，从而更好地追踪其来源和安全性。[records: 实体 (111), 关系 (211)]'}, {'summary': '规格信息的补充作用', 'explanation': '规格信息在多维信息融合技术中提供了物品的具体大小、尺寸或容量等详细参数，有助于区分不同规格的同一类型产品。这一点在药品检测中尤为关键，因为不同规格的药品可能有不同的用途和安全性要求。通过考虑规格信息，检测结果更加精确可靠。[records: 实体 (112), 关系 (212)]'}, {'summary': '图像指纹特征的增强识别能力', 'explanation': '图像指纹特征是多维信息融合技术中的一个独特维度，通过基于图像处理技术生成的数字特征，用于唯一标识物品。这项技术进一步增强了物品的身份识别能力，特别是在复杂环境下的识别需求，如环境监测中对污染物的识别。[records: 实体 (114), 关系 (214)]'}, {'summary': '技术的综合应用价值', 'explanation': '多维信息融合技术和全光谱溯源技术的综合应用，不仅提高了数据的准确性和可信度，还显著增强了检测效率和产品的质量与安全性。这些技术在食品安全、药品检测和环境监测等多个领域的应用，展示了其广泛的行业影响力和潜在的重大贡献。[records: 关系 (210, 172)]'}, {'summary': '技术的实际操作性和可扩展性', 'explanation': '这些技术的实际操作性较强，可以通过易于操作的平台和工具实现，降低了对专业技能的要求。此外，这些技术的可扩展性强，可以根据不同的应用场景灵活调整和组合，以满足多样化的需求。[records: 实体 (101), 关系 (210, 172)]'}, {'summary': '数据的准确性和可靠性', 'explanation': '多维信息融合技术和全光谱溯源技术特别强调了数据的准确性和可靠性。通过整合多种信息源，这些技术能够提供更为全面和可靠的数据支持，这对于光谱分析尤为重要，尤其是在需要高精度和高可靠性的应用领域。[records: 实体 (101), 关系 (210, 172)]'}]}
+16:12:27,403 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 43.04584723711014. input_tokens=5795, output_tokens=1744
+16:12:30,938 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:30,939 graphrag.llm.openai.utils WARNING Warning: fail to decoding faulty json, attempting repair, attempt to clean up input strings and Markdown frameworks
+16:12:30,939 graphrag.llm.openai.utils INFO success load json in step 2{'title': '全光谱溯源技术与消费者权益保护', 'summary': '该社区主要关注全光谱溯源技术在保护消费者权益方面的应用。全光谱溯源技术作为一种先进的检测手段，能有效识别和防止仿制和假冒产品的流通，从而保护消费者的合法权益不受侵害。这一技术的应用不仅提升了产品质量和安全性，还在市场上起到了规范作用。', 'rating': 8.5, 'rating_explanation': '该文本在技术深度、应用广度、行业影响、创新水平以及实际操作性方面均表现优异，特别是在保护消费者权益方面具有重要的实际意义。', 'findings': [{'summary': '全光谱溯源技术的核心功能', 'explanation': '全光谱溯源技术是一种先进的检测方法，能够通过分析产品光谱特征来鉴别其真伪和安全性。这项技术不仅提高了检测的准确性和效率，还能对仿制和假冒产品进行有效识别，确保市场上流通的产品符合高标准的安全要求。[records: 实体 (117), 关系 (175)]'}, {'summary': '全光谱溯源技术在保护消费者权益中的作用', 'explanation': '全光谱溯源技术的应用显著增强了消费者权益的保护。通过确保产品的真伪和安全性，消费者可以更加放心地购买和使用产品，减少因假冒伪劣产品导致的经济损失和健康风险。这一点对于提高消费者信心和促进市场健康发展具有重要意义。[records: 关系 (175)]'}, {'summary': '仿制和假冒产品对消费者权益的威胁', 'explanation': '仿制和假冒产品对消费者权益构成了直接威胁。这类产品通常质量低劣，不仅可能导致经济损失，还可能对消费者的健康造成严重危害。消费者权益的概念强调了保护消费者免受不实产品和劣质服务的影响，确保其在交易过程中的利益得到保障。[records: 实体 (130), 关系 (217)]'}, {'summary': '全光谱溯源技术的行业影响', 'explanation': '全光谱溯源技术的应用对相关行业产生了深远的影响。通过提高检测效率和准确性，这项技术不仅有助于企业提升产品质量，还能够在市场上树立良好的品牌形象。此外，全光谱溯源技术的应用还有助于规范市场秩序，打击假冒伪劣产品，保护合法企业的利益。[records: 实体 (117), 关系 (175)]'}, {'summary': '全光谱溯源技术的操作便捷性', 'explanation': '全光谱溯源技术的操作相对简便，不需要复杂的设备和专业的技术人员。这种易用性使得更多企业和机构能够采用这一技术，提高了技术的普及率和应用范围。这对于推动光谱技术的发展和创新具有积极作用。[records: 实体 (117)]'}, {'summary': '全光谱溯源技术的数据准确性', 'explanation': '全光谱溯源技术在数据准确性和可靠性方面表现出色。通过对产品光谱特征的精确分析，该技术能够提供可靠的检测结果，确保每一批次产品的质量和安全性。这一点对于提高消费者的信任度和满意度至关重要。[records: 实体 (117), 关系 (175)]'}]}
+16:12:30,940 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 31.56685182545334. input_tokens=5285, output_tokens=1283
+16:12:36,630 httpx INFO HTTP Request: POST http://192.168.0.244:8016/v1/chat/completions "HTTP/1.1 200 OK"
+16:12:36,631 graphrag.llm.openai.utils INFO success load json in step 1{'title': '多模态融合的指纹图谱分析算法的社区', 'summary': '该社区围绕多模态融合的指纹图谱分析算法展开，这是提高光谱视觉技术检测效率和准确性的关键技术。该算法通过减少计算复杂度，显著增强了高光谱数据的处理效率，并能够在多个领域内实现物质成分的精确分析。', 'rating': 9.0, 'rating_explanation': '文本提供了对多模态融合的指纹图谱分析算法的深入解析，不仅涵盖了技术的深度和广度，还展示了其在提高光谱数据处理效率方面的重大行业影响。', 'findings': [{'summary': '多模态融合的指纹图谱分析算法的核心作用', 'explanation': '多模态融合的指纹图谱分析算法是光谱视觉技术中的关键技术之一，通过结合多个数据模态的分析方法来提高检测效率和准确性。这种技术显著提升了高光谱数据处理的速度和质量，对于推动光谱技术的应用具有重要意义。[records: 实体 (7), 关系 (1)]'}, {'summary': '技术对计算复杂度的降低', 'explanation': '多模态融合的指纹图谱分析算法通过数据融合技术显著降低了计算复杂度，这不仅提高了计算效率，还使得大规模数据分析成为可能，尤其是在需要快速响应的场景下。[records: 实体 (12), 关系 (102)]'}, {'summary': '提高高光谱数据处理效率', 'explanation': '该算法与高光谱数据处理技术相结合，显著提升了处理效率。这种结合不仅加快了数据分析的速度，还提高了整体的工作效能，解决了传统方法中的瓶颈问题。[records: 实体 (8), 关系 (100, 105)]'}, {'summary': '实现快速检测与分析', 'explanation': '多模态融合的指纹图谱分析算法通过降低计算复杂度，实现了样品的快速检测和分析，这对于需要即时结果的应用场景尤其重要，如食品安全检测和环境监测。[records: 关系 (101)]'}, {'summary': '物质成分的精确分析', 'explanation': '该算法能够实现对物质成分的精确分析，这是其核心优势之一。这种能力对于药品检测、食品安全等领域至关重要，可以确保产品的质量和安全性。[records: 实体 (13), 关系 (103)]'}, {'summary': '技术的广泛适用性', 'explanation': '多模态融合的指纹图谱分析算法不仅在光谱视觉技术中有广泛应用，还可以应用于食品安全、药品检测和环境监测等多个领域，展现了其广泛的实用价值。[records: 实体 (7, 8, 12, 13), 关系 (1, 100, 101, 102, 103, 104, 105)]'}, {'summary': '技术创新性', 'explanation': '通过引入多模态融合的方法，该算法在降低计算复杂度的同时提高了数据处理的效率和准确性，代表了光谱分析技术的重要创新。这种创新为未来的光谱技术发展提供了新的方向。[records: 实体 (7), 关系 (1, 102, 103, 105)]'}]}
+16:12:36,631 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 15.748624724335968. input_tokens=5881, output_tokens=1191

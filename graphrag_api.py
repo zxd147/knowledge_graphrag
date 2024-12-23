@@ -45,18 +45,6 @@ from graphrag.vector_stores.lancedb import LanceDBVectorStore
 from utils.log_utils import logger
 from utils.read_json import read_config_file
 
-# 设置常量和配置
-COMMUNITY_REPORT_TABLE = "create_final_community_reports"
-ENTITY_TABLE = "create_final_nodes"
-ENTITY_EMBEDDING_TABLE = "create_final_entities"
-RELATIONSHIP_TABLE = "create_final_relationships"
-COVARIATE_TABLE = "create_final_covariates"
-TEXT_UNIT_TABLE = "create_final_text_units"
-COMMUNITY_LEVEL = 2
-CURRENT_MODEL = ''
-CURRENT_KNOWLEDGE_BASE = 'dentistry'
-PORT = 8013
-
 
 # # 定义LLMConfig和EmbedderConfig类型
 class LLMConfig(BaseModel):
@@ -220,6 +208,17 @@ async def init_app():
     graphrag_logger.info(log)
 
 
+# 设置常量和配置
+COMMUNITY_REPORT_TABLE = "create_final_community_reports"
+ENTITY_TABLE = "create_final_nodes"
+ENTITY_EMBEDDING_TABLE = "create_final_entities"
+RELATIONSHIP_TABLE = "create_final_relationships"
+COVARIATE_TABLE = "create_final_covariates"
+TEXT_UNIT_TABLE = "create_final_text_units"
+COMMUNITY_LEVEL = 2
+CURRENT_MODEL = ''
+CURRENT_KNOWLEDGE_BASE = 'dentistry'
+PORT = 8013
 role_prompt_path = 'config/role_prompt.json'
 all_role_prompt = read_config_file(role_prompt_path)
 # 全局变量，用于存储搜索引擎和问题生成器，类型注解为 Optional 类型，表示这些变量可能是 None 或特定的类型对象
