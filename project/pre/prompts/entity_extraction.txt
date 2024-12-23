@@ -18,9 +18,9 @@
 - relationship_strength：一个数值分数，表示源实体和目标实体之间的关系强度
 将每个关系格式化为 ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
 
-3. 返回输出为中文语言，作为步骤1和2中识别出的所有实体和关系的单一列表。使用**{record_delimiter}**作为列表分隔符。
+3. 返回输出为Chinese语言，作为步骤1和2中识别出的所有实体和关系的单一列表。使用**{record_delimiter}**作为列表分隔符。
 
-4. 如果需要翻译成中文语言，只翻译描述，其他内容不变！
+4. 如果需要翻译成Chinese语言，只翻译描述，其他内容不变！
 
 5. 完成后，输出{completion_delimiter}。
 
@@ -30,22 +30,14 @@
 示例 1：
 
 text:
-为四大类：1.可回收物、2.厨余垃圾、3.有害垃圾、4.其他垃圾（干垃圾）
-1.垃圾分类分为四大类——可回收物
-可回收物主要包括废纸、塑料、玻璃、金属和布料五大类。
-废纸：主要包括报纸、期刊、图书、各种包装纸等。但是，要注意纸巾和厕所纸由于水溶性太强不可回收。
-塑料：各种塑料袋、塑料泡沫、塑料包装（快递包装纸是
+程监控和管理，实现实时数据分析和监控。
 ------------------------
 output:
-("entity"{tuple_delimiter}可回收物{tuple_delimiter}类别{tuple_delimiter}主要包含废纸、塑料、玻璃、金属和布料五大类的垃圾}
+("entity"{tuple_delimiter}实时数据分析{tuple_delimiter}过程{tuple_delimiter}实现实时数据的分析和处理})
 {record_delimiter}
-("entity"{tuple_delimiter}废纸{tuple_delimiter}子类别{tuple_delimiter}包括报纸、期刊、图书、各种包装纸等，但纸巾和厕所纸不在此列}
+("entity"{tuple_delimiter}监控管理{tuple_delimiter}过程{tuple_delimiter}实现对系统的持续监控和管理})
 {record_delimiter}
-("entity"{tuple_delimiter}塑料{tuple_delimiter}子类别{tuple_delimiter}包括塑料袋、塑料泡沫、塑料包装等}
-{record_delimiter}
-("relationship"{tuple_delimiter}可回收物{tuple_delimiter}废纸{tuple_delimiter}废纸是可回收物的一个子类别，主要用于回收再利用{tuple_delimiter}8}
-{record_delimiter}
-("relationship"{tuple_delimiter}可回收物{tuple_delimiter}塑料{tuple_delimiter}塑料是可回收物的一个子类别，主要用于回收再利用{tuple_delimiter}8}
+("relationship"{tuple_delimiter}实时数据分析{tuple_delimiter}监控管理{tuple_delimiter}实时数据分析是监控管理的一个组成部分，两者共同作用以提升系统的稳定性和效率{tuple_delimiter}8)
 {completion_delimiter}
 #############################
 
@@ -53,46 +45,36 @@ output:
 示例 2：
 
 text:
-付账单
-在网上进行银行业务和账单操作，不仅能够挽救树木、避免在发薪日开车去银行，排放不必要的二氧化碳，还能减少纸质文件在运输过程中所消耗的能源。
+�队规模有多大？**
+    团队由多名来自著名高校的专家和研究人员组成。
 
-6.低碳生活——具体操作——挂根晾衣绳
-研究表明，一件衣服60%的“能量”在清洗和晾干过程中释放。需要注意的是，洗衣时用温、凉水，而不要用热水；衣服洗净后，挂在晾衣绳上自然晾干，不要
+94. **光谱视觉技术是否获得了行业认证？**
+    是的，技术已获得多项行业认证和认可。
+
+95. **光谱视觉技术的未来发展方向是什么？**
+    未来将继续拓展应用领域，提高技术精度和效率。
+
+96. **光谱视觉技术在国际市场上的竞争力如何？**
+    技术具有领先的创新性和应用广泛性，在国际市场上
 ------------------------
 output:
-("entity"{tuple_delimiter}网上银行{tuple_delimiter}活动{tuple_delimiter}在网上进行账单支付和银行业务的操作，有助于减少纸张使用和交通排放}
+("entity"{tuple_delimiter}团队{tuple_delimiter}组织{tuple_delimiter}团队由多名来自著名高校的专家和研究人员组成)
 {record_delimiter}
-("entity"{tuple_delimiter}纸质文件{tuple_delimiter}物品{tuple_delimiter}传统银行业务和账单支付中使用的文件，消耗额外的资源和能源}
+("entity"{tuple_delimiter}光谱视觉技术{tuple_delimiter}技术{tuple_delimiter}一种获得了多项行业认证和认可的技术，未来将继续拓展应用领域，提高技术精度和效率)
 {record_delimiter}
-("entity"{tuple_delimiter}树木{tuple_delimiter}自然资源{tuple_delimiter}森林中的植物，通过减少纸张需求来保护它们可以减少对环境的影响}
+("entity"{tuple_delimiter}行业认证{tuple_delimiter}证书{tuple_delimiter}表明光谱视觉技术已经通过了行业的标准审查，证明了其质量和可靠性)
 {record_delimiter}
-("entity"{tuple_delimiter}开车去银行{tuple_delimiter}活动{tuple_delimiter}个人前往银行的驾车行为，会产生不必要的二氧化碳排放}
+("entity"{tuple_delimiter}未来发展方向{tuple_delimiter}目标{tuple_delimiter}光谱视觉技术的发展目标是拓展应用领域，提高技术精度和效率)
 {record_delimiter}
-("entity"{tuple_delimiter}二氧化碳{tuple_delimiter}物质{tuple_delimiter}一种温室气体，驾车等行为会排放到大气中，加剧全球变暖}
+("entity"{tuple_delimiter}国际竞争力{tuple_delimiter}评估{tuple_delimiter}光谱视觉技术具有领先的创新性和应用广泛性，这使其在国际市场上具有较强的竞争力)
 {record_delimiter}
-("entity"{tuple_delimiter}低碳生活{tuple_delimiter}概念{tuple_delimiter}一种旨在减少日常生活中的碳足迹，对环境影响较小的生活方式}
+("relationship"{tuple_delimiter}团队{tuple_delimiter}光谱视觉技术{tuple_delimiter}团队负责开发和推进光谱视觉技术{tuple_delimiter}9)
 {record_delimiter}
-("entity"{tuple_delimiter}晾衣绳{tuple_delimiter}物品{tuple_delimiter}用于自然晾干衣物的简单工具，比使用烘干机更节能}
+("relationship"{tuple_delimiter}光谱视觉技术{tuple_delimiter}行业认证{tuple_delimiter}光谱视觉技术已获得多项行业认证和认可，证明其质量和可靠性{tuple_delimiter}8)
 {record_delimiter}
-("entity"{tuple_delimiter}洗衣机{tuple_delimiter}设备{tuple_delimiter}家用电器，用于清洗衣物，使用不同的水温对环境的影响不同}
+("relationship"{tuple_delimiter}光谱视觉技术{tuple_delimiter}未来发展方向{tuple_delimiter}光谱视觉技术的发展目标是提高技术精度和效率，并拓展应用领域{tuple_delimiter}9)
 {record_delimiter}
-("entity"{tuple_delimiter}烘干机{tuple_delimiter}设备{tuple_delimiter}家用电器，用于快速干燥洗好的衣物，但消耗大量电能}
-{record_delimiter}
-("relationship"{tuple_delimiter}网上银行{tuple_delimiter}纸质文件{tuple_delimiter}网上银行减少了对纸质文件的需求，从而节约了资源和能源{tuple_delimiter}8)
-{record_delimiter}
-("relationship"{tuple_delimiter}网上银行{tuple_delimiter}开车去银行{tuple_delimiter}网上银行减少了前往银行的需要，进而减少了与之相关的交通排放{tuple_delimiter}7)
-{record_delimiter}
-("relationship"{tuple_delimiter}纸质文件{tuple_delimiter}树木{tuple_delimiter}纸质文件的生产需要砍伐树木，减少纸质文件的使用有助于保护森林{tuple_delimiter}9)
-{record_delimiter}
-("relationship"{tuple_delimiter}开车去银行{tuple_delimiter}二氧化碳{tuple_delimiter}驾车会产生二氧化碳排放，增加温室效应{tuple_delimiter}8)
-{record_delimiter}
-("relationship"{tuple_delimiter}低碳生活{tuple_delimiter}网上银行{tuple_delimiter}采用网上银行是实现低碳生活方式的一种途径{tuple_delimiter}6)
-{record_delimiter}
-("relationship"{tuple_delimiter}低碳生活{tuple_delimiter}晾衣绳{tuple_delimiter}使用晾衣绳晾干衣物而不是使用烘干机，是低碳生活的一部分{tuple_delimiter}7)
-{record_delimiter}
-("relationship"{tuple_delimiter}晾衣绳{tuple_delimiter}烘干机{tuple_delimiter}与烘干机相比，使用晾衣绳更加节能，减少了电力消耗{tuple_delimiter}8)
-{record_delimiter}
-("relationship"{tuple_delimiter}洗衣机{tuple_delimiter}二氧化碳{tuple_delimiter}洗衣机使用热水时消耗更多能源，间接增加了二氧化碳排放{tuple_delimiter}6)
+("relationship"{tuple_delimiter}光谱视觉技术{tuple_delimiter}国际竞争力{tuple_delimiter}光谱视觉技术由于其创新性和广泛应用性，在国际市场上表现出较强的竞争力{tuple_delimiter}8)
 {completion_delimiter}
 #############################
 

@@ -93,7 +93,7 @@ class ModelList(BaseModel):
 class ChatCompletionRequest(BaseModel):
     model: str = 'Qwen2.5-7B-Instruct'
     mode: str
-    knowledge: Literal['zyy', 'dentistry', 'ecology', 'spectra', 'test'] = 'dentistry'
+    knowledge: Literal['zyy', 'dentistry', 'ecology', 'spectrum', 'spectra', 'test'] = 'dentistry'
     # messages: List[Message]
     messages: List[dict[str, str]]
     temperature: Optional[float] = 1.0
